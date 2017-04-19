@@ -1,0 +1,46 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_prison"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <TextView
+        android:id="@+id/tv_notice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/personal_info"
+        android:textSize="@dimen/register_sex_tv_size"
+        android:textColor="@color/tv_mid"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_username"
+        style="@style/no_bg"
+        android:layout_marginTop="10dp"
+        android:hint="@string/account" />
+
+    <EditText
+        android:id="@+id/et_password"
+        style="@style/no_bg"
+        android:layout_marginTop="2dp"
+        android:hint="@string/password"
+        android:inputType="textPassword"/>
+
+    <Button
+        android:id="@+id/btn_prison_login"
+        style="@style/normal_bt"
+        android:text="@string/login_text"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/btn_prison_switch"
+        style="@style/theme_border_bt"
+        android:text="@string/switch_login_type"
+        android:textSize="@dimen/main_body_text"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

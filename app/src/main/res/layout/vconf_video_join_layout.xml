@@ -1,0 +1,80 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/facingFrame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true" >
+
+        <com.keda.vconf.controller.MyFacingView
+            android:id="@+id/myFace_sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+        </com.keda.vconf.controller.MyFacingView>
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/vconf_info_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/black"
+        android:padding="10.0dip" >
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="45.0dip"
+            android:layout_height="45.0dip"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:scaleType="fitXY"
+            android:src="@drawable/vconf_video_ing" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="6.0dip"
+            android:layout_toLeftOf="@+id/hang_img"
+            android:layout_toRightOf="@+id/img"
+            android:orientation="vertical"
+            android:padding="6.0dip" >
+
+            <TextView
+                android:id="@+id/vconf_joinInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@string/vconf_convene"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/TitleTextSize" />
+
+            <TextView
+                android:id="@+id/vconf_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:text="@null"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/TitleTextSize" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/hang_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_marginRight="10dip"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@drawable/vconf_hangup_big" />
+    </RelativeLayout>
+
+</FrameLayout>

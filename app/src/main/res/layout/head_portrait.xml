@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dip"
+    android:layout_height="120dip"
+    android:padding="2dip" >
+
+    <ImageView
+        android:id="@+id/headPortrait178"
+        android:layout_width="87.0dip"
+        android:layout_height="87.0dip"
+        android:layout_centerInParent="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/login_portrait" />
+
+    <!--
+    	暂时注释掉，以防5.0再次启用
+    <ImageView
+        android:id="@+id/headPortraitFrame178"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:contentDescription="@null"
+        android:scaleType="fitXY"
+        android:src="@drawable/head_photoframe_178x178" />
+    -->
+
+</RelativeLayout>

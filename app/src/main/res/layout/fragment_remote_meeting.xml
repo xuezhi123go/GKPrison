@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+            android:background="@color/bg"
+            android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:background="@color/et_hint"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"/>
+
+        <View
+            android:id="@+id/view_line_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/et_hint"/>
+
+        <RelativeLayout
+            android:id="@+id/rl_meeting"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/view_line_horizontal">
+
+            <LinearLayout
+                android:id="@+id/ll_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/can_meeting_nums"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:background="@android:color/white">
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1">
+                    <TextView
+                        android:id="@+id/tv_remotely_visit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="亲情电话使用次数:"
+                        android:textSize="@dimen/tv_cancel_size"
+                        android:textColor="@color/tv_bg"/>
+                    <TextView
+                        android:id="@+id/tv_remotely_visit_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:layout_toRightOf="@+id/tv_remotely_visit"
+                        android:layout_alignBaseline="@+id/tv_remotely_visit"
+                        android:textColor="@color/tv_bg"
+                        android:textSize="@dimen/tv_cancel_size" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="次"
+                        android:textSize="@dimen/tv_cancel_size"
+                        android:textColor="@color/tv_bg"
+                        android:layout_toRightOf="@+id/tv_remotely_visit_num"
+                        android:layout_alignBaseline="@+id/tv_remotely_visit" />
+                </RelativeLayout>
+                <TextView
+                    android:id="@+id/bt_remotely"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#6495ed"
+                    android:textSize="@dimen/tv_cancel_size"
+                    android:text="去充值"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center_vertical"
+                    android:paddingRight="@dimen/tv_cancel_size"
+                    />
+            </LinearLayout>
+
+            <View
+                android:id="@+id/remotely_fenge"
+                android:layout_below="@+id/ll_recharge"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dadada"/>
+
+            <TextView
+                android:id="@+id/tv_meeting_last_time"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="上次通话：暂无记录"
+                android:textSize="@dimen/last_meeting_time"
+                android:paddingLeft="10dp"
+                android:layout_marginTop="6dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:textColor="@color/tv_mid"
+                android:background="@color/white"
+                android:layout_below="@+id/remotely_fenge"/>
+
+            <TextView
+                android:id="@+id/tv_meeting_notes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/meeting_note"
+                android:textSize="@dimen/last_meeting_time"
+                android:textColor="@color/tv_mid"
+                android:background="@color/white"
+                android:paddingTop="5dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="5dp"
+                android:lineSpacingExtra="3dp"
+                android:layout_below="@+id/tv_meeting_last_time"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <LinearLayout
+                android:id="@+id/ll_meeting_request_info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:layout_below="@id/tv_meeting_notes">
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:text="姓名："
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+
+                    <TextView
+                        android:id="@+id/tv_meeting_request_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:text="与服刑人员关系："
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+
+                    <TextView
+                        android:id="@+id/tv_meeting_request_relationship"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:text="身份证号："
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+
+                    <TextView
+                        android:id="@+id/tv_meeting_request_id_num"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:text="电话号码："
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+
+                    <TextView
+                        android:id="@+id/tv_meeting_request_phone"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:layout_marginLeft="3dp"
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingRight="10dp"
+                    android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/tv_bg"
+                        android:text="申请亲情电话时间："
+                        android:layout_gravity="center_vertical"
+                        android:textSize="@dimen/meeting_info_tv_size"/>
+
+                    <Spinner
+                        android:id="@+id/bs_meeting_request_time"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:hint="点击选择"
+                        android:textColor="@color/tv_bg"
+                        android:textSize="@dimen/meeting_info_tv_size" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/bt_commit_request"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="20dp"
+                android:textColor="@color/white"
+                android:textSize="@dimen/replay_bt_size"
+                android:text="申请亲情电话"
+                android:layout_below="@id/ll_meeting_request_info"
+                android:background="@drawable/theme_bg_bt_selector"/>
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

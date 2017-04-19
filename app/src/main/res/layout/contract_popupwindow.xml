@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:background="@color/bg"
+              android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/tv_contract_title"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:textColor="@color/black"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_margin="8dp"
+            android:text="@string/contract_title"/>
+
+        <TextView
+            android:id="@+id/tv_contract_content"
+            android:clickable="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tv_contract_title"
+            android:padding="15dp"
+            android:text="@string/contract_content"
+            />
+        </RelativeLayout>
+    </ScrollView>
+        <TextView
+            android:id="@+id/tv_agree"
+            android:layout_width="120dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"
+            android:text="同意"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bt_bg_shape"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
+            android:layout_height="28dp"/>
+    </LinearLayout>
+</FrameLayout>

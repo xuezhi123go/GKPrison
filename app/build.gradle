@@ -1,0 +1,143 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'org.greenrobot.greendao'
+
+android {
+    compileSdkVersion rootProject.ext.COMPILE_SDK_VERSION as int
+    buildToolsVersion rootProject.ext.BUILD_TOOLS_VERSION
+
+    defaultConfig {
+        applicationId project.APP_APPLICATION_ID
+        minSdkVersion rootProject.ext.MIN_SDK_VERSION as int
+        targetSdkVersion rootProject.ext.TARGET_SDK_VERSION as int
+        versionCode rootProject.ext.VERSION_CODE as int
+        versionName rootProject.ext.VERSION_NAME
+        multiDexEnabled project.MULTI_DEX_ENABLED as boolean
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(project.SIGN_FILE_NAME)
+            storePassword project.STORE_PASSWORD
+            keyAlias project.KEY_ALIAS
+            keyPassword project.KEY_PASSWORD
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+
+    allprojects {
+        repositories {
+            jcenter()
+        }
+    }
+
+    productFlavors {
+        wandoujia {}
+        productFlavors.all { flavor ->
+            flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+        }
+    }
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            def newName = '';
+            if (variant.buildType.name.equals('release')) {
+                def releaseApkName = 'yuwutong-kd-vs-' + defaultConfig.versionName + '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+            if (variant.buildType.name.equals('debug')) {
+                def releaseApkName = 'yuwutong-kd-vs-' + defaultConfig.versionName + '-debug.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    // 自定义toggle button
+
+    // 人脸识别库
+    compile project(':libraries:livenessLib')
+    // android support
+    compile project.SUPPORT_V7
+    compile project.SUPPORT_V4
+    compile project.SUPPORT_DESIGN
+    compile project.RECYCLER_VIEW
+    // test
+    testCompile project.JUNIT
+    compile project.TEST_RUNNER
+    compile project.TEST_ESPRESSO
+    // multiDex
+    compile project.MULTI_DEX
+    // 数字进度条
+    compile project.LINK_BUILDER
+    // eventbus
+    compile project.EVENT_BUS
+    // 密码网格
+    compile project.GRID_PASSWORD_VIEW
+    // picasso
+    compile project.PICASSO
+    // 文本对其
+    compile project.JUST_IFY_TEXT
+    // 友盟分析
+//    compile project.UMENG_ANALYTICS
+    // retrofit
+    compile project.RETROFIT2_RETROFIT
+    compile project.RETROFIT2_CONVERTER
+    compile project.RETROFIT2_ADAPTER
+    // rx
+    compile project.RXANDROID
+    compile project.RXJAVA
+    // 依赖注入
+
+    // butterknife
+    compile project.BUTTER_KNIFE
+    apt project.BUTTER_KNIFE_COMPILER
+    // dagger2
+    apt project.DAGGER_COMPILER
+    compile project.DAGGER
+    provided project.JAVAX_ANNOTATION
+    // 添加android缺失的部分javax注解
+
+    //leakcanary
+
+    //    debugCompile project.LEAKCANARY_DEBUG
+
+    //    releaseCompile project.LEAKCANARY_RELEASE
+
+    //    testCompile project.LEAKCANARY_TEST
+
+    // 安卓常用工具类大全
+    compile project.UTIL_CODE
+    // 云信基础sdk
+    compile project.NIM_SDK_BASE
+    compile project.GREENDAO // add library
+}
+
+greendao {
+    schemaVersion 1
+    //daoPackage 'com.greendao.gen'
+    //targetGenDir 'src/main/java'
+    //generateTests true//设置是否自动生成单元测试。
+}

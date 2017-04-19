@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black" >
+
+    <RelativeLayout
+        android:id="@+id/vconfAudioLogo_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="150dp"
+        android:gravity="center" >
+
+        <ImageView
+            android:id="@+id/microphone_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:scaleType="center"
+            android:src="@drawable/microphone_big" />
+
+        <include
+            android:id="@+id/peerHeadFrame"
+            layout="@layout/head_portrait"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/chronometerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vconfAudioLogo_layout"
+        android:layout_marginTop="15dip"
+        android:gravity="center" >
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/vconfAudio_infoLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/chronometerView"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dip"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/vconfAudio_infoTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:padding="10.0dp"
+            android:text="@string/vconf_QualityMeetings"
+            android:textColor="@color/blue_008ccd"
+            android:textSize="@dimen/LargeTextSize" />
+
+        <TextView
+            android:id="@+id/telephonereceiver_info"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vconfAudio_infoTxt"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="10dp"
+            android:padding="10.0dp"
+            android:text="@string/telephonereceiver_close_info"
+            android:textColor="@color/white"
+            android:textSize="@dimen/LargeTextSize"
+            android:visibility="invisible" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/vconfAudio_infoLayout"
+        android:layout_centerHorizontal="true" >
+
+        <ImageView
+            android:id="@+id/telephoneOffImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/vconf_telephone_off_selector" />
+
+        <ImageView
+            android:id="@+id/telephoneOnImg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="@null"
+            android:src="@drawable/vconf_telephone_on_selector" />
+    </FrameLayout>
+
+</RelativeLayout>

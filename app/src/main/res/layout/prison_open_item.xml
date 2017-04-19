@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/news_item_height">
+
+    <LinearLayout
+        android:id="@+id/ll_home_news"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/news_item_height"
+        android:layout_below="@id/view_02"
+        android:background="@drawable/item_selector">
+
+        <ImageView
+            android:id="@+id/iv_home_news_icon"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/news_item_height"
+            android:layout_weight="1"
+            android:src="@drawable/default_img"
+            android:layout_gravity="center_vertical"
+            android:padding="10dp"
+            android:scaleType="fitXY"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="@dimen/news_item_height"
+            android:layout_weight="2.2"
+            android:paddingRight="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_home_news_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="昭通市食药监局到昭通监狱开展警示教育"
+                android:maxLines="1"
+                android:gravity="center_vertical"
+                android:textColor="@color/tv_bg"
+                android:layout_marginTop="10dp"
+                android:textSize="@dimen/home_focus_title_tv_size"/>
+            <TextView
+                android:id="@+id/tv_home_news_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="    为深入践行“三严三实”和“忠诚干净担当”专题教育实践活动，加强系统党风廉政建设，提高干部拒腐防变能力，党员干部到昭通监狱接手廉政..."
+                android:maxLines="3"
+                android:textColor="@color/tv_mid"
+                android:textSize="@dimen/home_focus_content_tv_size" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

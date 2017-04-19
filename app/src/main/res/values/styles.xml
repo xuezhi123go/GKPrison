@@ -1,0 +1,139 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!--状态栏颜色-->
+        <!--<item name="colorPrimaryDark">@color/Indigo_colorPrimaryDark</item>-->
+        <!--Toolbar颜色-->
+        <item name="colorPrimary">@color/theme</item>
+        <item name="colorPrimaryDark">@color/theme</item>
+        <item name="toolbarStyle">@style/ClubToolbar</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <!--返回键样式-->
+        <!--<item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>-->
+    </style>
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/slide_in_left</item>
+        <item name="android:activityOpenExitAnimation">@anim/slide_out_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/slide_in_right</item>
+        <item name="android:activityCloseExitAnimation">@anim/slide_out_right</item>
+    </style>
+
+    <style name="AppTheme.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle">
+        <item name="color">@android:color/white</item>
+    </style>
+    <style name="ClubToolbar" parent="Widget.AppCompat.Toolbar">
+        <item name="contentInsetStart">0dp</item><!-- 设置该属性解决空白部分-->
+    </style>
+
+    <style name="main_tab_style">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">@dimen/main_tab_height</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@drawable/tab_textcolor</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="main_tab_style1">
+        <item name="android:layout_width">0dip</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/ok_cancel_title_size</item>
+        <item name="android:textColor">@drawable/tab_textcolor</item>
+    </style>
+
+    <style name="dateStyle">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <declare-styleable name="DownloadProgressView">
+        <attr name="circleRadiu" format="dimension"/>
+        <attr name="strokeWidth" format="dimension"/>
+        <attr name="lineWidth" format="dimension"/>
+        <attr name="progressDuration" format="integer"/>
+        <attr name="resultDuration" format="integer"/>
+        <attr name="progressBackgroundColor" format="color"/>
+        <attr name="drawingColor" format="color"/>
+        <attr name="progressColor" format="color"/>
+        <attr name="circleBackgroundColor" format="color"/>
+        <attr name="overshootValue" format="float"/>
+    </declare-styleable>
+    <!--微信返回结果-->
+    <style name="NavPage">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:gravity">center_horizontal</item>
+        <!-- <item name="android:background">@drawable/nav_page</item> -->
+        <item name="android:background">@color/navpage</item>
+    </style>
+
+    <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textSize">@dimen/warden_tab_tv_size</item>
+    </style>
+    <!--<style name="MyTabLayoutTextAppearanceInverse" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">-->
+        <!--<item name="android:textSize">15sp</item>-->
+    <!--</style>-->
+
+    <style name="AlertActivity_AlertStyle" parent="android:Theme.Dialog">
+        <!--<item name="android:windowAnimationStyle">@style/AnimAlert</item>-->
+        <!-- 边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 模糊 -->
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+    <style name="dialog_blue_button" parent="android:Widget.Button">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">31dp</item>
+        <item name="android:background">@drawable/blue_button_background</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:paddingLeft">21dp</item>
+        <item name="android:paddingRight">21dp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="TT.ToggleButton" parent="">
+        <item name="android:textOff">@string/off</item>
+        <item name="android:textOn">@string/on</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">34dip</item>
+        <item name="android:textSize">@dimen/SmallerTextSize</item>
+        <item name="android:background">@drawable/btn_toggle_selector</item>
+    </style>
+
+    <!-- 汇款金额选项按钮样式 -->
+    <style name="recharge_button" >
+        <item name="android:textColor">@drawable/tab_textcolor</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@drawable/radio_selector</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/ok_cancel_title_size</item>
+    </style>
+</resources>

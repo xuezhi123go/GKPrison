@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\drawable\\liveness_mouth_open_closed.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\drawable\\liveness_mouth_open_closed.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\drawable\\liveness_head_pitch.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\drawable\\liveness_head_pitch.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\drawable\\leak_canary_toast_background.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\drawable\\leak_canary_toast_background.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\drawable\\liveness_eye_open_closed.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\drawable\\liveness_eye_open_closed.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\drawable\\liveness_head_yaw.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\drawable\\liveness_head_yaw.xml"
+    }
+]

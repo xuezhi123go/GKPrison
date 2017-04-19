@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_failed.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_failed.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_yaw.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_yaw.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_success.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_success.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_eye_blink.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_eye_blink.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_well_done.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_well_done.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_pitch_down.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_pitch_down.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\meglive_mouth_open.mp3",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\meglive_mouth_open.mp3"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\release\\raw\\model",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\raw\\model"
+    }
+]

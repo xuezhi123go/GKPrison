@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/home_option_height"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/home_option_height"
+        android:layout_centerInParent="true"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_home_options"
+            android:layout_width="@dimen/home_option_iv_size"
+            android:layout_height="@dimen/home_option_iv_size"
+            android:src="@drawable/prison_introduction"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/tv_home_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/iv_home_options"
+            android:text="监狱简介"
+            android:textSize="@dimen/home_option_tv_size"
+            android:textColor="@color/tv_bg"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"/>
+    </RelativeLayout>
+</RelativeLayout>

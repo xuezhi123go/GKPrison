@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".userport.ui.main.canteen.AllClassificationFragment">
+
+
+    <ListView
+        android:id="@+id/lv_allclassification"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="#F1F1F1"
+        android:dividerHeight="1dp"
+       ></ListView>
+    <RelativeLayout
+        android:id="@+id/rl_nothing"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/iv_nothing"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:src="@drawable/no_commdity"
+            android:layout_centerInParent="true"
+            />
+    </RelativeLayout>
+</RelativeLayout>

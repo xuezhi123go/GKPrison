@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_please_input_money"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/remittance_count"
+        android:textSize="18sp"
+        android:textColor="@color/tv_mid"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="20dp"/>
+
+    <View
+        android:id="@+id/view_01"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/theme"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/tv_please_input_money"
+        android:layout_marginTop="15dp"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_money"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view_01"
+        android:gravity="center_horizontal">
+
+        <EditText
+            android:id="@+id/et_money"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="20dp"
+            android:textSize="16sp"
+            android:padding="5dp"
+            android:inputType="numberDecimal"
+            android:background="@drawable/et_shape_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_￥"
+            android:gravity="center"
+            android:textColor="@color/tv_bg"
+            android:textSize="16sp"
+            android:layout_toRightOf="@id/et_money"
+            android:layout_alignBaseline="@id/et_money"/>
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/view_02"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint"
+        android:layout_below="@id/rl_money"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:layout_below="@id/view_02">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/tv_bg"
+            android:background="@drawable/item_selector"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:text="@string/cancel"/>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/et_hint"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/item_selector"
+            android:layout_weight="1"
+            android:textColor="@color/tv_bg"
+            android:textSize="16sp"
+            android:text="@string/ok"/>
+    </LinearLayout>
+</RelativeLayout>

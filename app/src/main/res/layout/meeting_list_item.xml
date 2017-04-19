@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp"
+    android:background="@drawable/item_selector">
+
+    <TextView
+        android:id="@+id/tv_meeting_time"
+        android:layout_width="160dp"
+        android:layout_height="50dp"
+        android:background="@drawable/tv_circle_corner_bg"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/white"
+        android:textSize="26sp"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_name"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/tv_mid"
+        android:textSize="26sp"
+        android:layout_toRightOf="@id/tv_meeting_time"/>
+
+    <TextView
+        android:id="@+id/tv_meeting_prison_area"
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:text="第一监区"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="30dp"
+        android:textColor="@color/tv_mid"
+        android:textSize="26sp"
+        android:layout_toRightOf="@id/tv_meeting_name"/>
+
+    <ImageView
+        android:id="@+id/iv_delete"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/delete"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="30dp"/>
+</RelativeLayout>

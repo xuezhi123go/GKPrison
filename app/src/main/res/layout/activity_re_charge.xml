@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <TextView
+        android:id="@+id/tv_charge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/recharge_count"
+        android:textSize="@dimen/tv_cancel_size"
+        android:textColor="@color/tv_mid"
+        android:gravity="center_vertical"
+        android:layout_margin="10dp"
+        android:background="@color/white"/>
+
+    <RadioGroup
+        android:id="@+id/rg_recharge"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:orientation="horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <RadioButton
+            android:id="@+id/rb_five"
+            style="@style/recharge_button"
+            android:text="@string/_50"
+            android:checked="true"/>
+
+        <RadioButton
+            android:id="@+id/rb_twenty"
+            style="@style/recharge_button"
+            android:text="@string/_100"/>
+
+        <RadioButton
+            android:id="@+id/rb_fifty"
+            style="@style/recharge_button"
+            android:text="@string/_200" />
+
+        <RadioButton
+            android:visibility="gone"
+            android:id="@+id/rb_hundred"
+            style="@style/recharge_button"
+            android:text="@string/_500" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btn_recharge"
+        style="@style/normal_bt"
+        android:text="@string/recharge"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:text="@string/recharge_description_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:lineSpacingExtra="10dp"
+        android:textColor="@color/tv_mid"
+        android:textSize="@dimen/main_body_text"
+        android:layout_marginTop="10dp"/>
+</LinearLayout>

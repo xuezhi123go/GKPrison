@@ -1,0 +1,80 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".userport.ui.pay.PaymentActivity">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_pay"
+            android:textColor="@color/tv_bg"
+            android:textSize="@dimen/total_money_tv_size"/>
+        <TextView
+            android:id="@+id/tv_count_money"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/value_0"
+            android:textSize="@dimen/total_money_tv_size"
+            android:textColor="@color/tv_bg"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/yuan"
+            android:textColor="@color/tv_bg"
+            android:textSize="@dimen/total_money_tv_size" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_choose_pay_way"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:text="@string/choose_pay_ment"
+        android:gravity="center_vertical"
+        android:paddingStart="10dp"
+        android:textColor="@color/tv_bg"
+        android:textSize="@dimen/setting_item_tv_size" />
+
+    <View
+        android:id="@+id/view_01"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint"/>
+
+    <ListView
+        android:id="@+id/lv_pay_way"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="1dp"
+        android:background="@color/white"
+        android:divider="@color/et_hint"/>
+
+    <View
+        android:id="@+id/view_02"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint"/>
+
+    <Button
+        android:id="@+id/bt_pay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/pay"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:textSize="@dimen/total_money_tv_size"
+        android:textColor="@color/white"
+        android:background="@drawable/theme_bg_bt_selector"/>
+</LinearLayout>

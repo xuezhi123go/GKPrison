@@ -1,0 +1,33 @@
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/srl_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg">
+
+        <TextView
+            android:id="@+id/tv_nothing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/no_feedback"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_centerInParent="true"/>
+
+        <ExpandableListView
+            android:id="@+id/elv_my_mailbox_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/transparent"
+            android:dividerHeight="2dp"
+            android:childDivider="@color/transparent"
+            android:background="@color/bg"
+            android:groupIndicator="@null">
+        </ExpandableListView>
+    </RelativeLayout>
+</android.support.v4.widget.SwipeRefreshLayout>

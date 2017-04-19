@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="50dp">
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:textColor="@color/tv_bg"
+        android:textSize="16sp"
+        android:layout_weight="1"
+        android:layout_marginLeft="10dp"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="80dp"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_rmb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/tv_bg"
+            android:textSize="16sp"
+            android:text="¥"
+            android:layout_centerVertical="true"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/tv_rmb"
+            android:text="16.5"/>
+
+        <LinearLayout
+            android:id="@+id/ll_add_commodity"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/tv_price"
+            android:orientation="horizontal"
+            android:layout_centerVertical="true"
+            android:paddingRight="20dp">
+
+            <RelativeLayout
+                android:id="@+id/rl_buycar_reduce"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center_vertical"
+                android:background="#F1F1F1">
+
+                <ImageView
+                    android:id="@+id/image_buycar_reduce"
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/shoppiing_reduce"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="34dp"
+                android:layout_height="25dp"
+                android:background="#F1F1F1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="1dp">
+
+                <TextView
+                    android:id="@+id/tv_buycar_num"
+                    android:layout_width="34dp"
+                    android:layout_height="25dp"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textSize="16sp"
+                    android:text="15"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_buycar_add"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="#F1F1F1"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="1dp">
+
+                <ImageView
+                    android:layout_width="15dp"
+                    android:layout_height="15dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/btn_add"/>
+
+            </RelativeLayout>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>

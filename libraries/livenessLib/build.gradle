@@ -1,0 +1,33 @@
+apply plugin: 'com.android.library'
+
+android {
+
+//    useLibrary 'org.apache.http.legacy'
+
+    compileSdkVersion 22
+    buildToolsVersion '25.0.2'
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 22
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+//    compile files('libs/licensemanager-v1.1.jar')
+//    compile files('libs/livenessdetection-proguard-2.4.1.jar')
+//    compile files('libs/android-async-http-1.4.6.jar')
+    compile 'com.orhanobut:logger:1.15'
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'com.squareup.leakcanary:leakcanary-android:1.5'
+
+}

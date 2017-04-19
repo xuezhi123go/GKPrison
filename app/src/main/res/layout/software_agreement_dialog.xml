@@ -1,0 +1,59 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg">
+
+            <LinearLayout
+                android:id="@+id/ll_explain_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"
+                android:background="@color/white"
+                android:padding="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="《狱务通软件使用协议》"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="@dimen/total_money_tv_size"
+                    android:textColor="@color/tv_mid"
+                    android:layout_marginBottom="5dp"/>
+
+                <TextView
+                    android:id="@+id/tv_agreemnt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:lineSpacingExtra="@dimen/agreement_tv_space"
+                    android:textSize="@dimen/agreement_tv_size"
+                    android:textColor="@color/tv_mid"
+                    android:text="@string/agreement" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btn_ok"
+                style="@style/normal_bt"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/ok"
+                android:textSize="@dimen/total_money_tv_size"
+                android:layout_below="@+id/ll_explain_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

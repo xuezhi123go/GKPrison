@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <include android:id="@+id/toolbar"
+            layout="@layout/toolbar_layout" />
+
+        <LinearLayout
+            android:id="@+id/ll_loading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toolbar"
+            android:orientation="horizontal"
+            android:gravity="center_horizontal"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:id="@+id/pb_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"/>
+
+            <TextView
+                android:id="@+id/tv_loading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="正在刷新..."
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/tv_gray"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/bg"
+            android:orientation="horizontal"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:baselineAligned="false"
+            android:layout_below="@id/ll_loading">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1">
+
+            <LinearLayout
+                android:id="@+id/ll_calendar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:background="@color/white"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/btnPreMonth"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="80dp"
+                        android:background="@drawable/ic_before" />
+
+                    <ImageButton
+                        android:id="@+id/btnNextMonth"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="80dp"
+                        android:background="@drawable/ic_next" />
+
+                    <TextView
+                        android:id="@+id/tvCurrentMonth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="2015年12月22日"
+                        android:textColor="#323232"
+                        android:textSize="26sp" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/et_hint"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:orientation="vertical"
+                    >
+
+                    <TableLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="20dip"
+                        android:layout_marginBottom="2dip"
+                        android:layout_marginTop="2dip" >
+
+                        <TableRow>
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/sunday"
+                                android:textColor="@color/canlendar_text_color" />
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/monday"
+                                android:textColor="@color/canlendar_text_color" />
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/thesday"
+                                android:textColor="@color/canlendar_text_color" />
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/wednesday"
+                                android:textColor="@color/canlendar_text_color" />
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/thursday"
+                                android:textColor="@color/canlendar_text_color" />
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/friday"
+                                android:textColor="@color/canlendar_text_color" />
+
+                            <TextView
+                                style="@style/dateStyle"
+                                android:text="@string/saturday"
+                                android:textColor="@color/canlendar_text_color" />
+                        </TableRow>
+                    </TableLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginTop="15dp">
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/vp_calendar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:background="@color/white" >
+                    </android.support.v4.view.ViewPager>
+                </LinearLayout>
+            </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp">
+
+                    <TextView
+                        android:id="@+id/tv_meeting_num"
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        android:textColor="@color/tv_mid"
+                        android:background="@color/white"
+                        android:textSize="30sp"
+                        android:text="今日待会见人员"
+                        android:paddingBottom="5dp"
+                        android:gravity="center"/>
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/et_hint"/>
+
+                <ListView
+                    android:id="@+id/lv_meeting_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:dividerHeight="1dp"
+                    android:focusable="false"
+                    android:fadingEdge="none"
+                    android:divider="@color/et_hint"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tv_no_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:text="暂无待会见名单..."
+                    android:gravity="center"
+                    android:textSize="26sp"
+                    android:background="@color/white"
+                    android:textColor="@color/tv_red"
+                    android:visibility="gone"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/et_hint"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/fl_transparent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+</ScrollView>

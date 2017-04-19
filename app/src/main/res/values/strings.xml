@@ -1,0 +1,369 @@
+<resources>
+    <string name="app_name">狱务通</string>
+    <string name="app_v">V </string>
+
+    <string name="alarm_reminder_msg">闹钟提醒已开启，如您有即将会见的档期，系统将会在会见开始前半小时以闹钟形式提醒您，请注意手机状态。</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="agreement">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;国科狱务公开APP是由国科政信科技（北京）股份有限公司开发的一款监狱类软件，用于服刑人员家属、社会各界人士知悉服刑情况和监狱狱务情况。请您在使用本软件前仔细阅读如下条款。您的安装使用行为将视为对本《协议》的接受，并同意接受本《协议》各项条款的约束。\n
+一、	许可证的授予。本《协议》授予您下列权利：\n
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;您可安装、复制、分发和传播本产品来使用，但您必须保证每一份复制、分发和传播都必须是完整和真实的。\n
+二、其它权利和限制说明。\n
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;本软件针对家属和社会人员有不同的设置，家属可以获得服刑人员相关服刑信息，社会人事只能获得监狱允许范围内的相关信息。
+本软件需付费使用，个人使用授权版本只能由单个用户在一台或多台手机上亲自使用；
+您不得对本软件产品进行反向工程、反向编译和反向汇编，不得删除本软件及其他副本上一切关于版权的信息，不得制作和提供该软件的注册机及破解程序。除非适用法律明文允许上述活动，否则您必须遵守此协议限制。
+最终解释权归国科政信科技（北京）股份有限公司所有。
+</string>
+    <string name="tanjian_notice">会见须知：\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;狱务通为您提供方便快捷的会见申请服务，申请通过后，您即可在约定的时间内前往监狱会见。\n1、根据规定，服刑人员每月只能接受两次及以内的探视服务。\n2、部分服刑人员不提供探视服务。\n3、狱务通会见服务暂时只对直系近亲属开放，请谅解。\n4、本服务端每月只能提交3次会见申请，请勿无故提交，以免浪费机会。</string>
+
+    <string name="sunday">日</string>
+    <string name="monday">一</string>
+    <string name="thesday">二</string>
+    <string name="wednesday">三</string>
+    <string name="thursday">四</string>
+    <string name="friday">五</string>
+    <string name="saturday">六</string>
+    <string name="meeting_notice"><![CDATA[注意：\n        请确保视频内都是您的亲人，不是请及时告知狱警。\n        请注意通话不涉及犯罪、国家机密等内容，否则您将失去并可能永久失去远程会见机会。\n        请注意时间长短，不要影响后面的狱友使用。\n        若您在通话过程中有任何问题，请及时联系狱警沟通解决。]]></string>
+
+    <string name="meeting_note">使用说明： \n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;狱务通为您提供亲情电话服务，您可以通过狱务通和服刑人员进行远程视频通话。 在申请亲情电话前，请您详细阅读以下注意事项：\n1、服刑人员每月可亲情电话次数不限。 \n2、部分服刑人员不提供亲情电话服务。 \n3、狱务通软件暂时只提供直系亲属进行亲情电话，请谅解。 \n4、根据安全要求，您的通话信息可能会被记录。 \n5、每次亲情电话需缴纳一定费用，请勿无故提亲情电话申请。</string>
+    <string name="alarm_remind"><![CDATA[        温馨提示：您与德山监狱的远程视频会见即将开始，请连接好网络做好准备。]]></string>
+
+
+    <!--下拉刷新-->
+    <string name="pull_to_refresh_refreshing_label">正在刷新…</string>
+
+    <string name="enable_logined">登录后可用</string>
+
+
+    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    <!-- status 在线、 会议中、 免打扰、 离开、 离线 -->
+
+    <!-- main -->
+    <string name="main_get_contact">联系人</string>
+    <string name="main_get_vconf_contact">搜索联系人</string>
+    <string name="main_get_vconf_list">获取会议列表</string>
+    <string name="make_call">呼叫点对点会议</string>
+    <string name="muti_call">呼叫多点会议</string>
+    <string name="main_create_vconf">创建视频会议</string>
+    <string name="main_setting">设置</string>
+    <string name="main_logout">注销</string>
+    <!-- login -->
+    <string name="server_adds">服务器地址</string>
+    <string name="account">帐号</string>
+    <string name="password">密码</string>
+    <string name="login_text">登录</string>
+    <string name="login_off">退出</string>
+
+    <!-- vconf -->
+    <string name="vconf_shortNum">会议号码</string>
+    <string name="vconf_time">会议时间</string>
+    <string name="vconf_timeLen">会议时长</string>
+    <string name="vconf_info_title">会议信息</string>
+    <string name="vconf_convene">正在召集</string>
+    <string name="vconf_call">正在呼叫</string>
+    <string name="vconf_join">正在加入</string>
+    <string name="vconf_join_waitingTxt_p2p">请求与您通话</string>
+    <string name="vconf_join_waitingTxt_mul">邀请您进入会议</string>
+    <string name="vconf_audio_waiting">音频呼叫中</string>
+    <string name="vconf_QualityMeetings">视频质量会议</string>
+    <string name="vconf_Apply4AdministrativePrivileges">申请管理权限</string>
+    <string name="vconf_releaseAdministrativePrivileges">释放管理权限</string>
+    <string name="vconf_Apply4Speaker">申请发言</string>
+    <string name="vconf_StatisticalInformation">统计信息</string>
+    <string name="vconf_ExitConf">退出会议</string>
+    <string name="vconf_EndConf">结束会议</string>
+    <string name="vconf_flow_remind">电话应答将为您节省流量</string>
+    <string name="vconf_chooseJoinWay_3GInfo_mobile">在移动数据网络环境下会影响视音频质量，\n并产生手机流量，可选择电话方式入会</string>
+    <string name="vconf_chooseJoinWay_3GInfo_normal">在移动数据网络环境下会影响视音频质量，\n并产生手机流量</string>
+    <string name="vconf_tel_response">电话</string>
+    <string name="vconf_video_response">视频接听</string>
+    <string name="vconf_audio_response">音频接听</string>
+    <string name="vconf_answer">接听</string>
+    <string name="vconf_2g_unable_tel_join">在当前的网络下您不能进行音视频通话，请使用电话应答入会</string>
+    <string name="vconf_canceled">已取消</string>
+    <string name="vconf_rejected">已拒绝</string>
+    <string name="vconf_noresponse">无人应答</string>
+    <string name="vconf_unconnect">未接通</string>
+    <string name="vconf_sending_desktop">正在接收双流</string>
+    <string name="telephonereceiver_open_info">听筒模式已关</string>
+    <string name="telephonereceiver_close_info">听筒模式已开</string>
+    <string name="vconf_quit_msg">您确定退出会议吗？</string>
+    <string name="vconf_end_msg">您确定结束会议吗？</string>
+    <string name="vconf_quit">退出</string>
+    <string name="vconf_end">结束</string>
+    <string name="hang_up">挂断</string>
+    <string name="more_info">更多</string>
+    <string name="off">关</string>
+    <string name="on">开</string>
+
+
+    <!-- comm Text -->
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="search">搜索</string>
+    <string name="definition">清晰度</string>
+    <string name="microphone">麦克风</string>
+    <string name="speaker">扬声器</string>
+    <string name="add_text">添加</string>
+
+
+    <string name="app_company_name">国科政信（北京）股份有限公司</string>
+    <string name="app_copy_rights">copyright©2006-2015.All right reserved</string>
+    <string name="register">注册</string>
+    <string name="input_verify_code">请输入验证码</string>
+    <string name="send_verify_code">发送验证码</string>
+    <string name="switch_login_type">切换登录方式</string>
+    <string name="login_without_account">无账号快捷登录</string>
+    <string name="id_code">身份证号码</string>
+    <string name="phone_number">手机号码</string>
+    <string name="personal_info">请输入个人注册信息</string>
+    <string name="null_phone">手机号码为空</string>
+    <string name="unavailable_phone">手机号码不存在</string>
+    <string name="verify_failed">验证码请求失败，请稍后再试</string>
+    <string name="code_200">200</string>
+    <string name="sended">已发送</string>
+    <string name="login_failed_retry">登录失败，请稍后再试</string>
+    <string name="unexist_account">用户不存在注册未通过，请注册成功后使用！</string>
+    <string name="verify_code_error">验证码错误</string>
+    <string name="login_exception_retry">登录异常，请稍后再试</string>
+    <string name="login_success">登录成功</string>
+
+    <!-- 云信登录失败状态码对应 -->
+    <string name="account_pwd_error">手机号或者身份证号错误</string>
+    <string name="server_busy">服务器繁忙</string>
+    <string name="network_error">网络出错，请检查网络</string>
+    <string name="time_out">请求超时，请稍后再试</string>
+    <string name="illegal_control">非法操作或没有权限</string>
+    <string name="account_disable">您的账号已被禁用</string>
+    <string name="server_error">服务器错误</string>
+    <string name="username_empty">用户名不能为空</string>
+    <string name="pwd_empty">密码为空</string>
+    <string name="logining">正在登录...</string>
+    <string name="sending">正在发送...</string>
+    <string name="id_empty">身份证号码为空</string>
+    <string name="verify_code_empty">验证码不能为空</string>
+    <string name="unexist_id_num">身份证号不存在</string>
+    <string name="name">姓名</string>
+    <string name="prisoner_relationship">与服刑人员关系</string>
+    <string name="prisoner_code">囚号</string>
+    <string name="prison_select">监狱选择</string>
+    <string name="man">男</string>
+    <string name="woman">女</string>
+    <string name="upload_id_photo">请上传您的身份证正反面照</string>
+    <string name="readed_agree">我已阅读并同意</string>
+    <string name="soft_use_agreement">《狱务通软件使用协议》</string>
+    <string name="giveup_make_content">放弃已编辑的内容吗？</string>
+    <string name="upload_avatar">上传头像</string>
+    <string name="file_not_exist">文件不存在</string>
+    <string name="read_file_error">读取文件出错</string>
+    <string name="take_photo">拍照</string>
+    <string name="choose_from_album">从相册中选择</string>
+    <string name="back">返回</string>
+    <string name="choose_avatar">请选择头像</string>
+    <string name="null_name">姓名为空</string>
+    <string name="input_relationship">请输入您与服刑人员的关系</string>
+    <string name="null_prisoner_num">囚号为空</string>
+    <string name="input_prison_name">请输入监狱名称</string>
+    <string name="registering">正在注册...</string>
+    <string name="exception">异常</string>
+    <string name="not_open_prison">抱歉，暂未开通此监狱</string>
+    <string name="register_failed_retry">注册请求失败，请稍后再试</string>
+    <string name="code_404">404</string>
+    <string name="code_501">501</string>
+    <string name="register_success">注册成功!</string>
+    <string name="register_failed">注册失败！</string>
+    <string name="main_page">首页</string>
+    <string name="visit_prison">亲情电话</string>
+    <string name="canteen">电子商务</string>
+    <string name="please_login">请登录</string>
+    <string name="reminder">提示</string>
+    <string name="register_confirm_remind">即将提交注册，注册信息将会严格审核，注册信息一旦通过，将不可修改，确定提交？</string>
+    <string name="confirm_again">再确认一下</string>
+    <string name="get_info_failed">获取用户信息失败，请重新登录</string>
+    <string name="loading">加载中...</string>
+    <string name="kickout_remind">账号下线提示</string>
+    <string name="relogin">重新登录</string>
+    <string name="focus_">焦点关注</string>
+    <string name="focus_news_title">焦点新闻大标题</string>
+    <string name="focus_news_simple">焦点新闻简要描述...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="user_name">用户名</string>
+    <string name="account_info">账号信息</string>
+    <string name="remittance_record">汇款记录</string>
+    <string name="shopping_record">购物记录</string>
+    <string name="setting">设置</string>
+    <string name="logout">注销</string>
+    <string name="exit_app">再按一次退出程序</string>
+    <string name="no_meeting">暂无记录</string>
+    <string name="last_meeting_time">上次通话时间：</string>
+    <string name="total_pay">共计:</string>
+    <string name="value_0">0</string>
+    <string name="rmb">0元</string>
+    <string name="choose_pay_ment">选择支付方式</string>
+    <string name="pay">支付</string>
+    <string name="pay_order">支付订单</string>
+    <string name="pay_failed">支付失败</string>
+    <string name="zhifubao">支付宝</string>
+    <string name="pay_result_confirming">支付结果确认中</string>
+    <string name="pay_success">支付成功</string>
+    <string name="pay_cancel">支付取消</string>
+    <string name="please_wait_send_goods">请耐心等待监狱方发货</string>
+    <string name="pay_result">支付结果</string>
+    <string name="order_synchronize_failed">支付订单同步失败</string>
+    <string name="please_use_release_keystore">请使用正确的app签名文件</string>
+    <string name="all_class">全部分类</string>
+    <string name="sales_prefer">销量优先</string>
+    <string name="buy_car_total">合计:</string>
+    <string name="_2">(含配送费2元)</string>
+    <string name="settlement">结算</string>
+    <string name="buy_car">购物车</string>
+    <string name="clear_shopping_car">清空购物车</string>
+    <string name="please_select_goods">请选择商品</string>
+    <string name="get_order_failed">生成订单失败，请稍后再试!</string>
+    <string name="not_select_goods">没有选择商品</string>
+    <string name="goods_list_update_failed">商品列表更新失败</string>
+    <string name="load_failed">加载失败</string>
+    <string name="last_pager">已到最后一页</string>
+    <string name="requested_choose_other">您已申请过当日远程探监，请选择其他日期。</string>
+    <string name="balance_insufficient">您的余额不足，请充值</string>
+    <string name="choose_meeting_time">请选择申请会见时间</string>
+    <string name="please_pre_login">请先登录</string>
+    <string name="choose_visit_time">请选择申请探监时间</string>
+    <string name="network_unavailable">没有网络</string>
+    <string name="commit_execption_retry">提交异常，请稍后再试</string>
+    <string name="apply_meeting_success">申请提交成功，系统将以短信和系统消息形式通知您申请结果，请注意查收。</string>
+    <string name="commit_failed_reason">提交失败，原因：</string>
+    <string name="no_meeting_list">暂无待会见名单...</string>
+    <string name="today_meeting">今日待会见人员</string>
+    <string name="complete">完成</string>
+    <string name="meeting_list">会见列表</string>
+    <string name="connecting">正在连接...</string>
+    <string name="not_login">未登录</string>
+    <string name="refresh_data_failed">刷新数据失败</string>
+    <string name="click_to_refresh">点击刷新</string>
+    <string name="refresh_success">刷新成功</string>
+    <string name="input_reason">请输入理由</string>
+    <string name="cancel_failed">取消失败，请稍后再试</string>
+    <string name="cancel_success">取消成功</string>
+    <string name="left_sliding">左滑至下个月份</string>
+    <string name="right_sliding">右滑至上个月份</string>
+    <string name="call">呼 叫</string>
+    <string name="remote_meeting">远程会见</string>
+    <string name="get_id_photo_failed">获取身份证照片失败</string>
+    <string name="recharge_count">请选择充值金额</string>
+    <string name="_5">5元</string>
+    <string name="_20">20元</string>
+    <string name="_50">50元</string>
+    <string name="_100">100元</string>
+    <string name="recharge">充值</string>
+    <string name="recharge_description_info">充值说明:\n1、狱务通为用户免费提供远程探监业务,
+        但用户需承担租赁服务器以及视频通话业务的相关费用。\n2、用户充值后,可点击“
+        申请远程探监”按钮进行申请,系统审核通过后方扣费,系统审核不通过不扣费。\n3
+        、审核通过后,无论您是否接听视频通话,都将扣除一定费用,费用不返还,不累计到下
+        一次使用。\n4、当可用次数为“0”时,狱务通远程探监申请将不可点击,请您及时续费。
+    </string>
+    <string name="prisoner_num">囚号：</string>
+    <string name="sex">性别：</string>
+    <string name="crime_type">犯罪类型：</string>
+    <string name="prison_sentence">刑期起止：</string>
+    <string name="xxxx">xxxx</string>
+    <string name="to">&#160;&#160;&#160;&#160;至&#160;&#160;&#160;&#160;</string>
+    <string name="balance">余额:&#160;&#160;</string>
+    <string name="_￥">&#160;&#160;元</string>
+    <string name="current_month_money">本月可用额度:&#160;&#160;</string>
+    <string name="_0_0">0.0</string>
+    <string name="remittance">汇款</string>
+    <string name="family_server">家属服务</string>
+    <string name="load_data_failed">加载数据失败</string>
+    <string name="remittance_count">请输入汇款金额：</string>
+    <string name="input_remittance_count">请输入汇款金额</string>
+    <string name="out_of_800">抱歉，您本月汇款总额已超出800元限额！</string>
+    <string name="please_expect">敬请期待</string>
+    <string name="prison_introduction">监狱简介</string>
+    <string name="laws_regulations">法律法规</string>
+    <string name="no_data">没有数据</string>
+    <string name="prison_open">狱务公开</string>
+    <string name="work_dynamic">工作动态</string>
+    <string name="warden">投诉建议</string>
+    <string name="publish_info">公示信息</string>
+    <string name="complaint_feedback">投诉反馈</string>
+    <string name="copyright">国科政信科技（北京）股份有限公司\ncopyright©2006-2015.All right reserved</string>
+    <string name="contract_us">联系我们</string>
+    <string name="soft_agreement">狱务通软件使用协议</string>
+    <string name="version">V 1.0</string>
+    <string name="version_update">版本更新</string>
+    <string name="opinion_feedback">意见反馈</string>
+    <string name="pwd_setting">独立密码设置</string>
+    <string name="clock_remind">闹钟提醒</string>
+    <string name="clock_close">闹钟提醒已关闭</string>
+    <string name="company_address_">地址：</string>
+    <string name="company_address">北京市海淀区西三旗建材城中路3号程远大厦A座5层</string>
+    <string name="email_">邮编：</string>
+    <string name="post_code">100086</string>
+    <string name="customer_service_phone">客服电话：</string>
+    <string name="company_phone">010-82911287-5032</string>
+    <string name="password_failed">您的密码输入有误，请重新输入</string>
+    <string name="input_password">请输入解锁密码</string>
+    <string name="input_pwd">输入密码</string>
+    <string name="pwd_not_match">密码不匹配，请重新输入</string>
+    <string name="set_pwd">设置密码</string>
+    <string name="confirm_pwd">确认密码</string>
+    <string name="set_success">设置成功</string>
+    <string name="feedback_hint">请写下您在使用狱务通中遇到的问题吧!</string>
+    <string name="commit">提交</string>
+    <string name="out_of_length">长度不合法</string>
+    <string name="input_content">请输入内容</string>
+    <string name="commit_wait">正在提交，请稍候...</string>
+    <string name="commit_failed_retry">提交失败，请稍后再试</string>
+    <string name="commit_success_">提交成功，感谢您的反馈</string>
+    <string name="theme">主题:</string>
+    <string name="input_theme">输入主题</string>
+    <string name="input_msg_content">输入内容</string>
+    <string name="twice_more">* 每月最多提交两次</string>
+    <string name="write_msg">写信</string>
+    <string name="commit_success">提交成功，感谢您的反馈！</string>
+    <string name="check_update">检查更新</string>
+    <string name="current_vs">当前版本：</string>
+    <string name="new_vs">新版本：3.0</string>
+    <string name="newest_vs">已经是最新版本!</string>
+    <string name="vs_update">版本更新</string>
+    <string name="confirm">确定退出当前账号？</string>
+    <string name="register_commit_success">注册提交成功！系统正在审核，审核结果将在24小时内以短信形式发送到您的手机上，请您耐心等待。</string>
+    <string name="apply_through">您的探监申请已通过</string>
+    <string name="load_more">加载更多...</string>
+    <string name="server_addr">服务器地址：</string>
+    <string name="input_cancel">请输入取消</string>
+    <string name="cancel_reason">会见的原因：</string>
+    <string name="meeting_name">会议名称:</string>
+    <string name="no_feedback">暂无反馈信息</string>
+    <string name="no_public">暂无公示信息</string>
+    <string name="aes">AES加密：</string>
+    <string name="user_info">个人信息</string>
+    <string name="updating">正在更新：</string>
+    <string name="known">我知道了</string>
+    <string name="comment">写下您的评论吧</string>
+    <string name="comment_">评论</string>
+    <string name="input_comment_content">输入您要评论的内容吧</string>
+    <string name="comment_failed">评论失败，请稍后再试</string>
+    <string name="comment_success">评论成功！</string>
+    <string name="apply_result">申请结果页</string>
+    <string name="query_failed">查询记录失败</string>
+    <string name="system_msg">系统消息</string>
+    <string name="net_broken">网络连接已断开，请检查网络</string>
+    <string name="code_500">500</string>
+    <string name="contract_title">亲情电话管理办法</string>
+    <string name="contract_content">&#160;&#160;&#160;&#160;第一条&#160;&#160;&#160;&#160;为规范罪犯亲情电话的管理，促进罪犯积极改造，根据《中华人民共和国监狱法》和有关监管法规，结合我省监狱实际，制定本办法。\n&#160;&#160;&#160;&#160;第二条&#160;&#160;&#160;&#160;罪犯亲情电话是罪犯会见通讯的一种形式。\n&#160;&#160;&#160;&#160;第三条&#160;&#160;&#160;&#160;罪犯使用亲情电话应坚持警察直接管理和监督使用的原则，坚持有利于改造和费用自理的原则。\n&#160;&#160;&#160;&#160;第四条&#160;&#160;&#160;&#160;罪犯亲情电话的管理工作由监狱狱政管理部门负责，具体使用由监区组织实施。\n&#160;&#160;&#160;&#160;第五条&#160;&#160;&#160;&#160;开通罪犯亲情电话必须具备下列条件：  监狱应设置亲情电话总控设备。监区应在易于监管、监控的场所设置亲情电话室，配置具备呼入限制、监听、录音、计时、控制等功能的电话终端。\n&#160;&#160;&#160;&#160;第六条&#160;&#160;&#160;&#160;亲情电话统一采用电话卡拨号、扣费。电话卡应具备电话号码锁定功能，由监狱统一购买、充值，监区集中保管。罪犯使用时发给，用后即时收回。\n&#160;&#160;&#160;&#160;第七条&#160;&#160;&#160;&#160;亲情电话的受话人限于罪犯的亲属和监护人。\n&#160;&#160;&#160;&#160;第八条&#160;&#160;&#160;&#160;罪犯使用亲情电话的号码不得超过3个，以入监时登记的电话号码为准。  罪犯申请登记电话号码时，应填写《亲情电话登记（变更）申请表》，经专教警察审核、监区审批；需变更电话号码时，应经专教警察、监区审核后，报狱政管理部门审批。\n&#160;&#160;&#160;&#160;第九条&#160;&#160;&#160;&#160;罪犯使用亲情电话每次通话只限一个号码，通话时间不得超过10分钟。\n&#160;&#160;&#160;&#160;第十条&#160;&#160;&#160;&#160;罪犯月考核无扣分及无行政、刑事处罚，并具有下列情形之一的，可以使用亲情电话：  （一）宽管级罪犯；  （二）获得嘉奖以上行政奖励的普管级罪犯；  （三）获得表扬以上行政奖励的考察级罪犯。  罪犯在使用亲情电话前受到扣分或行政、刑事处罚的，应取消当月的亲情电话。监区每月应将符合使用亲情电话条件的罪犯名单予以公示。\n&#160;&#160;&#160;&#160;第十一条&#160;&#160;&#160;&#160;罪犯具有下列特殊情形之一的，经批准可使用亲情电话一次：  （一）家庭发生重大变故的；  （二）亲人所在地遭受重大自然灾害的；  （三）思想发生较大变化需要亲人帮教的；  （四）其它特殊情形的。\n&#160;&#160;&#160;&#160;第十二条&#160;&#160;&#160;&#160;罪犯具有第十条规定情形之一的，每月可使用亲情电话一次，使用应安排在休息日。  罪犯具有第十一条规定情形之一的，可不受前款规定使用时间的限制。\n&#160;&#160;&#160;&#160;第十三条&#160;&#160;&#160;&#160;罪犯使用亲情电话的审批：  （一）具有第十条规定情形之一的，由监区狱政干事汇总、填写《罪犯使用亲情电话审核表》，报分管狱政管理工作的监区领导审批；  （二）具有第十一条规定情形之一的，由罪犯提出书面申请，经监区核实后，填写《罪犯审批表》（万用表），报监狱狱政管理部门审批。\n&#160;&#160;&#160;&#160;第十四条&#160;&#160;&#160;&#160;罪犯具有下列情形之一的，暂停使用亲情电话：  （一）假姓名、假住址、假社会关系、假亲属电话的；  （二）隔离审查的；  （三）公、检、法、安等机关因办案需要的；  （四）其它需要暂停使用亲情电话情形的。\n&#160;&#160;&#160;&#160;第十五条&#160;&#160;&#160;&#160;罪犯使用亲情电话前，由管理警察进行拨号，核实受话人的身份后交由罪犯通话。\n&#160;&#160;&#160;&#160;第十六条&#160;&#160;&#160;&#160;罪犯通话时，管理警察应在场监听，并对通话内容录音。录音文件保存时间不少于3个月，A类重点罪犯保存时间不少于1年。\n&#160;&#160;&#160;&#160;第十七条&#160;&#160;&#160;&#160;罪犯通话结束后，管理警察应即时按《罪犯使用亲情电话登记表》的要求进行登记；对通话内容可能引起罪犯思想波动或影响其改造的，应及时向监区领导汇报，采取防范措施。\n&#160;&#160;&#160;&#160;第十八条&#160;&#160;&#160;&#160;罪犯具有下列情形之一的，管理警察应予以警告；警告无效的，应停止使用亲情电话或中止通话，并取消其下一次使用亲情电话的资格：  （一）不在指定区域等候或喧哗、吵闹的；  （二）不按安排和规定时间通话的；  （三）持有或使用、交换其他罪犯的电话卡的；  （四）故意损坏电话设施的；  （五）监听过程中发现受话人身份不符的；  （六）使用隐语、暗语和不文明语言的；  （七）遥控狱外犯罪活动的；  （八）谈论危害监狱安全和其它不利于罪犯改造内容的。\n&#160;&#160;&#160;&#160;第十九条&#160;&#160;&#160;&#160;管理警察不得有下列行为，违规者，视情节轻重，给予批评教育或按有关规定处理：  （一）允许罪犯直接拨号的；  （二）安排不符合条件的罪犯使用亲情电话的；  （三）未核实受话人身份即交由罪犯通话的；  （四）不落实监听监视工作，造成安全事故的；  （五）工作不到位导致罪犯私自使用亲情电话的；  （六）利用亲情电话谋取私利的；  （七）其它违反本规定情形的。\n&#160;&#160;&#160;&#160;第二十条&#160;&#160;&#160;&#160;外国籍罪犯、重点罪犯使用亲情电话另有规定的，从其规定。</string>
+    <string name="code_400">400</string>
+    <string name="upcoming">即将上线</string>
+    <string name="apply_refund">申请退款</string>
+    <string name="message_record">消息记录</string>
+    <string name="weixin">微信</string>
+    <string name="my_wallet">我的钱包</string>
+    <string name="my_balance">我的余额</string>
+    <string name="_200">200元</string>
+    <string name="_500">500元</string>
+    <string name="yuan">元</string>
+
+
+</resources>

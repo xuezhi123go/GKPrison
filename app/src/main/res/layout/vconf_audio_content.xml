@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black" >
+
+    <RelativeLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </RelativeLayout>
+    
+    <!-- 共享界面 -->
+    <FrameLayout
+        android:id="@+id/share_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+    </FrameLayout>
+    
+     <FrameLayout
+        android:id="@+id/bottomFunction_Frame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+    </FrameLayout>
+    <!-- <fragment
+        android:id="@+id/bottomFunctionFame"
+        android:name="com.kedacom.truetouch.vconf.controller.VConfFunctionFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" />
+ -->
+</RelativeLayout>

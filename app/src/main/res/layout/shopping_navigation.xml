@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_navigation"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/canteen_tab_height"
+    android:orientation="horizontal"
+    android:background="@color/white"
+    tools:showIn="@layout/fragment_canteen">
+
+    <RelativeLayout
+        android:id="@+id/rl_all_class"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_all_class"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/all_class"
+            android:textSize="@dimen/canteen_tab_tv_size"
+            android:textColor="@color/tv_bg"
+            android:layout_centerInParent="true" />
+
+        <Spinner
+            android:id="@+id/sp_all_class"
+            android:layout_width="@dimen/canteen_tab_spinner_size"
+            android:layout_height="@dimen/canteen_tab_spinner_size"
+            android:layout_toRightOf="@+id/tv_all_class"
+            android:layout_alignBottom="@+id/tv_all_class"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/spinner" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="1dp"
+        android:layout_height="30dp"
+        android:background="@color/bg"
+        android:layout_gravity="center_vertical" />
+
+    <RelativeLayout
+        android:visibility="gone"
+        android:id="@+id/rl_sales"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/tv_sales"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sales_prefer"
+            android:textSize="@dimen/canteen_tab_tv_size"
+            android:textColor="@color/tv_bg"
+            android:layout_centerInParent="true" />
+
+        <Spinner
+            android:id="@+id/sp_sales"
+            android:layout_width="@dimen/canteen_tab_spinner_size"
+            android:layout_height="@dimen/canteen_tab_spinner_size"
+            android:layout_toRightOf="@+id/tv_sales"
+            android:layout_alignBottom="@+id/tv_sales"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/spinner" />
+    </RelativeLayout>
+</LinearLayout>

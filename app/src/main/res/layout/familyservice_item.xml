@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    android:background="#C8E4F0">
+
+    <LinearLayout
+        android:id="@+id/ll_1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:layout_centerVertical="true">
+
+        <ImageView
+            android:id="@+id/image_messge"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/sentence"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_messge"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="刑期变动"
+            android:textColor="@color/tv_bg"
+            android:textSize="16sp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_weight="1"/>
+
+        <ImageView
+            android:id="@+id/image_click"
+            android:layout_width="18dp"
+            android:layout_height="15dp"
+            android:src="@drawable/touchdown"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"/>
+    </LinearLayout>
+</RelativeLayout>

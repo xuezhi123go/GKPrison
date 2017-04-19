@@ -1,0 +1,139 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <LinearLayout
+        android:id="@+id/ll_setting_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/bg">
+
+        <include layout="@layout/toolbar_layout" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/laws_item_height"
+            android:background="@drawable/item_selector"
+            android:layout_marginTop="10dp">
+
+            <ImageView
+                android:layout_width="@dimen/setting_item_iv_size"
+                android:layout_height="@dimen/setting_item_iv_size"
+                android:src="@drawable/gray_clock"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/laws_item_height"
+                android:text="@string/clock_remind"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/setting_item_tv_size"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/tv_bg"/>
+
+            <ToggleButton
+                android:id="@+id/tb_clock_remind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/laws_item_height"
+            android:background="@drawable/item_selector"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:layout_width="@dimen/setting_item_iv_size"
+                android:layout_height="@dimen/setting_item_iv_size"
+                android:src="@drawable/gray_pwd_setting"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/laws_item_height"
+                android:text="@string/pwd_setting"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/setting_item_tv_size"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/tv_bg"/>
+
+            <ToggleButton
+                android:id="@+id/tb_pwd_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_opinion_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/laws_item_height"
+            android:background="@drawable/item_selector"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:layout_width="@dimen/setting_item_iv_size"
+                android:layout_height="@dimen/setting_item_iv_size"
+                android:src="@drawable/opinion_feedback"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/laws_item_height"
+                android:text="@string/opinion_feedback"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/setting_item_tv_size"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/tv_bg"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_version_update"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/laws_item_height"
+            android:background="@drawable/item_selector"
+            android:layout_marginTop="10dp" >
+
+            <ImageView
+                android:layout_width="@dimen/setting_item_iv_size"
+                android:layout_height="@dimen/setting_item_iv_size"
+                android:src="@drawable/gray_version_update"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/laws_item_height"
+                android:text="@string/version_update"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/setting_item_tv_size"
+                android:layout_marginLeft="50dp"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/version"
+                android:textColor="@color/tv_mid"
+                android:textSize="@dimen/setting_item_tv_size"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="10dp"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <include layout="@layout/layout_agreement_right" />
+</RelativeLayout>

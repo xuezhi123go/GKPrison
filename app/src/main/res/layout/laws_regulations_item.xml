@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/laws_item_height"
+    android:background="@drawable/item_selector">
+
+    <TextView
+        android:id="@+id/tv_laws_regulations_item"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/laws_item_height"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:textSize="@dimen/laws_item_tv_size"
+        android:textColor="@color/tv_bg"
+        android:gravity="center_vertical"
+        android:drawablePadding="10dp"
+        android:paddingLeft="10dp"/>
+
+    <ImageView
+        android:id="@+id/iv_to_right"
+        android:layout_width="17dp"
+        android:layout_height="17dp"
+        android:src="@drawable/toright"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="10dp"/>
+
+</RelativeLayout>

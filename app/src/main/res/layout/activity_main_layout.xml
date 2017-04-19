@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="20dip" >
+
+        <Button
+            android:id="@+id/getContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/main_get_contact" />
+        <Button
+            android:id="@+id/getConfContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/main_get_vconf_contact" />
+        
+        <Button
+            android:id="@+id/getConfList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/main_get_vconf_list" />
+
+        <Button
+            android:id="@+id/makeCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/make_call" />
+
+        <Button
+            android:id="@+id/mutiCall"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/muti_call" />
+
+        <Button
+            android:id="@+id/createVconf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/main_create_vconf" />
+
+        <Button
+            android:id="@+id/setting"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="5dip"
+            android:text="@string/main_setting" />
+
+        <Button
+            android:id="@+id/logout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dip"
+            android:gravity="center"
+            android:padding="10dip"
+            android:text="@string/main_logout"
+            android:textColor="@color/red" />
+    </LinearLayout>
+
+</LinearLayout>

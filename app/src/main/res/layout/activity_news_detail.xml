@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+    <include android:id="@+id/toolbar"
+        layout="@layout/toolbar_layout" />
+
+    <ScrollView
+        android:layout_below="@id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <WebView
+                android:id="@+id/wv_news_detail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:visibility="gone"/>
+
+            <include layout="@layout/layout_comment" />
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

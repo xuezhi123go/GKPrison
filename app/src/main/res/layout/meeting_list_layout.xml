@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:orientation="vertical"
+    tools:showIn="@layout/activity_date_meeting_list_tablet">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+        <TextView
+            android:id="@+id/tv_meeting_num"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:textColor="@color/tv_mid"
+            android:background="@color/white"
+            android:textSize="30sp"
+            android:text="@string/today_meeting"
+            android:paddingBottom="5dp"
+            android:gravity="center" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint" />
+
+    <ListView
+        android:id="@+id/lv_meeting_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:dividerHeight="1dp"
+        android:focusable="false"
+        android:fadingEdge="none"
+        android:divider="@color/et_hint"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_no_list"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:text="@string/no_meeting_list"
+        android:gravity="center"
+        android:textSize="26sp"
+        android:background="@color/white"
+        android:textColor="@color/tv_red"
+        android:visibility="gone" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint" />
+</LinearLayout>

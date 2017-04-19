@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fl_buy_car"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/half_transparent"
+    android:layout_marginBottom="@dimen/canteen_tab_height"
+    android:visibility="gone"
+    tools:showIn="@layout/fragment_canteen">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:id="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/canteen_tab_height">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/buy_car"
+                android:textSize="16sp"
+                android:layout_weight="1"
+                android:textColor="@color/tv_bg"
+                android:layout_marginLeft="10dp"
+                android:layout_gravity="center_vertical" />
+
+            <RelativeLayout
+                android:id="@+id/rl_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:id="@+id/image_clear"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/clearbuycar" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/image_clear"
+                    android:text="@string/clear_shopping_car"
+                    android:layout_centerVertical="true" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ListView
+            android:id="@+id/lv_shopping_car"
+            android:layout_below="@+id/ll_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</FrameLayout>

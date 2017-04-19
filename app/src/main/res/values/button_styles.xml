@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="normal_bt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/register_edittext_height</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/bt_bg_shape</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/total_money_tv_size</item>
+    </style>
+
+    <style name="theme_border_bt">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/register_edittext_height</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:background">@drawable/theme_border_bg_selector</item>
+        <item name="android:textColor">@color/theme</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/total_money_tv_size</item>
+    </style>
+</resources>

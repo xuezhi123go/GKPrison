@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black" >
+
+    <RelativeLayout
+        android:id="@+id/chronometerViewDual"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+    </RelativeLayout>
+
+    <com.pc.ui.layout.SimpleGestureDetectorRelative
+        android:id="@+id/play_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" >
+
+        <include layout="@layout/vconf_video_sendingdesktop_layout" />
+
+        <include layout="@layout/vconf_video_playview_layout" />
+    </com.pc.ui.layout.SimpleGestureDetectorRelative>
+
+</FrameLayout>

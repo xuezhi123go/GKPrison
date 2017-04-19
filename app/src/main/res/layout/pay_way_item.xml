@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/pay_way_item_height"
+    android:background="@drawable/item_selector">
+
+    <ImageView
+        android:id="@+id/iv_pay_way_icon"
+        android:layout_width="@dimen/pay_way_item_height"
+        android:layout_height="@dimen/pay_way_item_height"
+        android:padding="5dp"
+        android:src="@drawable/pay_way_bank_card"/>
+
+    <TextView
+        android:id="@+id/tv_pay_way"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/iv_pay_way_icon"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/setting_item_tv_size"
+        android:textColor="@color/tv_bg"/>
+
+    <CheckBox
+        android:id="@+id/cb_pay_way"
+        android:layout_width="@dimen/pay_way_check_size"
+        android:layout_height="@dimen/pay_way_check_size"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:button="@null"
+        android:checked="true"
+        android:enabled="false"
+        android:focusable="false"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/cb_selector" />
+</RelativeLayout>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- android:background="@drawable/vconf_function_bg" -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:background="@android:color/black"
+    android:gravity="center"
+    android:orientation="horizontal" >
+
+    <TextView
+        android:id="@+id/mute_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/vconf_microphone_on_selector"
+        android:gravity="center|bottom"
+        android:minWidth="60dip"
+        android:scaleType="center"
+        android:text="@string/microphone"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/SmallTextSize" />
+
+    <TextView
+        android:id="@+id/quiet_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTop="@drawable/vconf_speaker_selector"
+        android:gravity="center|bottom"
+        android:minWidth="60dip"
+        android:scaleType="center"
+        android:text="@string/speaker"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/SmallTextSize" />
+
+    <TextView
+        android:id="@+id/inviteVConf_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:drawableTop="@drawable/vconf_invite_selector"
+        android:gravity="center|bottom"
+        android:minWidth="60dip"
+        android:scaleType="center"
+        android:text="@string/add_text"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/SmallTextSize" />
+
+    <TextView
+        android:id="@+id/moreInfo_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:scaleType="center"
+        android:text="@string/more_info"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/SmallTextSize" />
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/exit_Img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@null"
+        android:minWidth="60dip"
+        android:scaleType="center"
+        android:src="@drawable/vconf_hangup_selector" />
+
+</LinearLayout>

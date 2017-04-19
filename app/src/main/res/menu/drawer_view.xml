@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/user_info"
+        android:title="@string/account_info"
+        android:icon="@drawable/user_info" />
+    <item android:id="@+id/remittance_record"
+        android:title="@string/remittance_record"
+        android:icon="@drawable/remittance_record" />
+    <item android:id="@+id/shopping_record"
+          android:title="@string/shopping_record"
+          android:icon="@drawable/shopping_record" />
+    <item android:id="@+id/message_record"
+          android:title="@string/message_record"
+          android:icon="@drawable/message" />
+    <item android:id="@+id/my_wallet"
+          android:title="@string/my_wallet"
+          android:icon="@drawable/my_wallet" />
+    <item android:id="@+id/setting"
+        android:title="@string/setting"
+        android:icon="@drawable/setting" />
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        android:icon="@drawable/logout" />
+
+</menu>

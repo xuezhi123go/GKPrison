@@ -1,0 +1,156 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dip"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/peer_alias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dip"
+            android:gravity="center">
+        </TextView>
+
+
+        <TextView
+            android:id="@+id/joinVConf_waitingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/peer_alias"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="4dp"
+            android:text="@string/vconf_join_waitingTxt_p2p"
+            android:textColor="@color/color_78"
+            android:textSize="@dimen/LargeTextSize" />
+
+        <!-- 您当前正在使用移动网络,电话应答将为您节省流量 -->
+
+        <TextView
+            android:id="@+id/flow_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/joinVConf_waitingText"
+            android:layout_centerHorizontal="true"
+            android:drawablePadding="5dip"
+            android:gravity="center"
+            android:paddingLeft="10dip"
+            android:paddingRight="10dip"
+            android:text="@string/vconf_flow_remind"
+            android:textColor="@color/color_a1"
+            android:textSize="@dimen/SmallTextSize" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <LinearLayout
+            android:id="@+id/bottom_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:background="@android:color/black"
+            android:orientation="vertical"
+            android:paddingLeft="10.0dip"
+            android:paddingRight="10.0dip"
+            android:paddingTop="10.0dip" >
+
+            <LinearLayout
+                android:id="@+id/video_response_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical" >
+
+                <!-- android:drawableLeft="@drawable/icon_video" -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/vconf_video_response"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/TitleTextSize" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_margin="10dip"
+                    android:background="@android:color/white"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/audio_response_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                 android:visibility="gone" >
+
+                <!-- android:drawableLeft="@drawable/icon_audio" -->
+
+                <TextView
+                    android:id="@+id/audio_response_txt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/vconf_audio_response"
+                    android:textSize="@dimen/TitleTextSize" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:background="@android:color/white"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/tel_response_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                 android:visibility="gone" >
+
+                <!-- android:drawableLeft="@drawable/icon_phone" -->
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="@string/vconf_tel_response"
+                    android:textSize="@dimen/TitleTextSize" 
+                   />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="10dip"
+                    android:layout_marginRight="10dip"
+                    android:background="@android:color/white"
+                    android:contentDescription="@null" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/refuse_response_btn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:text="@string/hang_up"
+                 />
+        </LinearLayout>
+    </FrameLayout>
+
+</LinearLayout>

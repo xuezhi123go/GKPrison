@@ -1,0 +1,175 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/prisoner_num"/>
+
+            <TextView
+                android:id="@+id/tv_prison_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/sex"
+                android:layout_marginLeft="80dp" />
+
+            <TextView
+                android:id="@+id/tv_mail_sex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/crime_type"/>
+
+            <TextView
+                android:id="@+id/tv_crime_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/prison_sentence"/>
+
+            <TextView
+                android:id="@+id/tv_sentence_time_start"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/xxxx"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/to"/>
+
+            <TextView
+                android:id="@+id/tv_sentence_time_end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/xxxx"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/balance" />
+
+            <TextView
+                android:id="@+id/tv_balance_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_green"
+                android:text="@string/_0_0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_green"
+                android:text="@string/_￥"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/current_month_money"/>
+
+                <TextView
+                    android:id="@+id/tv_current_month_available_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_green"
+                    android:text="@string/_0_0"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_green"
+                    android:text="@string/_￥"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <ExpandableListView
+        android:id="@+id/el_items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/white"
+        android:dividerHeight="5dp"
+        android:layout_marginTop="5dp"
+        android:childDivider="@color/white">
+    </ExpandableListView>
+</LinearLayout>

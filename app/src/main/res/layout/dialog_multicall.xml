@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dip" >
+
+    <EditText
+        android:id="@+id/number_conf"
+        android:layout_width="fill_parent"
+        android:layout_height="45.0dip"
+        android:imeOptions="actionNext"
+        android:inputType="phone"
+        android:maxLength="16"
+        android:paddingLeft="12.0dip"
+        android:paddingRight="25.0dip"
+        android:singleLine="true"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/darker_gray"
+        android:textSize="@dimen/LargeTextSize" />
+
+    <Button
+        android:id="@+id/btnCall"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18.0dip"
+        android:layout_marginRight="18.0dip"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingMultiplier="0.95"
+        android:tag="ok"
+        android:text="加入"
+        android:textSize="@dimen/LargerTextSize" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18.0dip"
+        android:layout_marginRight="18.0dip"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingMultiplier="0.95"
+        android:tag="ok"
+        android:text="取消"
+        android:textColor="@color/red"
+        android:textSize="@dimen/LargerTextSize" />
+
+</LinearLayout>

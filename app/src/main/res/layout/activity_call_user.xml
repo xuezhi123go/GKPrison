@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/rl_video_view"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:background="@color/white">
+
+                <LinearLayout
+                    android:id="@+id/ll_id_card_photo"
+                    android:layout_width="match_parent"
+                    android:layout_height="350dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/iv_id_card_01"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/default_img"
+                        android:scaleType="fitXY"
+                        android:layout_margin="10dp"/>
+
+                    <ImageView
+                        android:id="@+id/iv_id_card_02"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:src="@drawable/default_img"
+                        android:scaleType="fitXY"
+                        android:layout_margin="10dp"/>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_getting"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/half_transparent"
+                    android:visibility="gone">
+
+                    <ProgressBar
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:layout_centerInParent="true"/>
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rl_meeting_notice"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/rl_video_view">
+
+                <TextView
+                    android:id="@+id/tv_meeting_notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/meeting_notice"
+                    android:textSize="24sp"
+                    android:textColor="@color/tv_mid"
+                    android:lineSpacingExtra="10dp"
+                    android:padding="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:padding="10dp"
+                android:layout_below="@id/rl_meeting_notice"
+                android:gravity="center_vertical">
+
+                <Button
+                    android:id="@+id/bt_call"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:background="@drawable/theme_bg_bt_selector"
+                    android:text="@string/call"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:enabled="false"/>
+            </RelativeLayout>
+        </RelativeLayout>
+    </ScrollView>
+</LinearLayout>

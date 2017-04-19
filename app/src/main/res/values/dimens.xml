@@ -1,0 +1,118 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="home_tab_width">70px</dimen>
+    <dimen name="home_tab_height">85px</dimen>
+    <dimen name="visit_tab_height">70px</dimen>
+    <dimen name="dot_radius">20px</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="av_small_size_width">64dp</dimen>
+    <dimen name="av_small_size_height">98dp</dimen>
+    <dimen name="title_bar_height">48dp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="small_title_size">16sp</dimen>
+    <dimen name="iv_back_height_width">22dp</dimen>
+    <dimen name="three_grid_unit">24dp</dimen>
+    <dimen name="one_and_a_half_grid_unit">12dp</dimen>
+    <dimen name="tv_apply_meeting_call">17sp</dimen>
+    <dimen name="tv_apply_meeting_call_notice">20sp</dimen>
+    <dimen name="msg_width">22dp</dimen>
+    <dimen name="login_spinner">30px</dimen>
+    <dimen name="ok_cancel_height">50dp</dimen>
+    <dimen name="ok_cancel_title_size">18sp</dimen>
+    <dimen name="tv_cancel_size">16sp</dimen>
+    <dimen name="ok_cancel_title_padding">16sp</dimen>
+    <dimen name="main_body_text">14sp</dimen>
+    <dimen name="logout_tv_size">20sp</dimen>
+    <dimen name="sliding_menu_width">160dp</dimen>
+    <dimen name="main_tab_height">50dp</dimen>
+    <dimen name="menu_icon_size">22dp</dimen>
+    <dimen name="menu_icon_left_padding">10dp</dimen>
+    <dimen name="main_tab_text_size">12sp</dimen>
+    <dimen name="roll_height">160dp</dimen>
+    <dimen name="roll_title_height">30dp</dimen>
+    <dimen name="home_options_total_height">236dp</dimen>
+    <dimen name="home_option_height">116dp</dimen>
+    <dimen name="home_tv_focus_height">30dp</dimen>
+    <dimen name="home_focus_news_height">110dp</dimen>
+    <dimen name="home_focus_content_tv_size">14sp</dimen>
+    <dimen name="home_focus_title_tv_size">16sp</dimen>
+    <dimen name="home_option_iv_size">40dp</dimen>
+    <dimen name="home_option_tv_size">16sp</dimen>
+    <dimen name="laws_item_height">60dp</dimen>
+    <dimen name="laws_item_tv_size">16sp</dimen>
+    <dimen name="roll_title_size">14sp</dimen>
+    <dimen name="news_item_height">120dp</dimen>
+    <dimen name="menu_iv_bg_height">180dp</dimen>
+    <dimen name="menu_iv_size">60dp</dimen>
+    <dimen name="menu_user_name_size">18sp</dimen>
+    <dimen name="logout_bt_height">44dp</dimen>
+    <dimen name="menu_item_height">50dp</dimen>
+    <dimen name="menu_item_tv_size">16sp</dimen>
+    <dimen name="menu_item_iv_size">30dp</dimen>
+    <dimen name="meeting_padding">40dp</dimen>
+    <dimen name="shidi_padding">20dp</dimen>
+    <dimen name="can_meeting_nums">35dp</dimen>
+    <dimen name="last_meeting_time">14sp</dimen>
+    <dimen name="meeting_info_tv_size">16sp</dimen>
+    <dimen name="replay_bt_size">18sp</dimen>
+    <dimen name="user_info_item_height">50dp</dimen>
+    <dimen name="user_info_tv_size">16sp</dimen>
+    <dimen name="setting_item_iv_size">25dp</dimen>
+    <dimen name="setting_item_tv_size">16sp</dimen>
+    <dimen name="setting_bottom_tv_size">12sp</dimen>
+    <dimen name="total_money_tv_size">18sp</dimen>
+    <dimen name="pay_way_item_height">50dp</dimen>
+    <dimen name="pay_way_check_size">20dp</dimen>
+    <dimen name="canteen_tab_height">50dp</dimen>
+    <dimen name="canteen_tab_tv_size">16sp</dimen>
+    <dimen name="canteen_tab_spinner_size">8dp</dimen>
+    <dimen name="goods_car_iv_size">35dp</dimen>
+    <dimen name="goods_car_tv_size">16sp</dimen>
+    <dimen name="tv_total_money_remarks">12sp</dimen>
+    <dimen name="register_icon_height">93dp</dimen>
+    <dimen name="register_right_margin">100dp</dimen>
+    <dimen name="register_edittext_height">44dp</dimen>
+    <dimen name="register_sex_tv_size">14sp</dimen>
+    <dimen name="register_ic_height">80dp</dimen>
+    <dimen name="register_ic_iv_size">60dp</dimen>
+    <dimen name="register_check_size">15dp</dimen>
+    <dimen name="sales_item_height">130dp</dimen>
+    <dimen name="contact_us_height">60dp</dimen>
+    <dimen name="agreement_tv_space">5dp</dimen>
+    <dimen name="agreement_tv_size">14sp</dimen>
+    <dimen name="opinion_edittext_height">150dp</dimen>
+    <dimen name="write_msg_content_height">140dp</dimen>
+    <dimen name="warden_tab_tv_size">16sp</dimen>
+    <dimen name="register_success_dialog_height">200dp</dimen>
+
+    <!--标题文字大小-->
+    <dimen name="textSize_alert_title">22sp</dimen>
+    <dimen name="textSize_actionsheet_title">14sp</dimen>
+    <!--标题文字高度-->
+    <dimen name="height_alert_title">60dp</dimen>
+    <dimen name="height_actionsheet_title">40dp</dimen>
+    <!--消息文字大小-->
+    <dimen name="textSize_alert_msg">15sp</dimen>
+    <dimen name="textSize_actionsheet_msg">14sp</dimen>
+    <!--消息距离底部间距-->
+    <dimen name="marginBottom_alert_msg">25dp</dimen>
+    <dimen name="marginBottom_actionsheet_msg">14dp</dimen>
+    <!--窗口模式左右两边到屏幕的间距-->
+    <dimen name="margin_alert_left_right">40dp</dimen>
+    <dimen name="margin_actionsheet_left_right">10dp</dimen>
+    <!--线条粗细-->
+    <dimen name="size_divier">1dp</dimen>
+    <!--按钮的高度-->
+    <dimen name="height_alert_button">48dp</dimen>
+    <!--按钮文字大小-->
+    <dimen name="textSize_alert_button">18sp</dimen>
+    <!--圆角-->
+    <dimen name="radius_alertview">15px</dimen>
+
+    <!-- sweet-alert-dialog -->
+    <dimen name="alert_width">290dp</dimen>
+    <dimen name="common_circle_width">3dp</dimen>
+    <dimen name="progress_circle_radius">34dp</dimen>
+    <dimen name="register_edittext_height_">42dp</dimen>
+</resources>

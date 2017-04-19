@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/et_shape_search"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:id="@+id/tv_send_reply_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:text="原始信息:"
+            android:textColor="#999999"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tv_send_reply_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="#999999"
+            android:text="吃饭了吗"
+            android:layout_toRightOf="@+id/tv_send_reply_title"
+            android:layout_alignBaseline="@+id/tv_send_reply_title"/>
+        <View
+            android:id="@+id/v_fenjie"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/tv_send_reply_contents"
+            android:background="#dadada"/>
+
+        <TextView
+            android:id="@+id/tv_reply_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/v_fenjie"
+            android:text="您所反馈的问题经调查属实，本狱已受理并解决，感谢您对本监狱的支持！\n\n"
+            android:textSize="16sp"
+            android:paddingLeft="5dp"
+            android:lineSpacingExtra="5dp"
+            android:textColor="@color/tv_bg"
+            android:gravity="center_vertical"
+            android:paddingTop="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_warden_signature"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="监狱长签名："
+            android:layout_below="@id/tv_reply_content"
+            android:textColor="@color/tv_mid"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="80dp"/>
+
+        <TextView
+            android:id="@+id/tv_message_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_warden_signature"
+            android:text="2015年12月12日"
+            android:textColor="@color/tv_mid"
+            android:textSize="12sp"
+            android:layout_alignLeft="@id/tv_warden_signature"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"/>
+    </RelativeLayout>
+</RelativeLayout>

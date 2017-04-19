@@ -1,0 +1,249 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:layout_below="@id/toolbar"
+        android:layout_marginTop="10dp"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申请人姓名："
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:id="@+id/tv_request_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="叶美惠"
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申请时间："
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:id="@+id/tv_request_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2015年4月10日"
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申请状态："
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:id="@+id/tv_request_state"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="未通过"
+                android:textSize="16sp"
+                android:textColor="@color/tv_red"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_request_not_pass_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原因："
+                android:textSize="16sp"
+                android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:id="@+id/tv_request_not_pass_reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1、根据本监狱的规定，每位服刑囚犯每月只能接受两次及以内的探视服务。\n2、重刑犯、表现不佳的服刑人员不接受探监。\n3、本服务端每月只能提交3次探监申请。"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/tv_mid"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_meeting_request_not_pass_reason"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="原因："
+                android:textSize="16sp"
+                android:textColor="@color/tv_mid"/>
+
+            <TextView
+                android:id="@+id/tv_meeting_not_pass_reason"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1、根据本监狱的规定，每位服刑囚犯每月只能接受两次及以内的远程。\n2、重刑犯、表现不佳的服刑人员不接受会见。\n3、本服务端每月只能提交3次会见申请。"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/tv_bg"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_request_pass_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:visibility="gone">
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:paddingTop="3dp"-->
+                <!--android:paddingBottom="3dp">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="探监时间："-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="@color/tv_bg"/>-->
+
+                <!--<TextView-->
+                    <!--android:id="@+id/tv_visit_time"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="2015年10月11日"-->
+                    <!--android:textSize="16sp"-->
+                    <!--android:textColor="@color/tv_bg"/>-->
+            <!--</LinearLayout>-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注意事项："
+                android:textSize="16sp"
+                android:textColor="@color/tv_mid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;请在预约当天，携带个人身份证前往监狱进行探监。"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/tv_bg"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_meeting_request_pass_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="5dp"
+            android:paddingRight="5dp"
+            android:paddingTop="3dp"
+            android:orientation="vertical"
+            android:paddingBottom="3dp"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="3dp"
+                android:paddingBottom="3dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="会见时间："
+                    android:textSize="16sp"
+                    android:textColor="@color/tv_bg"/>
+
+                <TextView
+                    android:id="@+id/tv_meeting_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2015年10月11日     9:00-9:15"
+                    android:textSize="16sp"
+                    android:textColor="@color/tv_bg"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="注意事项："
+                android:textSize="16sp"
+                android:textColor="@color/tv_mid"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;1、远程探监申请只允许申请人单独视频，其余人等不可视频也不可通话，否则狱警有权切断视频页，并将对帐号进行封号处理。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;2、视频中请勿使用外语、隐语或暗号，请勿谈论违法、违规问题，违者封号处理。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;3、视频开始前，狱警将会对您的资料进行审核，请不要挂断视频。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;4、您的通话可能会被录音，敬请谅解。\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;5、临时变动或其余未尽事宜，我们将以短信形式通知您，敬请留意。"
+                android:textSize="16sp"
+                android:layout_marginTop="5dp"
+                android:textColor="@color/tv_bg"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

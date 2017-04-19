@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_msg_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:textColor="@color/tv_bg"
+        android:lineSpacingExtra="5dp"
+        android:textSize="@dimen/ok_cancel_title_size"
+        android:padding="@dimen/ok_cancel_title_padding"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:text="如果未完成通话,预付金会自动退回到您的账户。"
+        android:textSize="12sp"
+        android:gravity="right"
+        android:id="@+id/tv_sub_msg"
+        android:padding="4dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"/>
+
+    <View
+        android:id="@+id/view_02"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/et_hint"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/ok_cancel_height"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/tv_bg"
+            android:background="@drawable/item_selector"
+            android:textSize="@dimen/tv_cancel_size"
+            android:gravity="center"
+            android:text="取消"/>
+
+        <View
+            android:id="@+id/view_01"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="@color/et_hint"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"/>
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="@drawable/item_selector"
+            android:layout_weight="1"
+            android:textColor="@color/tv_bg"
+            android:textSize="@dimen/tv_cancel_size"
+            android:text="确定"/>
+    </LinearLayout>
+</LinearLayout>

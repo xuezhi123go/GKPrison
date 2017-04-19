@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/input_cancel"
+            android:textColor="@color/tv_bg"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:id="@+id/tv_cancel_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/theme"
+            android:textSize="20sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel_reason"
+            android:textColor="@color/tv_bg"
+            android:textSize="20sp"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/theme"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_cancel_reason"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/et_shape_gray"
+        android:layout_marginTop="10dp"
+        android:gravity="start"
+        android:padding="5dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="取消"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/theme_bg_bt_selector"/>
+
+        <View
+            android:layout_width="20dp"
+            android:layout_height="match_parent"
+            android:background="@color/transparent"/>
+
+        <TextView
+            android:id="@+id/tv_ok"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="确定"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:background="@drawable/theme_bg_bt_selector"/>
+    </LinearLayout>
+
+</LinearLayout>

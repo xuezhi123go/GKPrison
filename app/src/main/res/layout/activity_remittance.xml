@@ -1,0 +1,31 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <include layout="@layout/toolbar_layout"
+        android:id="@+id/toolbar"/>
+
+    <ListView
+        android:id="@+id/lv_remittance"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/toolbar"
+        android:divider="@null"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar">
+
+        <ImageView
+            android:id="@+id/iv_recode"
+            android:layout_width="260dp"
+            android:layout_height="260dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/no_record"
+            android:visibility="gone"
+            android:paddingBottom="100dp"/>
+    </RelativeLayout>
+</RelativeLayout>

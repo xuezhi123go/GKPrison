@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:background="@drawable/item_selector"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <TextView
+        android:layout_centerInParent="true"
+        android:id="@+id/tv_system_msg_left"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:text="@string/apply_through"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:textColor="@color/tv_bg"/>
+
+    <TextView
+        android:id="@+id/tv_system_msg_right"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:visibility="gone"
+        android:text="点击查看详情"
+        android:layout_alignParentRight="true"
+        android:gravity="center_vertical"
+        android:textSize="16sp"
+        android:textColor="@color/theme"/>
+
+    <TextView
+        android:id="@+id/tv_system_msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:text="11:12"
+        android:textSize="16sp"
+        android:textColor="@color/tv_gray"
+        android:paddingBottom="4dp"/>
+</RelativeLayout>

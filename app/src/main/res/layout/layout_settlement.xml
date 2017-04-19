@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/canteen_tab_height"
+    android:orientation="horizontal"
+    android:layout_alignParentBottom="true"
+    tools:showIn="@layout/fragment_canteen">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:orientation="horizontal"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:layout_weight="1">
+
+        <ImageView
+            android:id="@+id/iv_buy_car_icon"
+            android:layout_width="@dimen/goods_car_iv_size"
+            android:layout_height="@dimen/goods_car_iv_size"
+            android:src="@drawable/buycar"
+            android:layout_marginLeft="20dp"
+            android:layout_gravity="center_vertical" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/tv_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/buy_car_total"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:id="@+id/tv_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_total"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:text="0.00"
+                android:textColor="#FF3503"
+                android:layout_toRightOf="@+id/tv_total" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF3503"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:text="@string/yuan"
+                android:layout_alignBaseline="@+id/tv_total"
+                android:layout_toRightOf="@+id/tv_total_money" />
+
+            <TextView
+                android:id="@+id/tv_total_money_remarks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/_2"
+                android:textSize="@dimen/tv_total_money_remarks"
+                android:textColor="@color/tv_mid"
+                android:layout_below="@+id/tv_total"
+                android:layout_marginLeft="20dp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/bt_settlement"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/orange_bg"
+        android:text="@string/settlement"
+        android:textSize="@dimen/goods_car_tv_size"
+        android:textColor="@color/white" />
+</LinearLayout>

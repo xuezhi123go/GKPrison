@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/contact_us_height"
+        android:text="@string/contract_us"
+        android:gravity="center_vertical"
+        android:paddingLeft="20dp"
+        android:textSize="@dimen/goods_car_tv_size"
+        android:textColor="@color/theme"
+        android:background="@color/white"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company_address_"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"/>
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company_address"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/email_"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"/>
+
+            <TextView
+                android:id="@+id/tv_zip_code"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/post_code"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/customer_service_phone"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"/>
+
+            <TextView
+                android:id="@+id/tv_tell"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/company_phone"
+                android:textColor="@color/tv_bg"
+                android:textSize="@dimen/goods_car_tv_size"
+                android:lineSpacingExtra="5dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

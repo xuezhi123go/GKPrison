@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/srl_refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <include
+                android:id="@+id/rl_carousel"
+                layout="@layout/layout_roll_view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/roll_height" >
+            </include>
+
+            <GridView
+                android:id="@+id/gv_home_options"
+                android:layout_below="@id/rl_carousel"
+                android:layout_width="match_parent"
+                android:padding="5dp"
+                android:verticalSpacing="5dp"
+                android:horizontalSpacing="5dp"
+                android:layout_height="@dimen/home_options_total_height"
+                android:background="@color/bg"
+                android:numColumns="3">
+            </GridView>
+
+            <View
+                android:id="@+id/view_01"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/et_hint"
+                android:layout_below="@id/gv_home_options"/>
+
+            <ImageView
+                android:id="@+id/focus_icon"
+                android:layout_width="@dimen/home_tv_focus_height"
+                android:layout_height="@dimen/home_tv_focus_height"
+                android:background="@color/white"
+                android:src="@drawable/focus"
+                android:padding="5dp"
+                android:layout_below="@+id/view_01"/>
+
+            <TextView
+                android:id="@+id/tv_focus_attention"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/home_tv_focus_height"
+                android:layout_below="@+id/view_01"
+                android:layout_toRightOf="@id/focus_icon"
+                android:text="@string/focus_"
+                android:textColor="@color/tv_gray"
+                android:textSize="@dimen/home_focus_content_tv_size"
+                android:gravity="center_vertical"
+                android:background="@color/white"/>
+
+            <View
+                android:id="@+id/view_02"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/et_hint"
+                android:layout_below="@id/tv_focus_attention"/>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/focus_news_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/view_02"/>
+        </RelativeLayout>
+    </ScrollView>
+</android.support.v4.widget.SwipeRefreshLayout>

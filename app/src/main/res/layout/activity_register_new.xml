@@ -1,0 +1,219 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/toolbar_layout" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg"
+            android:orientation="vertical"
+            android:padding="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/register_icon_height">
+
+                <EditText
+                    android:id="@+id/et_name"
+                    style="@style/no_bg_small"
+                    android:layout_marginRight="@dimen/register_right_margin"
+                    android:hint="@string/name" />
+
+                <RadioGroup
+                    android:id="@+id/rg_sex"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/register_edittext_height"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/register_right_margin"
+                    android:layout_below="@+id/et_name"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@color/white">
+
+                    <RadioButton
+                        android:id="@+id/rb_male"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/rb_sex_selector"
+                        android:button="@null"
+                        android:textColor="@color/tv_bg"
+                        android:textSize="@dimen/register_sex_tv_size"
+                        android:checked="true"
+                        android:text="@string/man"/>
+
+                    <RadioButton
+                        android:id="@+id/rb_female"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableLeft="@drawable/rb_sex_selector"
+                        android:button="@null"
+                        android:textColor="@color/tv_bg"
+                        android:textSize="@dimen/register_sex_tv_size"
+                        android:text="@string/woman"
+                        android:layout_marginLeft="10dp"/>
+                </RadioGroup>
+
+                <ImageView
+                    android:id="@+id/iv_user_icon"
+                    android:layout_width="@dimen/register_icon_height"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/default_icon"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/white"
+                    android:layout_marginLeft="5dp"
+                    android:scaleType="fitXY"/>
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/et_ic_card"
+                style="@style/no_bg_small"
+                android:hint="@string/id_code"/>
+
+            <EditText
+                android:id="@+id/et_phone_num"
+                style="@style/no_bg_small"
+                android:hint="@string/phone_number"
+                android:inputType="phone"/>
+
+            <EditText
+                android:id="@+id/et_relationship_with_prisoner"
+                style="@style/no_bg_small"
+                android:hint="@string/prisoner_relationship"/>
+
+            <EditText
+                android:id="@+id/et_prisoner_num"
+                style="@style/no_bg_small"
+                android:hint="@string/prisoner_code"
+                android:inputType="number"/>
+
+
+            <com.gkzxhn.gkprison.widget.view.auto.AutoCompleteTv
+                android:id="@+id/actv_prison_choose"
+                style="@style/no_bg_small"
+                android:completionThreshold="1"
+                android:hint="@string/prison_select"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/register_edittext_height"
+                android:layout_marginTop="5dp">
+
+                <EditText
+                    android:id="@+id/et_identifying_code"
+                    style="@style/no_bg_small"
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:hint="@string/input_verify_code"
+                    android:inputType="number"
+                    android:layout_marginTop="0dp"
+                    android:layout_marginRight="5dp"/>
+
+                <Button
+                    android:id="@+id/bt_send_identifying_code"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/register_edittext_height"
+                    android:layout_weight="1"
+                    android:text="@string/send_verify_code"
+                    android:textSize="@dimen/register_sex_tv_size"
+                    android:textColor="@color/white"
+                    android:background="@drawable/theme_bg_bt_selector"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/register_ic_height"
+                android:background="@color/white"
+                android:layout_marginTop="5dp">
+
+                <ImageView
+                    android:id="@+id/iv_add_photo_01"
+                    android:layout_width="@dimen/register_ic_iv_size"
+                    android:layout_height="@dimen/register_ic_iv_size"
+                    android:src="@drawable/add_photo"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"/>
+
+                <ImageView
+                    android:id="@+id/iv_add_photo_02"
+                    android:layout_width="@dimen/register_ic_iv_size"
+                    android:layout_height="@dimen/register_ic_iv_size"
+                    android:src="@drawable/add_photo"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tv_mid"
+                    android:textSize="@dimen/register_sex_tv_size"
+                    android:text="@string/upload_id_photo"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:background="@color/bg"
+                android:layout_marginTop="5dp">
+
+                <CheckBox
+                    android:id="@+id/cb_agree_disagree"
+                    android:layout_width="@dimen/register_check_size"
+                    android:layout_height="@dimen/register_check_size"
+                    android:layout_marginLeft="5dp"
+                    android:button="@null"
+                    android:background="@drawable/cb_agreement_selector"/>
+
+                <TextView
+                    android:id="@+id/tv_read"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/readed_agree"
+                    android:textColor="@color/tv_mid"
+                    android:layout_marginLeft="5dp"
+                    android:textSize="@dimen/register_sex_tv_size"/>
+
+                <TextView
+                    android:id="@+id/tv_software_protocol"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/tv_blue"
+                    android:textSize="@dimen/register_sex_tv_size"
+                    android:text="@string/soft_use_agreement"
+                    android:background="@drawable/tv_selector"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/register_edittext_height">
+
+                <Button
+                    android:id="@+id/bt_register"
+                    style="@style/normal_bt"
+                    android:text="@string/register"
+                    android:enabled="false"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/gray_bg_bt_selector"/>
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+

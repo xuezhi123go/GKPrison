@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/bg">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <RelativeLayout
+        android:id="@+id/rl_update"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="@color/theme">
+
+        <ImageView
+            android:id="@+id/iv_check_update"
+            android:layout_width="180dp"
+            android:layout_height="180dp"
+            android:src="@drawable/update"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"/>
+
+        <Button
+            android:id="@+id/bt_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/check_update"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:padding="10dp"
+            android:background="@drawable/transparent_bt_selector"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"/>
+
+        <ProgressBar
+            android:id="@+id/mProgressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_check_update"
+            android:paddingRight="20dp"
+            android:paddingLeft="20dp"
+            android:layout_marginTop="10dp"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mProgressBar"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:text="@string/current_vs"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@color/theme"/>
+
+            <TextView
+                android:id="@+id/tv_version_code"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:gravity="center_vertical"
+                android:textSize="16sp"
+                android:textColor="@color/theme"/>
+
+            <TextView
+                android:id="@+id/tv_new_version"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginLeft="60dp"
+                android:text="@string/new_vs"
+                android:textSize="16sp"
+                android:textColor="@color/theme"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/theme"/>
+
+        <TextView
+            android:id="@+id/tv_new_function"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newest_vs"
+            android:lineSpacingExtra="10dp"
+            android:textColor="@color/tv_mid"
+            android:textSize="16sp"
+            android:padding="20dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_new_function_contents"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="10dp"
+            android:textColor="@color/tv_mid"
+            android:textSize="16sp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:visibility="gone"/>
+    </LinearLayout>
+</LinearLayout>

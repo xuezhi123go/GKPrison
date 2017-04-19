@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="20dip" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45.0dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="@string/meeting_name" />
+
+        <EditText
+            android:id="@+id/conf_name"
+            android:layout_width="match_parent"
+            android:layout_height="45.0dip"
+            android:imeOptions="actionNext"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:singleLine="true"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="@dimen/LargeTextSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45.0dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="会议码率(64K-8128K):" />
+
+        <EditText
+            android:id="@+id/conf_rate"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:singleLine="true"
+            android:hint="512"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="@dimen/LargeTextSize" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45.0dip"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="100dip"
+            android:layout_height="wrap_content"
+            android:text="会议持续时间(小时):" />
+
+        <EditText
+            android:id="@+id/duration_time"
+            android:layout_width="fill_parent"
+            android:layout_height="45.0dip"
+            android:imeOptions="actionNext"
+            android:inputType="number"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:singleLine="true"
+            android:hint="2"
+            android:textColor="@android:color/black"
+            android:textColorHint="@android:color/darker_gray"
+            android:textSize="@dimen/LargeTextSize" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/video_btnCall"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18.0dip"
+        android:layout_marginRight="18.0dip"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingMultiplier="0.95"
+        android:tag="ok"
+        android:text="视频召开"
+        android:textSize="@dimen/LargerTextSize" />
+    <Button
+        android:id="@+id/audio_btnCall"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18.0dip"
+        android:layout_marginRight="18.0dip"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingMultiplier="0.95"
+        android:tag="ok"
+        android:text="音频召开"
+        android:textSize="@dimen/LargerTextSize" />
+
+    <Button
+        android:id="@+id/btnCancel"
+        android:layout_width="fill_parent"
+        android:layout_height="48.0dip"
+        android:layout_gravity="center"
+        android:layout_marginLeft="18.0dip"
+        android:layout_marginRight="18.0dip"
+        android:layout_marginTop="10.0dip"
+        android:gravity="center_vertical|center_horizontal"
+        android:lineSpacingMultiplier="0.95"
+        android:tag="ok"
+        android:text="取消"
+        android:textColor="@color/red"
+        android:textSize="@dimen/LargerTextSize" />
+
+</LinearLayout>

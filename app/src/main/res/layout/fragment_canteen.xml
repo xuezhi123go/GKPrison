@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <include
+        android:id="@+id/shopping_navigation"
+        layout="@layout/shopping_navigation" />
+
+    <View
+        android:id="@+id/divider_01"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/shopping_navigation"
+        android:background="@color/et_hint"
+        android:layout_centerHorizontal="true"/>
+
+    <FrameLayout
+        android:id="@+id/fl_commodity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/divider_01"/>
+
+    <include layout="@layout/layout_settlement" />
+
+    <include layout="@layout/layout_shopping_car" />
+
+    <FrameLayout
+        android:id="@+id/fl_choose"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/divider_01"
+        android:background="@color/half_transparent"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/lv_all_choose"
+            android:layout_width="260dp"
+            android:layout_height="wrap_content"
+            android:divider="@color/transparent"
+            android:dividerHeight="1dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/white">
+        </ListView>
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_sales_choose"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/divider_01"
+        android:background="@color/half_transparent"
+        android:visibility="gone">
+
+        <ListView
+            android:id="@+id/lv_sales_choose"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@color/transparent"
+            android:dividerHeight="1dp"
+            android:background="@color/white">
+        </ListView>
+    </FrameLayout>
+</RelativeLayout>

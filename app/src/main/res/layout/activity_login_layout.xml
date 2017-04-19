@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dip" >
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:focusableInTouchMode="true" >
+
+
+        <EditText
+            android:id="@+id/addr_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:completionThreshold="1"
+            android:dropDownHeight="wrap_content"
+            android:dropDownVerticalOffset="1dip"
+            android:dropDownWidth="wrap_content"
+            android:gravity="bottom|center_horizontal|center_vertical"
+            android:hint="@string/server_adds"
+            android:imeOptions="actionNext"
+            android:paddingBottom="8dip"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:scrollHorizontally="false"
+            android:singleLine="true"
+            >
+            <requestFocus />
+        </EditText>
+        <EditText
+            android:id="@+id/account_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addr_et"
+            android:completionThreshold="1"
+            android:dropDownHeight="wrap_content"
+            android:dropDownVerticalOffset="1dip"
+            android:dropDownWidth="wrap_content"
+            android:gravity="bottom|center_horizontal|center_vertical"
+            android:hint="@string/account"
+            android:imeOptions="actionNext"
+            android:paddingBottom="8dip"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:scrollHorizontally="false"
+            android:singleLine="true" >
+        </EditText>
+        <EditText
+            android:id="@+id/pwd_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/account_et"
+            android:layout_marginTop="10dip"
+            android:gravity="bottom|center_horizontal|center_vertical"
+            android:hint="@string/password"
+            android:imeOptions="actionDone"
+            android:inputType="textPassword"
+            android:maxLength="32"
+            android:paddingBottom="8dip"
+            android:paddingLeft="12.0dip"
+            android:paddingRight="25.0dip"
+            android:singleLine="true"
+           />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/login_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:text="@string/login_text"
+         />
+    <Button
+        android:id="@+id/logOff_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical|center_horizontal"
+        android:textColor="@color/red"
+        android:text="@string/login_off"
+         />
+    
+     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dip"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="15dip"
+            android:text="H.323代理：" />
+
+        <ToggleButton
+            android:id="@+id/isH323"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    
+</LinearLayout>

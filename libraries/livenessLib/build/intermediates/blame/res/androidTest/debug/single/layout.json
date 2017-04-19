@@ -1,0 +1,34 @@
+[
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\liveness_detection_step.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\bundles\\debug\\res\\layout\\liveness_detection_step.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\leak_canary_leak_row.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\layout\\leak_canary_leak_row.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\leak_canary_ref_top_row.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\layout\\leak_canary_ref_top_row.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\liveness_layout.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\bundles\\debug\\res\\layout\\liveness_layout.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\liveness_layout2.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\bundles\\debug\\res\\layout\\liveness_layout2.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\leak_canary_display_leak.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\layout\\leak_canary_display_leak.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\leak_canary_ref_row.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\layout\\leak_canary_ref_row.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\androidTest\\debug\\layout\\leak_canary_heap_dump_toast.xml",
+        "source": "C:\\Users\\hasee\\.android\\build-cache\\b28a006dd4087614280d521b9996dff9f0d3eae9\\output\\res\\layout\\leak_canary_heap_dump_toast.xml"
+    }
+]

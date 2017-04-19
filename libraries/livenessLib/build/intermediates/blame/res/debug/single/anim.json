@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\anim\\liveness_leftout.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\anim\\liveness_leftout.xml"
+    },
+    {
+        "merged": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\build\\intermediates\\res\\merged\\debug\\anim\\liveness_rightin.xml",
+        "source": "E:\\Work-GKZX\\YWT\\GKPrison\\libraries\\livenessLib\\src\\main\\res\\anim\\liveness_rightin.xml"
+    }
+]

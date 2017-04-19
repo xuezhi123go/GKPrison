@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- @dimen/default_listitem_height -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/contactGroupChild"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:descendantFocusability="blocksDescendants"
+    android:gravity="center_vertical"
+    android:minHeight="60dip"
+    android:paddingBottom="4.0dip"
+    android:paddingLeft="38dip"
+    android:paddingRight="38dip"
+    android:paddingTop="4.0dip" >
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="2.0dip"
+        android:singleLine="true"
+        android:text="@null" />
+
+</RelativeLayout>

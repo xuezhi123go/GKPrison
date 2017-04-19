@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/black"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/vconf_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="5dp"
+            android:padding="5dip"
+            android:textColor="@color/white"
+            android:textSize="@dimen/LargeTextSize" />
+
+        <FrameLayout
+            android:id="@+id/portrait_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/vconf_title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dip"
+            android:scaleType="center" >
+
+        </FrameLayout>
+
+        <ImageView
+            android:id="@+id/flasher_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/portrait_layout"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="8dip"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/joinVConf_waitingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/flasher_img"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/vconf_audio_waiting"
+            android:textColor="@color/white"
+            android:textSize="@dimen/LargeTextSize" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/hang_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="40dip"
+        android:layout_marginTop="80dip"
+        android:contentDescription="@null"
+        android:padding="10dip"
+        android:src="@drawable/vconf_hangup_big" />
+
+</LinearLayout>

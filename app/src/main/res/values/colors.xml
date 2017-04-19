@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="transparent">#00000000</color>
+    <color name="half_transparent">#4000</color>
+    <color name="theme">#6495ed</color>
+    <color name="black">#000000</color>
+    <color name="half_transparent_theme">#4e82df</color>
+    <color name="white">#ffffff</color>
+    <color name="bg">#f0f0f0</color>
+    <color name="tv_mid">#666666</color>
+    <color name="tv_bg">#333333</color>
+    <color name="tv_red">#f10000</color>
+    <color name="tv_blue">#ff33b5e5</color>
+    <color name="tv_green">#1f9400</color>
+    <color name="tv_gray">#999999</color>
+    <color name="et_hint">#dadada</color>
+    <color name="item_press">#eeeeee</color>
+    <color name="orange_bg">#FD5D2B</color>
+    <color name="canlendar_text_color">#323232</color>
+    <color name="navpage">#FFE1E8EB</color>
+
+    // keda
+    <color name="red">#FF0000</color>
+
+    <!-- gray -->
+    <color name="gray_484848">#484848</color>
+
+    <!-- blue -->
+    <color name="blue_008ccd">#008ccd</color>
+
+    <!-- color -->
+    <color name="color_78">#FF787878</color>
+    <color name="color_a1">#FFa1a1a1</color>
+
+    <color name="blue_btn_bg_color">#6495ed</color><!-- #AEDEF4 -->
+    <color name="blue_btn_bg_pressed_color">#96BFD2</color>
+</resources>

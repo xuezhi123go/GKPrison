@@ -1,0 +1,43 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/toolbar_layout" />
+
+    <ListView
+        android:id="@+id/lv_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:divider="@color/et_hint"
+        android:dividerHeight="1dp"
+        android:paddingLeft="10dp"
+        android:background="@color/white"
+        android:paddingRight="10dp"
+        android:scrollbars="none">
+    </ListView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@color/et_hint"/>
+
+    <TextView
+        android:id="@+id/tv_refund"
+        android:visibility="gone"
+        android:clickable="true"
+        android:text="@string/apply_refund"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_gravity="right"
+        android:layout_margin="6dp"
+        android:gravity="center"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/theme_bg_bt_selector"
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/menu_item_iv_size"/>
+</LinearLayout>

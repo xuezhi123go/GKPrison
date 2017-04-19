@@ -1,0 +1,30 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+// NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        jcenter()
+    }
+}
+
+ext{
+    COMPILE_SDK_VERSION = project.COMPILE_SDK_VERSION
+    BUILD_TOOLS_VERSION = project.BUILD_TOOLS_VERSION
+    MIN_SDK_VERSION = project.MIN_SDK_VERSION
+    TARGET_SDK_VERSION = project.TARGET_SDK_VERSION
+    VERSION_CODE = project.VERSION_CODE
+    VERSION_NAME = project.VERSION_NAME
+}

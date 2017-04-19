@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="no_bg">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/register_edittext_height</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/et_shape_search</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:textSize">@dimen/goods_car_tv_size</item>
+        <item name="android:textColor">@color/tv_bg</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor_color</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="no_bg_small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/register_edittext_height</item>
+        <item name="android:background">@drawable/et_shape_search</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:textSize">@dimen/register_sex_tv_size</item>
+        <item name="android:textColor">@color/tv_bg</item>
+        <item name="android:textColorHint">@color/tv_gray</item>
+        <item name="android:textCursorDrawable">@drawable/edittext_cursor_color</item>
+        <item name="android:maxLines">1</item>
+    </style>
+</resources>

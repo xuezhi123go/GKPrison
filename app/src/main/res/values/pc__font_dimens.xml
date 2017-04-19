@@ -1,0 +1,19 @@
+<resources>
+
+    <!-- Text Size -->
+    <!-- TextSize最大30.0dip -->
+    <dimen name="XLargeTextSize">20.0dip</dimen>
+    <dimen name="LargerTextSize">17.0dip</dimen>
+
+    <!-- TitleTextSize默认18.0dip -->
+    <dimen name="TitleTextSize">18.0dip</dimen>
+
+    <!-- TT TextSize大部分使用16.0dip -->
+    <dimen name="LargeTextSize">16.0dip</dimen>
+
+    <!-- TextSize默认15.0dip -->
+    <dimen name="BasicTextSize">15.0dip</dimen>
+    <dimen name="SmallTextSize">14.0dip</dimen>
+    <dimen name="SmallerTextSize">13.0dip</dimen>
+
+</resources>

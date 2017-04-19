@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <TextView
+        android:id="@+id/tv_please_choose_prison"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/input_prison_name"
+        android:textSize="18sp"
+        android:textColor="@color/tv_mid"
+        android:padding="10dp"/>
+
+    <com.gkzxhn.gkprison.widget.view.auto.AutoCompleteTv
+        android:id="@+id/actv_prison_input"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:textCursorDrawable="@drawable/edittext_cursor_color"
+        android:textColorHint="@color/tv_gray"
+        android:textColor="@color/tv_bg"
+        android:background="@drawable/et_shape_search"
+        android:completionThreshold="1"
+        android:layout_below="@+id/tv_please_choose_prison"/>
+
+    <Button
+        android:id="@+id/bt_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/ok"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/actv_prison_input"
+        android:background="@drawable/theme_bg_bt_selector"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
+</RelativeLayout>

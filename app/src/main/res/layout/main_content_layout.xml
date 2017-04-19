@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/main_content"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+
+    <RadioGroup
+        android:id="@+id/rg_bottom_guide"
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="@dimen/main_tab_height"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rb_bottom_guide_home"
+            style="@style/main_tab_style"
+            android:drawableTop="@drawable/tab_home_bg_selector"
+            android:drawablePadding="3dp"
+            android:checked="true"
+            android:text="@string/main_page"
+            android:textSize="@dimen/main_tab_text_size"/>
+
+        <RadioButton
+            android:id="@+id/rb_bottom_guide_visit"
+            style="@style/main_tab_style"
+            android:drawableTop="@drawable/tab_remote_meeting_bg_selector"
+            android:drawablePadding="3dp"
+            android:text="@string/visit_prison"
+            android:textSize="@dimen/main_tab_text_size"/>
+
+        <RadioButton
+            android:id="@+id/rb_bottom_guide_canteen"
+            style="@style/main_tab_style"
+            android:drawableTop="@drawable/tab_canteen_bg_selector"
+            android:drawablePadding="3dp"
+            android:text="@string/canteen"
+            android:textSize="@dimen/main_tab_text_size"/>
+    </RadioGroup>
+</LinearLayout>

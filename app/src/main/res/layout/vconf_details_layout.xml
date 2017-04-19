@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingTop="20dip" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip" >
+
+                <TextView
+                    android:id="@+id/confNameText"
+                    android:layout_width="0.0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|bottom"
+                    android:layout_marginBottom="4.0dip"
+                    android:layout_marginRight="8.0dip"
+                    android:layout_weight="1.0"
+                    android:maxLines="2"
+                    android:text="@null" />
+            </LinearLayout>
+
+            <!-- android:layout_weight="1" -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:id="@+id/achMasterMtAlias"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="发起人"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/achMasterMtAliasText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/achConfE164"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="会议E164"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/achConfE164Text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/emEncryptMode"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="会议加密模式"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/emEncryptModeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/shortNumFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/vconf_shortNum"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/shortNumText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/dwBitrate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="会议码率"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/dwBitrateText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/emConfResultion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="会议模式"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/emConfResultionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/confTimeFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/vconf_time"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/confTimeText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/confTimeLenFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/vconf_timeLen"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/confTimeLenText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/bNeedPwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="是否密码会议"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/bNeedPwdText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/confDefinitionFrame"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15.0dip"
+                    android:orientation="vertical"
+                    android:paddingLeft="20dip"
+                    android:paddingRight="20dip" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical|left"
+                        android:text="@string/definition"
+                        android:textColor="@color/gray_484848" />
+
+                    <TextView
+                        android:id="@+id/confDefinitionText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@null" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
