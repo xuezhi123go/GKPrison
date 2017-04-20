@@ -161,6 +161,20 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
 
     @Override
     protected void initUiAndListener() {
+        if (!MyApplication.isV7) {
+            UIUtils.showAlertDialog(this, "您的手机CPU类型版本太低,无法进行视频通话...",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    }, new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    });
+        }
         mPresenter.attachView(this);
         ButterKnife.bind(this);
         setSupportActionBar(tool_bar);
