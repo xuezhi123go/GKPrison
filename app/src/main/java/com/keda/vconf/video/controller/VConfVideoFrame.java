@@ -507,15 +507,17 @@ public class VConfVideoFrame extends Fragment implements View.OnClickListener, S
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
-		if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
-			String username = (String) SPUtil.get(getActivity(), SPKeyConstants.ACCESS_TOKEN, "");
-			if (!TextUtils.isEmpty(username)) {
-				Log.i(TAG, username.length() + "..................");
-				if (username.length() != 32) {
-//					startRecord();
-				}
-			}
+		synchronized (VConfVideoFrame.class) {
+			super.onConfigurationChanged(newConfig);
+			if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+                String username = (String) SPUtil.get(getActivity(), SPKeyConstants.ACCESS_TOKEN, "");
+                if (!TextUtils.isEmpty(username)) {
+                    Log.i(TAG, username.length() + "..................");
+                    if (username.length() != 32) {
+    //					startRecord();
+                    }
+                }
+            }
 		}
 	}
 

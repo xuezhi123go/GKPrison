@@ -264,13 +264,15 @@ public class VConfVideoUI extends ActionBarActivity {
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
 
-		super.onConfigurationChanged(newConfig);
-		if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
-			Log.i("VConfVideo", "VconfVideoFrame-->onConfigurationChanged 是否为横屏：false");
-		}
-		if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-			Log.i("VConfVideo", "VconfVideoFrame-->onConfigurationChanged 是否为横屏：true");
+		synchronized (VConfVideoUI.class) {
+			super.onConfigurationChanged(newConfig);
+			if (newConfig.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                Log.i("VConfVideo", "VconfVideoFrame-->onConfigurationChanged 是否为横屏：false");
+            }
+			if (newConfig.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+                Log.i("VConfVideo", "VconfVideoFrame-->onConfigurationChanged 是否为横屏：true");
 
+            }
 		}
 	}
 

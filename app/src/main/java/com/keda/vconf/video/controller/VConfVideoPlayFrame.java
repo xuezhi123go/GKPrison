@@ -153,7 +153,9 @@ public class VConfVideoPlayFrame extends Fragment implements View.OnClickListene
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
+		synchronized (VConfVideoPlayFrame.class) {
+			super.onConfigurationChanged(newConfig);
+		}
 	}
 
 	/**
