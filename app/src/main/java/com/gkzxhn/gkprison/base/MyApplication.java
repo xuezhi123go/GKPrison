@@ -12,6 +12,7 @@ import com.gkzxhn.gkprison.dagger.componet.DaggerAppComponent;
 import com.gkzxhn.gkprison.dagger.module.AppModule;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
 import com.gkzxhn.gkprison.utils.CustomUtils.KDInitUtil;
+import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.CrashHandler;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.widget.service.RecordService;
@@ -47,6 +48,7 @@ public class MyApplication extends MultiDexApplication {
         mOurApplication = this;
         GreenDaoHelper.initDatabase(); //初始化数据库
         initComponent();// 初始化组件
+        NimInitUtil.initNim();// 云信SDK相关初始化及后续操作
         if (Build.CPU_ABI.equals("armeabi-v7a")) {
             KDInitUtil.init();// 科达SDK相关初始化及后续操作
         }else {
@@ -54,7 +56,6 @@ public class MyApplication extends MultiDexApplication {
             android.util.Log.i(TAG, "onCreate: 您的手机CPU类型版本太低,无法进行视频通话...");
             isV7 = false;
         }
-        KDInitUtil.init();// 科达SDK相关初始化及后续操作
         ToastUtil.registerContext(this);
 //        LeakCanary.install(this);
         CrashHandler.getInstance().init(mOurApplication);

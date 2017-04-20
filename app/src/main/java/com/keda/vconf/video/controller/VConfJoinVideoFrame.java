@@ -101,10 +101,12 @@ public class VConfJoinVideoFrame extends Fragment implements View.OnClickListene
 
 	@Override
 	public void onConfigurationChanged(Configuration newConfig) {
-		super.onConfigurationChanged(newConfig);
+		synchronized (VConfJoinVideoFrame.class) {
+			super.onConfigurationChanged(newConfig);
 
-		// 旋转屏幕时，校准摄像头方向
-		myFaceSV.adjustCameraDisplayOrientation();
+			// 旋转屏幕时，校准摄像头方向
+			myFaceSV.adjustCameraDisplayOrientation();
+		}
 	}
 
 	/**
