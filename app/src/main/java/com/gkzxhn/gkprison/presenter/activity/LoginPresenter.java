@@ -77,8 +77,8 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void login(final boolean isCommonUser, final String str, String json_str) {
         android.util.Log.i(TAG, "login: ------ " + str);
-        loginWithRightCode(isCommonUser, str);
-        /*mCheckSubscription = LoginWrap.getInstance().checkVerifyCode(loginService, OkHttpUtils.getRequestBody(json_str), new SimpleObserver<ResponseBody>(){
+//        loginWithRightCode(isCommonUser, str);
+        mCheckSubscription = LoginWrap.getInstance().checkVerifyCode(loginService, OkHttpUtils.getRequestBody(json_str), new SimpleObserver<ResponseBody>(){
             @Override
             public void onError(Throwable e) {
                 Log.e(TAG, "check code failed : " + e.getMessage());
@@ -100,7 +100,7 @@ public class LoginPresenter implements LoginContract.Presenter {
                     loginContractView.showToast(mContext.getString(R.string.exception));
                 }
             }
-        });*/
+        });
     }
 
     private void loginWithRightCode(boolean isCommonUser, String str) {
@@ -208,6 +208,8 @@ public class LoginPresenter implements LoginContract.Presenter {
                     putSP(SPKeyConstants.ACCESS_TOKEN, userInfo.getToken());
                     putSP(SPKeyConstants.IS_COMMON_USER, true);
                     putSP(SPKeyConstants.IS_REGISTERED_USER, true);
+                    putSP(SPKeyConstants.MEETING, userInfo.getModules().getMeeting());
+                    putSP(SPKeyConstants.SHOPPING, userInfo.getModules().getShopping());
                     mAccount=userInfo.getPhone();
 //                    login();
                     ((LoginActivity)loginContractView).toNextPage();

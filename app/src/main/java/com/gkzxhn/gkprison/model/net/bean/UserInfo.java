@@ -4,24 +4,39 @@ package com.gkzxhn.gkprison.model.net.bean;
  * Created by admin on 2015/12/21.
  */
 public class UserInfo {
-    int code;
-    String token;
-    String avatar;
-    String jail;
-    String jail_id;
-//    User user;
-    String relationship;
-    String phone;
-    String balance;
-    String name;
-    String id;
 
-    public String getJail() {
-        return jail;
+    /**
+     * code : 200
+     * id : 3
+     * jail_id : 1
+     * name : 方宇星
+     * phone : 15243686547
+     * relationship : 父子
+     * balance : 78.0
+     * avatar : /system/uuid_images/images/000/000/007/original/3-1490844072.png|/system/uuid_images/images/000/000/008/original/3-1490844073.png|/system/uuid_images/images/000/000/009/original/3-1490844073.png
+     * jail : 英山监狱
+     * modules : {"meeting":1,"shopping":1}
+     * token : 258787844470435be99583cec8349df2
+     */
+
+    private int code;
+    private String id;
+    private String jail_id;
+    private String name;
+    private String phone;
+    private String relationship;
+    private String balance;
+    private String avatar;
+    private String jail;
+    private ModulesBean modules;
+    private String token;
+
+    public int getCode() {
+        return code;
     }
 
-    public void setJail(String jail) {
-        this.jail = jail;
+    public void setCode(int code) {
+        this.code = code;
     }
 
     public String getId() {
@@ -32,20 +47,20 @@ public class UserInfo {
         this.id = id;
     }
 
+    public String getJail_id() {
+        return jail_id;
+    }
+
+    public void setJail_id(String jail_id) {
+        this.jail_id = jail_id;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getRelationship() {
-        return relationship;
-    }
-
-    public void setRelationship(String relationship) {
-        this.relationship = relationship;
     }
 
     public String getPhone() {
@@ -56,20 +71,20 @@ public class UserInfo {
         this.phone = phone;
     }
 
+    public String getRelationship() {
+        return relationship;
+    }
+
+    public void setRelationship(String relationship) {
+        this.relationship = relationship;
+    }
+
     public String getBalance() {
         return balance;
     }
 
     public void setBalance(String balance) {
         this.balance = balance;
-    }
-
-    public String getJail_id() {
-        return jail_id;
-    }
-
-    public void setJail_id(String jail_id) {
-        this.jail_id = jail_id;
     }
 
     public String getAvatar() {
@@ -80,12 +95,20 @@ public class UserInfo {
         this.avatar = avatar;
     }
 
-    public int getCode() {
-        return code;
+    public String getJail() {
+        return jail;
     }
 
-    public void setCode(int code) {
-        this.code = code;
+    public void setJail(String jail) {
+        this.jail = jail;
+    }
+
+    public ModulesBean getModules() {
+        return modules;
+    }
+
+    public void setModules(ModulesBean modules) {
+        this.modules = modules;
     }
 
     public String getToken() {
@@ -96,111 +119,29 @@ public class UserInfo {
         this.token = token;
     }
 
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
+    public static class ModulesBean {
+        /**
+         * meeting : 1
+         * shopping : 1
+         */
 
-//    public class User{
-//        String created_at;
-//        int id;
-//        String name;
-//        String phone;
-//        int prisoner_id;
-//        String relationship;
-//        String updated_at;
-//        String uuid;
-//
-//        public String getCreated_at() {
-//            return created_at;
-//        }
-//
-//        public void setCreated_at(String created_at) {
-//            this.created_at = created_at;
-//        }
-//
-//        public int getId() {
-//            return id;
-//        }
-//
-//        public void setId(int id) {
-//            this.id = id;
-//        }
-//
-//        public String getName() {
-//            return name;
-//        }
-//
-//        public void setName(String name) {
-//            this.name = name;
-//        }
-//
-//        public String getPhone() {
-//            return phone;
-//        }
-//
-//        public void setPhone(String phone) {
-//            this.phone = phone;
-//        }
-//
-//        public int getPrisoner_id() {
-//            return prisoner_id;
-//        }
-//
-//        public void setPrisoner_id(int prisoner_id) {
-//            this.prisoner_id = prisoner_id;
-//        }
-//
-//        public String getRelationship() {
-//            return relationship;
-//        }
-//
-//        public void setRelationship(String relationship) {
-//            this.relationship = relationship;
-//        }
-//
-//        public String getUpdated_at() {
-//            return updated_at;
-//        }
-//
-//        public void setUpdated_at(String updated_at) {
-//            this.updated_at = updated_at;
-//        }
-//
-//        public String getUuid() {
-//            return uuid;
-//        }
-//
-//        public void setUuid(String uuid) {
-//            this.uuid = uuid;
-//        }
-//
-//        @Override
-//        public String toString() {
-//            return "UserInfo{" +
-//                    "created_at='" + created_at + '\'' +
-//                    ", id=" + id +
-//                    ", name='" + name + '\'' +
-//                    ", phone='" + phone + '\'' +
-//                    ", prisoner_id=" + prisoner_id +
-//                    ", relationship='" + relationship + '\'' +
-//                    ", updated_at='" + updated_at + '\'' +
-//                    ", uuid='" + uuid + '\'' +
-//                    '}';
-//        }
-//    }
+        private int meeting;
+        private int shopping;
 
-    @Override
-    public String toString() {
-        return "UserInfo{" +
-                "code=" + code +
-                ", token='" + token + '\'' +
-                ", avatar='" + avatar + '\'' +
-                ", jail='" + jail_id + '\'' +
+        public int getMeeting() {
+            return meeting;
+        }
 
-                '}';
+        public void setMeeting(int meeting) {
+            this.meeting = meeting;
+        }
+
+        public int getShopping() {
+            return shopping;
+        }
+
+        public void setShopping(int shopping) {
+            this.shopping = shopping;
+        }
     }
 }

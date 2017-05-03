@@ -364,6 +364,7 @@
     <string name="_200">200元</string>
     <string name="_500">500元</string>
     <string name="yuan">元</string>
+    <string name="not_open_module">此监狱暂未开通该模块</string>
 
 
 </resources>

@@ -148,4 +148,12 @@ public class SPKeyConstants {
      * 家属端会见时间列表
      */
     public static final String MEETINGS_TIME = "meetings_time";
+    /**
+     * 是否开通电商模块 1 开通
+     */
+    public static final String SHOPPING = "shopping";
+    /**
+     * 是否开通视频模块 1 开通
+     */
+    public static final String MEETING = "meeting";
 }

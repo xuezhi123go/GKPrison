@@ -260,7 +260,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
             mThread = new Thread(mRunnable);
             mThread.start();
         }*/
-//        NimInitUtil.registerGK();
+        NimInitUtil.registerGK();
     }
 
     /**
@@ -776,11 +776,17 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
+//        NimInitUtil.registerGK();
         switch (checkedId) {
             case R.id.rb_bottom_guide_home: // 首页
                 switchUI(0, getString(R.string.main_page), View.VISIBLE, View.VISIBLE);
                 break;
             case R.id.rb_bottom_guide_visit: // 探监
+                boolean meeting = ((int) SPUtil.get(this, SPKeyConstants.MEETING, 1)) == 1;
+                if (!meeting) {
+                    showToast(getString(R.string.not_open_module));
+                    return;
+                }
                 if (isRegisterUser) {
                     switchUI(1, getString(R.string.visit_prison), View.GONE, View.GONE);
                 } else {
@@ -788,6 +794,11 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                 }
                 break;
             case R.id.rb_bottom_guide_canteen: // 电子商务
+                boolean shopping = ((int) SPUtil.get(this, SPKeyConstants.SHOPPING, 1)) == 1;
+                if (!shopping) {
+                    showToast(getString(R.string.not_open_module));
+                    return;
+                }
                 if (isRegisterUser) {
                     switchUI(2, getString(R.string.canteen), View.GONE, View.GONE);
                 } else {
