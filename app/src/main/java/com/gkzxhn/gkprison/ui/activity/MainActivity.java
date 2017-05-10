@@ -210,6 +210,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
     @Override
     protected void onResume() {
         super.onResume();
+        NimInitUtil.checkStatus(this);
         /*Config.mAccount= (String) SPUtil.get(MainActivity.this, SPKeyConstants.USERNAME, "6010");
         String meet_time = (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.MEETINGS_TIME, "");
         android.util.Log.i(TAG, "onResume: ==== " + meet_time);
@@ -260,7 +261,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
             mThread = new Thread(mRunnable);
             mThread.start();
         }*/
-        NimInitUtil.registerGK();
+//        NimInitUtil.registerGK();
     }
 
     /**
@@ -622,6 +623,8 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
      * @param messageVisibility
      */
     private void switchUI(int index, String title, int menuVisibility, int messageVisibility) {
+//        NimInitUtil.registerGK();
+        NimInitUtil.checkStatus(this);
         getBalanceFromNet();
         switchFragment(index); // 切换fragment
         tv_title.setText(title);// 设置标题

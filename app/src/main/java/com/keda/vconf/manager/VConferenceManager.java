@@ -580,6 +580,7 @@ public class VConferenceManager {
 		}
 
 		ActivityUtils.openActivity(cucrActivity, VConfVideoUI.class, extras);
+        cucrActivity.finish();
 	}
 
 	/**

@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
+import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.google.gson.Gson;
 import com.keda.sky.app.GKStateMannager;
 import com.keda.sky.app.LoginStateManager;
@@ -281,6 +282,7 @@ public class MyMtcCallback extends MtcCallback {
 					jsonBodyObj.getInt(KEY_basetype);
 				}
 				VConferenceManager.quitConfAction(true, false);
+				NimInitUtil.checkStatus(MyApplication.getContext());
 				// 跳转到主界面 并且还原GK状态
 				GKStateMannager.instance().unRegisterGK();
 				GKStateMannager.restoreLoginState();

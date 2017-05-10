@@ -120,6 +120,14 @@ public class UserInfo {
     }
 
     public static class ModulesBean {
+        @Override
+        public String toString() {
+            return "ModulesBean{" +
+                    "meeting=" + meeting +
+                    ", shopping=" + shopping +
+                    '}';
+        }
+
         /**
          * meeting : 1
          * shopping : 1
@@ -143,5 +151,22 @@ public class UserInfo {
         public void setShopping(int shopping) {
             this.shopping = shopping;
         }
+    }
+
+    @Override
+    public String toString() {
+        return "UserInfo{" +
+                "code=" + code +
+                ", id='" + id + '\'' +
+                ", jail_id='" + jail_id + '\'' +
+                ", name='" + name + '\'' +
+                ", phone='" + phone + '\'' +
+                ", relationship='" + relationship + '\'' +
+                ", balance='" + balance + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", jail='" + jail + '\'' +
+                ", modules=" + modules +
+                ", token='" + token + '\'' +
+                '}';
     }
 }

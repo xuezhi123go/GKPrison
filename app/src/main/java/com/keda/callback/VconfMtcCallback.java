@@ -161,7 +161,7 @@ public class VconfMtcCallback {
 						VConferenceManager
 								.openVConfVideoUI(avrResponesUI, false, VConferenceManager.currTMtCallLinkSate.tPeerAlias.getAlias(), VConferenceManager.mCallPeerE164Num);
 					}
-					avrResponesUI.finish();
+//					avrResponesUI.finish();
 				}
 				// 修改自己的状态
 				LoginStateManager.imModifySelfStateReq();

@@ -43,6 +43,7 @@ import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.SDKOptions;
 import com.netease.nimlib.sdk.StatusBarNotificationConfig;
 import com.netease.nimlib.sdk.StatusCode;
+import com.netease.nimlib.sdk.auth.AuthService;
 import com.netease.nimlib.sdk.auth.AuthServiceObserver;
 import com.netease.nimlib.sdk.auth.LoginInfo;
 import com.netease.nimlib.sdk.msg.MsgService;
@@ -123,6 +124,24 @@ public class NimInitUtil {
                 }
             }
         };
+    }
+
+    public static void checkStatus(Context context){
+        StatusCode status = NIMClient.getStatus();
+        switch (status) {
+            case UNLOGIN:
+                ToastUtil.showShortToast(context.getString(R.string.relogin));
+                String token = (String) SPUtil.get(context, SPKeyConstants.ACCESS_TOKEN, "");
+                LoginInfo info = new LoginInfo(token, token); // config...
+                NIMClient.getService(AuthService.class).login(info)
+                        .setCallback(null);
+                break;
+            case NET_BROKEN:
+                ToastUtil.showShortToast(context.getString(R.string.net_broken));
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -299,6 +318,7 @@ public class NimInitUtil {
 
     public static void registerGK() {
         mAccount= (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.USERNAME, "6010");
+//        mAccount = "001001" + mAccount.substring(4);
         if (!GKStateMannager.mRegisterGK){
 //            GKStateMannager.instance().unRegisterGK();
 //            GKStateMannager.instance().registerGK();// 失败原因见枚举类EmRegFailedReason

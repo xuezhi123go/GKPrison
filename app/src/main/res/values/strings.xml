@@ -116,7 +116,7 @@
     <string name="login_without_account">无账号快捷登录</string>
     <string name="id_code">身份证号码</string>
     <string name="phone_number">手机号码</string>
-    <string name="personal_info">请输入个人注册信息</string>
+    <string name="personal_info">请输入注册信息</string>
     <string name="null_phone">手机号码为空</string>
     <string name="unavailable_phone">手机号码不存在</string>
     <string name="verify_failed">验证码请求失败，请稍后再试</string>

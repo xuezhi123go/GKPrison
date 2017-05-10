@@ -526,7 +526,7 @@ public class LivenessActivity2 extends Activity implements PreviewCallback,
     public static boolean isMeizuXiaomi() {
         String manufacturer = Build.MANUFACTURER;
         Log.i(TAG, "isMeizuXiaomi: " + manufacturer);
-        return "Meizu".equals(manufacturer) || "Xiaomi".equals(manufacturer);
+        return "Meizu".equals(manufacturer) || "Xiaomi".equals(manufacturer) || "LeMobile".equals(manufacturer);
     }
 
     /**
