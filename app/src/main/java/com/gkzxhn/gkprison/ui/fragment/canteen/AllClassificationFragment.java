@@ -33,6 +33,7 @@ import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.event.ClickEven1;
 import com.gkzxhn.gkprison.utils.event.ClickEvent;
+import com.gkzxhn.gkprison.utils.event.RechargeEvent;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -552,5 +553,9 @@ public class AllClassificationFragment extends BaseFragmentNew implements AbsLis
             }
         }
         adapter.notifyDataSetChanged();
+    }
+
+    public void onEvent(RechargeEvent rechargeEvent) {
+
     }
 }

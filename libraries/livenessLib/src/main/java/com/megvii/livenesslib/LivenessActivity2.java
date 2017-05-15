@@ -498,17 +498,17 @@ public class LivenessActivity2 extends Activity implements PreviewCallback,
             } else if (errorType == FaceQualityErrorType.FACE_TOO_BRIGHT) {
                 infoStr = "请让光线再暗点";
             } else if (errorType == FaceQualityErrorType.FACE_TOO_SMALL) {
-                infoStr = "请再靠近一些";
-                if (isMeizuXiaomi()) {
+                /*infoStr = "请再靠近一些";
+                if (isMeizuXiaomi()) {*/
                     infoStr = "";
                     handleStart();
-                }
+//                }
             } else if (errorType == FaceQualityErrorType.FACE_TOO_LARGE) {
-                infoStr = "请再离远一些";
-                if (isMeizuXiaomi()) {
+                /*infoStr = "请再离远一些";
+                if (isMeizuXiaomi()) {*/
                     infoStr = "";
                     handleStart();
-                }
+//                }
             } else if (errorType == FaceQualityErrorType.FACE_TOO_BLURRY) {
                 infoStr = "请避免侧光和背光";
             } else if (errorType == FaceQualityErrorType.FACE_OUT_OF_RECT) {

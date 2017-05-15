@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
@@ -71,6 +72,7 @@ import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.StatusBarUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
+import com.gkzxhn.gkprison.utils.event.RechargeEvent;
 import com.gkzxhn.gkprison.widget.view.auto.AutoCompleteTv;
 import com.keda.sky.app.GKStateMannager;
 import com.keda.sky.app.TruetouchGlobal;
@@ -88,6 +90,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import de.greenrobot.event.EventBus;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -161,6 +164,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
 
     @Override
     protected void initUiAndListener() {
+        EventBus.getDefault().register(this);
         if (!MyApplication.isV7) {
             UIUtils.showAlertDialog(this, "您的手机CPU类型版本太低,无法进行视频通话...",
                     new DialogInterface.OnClickListener() {
@@ -432,6 +436,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
         flag = false;
         super.onDestroy();
         mPresenter.detachView();
+        EventBus.getDefault().unregister(this);
     }
 
     @Override
@@ -621,11 +626,12 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
      * @param title
      * @param menuVisibility
      * @param messageVisibility
+     * @param data 切换fragment可携带bundle对象
      */
-    private void switchUI(int index, String title, int menuVisibility, int messageVisibility) {
+    private void switchUI(int index, String title, int menuVisibility, int messageVisibility, Bundle data) {
         NimInitUtil.checkStatus(this);
         getBalanceFromNet();
-        switchFragment(index); // 切换fragment
+        switchFragment(index, data); // 切换fragment
         tv_title.setText(title);// 设置标题
         rl_home_menu.setVisibility(menuVisibility); // 设置菜单图标
     }
@@ -667,7 +673,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
      * @param index 索引
      */
     @SuppressLint("CommitTransaction")
-    private void switchFragment(int index) {
+    private void switchFragment(int index, Bundle data) {
         manager = getSupportFragmentManager();
         transaction = manager.beginTransaction();
         boolean isFirst = (boolean) SPUtil.get(MainActivity.this, SPKeyConstants.FIRST_CLICK, true);
@@ -681,7 +687,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                         transaction.show(fragments.get(index));
                         fragments.get(i).setUserVisibleHint(true);
                     }
-                }else {
+                }else{
                     transaction.show(fragments.get(index));
                     fragments.get(i).setUserVisibleHint(true);
                 }
@@ -710,7 +716,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
             public void onClick(View v) {
                 agreement_dialog.dismiss();
                 SPUtil.put(MainActivity.this, SPKeyConstants.FIRST_CLICK, false);
-                switchFragment(1);
+                switchFragment(1, null);
             }
         });
         agreement_dialog.show();
@@ -781,7 +787,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
 //        NimInitUtil.registerGK();
         switch (checkedId) {
             case R.id.rb_bottom_guide_home: // 首页
-                switchUI(0, getString(R.string.main_page), View.VISIBLE, View.VISIBLE);
+                switchUI(0, getString(R.string.main_page), View.VISIBLE, View.VISIBLE, null);
                 break;
             case R.id.rb_bottom_guide_visit: // 探监
                 boolean meeting = ((int) SPUtil.get(this, SPKeyConstants.MEETING, 1)) == 1;
@@ -790,7 +796,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                     return;
                 }
                 if (isRegisterUser) {
-                    switchUI(1, getString(R.string.visit_prison), View.GONE, View.GONE);
+                    switchUI(1, getString(R.string.visit_prison), View.GONE, View.GONE, null);
                 } else {
                     showToast(getString(R.string.enable_logined));
                 }
@@ -802,7 +808,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                     return;
                 }
                 if (isRegisterUser) {
-                    switchUI(2, getString(R.string.canteen), View.GONE, View.GONE);
+                    switchUI(2, getString(R.string.canteen), View.GONE, View.GONE, null);
                 } else {
                     showToast(getString(R.string.enable_logined));
                 }
@@ -1017,4 +1023,16 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
             MainActivity.this.startActivity(intent);
         }
     };
+
+    public void onEvent(RechargeEvent event) {
+        CanteenBaseFragment canteenBaseFragment = (CanteenBaseFragment) fragments.get(2);
+        if (canteenBaseFragment.isInit) {
+            canteenBaseFragment.changeUIbyclass(4);
+        }else {
+            Bundle data = new Bundle();
+            data.putInt("leibie", 5); // 将时间及类别发送至商品展示fragment, 5表示亲情电话卡
+            canteenBaseFragment.setData(data);
+        }
+        rb_bottom_guide_canteen.setChecked(true);
+    }
 }

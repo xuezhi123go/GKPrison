@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#6495ed"
                     android:textSize="@dimen/tv_cancel_size"
-                    android:text="去充值"
+                    android:text="购买亲情电话卡"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:paddingRight="@dimen/tv_cancel_size"

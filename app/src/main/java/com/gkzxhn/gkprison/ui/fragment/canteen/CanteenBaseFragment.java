@@ -125,6 +125,8 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     private int clicksalse = 1;
     private int jail_id;// 监狱id
     private AllChooseAdapter mChooseAdapter;
+    private Bundle mData;
+    public boolean isInit = false;
 
     @Override
     protected void initUiAndListener(View view) {
@@ -242,7 +244,11 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
         jail_id = (int) SPUtil.get(getActivity(), SPKeyConstants.JAIL_ID, 0);
         times = StringUtils.formatTime(System.currentTimeMillis(), TIME_PATTERN);
         insertAndQueryFromDB();
-        initDefaultPager();
+        int code = 0;
+        if (mData != null) {
+            code = mData.getInt("leibie", 0);
+        }
+        initDefaultPager(code);
 
         getCategoriesFromNet();
         // 设置类别选择适配器
@@ -251,6 +257,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
         lv_all_choose.setAdapter(mChooseAdapter);
         lv_sales_choose.setOnItemClickListener(CanteenBaseFragment.this);
         lv_all_choose.setOnItemClickListener(CanteenBaseFragment.this);
+        isInit = true;
     }
 
     /**
@@ -286,12 +293,16 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     }
 
     /**
+     * @param code 加载哪一类商品
      * 初始化默认显示的商品展示页面
      */
-    private void initDefaultPager() {
+    private void initDefaultPager(int code) {
+        if (5 == code) {
+            tv_all_class.setText("充值卡");
+        }
         data = new Bundle();
         data.putString("times", times);
-        data.putInt("leibie", 0); // 将时间及类别发送至商品展示fragment
+        data.putInt("leibie", code); // 将时间及类别发送至商品展示fragment
         allClassFragment = new AllClassificationFragment();
         allClassFragment.setArguments(data);
         getActivity().getSupportFragmentManager().beginTransaction()
@@ -564,10 +575,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch(parent.getId()){
             case R.id.lv_all_choose:
-                HashMap<Integer, Integer> position2Id = mChooseAdapter.getPosition2Id();
-                HashMap<Integer, String> position2title = mChooseAdapter.getPosition2title();
-                switchAllClassPager(position2Id.get(position));
-                tv_all_class.setText(position2title.get(position));
+                changeUIbyclass(position);
 //                switchAllClassPager(position);
                 break;
             case R.id.lv_sales_choose:
@@ -577,10 +585,29 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     }
 
     /**
+     * 根据类别修改界面
+     * @param position
+     */
+    public void changeUIbyclass(int position) {
+        HashMap<Integer, Integer> position2Id = mChooseAdapter.getPosition2Id();
+        HashMap<Integer, String> position2title = mChooseAdapter.getPosition2title();
+        switchAllClassPager(position2Id.get(position));
+        tv_all_class.setText(position2title.get(position));
+    }
+
+    /**
      * 加减商品数量订阅
      */
     private Subscription addGoodsSubscription;
     private Subscription reduceGoodsSubscription;
+
+    /**
+     * 设置数据
+     * @param data
+     */
+    public void setData(Bundle data) {
+        mData = data;
+    }
 
     private class BuyCarAdapter extends BaseAdapter {
 

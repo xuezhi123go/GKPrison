@@ -3,7 +3,6 @@ package com.gkzxhn.gkprison.ui.fragment.visit;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
@@ -21,7 +20,6 @@ import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.Balances;
-import com.gkzxhn.gkprison.ui.activity.normal_activity.ReChargeActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.MainUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.Log;
@@ -30,6 +28,7 @@ import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.Utils;
+import com.gkzxhn.gkprison.utils.event.RechargeEvent;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -38,6 +37,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
@@ -272,10 +272,14 @@ public class RemoteMeetFragment extends BaseFragmentNew implements AdapterView.O
                 break;
 
             case R.id.bt_remotely:
-                Intent intent = new Intent(getActivity(), ReChargeActivity.class);
-                getActivity().startActivity(intent);
+                EventBus.getDefault().post(new RechargeEvent());
                 break;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
     }
 
     /**
