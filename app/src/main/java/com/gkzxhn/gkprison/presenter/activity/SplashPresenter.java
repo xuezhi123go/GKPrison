@@ -8,7 +8,6 @@ import android.util.Log;
 
 import com.gkzxhn.gkprison.base.PerActivity;
 import com.gkzxhn.gkprison.dagger.contract.SplashContract;
-import com.gkzxhn.gkprison.model.dao.SQLiteHelper;
 import com.gkzxhn.gkprison.utils.CustomUtils.KDInitUtil;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
@@ -61,7 +60,6 @@ public class SplashPresenter implements SplashContract.Presenter{
 
     @Override
     public void initDB() {
-        SQLiteHelper.init(mContext);
     }
 
     @Override

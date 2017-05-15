@@ -133,10 +133,11 @@ dependencies {
     // 云信基础sdk
     compile project.NIM_SDK_BASE
     compile project.GREENDAO // add library
+    compile project.GREENDAO_UPDATE //greendao升级帮助类
 }
 
 greendao {
-    schemaVersion 1
+    schemaVersion 2
     //daoPackage 'com.greendao.gen'
     //targetGenDir 'src/main/java'
     //generateTests true//设置是否自动生成单元测试。
