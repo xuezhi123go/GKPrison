@@ -30,8 +30,8 @@ public class LineItems {
     @Generated(hash = 1384567995)
     private transient LineItemsDao myDao;
     @Generated(hash = 1185776951)
-    public LineItems(Long id, Integer Items_id, Long cart_id, Integer qty,
-            String total_money, Integer position, String price, String title) {
+    public LineItems(Long id, Integer Items_id, Long cart_id, Integer qty, String total_money,
+            Integer position, String price, String title) {
         this.id = id;
         this.Items_id = Items_id;
         this.cart_id = cart_id;

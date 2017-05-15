@@ -623,7 +623,6 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
      * @param messageVisibility
      */
     private void switchUI(int index, String title, int menuVisibility, int messageVisibility) {
-//        NimInitUtil.registerGK();
         NimInitUtil.checkStatus(this);
         getBalanceFromNet();
         switchFragment(index); // 切换fragment

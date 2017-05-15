@@ -23,6 +23,7 @@ public class Cart {
     private Integer count;  //交易数量
     private Boolean remittance; //是否是汇款
     private String payment_type;    //支付方式
+    private String barcode;         //A: 亲情电话充值;  B: 家属服务汇款给;  其他: 商品条码
     // 对多。实体ID对应外联实体属性 referencedJoinProperty
     @ToMany(referencedJoinProperty = "cart_id")
     private List<LineItems> mLineItemses;
@@ -33,10 +34,9 @@ public class Cart {
     @Generated(hash = 1743358803)
     private transient CartDao myDao;
 
-    @Generated(hash = 2119857019)
-    public Cart(Long id, String time, String out_trade_no, Boolean isfinish,
-            String total_money, Integer count, Boolean remittance,
-            String payment_type) {
+    @Generated(hash = 1054171374)
+    public Cart(Long id, String time, String out_trade_no, Boolean isfinish, String total_money,
+            Integer count, Boolean remittance, String payment_type, String barcode) {
         this.id = id;
         this.time = time;
         this.out_trade_no = out_trade_no;
@@ -45,6 +45,7 @@ public class Cart {
         this.count = count;
         this.remittance = remittance;
         this.payment_type = payment_type;
+        this.barcode = barcode;
     }
     @Generated(hash = 1029823171)
     public Cart() {
@@ -155,6 +156,12 @@ public class Cart {
             throw new DaoException("Entity is detached from DAO context");
         }
         myDao.update(this);
+    }
+    public String getBarcode() {
+        return this.barcode;
+    }
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
     /** called by internal mechanisms, do not call yourself. */
     @Generated(hash = 1619816777)

@@ -56,7 +56,7 @@ public class ReChargeActivity extends BaseActivityNew implements RadioGroup.OnCh
 
     private String money = "50";
     private String TradeNo = "";
-    private List<Line_items_attributes> line_items_attributes = new ArrayList<Line_items_attributes>();
+    private List<Line_items_attributes> line_items_attributes = new ArrayList<>();
     private String times = "";
     private int jail_id;
 
@@ -123,7 +123,8 @@ public class ReChargeActivity extends BaseActivityNew implements RadioGroup.OnCh
         String token = (String) SPUtil.get(ReChargeActivity.this, SPKeyConstants.ACCESS_TOKEN, "");
         Map<String, String> header = new HashMap<>();
         header.put("authorization", token);
-        getOrderNoSub = apiRequest.getOrderInfo(header,jail_id, token, OkHttpUtils.getRequestBody(getRequestBody()))
+        String requestBody = getRequestBody();
+        getOrderNoSub = apiRequest.getOrderInfo(header,jail_id, token, OkHttpUtils.getRequestBody(requestBody))
                 .subscribeOn(Schedulers.io()).unsubscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SimpleObserver<ResponseBody>(){
                     @Override public void onError(Throwable e) {

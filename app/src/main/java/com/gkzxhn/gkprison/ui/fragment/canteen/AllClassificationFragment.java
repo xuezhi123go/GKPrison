@@ -29,6 +29,7 @@ import com.gkzxhn.gkprison.model.net.bean.Commodity;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
+import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.event.ClickEven1;
 import com.gkzxhn.gkprison.utils.event.ClickEvent;
@@ -384,6 +385,31 @@ public class AllClassificationFragment extends BaseFragmentNew implements AbsLis
             viewHolder.rl_add.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Cart cart = mCartDao.queryBuilder().where(CartDao.Properties.Isfinish.eq(false),
+                            CartDao.Properties.Id.eq(cart_id)).build().unique();
+                    List<LineItems> mLineItemses = mLineItemsDao.queryBuilder()
+                            .where(LineItemsDao.Properties.Cart_id.eq(cart.getId())).build().list();
+                    String barcode = cart.getBarcode();
+                    String thisBarcode = commodities.get(position).getBarcode();
+                    if (mLineItemses != null  && barcode != null) {
+                        if (!thisBarcode.equals(barcode) && mLineItemses.size() != 0) {
+                            switch (barcode) {
+                                case "A":
+                                    //购物车中有亲情电话卡
+                                    ToastUtil.showShortToast("请结算完购物车中的亲情电话卡,再购买其他商品");
+                                    return;
+                                case "B":
+                                    //购物车中有家属汇款
+                                    ToastUtil.showShortToast("请计算完购物车中的家属购物卡,再购买其他商品");
+                                    return;
+                                default:
+                                    //购物车中有普通商品
+                                    ToastUtil.showShortToast("请注意,亲情电话卡和家属购物卡只能单独购买");
+                                    return;
+                            }
+                        }
+                    }
+
                     String t = viewHolder.tv_num.getText().toString();
                     Items_id = commodities.get(position).getId();
                     String price = commodities.get(position).getPrice();
@@ -403,6 +429,8 @@ public class AllClassificationFragment extends BaseFragmentNew implements AbsLis
                         lineItems.setTitle(title);
                         mLineItemsDao.insert(lineItems);
 
+                        cart.setBarcode(thisBarcode);
+                        mCartDao.update(cart);
                         /*String sql = "insert into line_items(Items_id,cart_id,qty,position,price,title) values (" + Items_id + "," + cart_id + ",1," + position + ",'" + price + "','" + title + "')";
                         db.execSQL(sql);*/
                         commodities.get(position).setQty(1);

@@ -13,6 +13,30 @@ public class Commodity {
     private String avatar_url;
     private String description;
     private String title;
+    private String barcode;     //A: 亲情电话充值;  B: 家属服务汇款给;  其他: 商品条码
+
+    @Override
+    public String toString() {
+        return "Commodity{" +
+                "category_id=" + category_id +
+                ", price='" + price + '\'' +
+                ", id=" + id +
+                ", qty=" + qty +
+                ", ranking=" + ranking +
+                ", avatar_url='" + avatar_url + '\'' +
+                ", description='" + description + '\'' +
+                ", title='" + title + '\'' +
+                ", barcode='" + barcode + '\'' +
+                '}';
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
+    }
 
     public int getRanking() {
         return ranking;
