@@ -591,8 +591,18 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     public void changeUIbyclass(int position) {
         HashMap<Integer, Integer> position2Id = mChooseAdapter.getPosition2Id();
         HashMap<Integer, String> position2title = mChooseAdapter.getPosition2title();
-        switchAllClassPager(position2Id.get(position));
-        tv_all_class.setText(position2title.get(position));
+        if (position2Id.size() == 0 || position2title.size() == 0) {
+            //方便起见暂时直接写死
+            switchAllClassPager(5);
+            tv_all_class.setText("充值卡");
+        }else {
+            try {
+                switchAllClassPager(position2Id.get(position));
+                tv_all_class.setText(position2title.get(position));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /**
