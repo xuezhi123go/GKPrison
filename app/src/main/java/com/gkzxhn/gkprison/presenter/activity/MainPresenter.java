@@ -99,7 +99,7 @@ public class MainPresenter implements MainContract.Presenter {
             // ToDo 没有网络显示默认布局 不进行下一步操作
             return;
         }
-        getMeetingInfo();
+//        getMeetingInfo();
         StatusCode status = NIMClient.getStatus();
         Log.i(TAG, "nim status is ：" + status);
         isRegisterUser = (boolean) SPUtil.get(mContext, SPKeyConstants.IS_REGISTERED_USER, false);

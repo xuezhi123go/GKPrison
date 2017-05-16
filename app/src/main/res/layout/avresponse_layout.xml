@@ -57,25 +57,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"
-            android:background="@android:color/black"
             android:orientation="vertical"
             android:paddingLeft="10.0dip"
             android:paddingRight="10.0dip"
-            android:paddingTop="10.0dip" >
+            android:paddingTop="10.0dip">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:orientation="horizontal"
-                android:layout_height="wrap_content">
-            <LinearLayout
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+                <!--<LinearLayout
                 android:id="@+id/video_response_btn"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:background="@drawable/theme_bg_bt_selector"
                 android:orientation="vertical" >
 
-                <!-- android:drawableLeft="@drawable/icon_video" -->
+                &lt;!&ndash; android:drawableLeft="@drawable/icon_video" &ndash;&gt;
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -91,14 +92,50 @@
                     android:layout_margin="10dip"
                     android:background="@android:color/white"
                     android:contentDescription="@null" />
-            </LinearLayout>
-
+            </LinearLayout>-->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:gravity="right"
+                    android:paddingRight="32dp"
+                    android:layout_height="wrap_content">
                 <TextView
                     android:id="@+id/refuse_response_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/vconf_hangup_selector"
+                    android:clickable="true"/>
+                    <TextView
+                        android:text="拒绝"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:textColor="@color/color_78"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/video_response_btn"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:paddingLeft="32dp"
                     android:clickable="true"
-                    android:background="@drawable/vconf_hangup_selector"/>
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/accept_video"
+                    />
+                    <TextView
+                        android:text="接听"
+                        android:textSize="18sp"
+                        android:textColor="@color/color_78"
+                        android:layout_width="40dp"
+                        android:gravity="center"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -108,7 +145,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                 android:visibility="gone" >
+                android:visibility="gone">
 
                 <!-- android:drawableLeft="@drawable/icon_audio" -->
 
@@ -118,7 +155,7 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/vconf_audio_response"
-                    android:textSize="@dimen/TitleTextSize" />
+                    android:textSize="@dimen/TitleTextSize"/>
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -126,7 +163,7 @@
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
                     android:background="@android:color/white"
-                    android:contentDescription="@null" />
+                    android:contentDescription="@null"/>
             </LinearLayout>
 
             <LinearLayout
@@ -135,7 +172,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                 android:visibility="gone" >
+                android:visibility="gone">
 
                 <!-- android:drawableLeft="@drawable/icon_phone" -->
 
@@ -144,8 +181,8 @@
                     android:layout_height="match_parent"
                     android:gravity="center"
                     android:text="@string/vconf_tel_response"
-                    android:textSize="@dimen/TitleTextSize" 
-                   />
+                    android:textSize="@dimen/TitleTextSize"
+                    />
 
                 <ImageView
                     android:layout_width="match_parent"
@@ -153,17 +190,17 @@
                     android:layout_marginLeft="10dip"
                     android:layout_marginRight="10dip"
                     android:background="@android:color/white"
-                    android:contentDescription="@null" />
+                    android:contentDescription="@null"/>
             </LinearLayout>
 
             <TextView
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:textColor="@color/white"
                 android:text="@string/hang_up"
-                 />
+                android:textColor="@color/white"
+                android:visibility="gone"
+                />
         </LinearLayout>
     </FrameLayout>
 
