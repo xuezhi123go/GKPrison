@@ -9,6 +9,9 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -30,6 +33,8 @@ import com.megvii.livenessdetection.LivenessLicenseManager;
 import com.megvii.livenesslib.LivenessActivity2;
 import com.megvii.livenesslib.util.ConUtil;
 import com.pc.utils.NetWorkUtils;
+
+import java.io.IOException;
 
 import static com.gkzxhn.gkprison.constant.Constants.fileName;
 
@@ -67,6 +72,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 		super.onCreate(savedInstanceState);
 		PcAppStackManager.Instance().pushActivity(this);
 
+		startAlarm();
 		if (VConferenceManager.answerMode == 0) {//自动应答  --规避，手机不使用自动接听
 			acceptVconfCall(true, false);
 			setTheme(android.R.style.Theme_Translucent);
@@ -76,6 +82,27 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 			onViewCreated();
 			showP2PDetails();
 		}
+	}
+
+	MediaPlayer mMediaPlayer;
+
+	private void startAlarm() {
+		mMediaPlayer = MediaPlayer.create(this, getSystemDefultRingtoneUri());
+		mMediaPlayer.setLooping(true);
+		try {
+			mMediaPlayer.prepare();
+		} catch (IllegalStateException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		mMediaPlayer.start();
+	}
+
+	//获取系统默认铃声的Uri
+	private Uri getSystemDefultRingtoneUri() {
+		return RingtoneManager.getActualDefaultRingtoneUri(this,
+				RingtoneManager.TYPE_RINGTONE);
 	}
 
 	public void initExtras() {
@@ -286,6 +313,12 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 
 	@Override
 	protected void onDestroy() {
+		if (mMediaPlayer != null) {
+			if (mMediaPlayer.isPlaying()) {
+				mMediaPlayer.stop();
+				mMediaPlayer.release();
+			}
+		}
 		super.onDestroy();
 		PcAppStackManager.Instance().popActivity(this, false);
 	}
