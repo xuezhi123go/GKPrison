@@ -504,7 +504,7 @@ public class NimInitUtil {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public static void sendNotification(Context context, String content, String formId){
         saveToDataBase(context, content);// 系统通知保存至数据库
-        if((boolean)SPUtil.get(MyApplication.getContext(), "isMsgRemind", false)) {
+        if((boolean)SPUtil.get(MyApplication.getContext(), SPKeyConstants.IS_MSG_REMIND, false)) {
             setRemindAlarm(context, content);
         }
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);

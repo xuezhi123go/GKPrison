@@ -66,6 +66,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 	// private LinearLayout mTelRspBtn;
 
 	private boolean mIsAudioConf;// true 音频应答，false 视频应答
+	private LinearLayout mRefusedLayout;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 		mPeerAliasTextView = (TextView) findViewById(R.id.peer_alias);
 		mAudioRspBtn = (LinearLayout) findViewById(R.id.audio_response_btn);
 		mVideoRspBtn = (LinearLayout) findViewById(R.id.video_response_btn);
+		mRefusedLayout = (LinearLayout)findViewById(R.id.ll_refused);
 		// mTelRspBtn = (LinearLayout) findViewById(R.id.tel_response_btn);
 
 	}
@@ -313,12 +315,6 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 
 	@Override
 	protected void onDestroy() {
-		if (mMediaPlayer != null) {
-			if (mMediaPlayer.isPlaying()) {
-				mMediaPlayer.stop();
-				mMediaPlayer.release();
-			}
-		}
 		super.onDestroy();
 		PcAppStackManager.Instance().popActivity(this, false);
 	}
@@ -368,7 +364,14 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 	private void hintResponseBtn() {
 		mVideoRspBtn.setVisibility(View.GONE);
 		mAudioRspBtn.setVisibility(View.GONE);
+		mRefusedLayout.setVisibility(View.GONE);
 		// mTelRspBtn.setVisibility(View.GONE);
+		if (mMediaPlayer != null) {
+			if (mMediaPlayer.isPlaying()) {
+				mMediaPlayer.stop();
+				mMediaPlayer.release();
+			}
+		}
 	}
 
 	/** 

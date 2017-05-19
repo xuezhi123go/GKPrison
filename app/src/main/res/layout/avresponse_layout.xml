@@ -94,6 +94,7 @@
                     android:contentDescription="@null" />
             </LinearLayout>-->
                 <LinearLayout
+                    android:id="@+id/ll_refused"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:orientation="vertical"
