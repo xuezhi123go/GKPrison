@@ -20,7 +20,6 @@ import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnCheckedChanged;
 import butterknife.OnClick;
 
 /**
@@ -49,7 +48,8 @@ public class SettingActivity extends BaseActivityNew {
         tv_version.setText("V " + SystemUtil.getVersionName(getApplicationContext()));
     }
 
-    private boolean isChecked = false;
+    private boolean isChecked = false;  //密码锁
+    private boolean isRemind = true;  //闹钟提醒
     @OnClick({R.id.tb_clock_remind, R.id.tb_pwd_set})
     public void onClick(ToggleButton view) {
         switch (view.getId()){
@@ -57,14 +57,9 @@ public class SettingActivity extends BaseActivityNew {
                 isChecked = !isChecked;
                 startPwsSetting(isChecked);// 设置密码开关
                 break;
-        }
-    }
-
-    @OnCheckedChanged({R.id.tb_clock_remind, R.id.tb_pwd_set})
-    public void onCheckedChanged(ToggleButton view, boolean isChecked){
-        switch (view.getId()){
             case R.id.tb_clock_remind:
-                if (isChecked) {
+                isRemind = !isRemind;
+                if (isRemind) {
                     showReminderDialog();// 开启闹钟提醒对话框
                     SPUtil.put(SettingActivity.this, SPKeyConstants.IS_MSG_REMIND, true);
                 } else {
@@ -72,9 +67,6 @@ public class SettingActivity extends BaseActivityNew {
                     SPUtil.put(SettingActivity.this, SPKeyConstants.IS_MSG_REMIND, false);
                 }
                 break;
-            /*case R.id.tb_pwd_set:
-                startPwsSetting(isChecked);// 设置密码开关
-                break;*/
         }
     }
 
@@ -133,8 +125,8 @@ public class SettingActivity extends BaseActivityNew {
         boolean isLock = (boolean) SPUtil.get(this, SPKeyConstants.APP_LOCK, false);
         isChecked = isLock;
         tb_pwd_set.setChecked(isLock);
-        boolean isMsgRemind = (boolean) SPUtil.get(this, SPKeyConstants.IS_MSG_REMIND, false);
-        tb_clock_remind.setChecked(isMsgRemind);
+        isRemind = (boolean) SPUtil.get(this, SPKeyConstants.IS_MSG_REMIND, true);
+        tb_clock_remind.setChecked(isRemind);
     }
 
     @Override

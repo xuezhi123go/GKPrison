@@ -1,10 +1,7 @@
 package com.gkzxhn.gkprison.ui.activity.normal_activity;
 
-import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.text.Editable;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -12,7 +9,6 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.EditText;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -22,9 +18,7 @@ import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
-import com.gkzxhn.gkprison.model.dao.bean.Cart;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
-import com.gkzxhn.gkprison.model.dao.bean.LineItems;
 import com.gkzxhn.gkprison.model.dao.bean.LineItemsDao;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.AA;
@@ -37,13 +31,12 @@ import com.gkzxhn.gkprison.utils.CustomUtils.RxUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
-import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
+import com.gkzxhn.gkprison.utils.event.RechargeEvent;
 import com.google.gson.Gson;
 
 import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -52,6 +45,7 @@ import java.util.Map;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import de.greenrobot.event.EventBus;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
@@ -161,7 +155,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
         ButterKnife.bind(this);
         el_items.setGroupIndicator(null);
         tv_title.setText(R.string.family_server);
-        tv_remittance.setVisibility(View.VISIBLE);
+//        tv_remittance.setVisibility(View.VISIBLE);
         rl_back.setVisibility(View.VISIBLE);
 //        database = StringUtils.getSQLiteDB(this);
         mCartDao = GreenDaoHelper.getDaoSession().getCartDao();
@@ -257,7 +251,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.tv_remittance:
-                AlertDialog.Builder builder = new AlertDialog.Builder(FamilyServiceActivity.this);
+                /*AlertDialog.Builder builder = new AlertDialog.Builder(FamilyServiceActivity.this);
                 View view = View.inflate(this, R.layout.remittance_dialog, null);
                 final EditText et_money = (EditText) view.findViewById(R.id.et_money);
                 Editable ea = et_money.getText();
@@ -312,7 +306,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
                                 mLineItemsDao.insert(lineItems);
                             }
 
-                            /*String sql = "insert into Cart(time,out_trade_no,isfinish,total_money,remittance) values('" + times + "','" + TradeNo + "',0,'" + money + "',1)";
+                            *//*String sql = "insert into Cart(time,out_trade_no,isfinish,total_money,remittance) values('" + times + "','" + TradeNo + "',0,'" + money + "',1)";
                             database.execSQL(sql);
                             int cart_id = 0;
                             String sql1 = "select id from CartInfo where time = '" + times + "'";
@@ -322,11 +316,13 @@ public class FamilyServiceActivity extends BaseActivityNew {
                             }
                             String sql2 = "insert into line_items(Items_id,cart_id) values (9999," + cart_id + ")";
                             database.execSQL(sql2);
-                            cursor.close();*/
+                            cursor.close();*//*
                         }
                     }
                 });
-                dialog.show();
+                dialog.show();*/
+                finish();
+                EventBus.getDefault().post(new RechargeEvent());
                 break;
             case R.id.rl_back:
                 finish();

@@ -504,7 +504,7 @@ public class NimInitUtil {
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     public static void sendNotification(Context context, String content, String formId){
         saveToDataBase(context, content);// 系统通知保存至数据库
-        if((boolean)SPUtil.get(MyApplication.getContext(), SPKeyConstants.IS_MSG_REMIND, false)) {
+        if((boolean)SPUtil.get(MyApplication.getContext(), SPKeyConstants.IS_MSG_REMIND, true)) {
             setRemindAlarm(context, content);
         }
         NotificationManager manager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
@@ -527,19 +527,19 @@ public class NimInitUtil {
      * @param context
      * @param content
      */
-    private static void setRemindAlarm(Context context, String content) {
+    public static void setRemindAlarm(Context context, String content) {
         String meeting_date = "";
         long alarm_time = 0;
         try {
             JSONObject jsonObject = new JSONObject(content);
-            meeting_date = jsonObject.getString("meeting_date");
+            meeting_date = jsonObject.getString("meeting_time");
             String meeting_time = meeting_date.substring(0, meeting_date.lastIndexOf("-"));
             Log.i("meeting_time", meeting_time);
-            String start_time = meeting_time.substring(0, meeting_time.indexOf(" ") + 9);
+            String start_time = meeting_time.trim();
             Log.i("start_time", start_time);
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
             long pre_alarm_time = format.parse(start_time).getTime();
-            alarm_time = pre_alarm_time - 1800000;
+            alarm_time = pre_alarm_time - 300000;
             Log.i("alarm_time", alarm_time + "---" + StringUtils.formatTime(alarm_time, "yyyy-MM-dd HH:mm:ss"));
         } catch (Exception e) {
             e.printStackTrace();

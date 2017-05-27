@@ -65,6 +65,7 @@ public class MyWalletActivity extends BaseActivityNew {
         tv_remittance.setVisibility(View.VISIBLE);
         tv_remittance.setText(getString(R.string.apply_refund)); //申请退款
         getBalance();
+//        NimInitUtil.setRemindAlarm(this, "");
     }
 
     /**

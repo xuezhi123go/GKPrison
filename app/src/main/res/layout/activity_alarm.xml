@@ -13,6 +13,7 @@
 
     <TextView
         android:id="@+id/tv_alarm_time"
+        android:visibility="gone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
@@ -27,9 +28,10 @@
         android:layout_height="wrap_content"
         android:text="@string/known"
         android:textColor="@color/white"
+        android:textSize="18sp"
         android:layout_alignParentBottom="true"
         android:paddingBottom="110dp"
-        android:layout_toRightOf="@id/tv_alarm_time"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="10dp"/>
 
     <TextView

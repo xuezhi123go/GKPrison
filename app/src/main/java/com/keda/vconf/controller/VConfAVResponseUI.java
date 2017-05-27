@@ -208,7 +208,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 		switch (id) {
             case R.id.video_response_btn:// 视频应答
 			//为了测试方便, 跳过人脸识别直接通话
-			if (VConferenceManager.currTMtCallLinkSate != null && VConferenceManager.
+			/*if (VConferenceManager.currTMtCallLinkSate != null && VConferenceManager.
 					currTMtCallLinkSate.isCallIncoming() && !VConferenceManager.
 					currTMtCallLinkSate.isAudio()) {
 				acceptVconfCall(true, false);
@@ -217,9 +217,9 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 				hintResponseBtn();
 				mIsAudioConf = false;
 			}
-			finish();
+			finish();*/
 			// 正在发起呼叫状态 , 准备进行人脸识别
-//				showCheckIdDialog();
+				showCheckIdDialog();
 				break;
 
 		// 音频应答,Note:视频会议可以音频应答
