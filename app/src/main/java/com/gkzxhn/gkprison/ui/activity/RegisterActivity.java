@@ -476,7 +476,7 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (which == 0) {
-                        takePhotoFromCamera();// 拍照
+                        takePhotoFromCamera(false);// 拍照
                     } else if (which == 1) {
                         Intent openAlbumIntent = new Intent(Intent.ACTION_GET_CONTENT);
                         openAlbumIntent.setType("image/*");
@@ -492,7 +492,7 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
                     if (which == 0) {
-                        takePhotoFromCamera();// 拍照
+                        takePhotoFromCamera(true);// 拍照
                     } else {
                         listDialig.dismiss();
                     }
@@ -504,14 +504,21 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
     /**
      * 相机拍照
      */
-    private void takePhotoFromCamera() {
+    private void takePhotoFromCamera(boolean front) {
         Intent openCameraIntent = new Intent(
                 MediaStore.ACTION_IMAGE_CAPTURE);
         Uri imageUri = Uri.fromFile(new File(Environment
                 .getExternalStorageDirectory(), "image.jpg"));
         // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
         openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        openCameraIntent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+        try {
+            if (front) {
+                //打开前置摄像头
+//                openCameraIntent.putExtra("android.intent.extras.CAMERA_FACING", 1);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         startActivityForResult(openCameraIntent, TAKE_PHOTO);
     }
 
