@@ -121,7 +121,7 @@ public class PaymentActivity extends BaseActivityNew {
         Log.d(TAG, "trade number: " + TradeNo);
         countMoney = getIntent().getStringExtra(PayConstants.TOTAL_MONEY);
         times = getIntent().getStringExtra(PayConstants.TIMES);
-        int cart_id = getIntent().getIntExtra(PayConstants.CART_ID, 0);
+        long cart_id = getIntent().getLongExtra(PayConstants.CART_ID, 0);
         String saletype = getIntent().getStringExtra(PayConstants.SALE_TYPE);
         String bussinesstype = getIntent().getStringExtra(PayConstants.BUSSINESS);
         if (!TextUtils.isEmpty(bussinesstype)) {
