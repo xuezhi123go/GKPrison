@@ -541,21 +541,21 @@ public class NimInitUtil {
             long pre_alarm_time = format.parse(start_time).getTime();
             alarm_time = pre_alarm_time - 300000;
             Log.i("alarm_time", alarm_time + "---" + StringUtils.formatTime(alarm_time, "yyyy-MM-dd HH:mm:ss"));
+            Calendar calendar = Calendar.getInstance();
+            calendar.setTimeInMillis(System.currentTimeMillis());
+            String time = StringUtils.formatTime(System.currentTimeMillis(), "HH:mm:ss");
+            calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time.split(":")[0]));
+            calendar.set(Calendar.MINUTE, Integer.parseInt(time.split(":")[1]));
+            calendar.set(Calendar.SECOND, 0);
+            calendar.set(Calendar.MILLISECOND, 0);
+            Intent intent = new Intent(context, AlarmReceiver.class);
+            PendingIntent sender = PendingIntent.getBroadcast(
+                    context, 0, intent, 0);
+            AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+            am.set(AlarmManager.RTC_WAKEUP, alarm_time, sender);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(System.currentTimeMillis());
-        String time = StringUtils.formatTime(System.currentTimeMillis(), "HH:mm:ss");
-        calendar.set(Calendar.HOUR_OF_DAY, Integer.parseInt(time.split(":")[0]));
-        calendar.set(Calendar.MINUTE, Integer.parseInt(time.split(":")[1]));
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-        Intent intent = new Intent(context, AlarmReceiver.class);
-        PendingIntent sender = PendingIntent.getBroadcast(
-                context, 0, intent, 0);
-        AlarmManager am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        am.set(AlarmManager.RTC_WAKEUP, alarm_time, sender);
     }
 
     /**

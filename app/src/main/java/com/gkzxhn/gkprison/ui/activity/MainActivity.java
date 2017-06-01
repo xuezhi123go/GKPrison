@@ -617,7 +617,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
         // 设置侧拉的相关界面
         iv_user_icon.setImageResource(R.drawable.default_icon);
         tv_menu_user_name.setText(R.string.user_name);
-        navigationView.getMenu().getItem(4).setTitle(getString(R.string.login_text));
+        navigationView.getMenu().getItem(6).setTitle(getString(R.string.login_text));
     }
 
     /**

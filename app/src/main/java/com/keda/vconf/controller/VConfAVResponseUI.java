@@ -207,6 +207,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 		int id = v.getId();
 		switch (id) {
             case R.id.video_response_btn:// 视频应答
+			hintResponseBtn();
 			//为了测试方便, 跳过人脸识别直接通话
 			/*if (VConferenceManager.currTMtCallLinkSate != null && VConferenceManager.
 					currTMtCallLinkSate.isCallIncoming() && !VConferenceManager.
@@ -214,7 +215,6 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 				acceptVconfCall(true, false);
 				mConnTextView.setVisibility(View.VISIBLE);
 				mFlowTextView.setVisibility(View.INVISIBLE);
-				hintResponseBtn();
 				mIsAudioConf = false;
 			}
 			finish();*/
@@ -285,7 +285,6 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 					acceptVconfCall(true, false);
 					mConnTextView.setVisibility(View.VISIBLE);
 					mFlowTextView.setVisibility(View.INVISIBLE);
-					hintResponseBtn();
 					mIsAudioConf = false;
 
 				}

@@ -10,6 +10,8 @@ import com.gkzxhn.gkprison.dagger.contract.SplashContract;
 import com.gkzxhn.gkprison.dagger.module.activity.SplashModule;
 import com.gkzxhn.gkprison.presenter.activity.SplashPresenter;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.InputPasswordActivity;
+import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
+import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
 
 import javax.inject.Inject;
@@ -63,7 +65,9 @@ public class SplashActivity extends BaseActivityNew implements SplashContract.Vi
 
     @Override
     public void toLogin() {
-        LoginActivity.startActivity(this);
+        // 标注非注册用户进入主页
+        SPUtil.put(this, SPKeyConstants.IS_REGISTERED_USER, false);
+        MainActivity.startActivity(this);
         finish();
     }
 

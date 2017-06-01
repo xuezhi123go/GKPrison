@@ -359,8 +359,8 @@
     <string name="apply_refund">申请退款</string>
     <string name="message_record">消息记录</string>
     <string name="weixin">微信</string>
-    <string name="my_wallet">我的钱包</string>
-    <string name="my_balance">我的余额</string>
+    <string name="my_wallet">亲情电话卡</string>
+    <string name="my_balance">通话余额</string>
     <string name="_200">200元</string>
     <string name="_500">500元</string>
     <string name="yuan">元</string>

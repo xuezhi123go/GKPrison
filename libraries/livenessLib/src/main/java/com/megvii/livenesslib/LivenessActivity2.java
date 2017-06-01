@@ -128,7 +128,7 @@ public class LivenessActivity2 extends Activity implements PreviewCallback,
 //        cameraId = getIntent().getIntExtra("11",1);
         init();
         initData();
-                new WarrantyTask().execute(); //验证授权代码移到，此页面的前一个页面
+//                new WarrantyTask().execute(); //验证授权代码移到，此页面的前一个页面
     }
 
     private void init() {
