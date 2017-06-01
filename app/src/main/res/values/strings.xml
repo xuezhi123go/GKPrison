@@ -215,7 +215,7 @@
     <string name="all_class">全部分类</string>
     <string name="sales_prefer">销量优先</string>
     <string name="buy_car_total">合计:</string>
-    <string name="_2">(含配送费2元)</string>
+    <string name="_2">(配送费2元)</string>
     <string name="settlement">结算</string>
     <string name="buy_car">购物车</string>
     <string name="clear_shopping_car">清空购物车</string>

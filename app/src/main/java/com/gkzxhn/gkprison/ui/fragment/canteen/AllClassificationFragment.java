@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,7 @@ import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
+import com.gkzxhn.gkprison.utils.event.ChangeEvent;
 import com.gkzxhn.gkprison.utils.event.ClickEven1;
 import com.gkzxhn.gkprison.utils.event.ClickEvent;
 import com.gkzxhn.gkprison.utils.event.RechargeEvent;
@@ -431,6 +433,9 @@ public class AllClassificationFragment extends BaseFragmentNew implements AbsLis
                         mLineItemsDao.insert(lineItems);
 
                         cart.setBarcode(thisBarcode);
+                        if (TextUtils.isEmpty(barcode) || thisBarcode.length()!=barcode.length()) {
+                            EventBus.getDefault().post(new ChangeEvent(thisBarcode));
+                        }
                         mCartDao.update(cart);
                         /*String sql = "insert into line_items(Items_id,cart_id,qty,position,price,title) values (" + Items_id + "," + cart_id + ",1," + position + ",'" + price + "','" + title + "')";
                         db.execSQL(sql);*/

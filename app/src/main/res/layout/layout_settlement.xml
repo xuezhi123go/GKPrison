@@ -59,6 +59,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/_2"
+                android:visibility="gone"
                 android:textSize="@dimen/tv_total_money_remarks"
                 android:textColor="@color/tv_mid"
                 android:layout_below="@+id/tv_total"

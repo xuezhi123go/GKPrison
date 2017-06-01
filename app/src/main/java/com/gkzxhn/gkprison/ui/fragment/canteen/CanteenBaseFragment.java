@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -45,6 +46,7 @@ import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
+import com.gkzxhn.gkprison.utils.event.ChangeEvent;
 import com.gkzxhn.gkprison.utils.event.ClickEven1;
 import com.gkzxhn.gkprison.utils.event.ClickEvent;
 import com.google.gson.Gson;
@@ -104,6 +106,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     @BindView(R.id.lv_all_choose) ListView lv_all_choose;
     @BindView(R.id.lv_sales_choose) ListView lv_sales_choose;
     @BindView(R.id.rl_clear) RelativeLayout rl_clear;// 清空购物车
+    @BindView(R.id.tv_total_money_remarks) TextView tv_total_money_remarks;//配送费
 
     private float total;// 总金额
     private String totalMoneyStr;// 总金额字符串
@@ -127,6 +130,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
     private AllChooseAdapter mChooseAdapter;
     private Bundle mData;
     public boolean isInit = false;
+    private String mBarcode;
 
     @Override
     protected void initUiAndListener(View view) {
@@ -396,6 +400,10 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
 
     private Subscription eventSubscription;// 事件订阅
 
+    public void onEvent(ChangeEvent changeEvent){
+        tv_total_money_remarks.setVisibility(changeEvent.mThisBarcode.length() > 1? View.VISIBLE : View.GONE);
+    }
+
     public void onEvent(ClickEvent event) {
         // 从事件中获得参数值
         eventSubscription = Observable.create(new Observable.OnSubscribe<Integer>() {
@@ -504,6 +512,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
                             Log.i(TAG, "get order info success : " + result);
                             TradeNo = MainUtils.getResultTradeNo(result);
                             Cart cart = mCartDao.queryBuilder().where(CartDao.Properties.Time.eq(times)).build().unique();
+                            mBarcode = cart.getBarcode();
                             if (cart != null) {
                                 cart.setTotal_money(totalMoneyStr);
                                 cart.setCount(allcount);
@@ -543,7 +552,7 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
                             intent.putExtra("TradeNo", TradeNo);
                             intent.putExtra("times", times);
                             intent.putExtra("cart_id", cart_id);
-                            if (isAdded()) {
+                            if (isAdded() && !TextUtils.isEmpty(mBarcode) && mBarcode.length() > 1) {
                                 intent.putExtra("bussiness", getString(R.string._2));
                             }
                             startActivity(intent);
