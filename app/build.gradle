@@ -76,7 +76,6 @@ android {
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // 自定义toggle button
-
     // 人脸识别库
     compile project(':libraries:livenessLib')
     // android support
@@ -101,7 +100,7 @@ dependencies {
     // 文本对其
     compile project.JUST_IFY_TEXT
     // 友盟分析
-//    compile project.UMENG_ANALYTICS
+    //    compile project.UMENG_ANALYTICS
     // retrofit
     compile project.RETROFIT2_RETROFIT
     compile project.RETROFIT2_CONVERTER
@@ -110,7 +109,6 @@ dependencies {
     compile project.RXANDROID
     compile project.RXJAVA
     // 依赖注入
-
     // butterknife
     compile project.BUTTER_KNIFE
     apt project.BUTTER_KNIFE_COMPILER
@@ -119,21 +117,19 @@ dependencies {
     compile project.DAGGER
     provided project.JAVAX_ANNOTATION
     // 添加android缺失的部分javax注解
-
     //leakcanary
-
     //    debugCompile project.LEAKCANARY_DEBUG
-
     //    releaseCompile project.LEAKCANARY_RELEASE
-
     //    testCompile project.LEAKCANARY_TEST
-
     // 安卓常用工具类大全
     compile project.UTIL_CODE
     // 云信基础sdk
     compile project.NIM_SDK_BASE
-    compile project.GREENDAO // add library
-    compile project.GREENDAO_UPDATE //greendao升级帮助类
+    compile project.GREENDAO
+    // add library
+    compile project.GREENDAO_UPDATE
+    //greendao升级帮助类
+    compile files('libs/Msc.jar')
 }
 
 greendao {

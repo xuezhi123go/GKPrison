@@ -3,6 +3,7 @@ package com.gkzxhn.gkprison.presenter.activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.util.Log;
 
@@ -23,14 +24,24 @@ import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
+import com.iflytek.cloud.ErrorCode;
+import com.iflytek.cloud.FaceRequest;
+import com.iflytek.cloud.RequestListener;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechError;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.StatusCode;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -224,6 +235,62 @@ public class MainPresenter implements MainContract.Presenter {
         }
     }
 
+    private RequestListener mRequestListener = new RequestListener() {
+
+        @Override
+        public void onEvent(int eventType, Bundle params) {
+        }
+
+        @Override
+        public void onBufferReceived(byte[] buffer) {
+
+            try {
+                String result = new String(buffer, "utf-8");
+                Log.d("FaceDemo", result);
+
+                JSONObject object = new JSONObject(result);
+                String type = object.optString("sst");
+                if ("reg".equals(type)) {
+                    register(object);
+                }
+            } catch (UnsupportedEncodingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            } catch (JSONException e) {
+                // TODO: handle exception
+            }
+        }
+
+        @Override
+        public void onCompleted(SpeechError error) {
+
+            if (error != null) {
+                switch (error.getErrorCode()) {
+                    case ErrorCode.MSP_ERROR_ALREADY_EXIST:
+                        Log.i(TAG, "onCompleted: authid已经被注册 : " + error.getMessage());
+                        break;
+
+                    default:
+                        Log.i(TAG, "onCompleted: " + error.getMessage());
+                        break;
+                }
+            }
+        }
+    };
+
+    private void register(JSONObject obj) throws JSONException {
+        int ret = obj.getInt("ret");
+        if (ret != 0) {
+            Log.i(TAG, "注册失败");
+            return;
+        }
+        if ("success".equals(obj.get("rst"))) {
+            Log.i(TAG, "注册成功");
+        } else {
+            Log.i(TAG, "注册失败");
+        }
+    }
+
     @Override
     public void downloadAvatar(String path) {
         if (!isRegisterUser || SystemUtil.isNetWorkUnAvailable()){
@@ -241,6 +308,18 @@ public class MainPresenter implements MainContract.Presenter {
                     bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
                     fos.close();
                     Log.i(TAG, "avatar已下载至:" + fileName);
+
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    //可根据流量及网络状况对图片进行压缩
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 80, baos);
+                    byte[] mImageData = baos.toByteArray();
+                    // 设置用户标识，格式为6-18个字符（由字母、数字、下划线组成，不得以数字开头，不能包含空格）。
+                    // 当不设置时，云端将使用用户设备的设备ID来标识终端用户。
+                    FaceRequest mFaceRequest = new FaceRequest(((MainActivity) mainView));
+                    String mAuthid = (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.USERNAME, "");
+                    mFaceRequest.setParameter(SpeechConstant.AUTH_ID, mAuthid);
+                    mFaceRequest.setParameter(SpeechConstant.WFR_SST, "reg");
+                    mFaceRequest.sendRequest(mImageData, mRequestListener);
                 } catch (Exception e) {
                     e.printStackTrace();
                     Log.i(TAG, "avatar下载异常");

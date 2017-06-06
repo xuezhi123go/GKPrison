@@ -220,6 +220,8 @@
             android:exported="true"
             android:launchMode="singleTop"
             android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.normal_activity.VideoFace"
+            android:screenOrientation="portrait"/>
 
         <!-- 声明云信后台服务，如需保持后台推送，使用独立进程效果会更好。 -->
         <service

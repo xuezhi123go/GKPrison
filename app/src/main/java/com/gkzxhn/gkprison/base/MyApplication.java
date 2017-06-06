@@ -7,6 +7,7 @@ import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
 import android.util.Log;
 
+import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.dagger.componet.AppComponent;
 import com.gkzxhn.gkprison.dagger.componet.DaggerAppComponent;
 import com.gkzxhn.gkprison.dagger.module.AppModule;
@@ -16,6 +17,8 @@ import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.CrashHandler;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.widget.service.RecordService;
+import com.iflytek.cloud.SpeechConstant;
+import com.iflytek.cloud.SpeechUtility;
 
 /**
  * Created by 方 on 2017/4/18.
@@ -48,6 +51,7 @@ public class MyApplication extends MultiDexApplication {
         mOurApplication = this;
         GreenDaoHelper.initDatabase(); //初始化数据库
         initComponent();// 初始化组件
+        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.xunfei_id));
         NimInitUtil.initNim();// 云信SDK相关初始化及后续操作
         if (Build.CPU_ABI.equals("armeabi-v7a")) {
             KDInitUtil.init();// 科达SDK相关初始化及后续操作

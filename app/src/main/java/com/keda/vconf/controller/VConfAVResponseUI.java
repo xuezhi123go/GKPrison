@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
+import com.gkzxhn.gkprison.ui.activity.normal_activity.VideoFace;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.keda.sky.app.PcAppStackManager;
@@ -257,8 +258,9 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
-				WarrantyTask task = new WarrantyTask();
-				task.execute();
+//				WarrantyTask task = new WarrantyTask();
+//				task.execute();
+                startActivityForResult(new Intent(VConfAVResponseUI.this, VideoFace.class), ACTIVITY_REQUEST_CODE);
 			}
 		}).setNegativeButton("取消", new DialogInterface.OnClickListener() {
 			@Override
