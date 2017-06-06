@@ -392,9 +392,12 @@ public class VideoFace extends Activity {
                 }
             } catch (UnsupportedEncodingException e) {
                 // TODO Auto-generated catch block
+                finish();
                 e.printStackTrace();
             } catch (JSONException e) {
                 // TODO: handle exception
+                showTip("检测失败");
+                finish();
             }
         }
 

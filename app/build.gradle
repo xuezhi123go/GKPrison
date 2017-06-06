@@ -77,7 +77,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // 自定义toggle button
     // 人脸识别库
-    compile project(':libraries:livenessLib')
+//    compile project(':libraries:livenessLib')
     // android support
     compile project.SUPPORT_V7
     compile project.SUPPORT_V4
