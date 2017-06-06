@@ -35,6 +35,9 @@ import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
 import com.gkzxhn.gkprison.R;
+import com.gkzxhn.gkprison.base.MyApplication;
+import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
+import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.faceutil.FaceRect;
 import com.gkzxhn.gkprison.utils.faceutil.FaceUtil;
 import com.gkzxhn.gkprison.utils.faceutil.ParseResult;
@@ -78,7 +81,7 @@ public class VideoFace extends Activity {
 	private boolean mStopTrack;
 	private Toast mToast;
 	private long mLastClickTime;
-	private int isAlign = 0;
+	private int isAlign = 1;
     private byte[] mData;
 
     @Override
@@ -339,7 +342,8 @@ public class VideoFace extends Activity {
                         if (mData != null && flag) {
                             // 设置用户标识，格式为6-18个字符（由字母、数字、下划线组成，不得以数字开头，不能包含空格）。
                             // 当不设置时，云端将使用用户设备的设备ID来标识终端用户。
-                            mFaceRequest.setParameter(SpeechConstant.AUTH_ID, "111");
+                            String mAuthid = (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.USERNAME, "");
+                            mFaceRequest.setParameter(SpeechConstant.AUTH_ID, mAuthid);
                             mFaceRequest.setParameter(SpeechConstant.WFR_SST, "verify");
                             mFaceRequest.sendRequest(mData, mRequestListener);
                             flag = false;
