@@ -307,6 +307,13 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 
 	@Override
 	protected void onDestroy() {
+        if (mMediaPlayer != null) {
+            if (mMediaPlayer.isPlaying()) {
+                mMediaPlayer.stop();
+                mMediaPlayer.release();
+                mMediaPlayer = null;
+            }
+        }
 		super.onDestroy();
 		PcAppStackManager.Instance().popActivity(this, false);
 	}
@@ -362,6 +369,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 			if (mMediaPlayer.isPlaying()) {
 				mMediaPlayer.stop();
 				mMediaPlayer.release();
+                mMediaPlayer = null;
 			}
 		}
 	}

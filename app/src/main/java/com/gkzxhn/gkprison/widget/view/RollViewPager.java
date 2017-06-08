@@ -4,7 +4,6 @@ import android.content.Context;
 import android.os.Handler;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +11,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
-import com.lidroid.xutils.BitmapUtils;
 
 import java.util.List;
 
@@ -23,7 +21,6 @@ public class RollViewPager extends ViewPager {
 	private TextView top_news_title;
 	private List<String> imgUrlList;
 //	private int imgUrlList;
-	private BitmapUtils bitmapUtils;
 	private MyPagerAdapter myPagerAdapter;
 //	private final int[] CAROUSEL_IVS;
 
@@ -130,7 +127,6 @@ public class RollViewPager extends ViewPager {
 		this.onViewClickListener = onViewClickListener;
 //		this.CAROUSEL_IVS = img;
 		//
-		bitmapUtils = new BitmapUtils(context);
 		runnableTask = new RunnableTask();
 
 		this.setOnPageChangeListener(new OnPageChangeListener() {
@@ -212,9 +208,6 @@ public class RollViewPager extends ViewPager {
 			ImageView image = (ImageView) view.findViewById(R.id.image);
 			// 给imageview设置网络上获取的图片(三级缓存)
 			// 参数：第一个下载后要在哪个控件显示，第二个下载图片的链接地址
-			if(!TextUtils.isEmpty(imgUrlList.get(position))) {
-				bitmapUtils.display(image, imgUrlList.get(position));
-			}else {
 				switch (position) {
 					case 0:
 						image.setImageResource(R.drawable.banner);
@@ -226,7 +219,6 @@ public class RollViewPager extends ViewPager {
 						image.setImageResource(R.drawable.banner3);
 						break;
 				}
-			}
 //			if(imgUrlList != null && imgUrlList.size() == 3){
 //				switch (position){
 //					case 0:
