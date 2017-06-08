@@ -1,11 +1,9 @@
 package com.gkzxhn.gkprison.base;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
 import android.support.multidex.MultiDex;
 import android.support.multidex.MultiDexApplication;
-import android.util.Log;
 
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.dagger.componet.AppComponent;
@@ -16,7 +14,6 @@ import com.gkzxhn.gkprison.utils.CustomUtils.KDInitUtil;
 import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.CrashHandler;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
-import com.gkzxhn.gkprison.widget.service.RecordService;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechUtility;
 
@@ -51,7 +48,7 @@ public class MyApplication extends MultiDexApplication {
         mOurApplication = this;
         GreenDaoHelper.initDatabase(); //初始化数据库
         initComponent();// 初始化组件
-        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.xunfei_id));
+        SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.xunfei_id));//科大讯飞人脸识别
         NimInitUtil.initNim();// 云信SDK相关初始化及后续操作
         if (Build.CPU_ABI.equals("armeabi-v7a")) {
             KDInitUtil.init();// 科达SDK相关初始化及后续操作
@@ -63,10 +60,10 @@ public class MyApplication extends MultiDexApplication {
         ToastUtil.registerContext(this);
 //        LeakCanary.install(this);
         CrashHandler.getInstance().init(mOurApplication);
-        if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
+        /*if (Build.VERSION.SDK_INT > Build.VERSION_CODES.KITKAT) {
             startService(new Intent(this, RecordService.class));
             Log.i(TAG, "record service already start");
-        }
+        }*/
     }
 
     /**
