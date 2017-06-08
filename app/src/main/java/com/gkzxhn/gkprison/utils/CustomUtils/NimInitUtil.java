@@ -130,7 +130,7 @@ public class NimInitUtil {
         StatusCode status = NIMClient.getStatus();
         switch (status) {
             case UNLOGIN:
-                ToastUtil.showShortToast(context.getString(R.string.relogin));
+//                ToastUtil.showShortToast(context.getString(R.string.relogin));
                 String token = (String) SPUtil.get(context, SPKeyConstants.ACCESS_TOKEN, "");
                 LoginInfo info = new LoginInfo(token, token); // config...
                 NIMClient.getService(AuthService.class).login(info)
