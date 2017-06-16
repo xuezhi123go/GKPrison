@@ -58,6 +58,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -548,13 +550,19 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
                     @Override public void onNext(Boolean success) {
                         if (success) {
                             Intent intent = new Intent(getActivity(), PaymentActivity.class);
+                            if (isAdded() && !TextUtils.isEmpty(mBarcode) && mBarcode.length() > 1) {
+                                String bussinesstype = getString(R.string._2);
+                                String regEx="[^0-9]";
+                                Pattern p = Pattern.compile(regEx);
+                                Matcher m = p.matcher(bussinesstype);
+                                String value = m.replaceAll("").trim();
+                                float business = Float.parseFloat(value);
+                                intent.putExtra("bussiness", business);
+                            }
                             intent.putExtra(PayConstants.TOTAL_MONEY, totalMoneyStr);
                             intent.putExtra("TradeNo", TradeNo);
                             intent.putExtra("times", times);
                             intent.putExtra("cart_id", cart_id);
-                            if (isAdded() && !TextUtils.isEmpty(mBarcode) && mBarcode.length() > 1) {
-                                intent.putExtra("bussiness", getString(R.string._2));
-                            }
                             startActivity(intent);
                         }
                     }
@@ -572,7 +580,20 @@ public class CanteenBaseFragment extends BaseFragmentNew implements AdapterView.
         order.setLine_items_attributes(line_items_attributes);
         order.setJail_id(jail_id);
         order.setCreated_at(times);
-        Float f = Float.parseFloat(totalMoneyStr);
+
+        String totalMoneyTemp = null;
+        if (tv_total_money_remarks.getVisibility() == View.VISIBLE) {
+            String bussinesstype = getString(R.string._2);
+            String regEx="[^0-9]";
+            Pattern p = Pattern.compile(regEx);
+            Matcher m = p.matcher(bussinesstype);
+            String value = m.replaceAll("").trim();
+            float business = Float.parseFloat(value);
+            float count = Float.parseFloat(totalMoneyStr);
+            count += business;
+            totalMoneyTemp = String.valueOf(count);
+        }
+        Float f = Float.parseFloat(TextUtils.isEmpty(totalMoneyTemp) ? totalMoneyStr : totalMoneyTemp);
         order.setAmount(f);
         Gson gson = new Gson();
         AA aa = new AA();

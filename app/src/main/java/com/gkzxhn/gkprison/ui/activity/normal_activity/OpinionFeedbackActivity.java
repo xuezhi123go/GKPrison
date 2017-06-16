@@ -142,7 +142,7 @@ public class OpinionFeedbackActivity extends BaseActivityNew {
         Map<String, String> header = new HashMap<>();
         header.put("authorization", token);
         header.put("Content-Type:application/json", "Accept:application/json");
-        feedbackSubscription = feed.sendOpinion(header,token, OkHttpUtils.getRequestBody(sendOpinion))
+        feedbackSubscription = feed.sendOpinion(header, OkHttpUtils.getRequestBody(sendOpinion))
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SimpleObserver<Object>() {
