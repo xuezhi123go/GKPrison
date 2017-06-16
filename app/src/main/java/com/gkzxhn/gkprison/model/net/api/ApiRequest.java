@@ -42,12 +42,11 @@ public interface ApiRequest {
     Observable<PrisonerUserInfo> getUserInfo(@HeaderMap Map<String, String> headers, @Path("family_id") String f_id);
     /**
      * 发送意见反馈
-     * @param token
      * @param msg 反馈内容
      * @return
      */
     @POST("feedback")
-    Observable<Object> sendOpinion(@HeaderMap Map<String, String> headers, @Query("access_token") String token, @Body RequestBody msg);
+    Observable<Object> sendOpinion(@HeaderMap Map<String, String> headers, @Body RequestBody msg);
 
     /**
      * 写信

@@ -48,8 +48,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -123,17 +121,13 @@ public class PaymentActivity extends BaseActivityNew {
         times = getIntent().getStringExtra(PayConstants.TIMES);
         long cart_id = getIntent().getLongExtra(PayConstants.CART_ID, 0);
         String saletype = getIntent().getStringExtra(PayConstants.SALE_TYPE);
-        String bussinesstype = getIntent().getStringExtra(PayConstants.BUSSINESS);
-        if (!TextUtils.isEmpty(bussinesstype)) {
-            String regEx="[^0-9]";
-            Pattern p = Pattern.compile(regEx);
-            Matcher m = p.matcher(bussinesstype);
-            String value = m.replaceAll("").trim();
-            float business = Float.parseFloat(value);
+        float business = getIntent().getFloatExtra(PayConstants.BUSSINESS, 0);
+        if (0!=business) {
             float count = Float.parseFloat(countMoney);
             count += business;
             countMoney = String.valueOf(count);
         }
+
         token = (String) SPUtil.get(this, SPKeyConstants.ACCESS_TOKEN, "");
         jail_id = (int) SPUtil.get(this, SPKeyConstants.JAIL_ID, 0);
         tv_count_money.setText(countMoney);

@@ -1,4 +1,4 @@
-package com.gkzxhn.gkprison.ui.pay;
+package com.gkzxhn.gkprison.wxapi;
 
 
 import android.app.Activity;
@@ -17,6 +17,7 @@ import com.gkzxhn.gkprison.model.dao.bean.Cart;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
 import com.gkzxhn.gkprison.model.net.api.PayService;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
+import com.gkzxhn.gkprison.ui.pay.PaymentActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.OkHttpUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.RxUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
