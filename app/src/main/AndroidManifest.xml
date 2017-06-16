@@ -334,7 +334,6 @@
 
         <service android:name="com.keda.vconf.modle.service.VideoCapService" >
         </service>
-        <activity android:name="com.megvii.livenesslib.LivenessActivity2" />
         <service android:name=".widget.service.RecordService" />
         <activity android:name=".utils.NomalUtils.ConfigActivity" />
         <activity android:name=".ui.activity.normal_activity.MyWalletActivity"/>

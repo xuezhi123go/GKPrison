@@ -114,7 +114,11 @@ public class HomeFragment extends BaseFragmentNew {
      */
     private void showLoadingDialog() {
         if(loadDataDialog == null) {
-            loadDataDialog = UIUtils.showProgressDialog(getActivity());
+            try {
+                loadDataDialog = UIUtils.showProgressDialog(getActivity());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }else {
             loadDataDialog.show();
         }

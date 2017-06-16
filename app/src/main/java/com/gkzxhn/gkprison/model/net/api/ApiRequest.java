@@ -45,7 +45,7 @@ public interface ApiRequest {
      * @param msg 反馈内容
      * @return
      */
-    @POST("feedback")
+    @POST("feedbacks")
     Observable<Object> sendOpinion(@HeaderMap Map<String, String> headers, @Body RequestBody msg);
 
     /**

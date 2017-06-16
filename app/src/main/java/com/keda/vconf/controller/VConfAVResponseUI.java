@@ -27,8 +27,6 @@ import com.kedacom.kdv.mt.constant.EmConfProtocol;
 import com.kedacom.kdv.mt.constant.EmNativeConfType;
 import com.pc.utils.NetWorkUtils;
 
-import java.io.IOException;
-
 /**
   * 音视频应答
   * 
@@ -85,7 +83,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 			mMediaPlayer.prepare();
 		} catch (IllegalStateException e) {
 			e.printStackTrace();
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		mMediaPlayer.start();

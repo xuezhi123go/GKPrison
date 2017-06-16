@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +21,11 @@ import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.net.bean.Reply;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import com.google.gson.JsonSyntaxException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 import okhttp3.Call;
@@ -37,13 +34,15 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.keda.vconf.video.controller.VConfVideoPlayFrame.TAG;
+
 /**
  * 监狱长信箱 --> 投诉反馈
  */
 public class InterractiveMailboxFragment extends Fragment {
     private String url = "";
     private TextView nonotice;
-    private List<Reply> replies = new ArrayList<Reply>();
+    private List<List<Object>> replies = new ArrayList<>();
     private SwipeRefreshLayout srl_refresh;
     private MyAdapter myAdapter;
 
@@ -74,7 +73,7 @@ public class InterractiveMailboxFragment extends Fragment {
         SharedPreferences sp = getActivity().getSharedPreferences("config", getActivity().MODE_PRIVATE);
         int family_id = sp.getInt("family_id", 1);
         String token = sp.getString("token", "");
-        url = Constants.URL_HEAD + "comments?"+ "&family_id=" + family_id;
+        url = Constants.URL_HEAD + "mails/" + family_id + "/comments";
         getReply();
         srl_refresh.setColorSchemeResources(R.color.theme, R.color.theme, R.color.theme, R.color.theme);
         srl_refresh.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
@@ -111,9 +110,17 @@ public class InterractiveMailboxFragment extends Fragment {
 
             @Override
             public void onResponse(Call call, Response response) throws IOException {
-                replies = analysisReply(response.body().string());
+                String responseStr = response.body().string();
+                Reply reply = null;
+                try {
+                    reply = new Gson().fromJson(responseStr, Reply.class);
+                } catch (JsonSyntaxException e) {
+                    e.printStackTrace();
+                    Log.i(TAG, "onResponse: " + e.getMessage());
+                }
+                replies = reply.comments;
 
-                Collections.sort(replies, new Comparator<Reply>() {
+                /*Collections.sort(replies, new Comparator<Reply>() {
                     @Override
                     public int compare(Reply lhs, Reply rhs) {
                         int heat1 = lhs.getId();
@@ -123,7 +130,7 @@ public class InterractiveMailboxFragment extends Fragment {
                         }
                         return -1;
                     }
-                });
+                });*/
 
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
@@ -147,12 +154,7 @@ public class InterractiveMailboxFragment extends Fragment {
         });
     }
 
-    /**
-     * 解析
-     * @param s
-     * @return
-     */
-    private List<Reply> analysisReply(String s) {
+    /*private List<Reply> analysisReply(String s) {
         List<Reply> replies = new ArrayList<>();
         try {
             JSONArray jsonArray = new JSONArray(s);
@@ -170,7 +172,7 @@ public class InterractiveMailboxFragment extends Fragment {
             e.printStackTrace();
         }
         return replies;
-    }
+    }*/
 
 
     private class MyAdapter extends BaseExpandableListAdapter {
@@ -222,7 +224,7 @@ public class InterractiveMailboxFragment extends Fragment {
             } else {
                 holder = (GroupViewHolder) convertView.getTag();
             }
-            holder.tv_reply_item_title.setText(replies.get(groupPosition).getTitle());
+            holder.tv_reply_item_title.setText((CharSequence) replies.get(groupPosition).get(1));
             if (isExpanded) {
                 holder.iv_reply_item.setImageResource(R.drawable.up_gray);
             } else {
@@ -245,9 +247,9 @@ public class InterractiveMailboxFragment extends Fragment {
             } else {
                 holder = (ChildViewHolder) convertView.getTag();
             }
-            holder.tv_send_reply.setText(replies.get(groupPosition).getContents());
-            holder.tv_reply_content.setText(replies.get(groupPosition).getReplies());
-            holder.tv_message_time.setText(replies.get(groupPosition).getReply_date());
+            holder.tv_send_reply.setText((CharSequence) replies.get(groupPosition).get(2));
+            holder.tv_reply_content.setText((CharSequence) replies.get(groupPosition).get(3));
+            holder.tv_message_time.setText((CharSequence) replies.get(groupPosition).get(4));
             return convertView;
         }
 

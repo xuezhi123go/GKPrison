@@ -34,6 +34,7 @@ import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import android.widget.Toast;
 
+import com.blankj.utilcode.utils.ToastUtils;
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
@@ -346,6 +347,12 @@ public class VideoFace extends Activity {
                             mFaceRequest.setParameter(SpeechConstant.AUTH_ID, mAuthid);
                             mFaceRequest.setParameter(SpeechConstant.WFR_SST, "verify");
                             mFaceRequest.sendRequest(mData, mRequestListener);
+                            runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    showTip("人脸匹配中...");
+                                }
+                            });
                             flag = false;
                         }else if (mData == null){
                             getPreViewImage();
@@ -539,9 +546,8 @@ public class VideoFace extends Activity {
 		}
 	}
 
-	private void showTip(final String str) {
-		mToast.setText(str);
-		mToast.show();
+	private void showTip(String str) {
+        ToastUtils.showShortToast(this, str);
 	}
 
 }

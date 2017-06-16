@@ -28,7 +28,13 @@ public class UIUtils {
      * @param context
      */
     public static ProgressDialog showProgressDialog(Context context){
-        return showProgressDialog(context, defaultMsg);
+        ProgressDialog progressDialog = null;
+        try {
+            progressDialog = showProgressDialog(context, defaultMsg);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return progressDialog;
     }
 
     /**
@@ -42,9 +48,14 @@ public class UIUtils {
         if (Thread.currentThread() != Looper.getMainLooper().getThread()){
             throw new IllegalStateException("must show dialog in main thread");
         }
-        ProgressDialog dialog = new ProgressDialog(context);
-        dialog.setMessage(msg);
-        dialog.show();
+        ProgressDialog dialog = null;
+        try {
+            dialog = new ProgressDialog(context);
+            dialog.setMessage(msg);
+            dialog.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         return dialog;
     }
 

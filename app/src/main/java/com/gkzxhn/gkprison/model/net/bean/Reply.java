@@ -1,10 +1,13 @@
 package com.gkzxhn.gkprison.model.net.bean;
 
+import java.util.List;
+
 /**
  * Created by admin on 2016/1/15.
  * 监狱长回复
  */
 public class Reply {
+    public List<List<Object>> comments;
 
     /**
      * title : 主题:无法睡觉
@@ -12,7 +15,7 @@ public class Reply {
      * replies : 11月份的回复
      */
 
-    private String title;
+    /*private String title;
     private String contents;
     private String replies;
     private String reply_date;
@@ -56,5 +59,7 @@ public class Reply {
 
     public String getReplies() {
         return replies;
-    }
+    }*/
+
+
 }
