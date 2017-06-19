@@ -128,6 +128,7 @@ public class NimInitUtil {
 
     public static void checkStatus(Context context){
         StatusCode status = NIMClient.getStatus();
+        Log.i(TAG, "checkStatus: " + status.getValue() + status.name());
         switch (status) {
             case UNLOGIN:
 //                ToastUtil.showShortToast(context.getString(R.string.relogin));

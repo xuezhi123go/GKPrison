@@ -29,9 +29,7 @@ import com.gkzxhn.gkprison.widget.view.FullLinearLayout;
 import com.gkzxhn.gkprison.widget.view.RollViewPager;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -135,11 +133,12 @@ public class HomeFragment extends BaseFragmentNew {
                 .build();
         ApiRequest api = retrofit.create(ApiRequest.class);
         String token = (String) SPUtil.get(getActivity(), SPKeyConstants.ACCESS_TOKEN, "");
-        Map<String, String> header = new HashMap<>();
-        header.put("Authorization", token);
+//        Map<String, String> header = new HashMap<>();
+//        header.put("Authorization", token);
         Log.i(TAG, "onNext: jail_id   :  " + jail_id);
-        api.getNews(jail_id).subscribeOn(Schedulers.io()).
-                observeOn(AndroidSchedulers.mainThread())
+        api.getNews(jail_id).subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SimpleObserver<NewsResult>() {
                     @Override public void onError(Throwable e) {
                         Log.e(TAG, e.getMessage());
@@ -246,6 +245,7 @@ public class HomeFragment extends BaseFragmentNew {
             focusNewsRecyclerView.setAdapter(focusNewsAdapter);
             Log.i(TAG, focusNewsAdapter.getItemCount() + "-------------" + focusNewsRecyclerView.getVisibility());
         }else {
+            focusNewsAdapter.setData(focus_news_list);
             focusNewsAdapter.notifyDataSetChanged();
         }
         try {

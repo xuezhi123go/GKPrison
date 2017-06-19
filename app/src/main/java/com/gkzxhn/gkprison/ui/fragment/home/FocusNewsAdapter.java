@@ -70,6 +70,10 @@ public class FocusNewsAdapter extends RecyclerView.Adapter<FocusNewsAdapter.MyVi
         });
     }
 
+    public void setData(List<NewsResult.News> focus_news_list) {
+        focusNewsList = focus_news_list;
+    }
+
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.ll_home_news1) LinearLayout ll_home_news1;

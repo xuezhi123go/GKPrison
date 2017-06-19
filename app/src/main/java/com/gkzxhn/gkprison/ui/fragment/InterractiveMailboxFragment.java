@@ -249,7 +249,8 @@ public class InterractiveMailboxFragment extends Fragment {
             }
             holder.tv_send_reply.setText((CharSequence) replies.get(groupPosition).get(2));
             holder.tv_reply_content.setText((CharSequence) replies.get(groupPosition).get(3));
-            holder.tv_message_time.setText((CharSequence) replies.get(groupPosition).get(4));
+            String time = (String) replies.get(groupPosition).get(4);
+            holder.tv_message_time.setText(time.split("T")[0]);
             return convertView;
         }
 
