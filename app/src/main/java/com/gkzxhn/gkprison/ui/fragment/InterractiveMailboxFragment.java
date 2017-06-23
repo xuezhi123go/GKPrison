@@ -118,7 +118,14 @@ public class InterractiveMailboxFragment extends Fragment {
                     e.printStackTrace();
                     Log.i(TAG, "onResponse: " + e.getMessage());
                 }
-                replies = reply.comments;
+                List<List<Object>> comments = reply.comments;
+                for (List<Object> comment : comments) {
+                    if (comment.size()>=5) {
+                        if (null != comment.get(3) && null != comment.get(4)) {
+                            replies.add(comment);
+                        }
+                    }
+                }
 
                 /*Collections.sort(replies, new Comparator<Reply>() {
                     @Override

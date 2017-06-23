@@ -84,7 +84,7 @@ public class NewsDetailActivity extends BaseActivityNew {
             @Override
             public void onPageFinished(WebView view, String url) {
                 if(type == 1)
-                    ll_comment.setVisibility(View.VISIBLE);
+//                    ll_comment.setVisibility(View.VISIBLE);
                 super.onPageFinished(view, url);
             }
         });
