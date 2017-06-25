@@ -10,9 +10,9 @@ import android.util.Log;
 import android.widget.Toast;
 
 import com.gkzxhn.gkprison.base.MyApplication;
-import com.gkzxhn.gkprison.presenter.activity.LoginPresenter;
 import com.gkzxhn.gkprison.ui.activity.LoginActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.KDInitUtil;
+import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.google.gson.Gson;
 import com.keda.main.MainUI;
 import com.keda.sky.app.GKStateMannager;
@@ -500,7 +500,7 @@ public class LoginMtcCallback {
 			boolean isEnable = jsonBodyObj.getBoolean("bEnable");
 			Activity currActivity = PcAppStackManager.Instance().currentActivity();
 			if (currActivity instanceof LoginActivity) {
-				LoginPresenter.setH323PxyCfgCmdResult(isEnable);
+				NimInitUtil.setH323PxyCfgCmdResult(isEnable);
 			}
 		} catch (Exception e) {
 		}

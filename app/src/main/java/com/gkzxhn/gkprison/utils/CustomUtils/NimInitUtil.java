@@ -38,6 +38,7 @@ import com.keda.vconf.reqs.ExamineEvent;
 import com.kedacom.kdv.mt.api.Configure;
 import com.kedacom.kdv.mt.bean.TMtH323PxyCfg;
 import com.kedacom.kdv.mt.constant.EmConfProtocol;
+import com.kedacom.kdv.mt.constant.EmWallCfgProxyPort;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
 import com.netease.nimlib.sdk.SDKOptions;
@@ -319,7 +320,7 @@ public class NimInitUtil {
 
     public static void registerGK() {
         mAccount= (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.USERNAME, "6010");
-//        mAccount = "001001" + mAccount.substring(4);
+        mAccount = "001001" + mAccount.substring(4);
         if (!GKStateMannager.mRegisterGK){
 //            GKStateMannager.instance().unRegisterGK();
 //            GKStateMannager.instance().registerGK();// 失败原因见枚举类EmRegFailedReason
@@ -376,7 +377,13 @@ public class NimInitUtil {
 
             @Override
             public void run() {
-                Configure.setH323PxyCfgCmd(true, false, dwIp);
+                TMtH323PxyCfg mH323PxyCfg = new TMtH323PxyCfg();
+                mH323PxyCfg.bEnable = true;
+                mH323PxyCfg.dwSrvIp = dwIp;
+                //会商  或者指定端口
+                mH323PxyCfg.dwSrvPort = EmWallCfgProxyPort.commercial.getValue(); //服务器端口  默认会商2876
+//                mH323PxyCfg.dwSrvPort = EmWallCfgProxyPort.common.getValue(); //服务器端口  普通2776
+                Configure.setH323PxyCfgCmd(mH323PxyCfg);
                 // 关闭并重新开启协议栈
                 Configure.stackOnOff((short) EmConfProtocol.em323.ordinal());
             }
@@ -430,8 +437,10 @@ public class NimInitUtil {
 
             @Override
             public void run() {
+                TMtH323PxyCfg mH323PxyCfg = new TMtH323PxyCfg();
+                mH323PxyCfg.bEnable = false;
                 // 取消代理
-                Configure.setH323PxyCfgCmd(false, false, 0);
+                Configure.setH323PxyCfgCmd(mH323PxyCfg);
                 // 关闭并重新开启协议栈
                 Configure.stackOnOff((short) EmConfProtocol.em323.ordinal());
             }

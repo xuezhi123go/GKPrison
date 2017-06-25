@@ -299,10 +299,6 @@
             android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.keda.login.controller.LoginUI"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.keda.main.SettingsUI"
             android:screenOrientation="portrait" />
         <activity

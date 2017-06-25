@@ -77,7 +77,7 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     // 自定义toggle button
     // 人脸识别库
-//    compile project(':libraries:livenessLib')
+    //    compile project(':libraries:livenessLib')
     // android support
     compile project.SUPPORT_V7
     compile project.SUPPORT_V4
@@ -130,6 +130,7 @@ dependencies {
     compile project.GREENDAO_UPDATE
     //greendao升级帮助类
     compile files('libs/Msc.jar')
+    compile files('libs/skymobilesdkV5.1.0.1.0.jar')
 }
 
 greendao {

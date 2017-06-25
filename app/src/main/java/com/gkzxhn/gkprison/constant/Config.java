@@ -13,6 +13,6 @@ public class Config {
 
     public static String mAccount = "6010";
     public static String mPassword = "";
-//    public static String mAddr = "106.14.18.98";    //阿里云的服务器,开启会商
-    public static String mAddr = "222.244.146.206";    //本地服务器,关闭会商
+    public static String mAddr = "106.14.18.98";    //阿里云的服务器,开启会商
+//    public static String mAddr = "222.244.146.206";    //本地服务器,关闭会商
 }
