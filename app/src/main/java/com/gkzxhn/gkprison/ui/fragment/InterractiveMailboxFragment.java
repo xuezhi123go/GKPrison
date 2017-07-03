@@ -119,6 +119,7 @@ public class InterractiveMailboxFragment extends Fragment {
                     Log.i(TAG, "onResponse: " + e.getMessage());
                 }
                 List<List<Object>> comments = reply.comments;
+                replies.clear();
                 for (List<Object> comment : comments) {
                     if (comment.size()>=5) {
                         if (null != comment.get(3) && null != comment.get(4)) {
