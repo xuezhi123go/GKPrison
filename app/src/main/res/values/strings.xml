@@ -263,12 +263,12 @@
         、审核通过后,无论您是否接听视频通话,都将扣除一定费用,费用不返还,不累计到下
         一次使用。\n4、当可用次数为“0”时,狱务通远程探监申请将不可点击,请您及时续费。
     </string>
-    <string name="prisoner_num">囚号：</string>
+    <string name="prisoner_num">编号：</string>
     <string name="sex">性别：</string>
-    <string name="crime_type">犯罪类型：</string>
-    <string name="prison_sentence">刑期起止：</string>
+    <string name="crime_type">罪名：</string>
+    <string name="prison_sentence">原判刑期止日：</string>
     <string name="xxxx">xxxx</string>
-    <string name="to">&#160;&#160;&#160;&#160;至&#160;&#160;&#160;&#160;</string>
+    <string name="fujiaxing">附加刑&#160;&#160;:&#160;&#160;</string>
     <string name="balance">余额:&#160;&#160;</string>
     <string name="_￥">&#160;&#160;元</string>
     <string name="current_month_money">本月可用额度:&#160;&#160;</string>
@@ -367,6 +367,9 @@
     <string name="not_open_module">此监狱暂未开通该模块</string>
     <string name="net_unstable">您当前网络环境不稳定...</string>
     <string name="xunfei_id">5934c78c</string>
+    <string name="accumulated">累计减刑 : </string>
+    <string name="time">次</string>
+    <string name="last_reduce">上次减刑时间 : </string>
 
 
 </resources>

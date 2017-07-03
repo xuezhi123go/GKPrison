@@ -18,7 +18,23 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical">
 
+
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="姓名 : "
+                />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg" />
+            <TextView
+                android:layout_marginLeft="80dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_title_size"
@@ -32,20 +48,6 @@
                 android:textSize="@dimen/small_title_size"
                 android:textColor="@color/tv_bg"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/sex"
-                android:layout_marginLeft="80dp" />
-
-            <TextView
-                android:id="@+id/tv_mail_sex"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg" />
         </LinearLayout>
 
         <LinearLayout
@@ -67,6 +69,22 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/small_title_size"
                 android:textColor="@color/tv_bg"/>
+
+            <TextView
+                android:layout_marginLeft="80dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/fujiaxing"/>
+
+            <TextView
+                android:id="@+id/tv_fujiaxing"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/xxxx"/>
         </LinearLayout>
 
         <LinearLayout
@@ -89,23 +107,62 @@
                 android:textColor="@color/tv_bg"
                 android:text="@string/xxxx"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/to"/>
 
-            <TextView
-                android:id="@+id/tv_sentence_time_end"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/xxxx"/>
         </LinearLayout>
 
         <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_bg"
+                android:text="@string/accumulated" />
+
+            <TextView
+                android:id="@+id/tv_accumulated"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_green"
+                android:text="3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/small_title_size"
+                android:textColor="@color/tv_green"
+                android:text="@string/time"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/last_reduce"/>
+
+                <TextView
+                    android:id="@+id/tv_last_reduce"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_green"
+                    android:text=" "/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:visibility="gone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp">
@@ -161,6 +218,7 @@
                     android:text="@string/_￥"/>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
 
     <ExpandableListView

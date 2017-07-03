@@ -54,21 +54,7 @@
         android:textColor="#333333"
         android:layout_weight="1"
         android:layout_gravity="center_vertical"/>
-    <View
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="@color/black"/>
 
-        <TextView
-            android:id="@+id/tv_after"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="变动后刑期"
-            android:gravity="center_horizontal"
-            android:textSize="14sp"
-            android:textColor="#333333"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
 
     </LinearLayout>
 </RelativeLayout>

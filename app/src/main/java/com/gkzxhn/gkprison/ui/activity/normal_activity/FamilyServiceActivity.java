@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -30,6 +31,7 @@ import com.gkzxhn.gkprison.utils.CustomUtils.OkHttpUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.RxUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
+import com.gkzxhn.gkprison.utils.NomalUtils.ListViewParamsUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
@@ -66,10 +68,11 @@ public class FamilyServiceActivity extends BaseActivityNew {
     @BindView(R.id.rl_back) RelativeLayout rl_back;// 返回
     @BindView(R.id.tv_remittance) TextView tv_remittance;// 汇款
     @BindView(R.id.tv_prison_num) TextView tv_prison_num;// 囚号
-    @BindView(R.id.tv_mail_sex) TextView prisoner_gender;// 性别
+    @BindView(R.id.tv_name) TextView prisoner_name;// 姓名
     @BindView(R.id.tv_crime_type) TextView tv_crime_type;// 犯罪类型
     @BindView(R.id.tv_sentence_time_start) TextView tv_sentence_time_start;// 刑期开始时间
-    @BindView(R.id.tv_sentence_time_end) TextView prison_end_time;// 刑期截止时间
+    @BindView(R.id.tv_last_reduce) TextView tv_last_reduce;// 上次减刑时间
+    @BindView(R.id.tv_fujiaxing) TextView tv_fujiaxing;// 刑期截止时间
     @BindView(R.id.tv_balance_money) TextView tv_balance_money;// 余额
     @BindView(R.id.tv_current_month_available_money) TextView tv_current_month_available_money;// 本月可用余额
 
@@ -88,7 +91,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
         {
             add(R.drawable.sentence);
             //暂时注释掉后面两条
-//            add(R.drawable.consumption);
+            add(R.drawable.consumption);
 //            add(R.drawable.buy);
         }
     };
@@ -96,15 +99,40 @@ public class FamilyServiceActivity extends BaseActivityNew {
     private List<String> text_messge = new ArrayList<String>() {
         {
             add("刑期变动");
+            add("奖励惩罚");
             add("消费记录");
             add("购物签收");
         }
     };
     private List<String> sentence_time = new ArrayList<String>(){
         {
-            add("2016年5月30日");
-            add("2016年5月20日");
-            add("2016年5月10日");
+            add("2016-05-30");
+            add("2016-10-20");
+            add("2017-03-18");
+        }
+    };
+    //奖惩时间
+    private List<String> re_pun_time = new ArrayList<String>(){
+        {
+            add("2016-07-23");
+            add("2016-12-20");
+            add("2017-01-06");
+        }
+    };
+    //奖惩类型
+    private List<String> re_pun_type = new ArrayList<String>(){
+        {
+            add("奖励");
+            add("奖励");
+            add("惩罚");
+        }
+    };
+    //奖惩内容
+    private List<String> re_pun_content = new ArrayList<String>(){
+        {
+            add("水杯");
+            add("牙刷");
+            add("除草");
         }
     };
     private List<String> sentence_cause = new ArrayList<String>(){
@@ -119,6 +147,13 @@ public class FamilyServiceActivity extends BaseActivityNew {
             add("减刑三个月");
             add("减刑三个月");
             add("减刑三个月");
+        }
+    };
+    private List<String> sentence_after = new ArrayList<String>(){
+        {
+            add("十一年九个月");
+            add("十一年六个月");
+            add("十一年三个月");
         }
     };
     private List<String> buyer_id = new ArrayList<String>(){
@@ -196,14 +231,13 @@ public class FamilyServiceActivity extends BaseActivityNew {
         String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
 
         tv_prison_num.setText(prisoner_number);
-        if (gender.equals("m")) {
-            prisoner_gender.setText(getString(R.string.man));
-        } else {
-            prisoner_gender.setText(getString(R.string.woman));
-        }
+
+        prisoner_name.setText("李新开");
+        tv_last_reduce.setText(sentence_time.get(sentence_time.size() - 1));
+
         tv_crime_type.setText(prisoner_crimes);
-        tv_sentence_time_start.setText(prison_term_started_at);
-        prison_end_time.setText(prison_term_ended_at);
+        tv_sentence_time_start.setText(prison_term_ended_at);
+        tv_fujiaxing.setText("存储爆炸物");
 
 /*        if (!SystemUtil.isNetWorkUnAvailable()) {
             getInfoDialog = UIUtils.showProgressDialog(this, "");
@@ -230,9 +264,9 @@ public class FamilyServiceActivity extends BaseActivityNew {
                     if (familyServerBean.getCode() == 200 && familyServerBean.getPrisoner() != null){
                         tv_prison_num.setText(familyServerBean.getPrisoner().getPrisoner_number());
                         if (familyServerBean.getPrisoner().getGender().equals("m")) {
-                            prisoner_gender.setText(getString(R.string.man));
+                            prisoner_name.setText(getString(R.string.man));
                         } else {
-                            prisoner_gender.setText(getString(R.string.woman));
+                            prisoner_name.setText(getString(R.string.woman));
                         }
                         tv_crime_type.setText(familyServerBean.getPrisoner().getCrimes());
                         tv_sentence_time_start.setText(familyServerBean.getPrisoner().getPrison_term_started_at());
@@ -463,32 +497,33 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
         @Override
         public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-//            if (groupPosition == 0) {
-//                convertView = View.inflate(getApplicationContext(), R.layout.sentence_change, null);
-//                ListView lv_sentence = (ListView)convertView.findViewById(R.id.lv_sentence_recod);
-//                SentenceAdapter adapter = new SentenceAdapter();
-//                 lv_sentence.setAdapter(adapter);
-//                ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_sentence);
-//            } else if (groupPosition == 1) {
-//                convertView = View.inflate(getApplicationContext(), R.layout.consumption, null);
-//                  ListView lv_consumption = (ListView)convertView.findViewById(R.id.lv_consumption);
-//                ConsumptionAdapter adapter = new ConsumptionAdapter();
-//                   lv_consumption.setAdapter(adapter);
-//                 ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_consumption);
-//            } else if (groupPosition == 2) {
-//                convertView = View.inflate(getApplicationContext(), R.layout.shoppingreceipt, null);
-//                  ListView lv_shopping = (ListView)convertView.findViewById(R.id.lv_shopping);
-//                ReceiptAdapter adapter = new ReceiptAdapter();
-//                  lv_shopping.setAdapter(adapter);
-//                   ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_shopping);
-//            }
+            if (groupPosition == 0) {
+                convertView = View.inflate(getApplicationContext(), R.layout.sentence_change, null);
+                ListView lv_sentence = (ListView)convertView.findViewById(R.id.lv_sentence_recod);
+                SentenceAdapter adapter = new SentenceAdapter();
+                 lv_sentence.setAdapter(adapter);
+                ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_sentence);
+            } else if (groupPosition == 1) {
+                //奖励惩罚
+                convertView = View.inflate(getApplicationContext(), R.layout.sentence_change, null);
+                  ListView lv_consumption = (ListView)convertView.findViewById(R.id.lv_sentence_recod);
+                RewardAndPunishAdapter adapter = new RewardAndPunishAdapter();
+                   lv_consumption.setAdapter(adapter);
+                 ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_consumption);
+            } /*else if (groupPosition == 2) {
+                convertView = View.inflate(getApplicationContext(), R.layout.shoppingreceipt, null);
+                  ListView lv_shopping = (ListView)convertView.findViewById(R.id.lv_shopping);
+                ReceiptAdapter adapter = new ReceiptAdapter();
+                  lv_shopping.setAdapter(adapter);
+                   ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_shopping);
+            }*/
             TextView textView = new TextView(FamilyServiceActivity.this);
             AbsListView.LayoutParams params = new AbsListView.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
             textView.setLayoutParams(params);
             textView.setPadding(0, 20, 0, 20);
             textView.setText(R.string.upcoming);
             textView.setGravity(Gravity.CENTER);
-            return textView;
+            return convertView;
         }
 
         @Override
@@ -530,18 +565,21 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 viewHolder.tv_sentence_time = (TextView) convertView.findViewById(R.id.tv_sentence_time);
                 viewHolder.tv_sentence_case = (TextView) convertView.findViewById(R.id.tv_sentence_case);
                 viewHolder.tv_sentence_add = (TextView) convertView.findViewById(R.id.tv_sentence_add);
+                viewHolder.tv_after = (TextView) convertView.findViewById(R.id.tv_after);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             if (position == 0) {
                 viewHolder.tv_sentence_time.setText("时间");
-                viewHolder.tv_sentence_case.setText("原因");
-                viewHolder.tv_sentence_add.setText("加/减刑");
+                viewHolder.tv_sentence_case.setText("类型");
+                viewHolder.tv_sentence_add.setText("幅度");
+                viewHolder.tv_after.setText("变动后刑期");
             } else {
                 viewHolder.tv_sentence_time.setText(sentence_time.get(position-1));
                 viewHolder.tv_sentence_case.setText(sentence_cause.get(position-1));
                 viewHolder.tv_sentence_add.setText(sentence_time_add.get(position-1));
+                viewHolder.tv_after.setText(sentence_after.get(position-1));
             }
             return convertView;
         }
@@ -550,6 +588,56 @@ public class FamilyServiceActivity extends BaseActivityNew {
             TextView tv_sentence_time;
             TextView tv_sentence_case;
             TextView tv_sentence_add;
+            TextView tv_after;
+        }
+    }
+
+    private class RewardAndPunishAdapter extends BaseAdapter {
+
+        @Override
+        public int getCount() {
+            return 4;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            ViewHolder viewHolder;
+            if (convertView == null) {
+                convertView = View.inflate(getApplicationContext(), R.layout.sentence_re_pun, null);
+                viewHolder = new ViewHolder();
+                viewHolder.buy_time = (TextView) convertView.findViewById(R.id.tv_sentence_time);
+                viewHolder.buy_commodity = (TextView) convertView.findViewById(R.id.tv_sentence_case);
+                viewHolder.buy_money = (TextView) convertView.findViewById(R.id.tv_sentence_add);
+                convertView.setTag(viewHolder);
+            } else {
+                viewHolder = (ViewHolder) convertView.getTag();
+            }
+            if (position == 0) {
+                viewHolder.buy_time.setText("奖惩时间");
+                viewHolder.buy_commodity.setText("奖惩类型");
+                viewHolder.buy_money.setText("奖惩内容");
+            } else {
+                viewHolder.buy_time.setText(re_pun_time.get(position-1));
+                viewHolder.buy_commodity.setText(re_pun_type.get(position-1));
+                viewHolder.buy_money.setText(re_pun_content.get(position-1));
+            }
+            return convertView;
+        }
+
+        private class ViewHolder {
+            TextView buy_time;
+            TextView buy_commodity;
+            TextView buy_money;
         }
     }
 
