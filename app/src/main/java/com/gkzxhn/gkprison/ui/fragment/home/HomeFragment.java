@@ -180,19 +180,6 @@ public class HomeFragment extends BaseFragmentNew {
      */
     private void setRoll() {
         list_news_title.clear();
-        List<String> img_url_list = new ArrayList<>();
-        /*if (allNews.size() > 2) {
-            list_news_title.add("");list_news_title.add("");list_news_title.add("");
-            img_url_list.add("");img_url_list.add("");img_url_list.add("");
-        } else if(allNews.size() == 1){
-            list_news_title.add("");img_url_list.add("");
-        } else if(allNews.size() == 2){
-            list_news_title.add("");list_news_title.add("");
-            img_url_list.add("");img_url_list.add("");
-        }*/
-        img_url_list.add("");
-        img_url_list.add("");
-        img_url_list.add("");
         list_news_title.add("");list_news_title.add("");list_news_title.add("");
         initDot();// 初始化轮播图底部小圆圈
         RollViewPager vp_carousel = new RollViewPager(getActivity(), dotList, new RollViewPager.OnViewClickListener() {
@@ -211,7 +198,7 @@ public class HomeFragment extends BaseFragmentNew {
             }
         });
         vp_carousel.initTitle(list_news_title, top_news_title);
-        vp_carousel.initImgUrl(img_url_list);
+        vp_carousel.initImgUrl(null);
         vp_carousel.startRoll();
         top_news_viewpager.removeAllViews();
         top_news_viewpager.addView(vp_carousel);

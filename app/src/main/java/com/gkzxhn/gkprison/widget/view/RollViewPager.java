@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -193,7 +194,7 @@ public class RollViewPager extends ViewPager {
 
 		@Override
 		public int getCount() {
-			return imgUrlList == null ? 1 : imgUrlList.size();
+			return imgUrlList == null ? 3 : imgUrlList.size();
 		}
 
 		@Override
@@ -208,7 +209,7 @@ public class RollViewPager extends ViewPager {
 			ImageView image = (ImageView) view.findViewById(R.id.image);
 			// 给imageview设置网络上获取的图片(三级缓存)
 			// 参数：第一个下载后要在哪个控件显示，第二个下载图片的链接地址
-				switch (position) {
+				/*switch (position) {
 					case 0:
 						image.setImageResource(R.drawable.banner);
 						break;
@@ -218,7 +219,7 @@ public class RollViewPager extends ViewPager {
 					case 2:
 						image.setImageResource(R.drawable.banner3);
 						break;
-				}
+				}*/
 //			if(imgUrlList != null && imgUrlList.size() == 3){
 //				switch (position){
 //					case 0:
@@ -231,9 +232,25 @@ public class RollViewPager extends ViewPager {
 //						image.setImageResource(R.drawable.banner3);
 //						break;
 //				}
-//			}else {
+//			}
+//			else {
 //				image.setImageResource(R.drawable.banner);
 //			}
+            if (imgUrlList == null) {
+                switch (position){
+					case 0:
+						image.setImageResource(R.drawable.banner);
+						break;
+					case 1:
+						image.setImageResource(R.drawable.banner2);
+						break;
+					case 2:
+						image.setImageResource(R.drawable.banner3);
+						break;
+				}
+            }else {
+                Picasso.with(image.getContext()).load(imgUrlList.get(position)).into(image);
+            }
 			// viewpager和内部view的事件分发的过程
 			// 1.点下操作ACTION_DOWN先传递给viewpager，然后传递给viewpager内部的view，view做响应
 			// 2.滑动触发ACTION_MOVE事件，先传递给viewpager，然后传递给viewpager内部的view，view做响应
