@@ -31,6 +31,9 @@ public class SPUtil {
                 Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
 
+        if (null == object) {
+            return;
+        }
         if(object instanceof  String){
             editor.putString(key, (String) object);
         }else if(object instanceof Integer){
