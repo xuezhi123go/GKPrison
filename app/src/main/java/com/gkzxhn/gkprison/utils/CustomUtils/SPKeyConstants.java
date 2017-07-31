@@ -156,4 +156,12 @@ public class SPKeyConstants {
      * 是否开通视频模块 1 开通
      */
     public static final String MEETING = "meeting";
+    /**
+     * 是否开通刑期变动模块
+     */
+    public static final String PRISONTERM = "prisonterm";
+    /**
+     * 是否开通奖惩模块
+     */
+    public static final String REWARDS = "rewards";
 }

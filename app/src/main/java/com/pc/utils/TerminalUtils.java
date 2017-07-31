@@ -11,6 +11,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Configuration;
 import android.graphics.Rect;
 import android.media.AudioManager;
+import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -588,6 +589,20 @@ public class TerminalUtils {
 
 		return audioManager.isBluetoothA2dpOn();
 	}
+
+	public static void openBluetoothA2dp(Context context) {
+        if (null == context) {
+            return ;
+        }
+
+        AudioManager audioManager = (AudioManager) context.getSystemService(Context.AUDIO_SERVICE);
+        Log.i("TermimalUtils", "openBluetoothA2dp: audioManager.isBluetoothA2dpOn  : " + audioManager.isBluetoothA2dpOn());
+        if (!audioManager.isBluetoothA2dpOn()) {
+            audioManager.setMode(AudioManager.MODE_IN_COMMUNICATION);
+            audioManager.setBluetoothA2dpOn(true);
+            Log.i("TermimalUtils", "after: audioManager.isBluetoothA2dpOn  : " + audioManager.isBluetoothA2dpOn());
+        }
+    }
 
 	/**
 	 * 蓝牙是否关闭

@@ -452,6 +452,12 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
             case R.id.tv_title:// debug模式下
                 if (BuildConfig.DEBUG) {
                     showToast("当前登录账号为：" + Config.mAccount + ",GK状态：" + GKStateMannager.mRegisterGK);
+
+                        Intent intent = new Intent(); // 意图对象：动作 + 数据
+                        intent.setAction(Intent.ACTION_CALL); // 设置动作
+                        Uri data = Uri.parse("tel:" + "10086"); // 设置数据
+                        intent.setData(data);
+                        startActivity(intent); // 激活Activity组件
                 }
                 break;
         }

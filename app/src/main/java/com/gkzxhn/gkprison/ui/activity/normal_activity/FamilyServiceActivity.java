@@ -17,6 +17,7 @@ import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
+import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
@@ -89,9 +90,14 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
     private List<Integer> image_messge = new ArrayList<Integer>() {
         {
-            add(R.drawable.sentence);
-            //暂时注释掉后面两条
-            add(R.drawable.consumption);
+            boolean prisonterm = ((int) SPUtil.get(MyApplication.getContext(), SPKeyConstants.PRISONTERM, 1)) == 1;
+            if (prisonterm) {
+                add(R.drawable.sentence);
+            }
+            boolean rewards = ((int) SPUtil.get(MyApplication.getContext(), SPKeyConstants.REWARDS, 1)) == 1;
+            if (rewards) {
+                add(R.drawable.consumption);
+            }
 //            add(R.drawable.buy);
         }
     };
@@ -229,10 +235,11 @@ public class FamilyServiceActivity extends BaseActivityNew {
         String gender = (String) getSPValue(SPKeyConstants.GENDER, "");
         String prisoner_number = (String) getSPValue(SPKeyConstants.PRISONER_NUMBER, "");
         String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
+        String name = (String)getSPValue(SPKeyConstants.PRISONER_NAME, "李新开");
 
         tv_prison_num.setText(prisoner_number);
 
-        prisoner_name.setText("李新开");
+        prisoner_name.setText(name);
         tv_last_reduce.setText(sentence_time.get(sentence_time.size() - 1));
 
         tv_crime_type.setText(prisoner_crimes);

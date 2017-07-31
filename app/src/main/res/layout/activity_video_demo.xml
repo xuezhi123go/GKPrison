@@ -19,4 +19,14 @@
 		android:layout_width="40dp"
 		android:layout_height="40dp"/>
 
+    <TextView
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="26dp"
+        android:text="人脸识别技术由科大讯飞提供技术支持"
+        android:textSize="12sp"
+        android:textColor="@color/theme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
 </RelativeLayout>

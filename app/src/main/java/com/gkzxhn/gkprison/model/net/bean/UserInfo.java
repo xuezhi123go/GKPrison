@@ -129,12 +129,32 @@ public class UserInfo {
         }
 
         /**
-         * meeting : 1
-         * shopping : 1
+         * meeting : 1  表示开通
+         * shopping : 1  表示开通
          */
 
         private int meeting;
         private int shopping;
+
+        private int prisonTerm; //刑期变动
+
+        private int rewards; //奖惩
+
+        public int getPrisonTerm() {
+            return prisonTerm;
+        }
+
+        public void setPrisonTerm(int prisonTerm) {
+            this.prisonTerm = prisonTerm;
+        }
+
+        public int getRewards() {
+            return rewards;
+        }
+
+        public void setRewards(int rewards) {
+            this.rewards = rewards;
+        }
 
         public int getMeeting() {
             return meeting;

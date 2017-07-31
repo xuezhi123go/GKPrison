@@ -195,8 +195,13 @@ public class LoginPresenter implements LoginContract.Presenter {
                     putSP(SPKeyConstants.ACCESS_TOKEN, userInfo.getToken());
                     putSP(SPKeyConstants.IS_COMMON_USER, true);
                     putSP(SPKeyConstants.IS_REGISTERED_USER, true);
-                    putSP(SPKeyConstants.MEETING, userInfo.getModules().getMeeting());
-                    putSP(SPKeyConstants.SHOPPING, userInfo.getModules().getShopping());
+                    UserInfo.ModulesBean modules = userInfo.getModules();
+                    if (modules != null) {
+                        putSP(SPKeyConstants.MEETING, modules.getMeeting());
+                        putSP(SPKeyConstants.SHOPPING, modules.getShopping());
+                        putSP(SPKeyConstants.PRISONTERM, modules.getPrisonTerm());
+                        putSP(SPKeyConstants.REWARDS, modules.getRewards());
+                    }
                     mAccount=userInfo.getPhone();
 //                    login();
                     ((LoginActivity)loginContractView).toNextPage();

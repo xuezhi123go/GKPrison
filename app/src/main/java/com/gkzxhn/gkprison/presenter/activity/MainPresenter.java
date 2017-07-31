@@ -111,6 +111,7 @@ public class MainPresenter implements MainContract.Presenter {
             return;
         }
 //        getMeetingInfo();
+        checkNewVersion();
         StatusCode status = NIMClient.getStatus();
         Log.i(TAG, "nim status is ：" + status);
         isRegisterUser = (boolean) SPUtil.get(mContext, SPKeyConstants.IS_REGISTERED_USER, false);
@@ -131,7 +132,6 @@ public class MainPresenter implements MainContract.Presenter {
                     savePrisonerInfo(prisonerUserInfo);
                     mainView.dismissProgress();
                     mainView.getUserInfoSuccess();
-                    checkNewVersion();
                 }
 
                 @Override public void onError(Throwable e) {
