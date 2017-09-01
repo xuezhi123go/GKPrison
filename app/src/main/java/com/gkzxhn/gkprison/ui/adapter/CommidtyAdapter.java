@@ -1,8 +1,10 @@
 package com.gkzxhn.gkprison.ui.adapter;
 
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
@@ -51,19 +53,28 @@ public class CommidtyAdapter extends BaseAdapter {
             holder1.description = (TextView)convertView.findViewById(R.id.tv_shopping_desciption);
             holder1.price = (TextView)convertView.findViewById(R.id.tv_shopping_mongey);
             holder1.qty = (TextView)convertView.findViewById(R.id.tv_shopping_qty);
+            holder1.unitPrice = (LinearLayout)convertView.findViewById(R.id.ll_unit);
             convertView.setTag(holder1);
         }else {
             holder1 = (ViewHolder1)convertView.getTag();
         }
         final Commodity commodity = list.get(position);
-        holder1.description.setText(commodity.getTitle());
-        holder1.price.setText(commodity.getPrice());
-        holder1.qty.setText(String.valueOf(commodity.getQty()));
+        String title = commodity.getTitle();
+        holder1.description.setText(TextUtils.isEmpty(title) ? "" : title);
+        String price = commodity.getPrice();
+        String qty = String.valueOf(commodity.getQty());
+        if (TextUtils.isEmpty(price) || TextUtils.isEmpty(qty)) {
+            holder1.unitPrice.setVisibility(View.GONE);
+        }else {
+            holder1.price.setText(price);
+            holder1.qty.setText(qty);
+        }
         return convertView;
     }
     private class ViewHolder1{
         TextView description;
         TextView price;
         TextView qty;
+        LinearLayout unitPrice;
     }
 }

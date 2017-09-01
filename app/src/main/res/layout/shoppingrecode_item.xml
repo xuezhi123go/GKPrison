@@ -133,14 +133,7 @@
                 android:text="59.80"
                 android:textSize="16sp"
                 android:textColor="@color/tv_bg"/>
-            <TextView
-                android:id="@+id/tv_yunfei"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="（含运费）"
-                android:textColor="@color/tv_bg"
-                android:textSize="12sp"
-                android:layout_marginLeft="5dp"/>
+
            </LinearLayout>
         </LinearLayout>
         <View

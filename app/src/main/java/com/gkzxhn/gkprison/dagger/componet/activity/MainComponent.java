@@ -5,6 +5,7 @@ import com.gkzxhn.gkprison.dagger.componet.AppComponent;
 import com.gkzxhn.gkprison.dagger.module.ApiModule;
 import com.gkzxhn.gkprison.dagger.module.activity.ActivityModule;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
+import com.gkzxhn.gkprison.ui.activity.normal_activity.ShoppingRecordActivity;
 
 import dagger.Component;
 
@@ -19,5 +20,6 @@ import dagger.Component;
 public interface MainComponent {
 
     void inject(MainActivity activity);
+    void inject(ShoppingRecordActivity activity);
 
 }

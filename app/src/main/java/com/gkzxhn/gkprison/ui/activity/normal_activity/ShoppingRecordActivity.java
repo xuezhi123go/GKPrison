@@ -10,6 +10,8 @@ import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
+import com.gkzxhn.gkprison.base.BaseView;
+import com.gkzxhn.gkprison.dagger.componet.activity.DaggerMainComponent;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
 import com.gkzxhn.gkprison.model.dao.bean.Cart;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
@@ -17,9 +19,13 @@ import com.gkzxhn.gkprison.model.dao.bean.LineItems;
 import com.gkzxhn.gkprison.model.dao.bean.LineItemsDao;
 import com.gkzxhn.gkprison.model.net.bean.CartInfo;
 import com.gkzxhn.gkprison.model.net.bean.Commodity;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
+import com.gkzxhn.gkprison.presenter.activity.ShoppingPresenter;
 import com.gkzxhn.gkprison.ui.adapter.ShoppingAdapter;
 import com.gkzxhn.gkprison.utils.CustomUtils.RxUtils;
+import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
+import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 
@@ -27,6 +33,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,7 +48,7 @@ import rx.schedulers.Schedulers;
 /**
  * 购物记录
  */
-public class ShoppingRecordActivity extends BaseActivityNew {
+public class ShoppingRecordActivity extends BaseActivityNew implements BaseView {
 
     private static final String TAG = "ShoppingRecordActivity";
     @BindView(R.id.iv_nothing) ImageView iv_nothing;
@@ -56,6 +64,10 @@ public class ShoppingRecordActivity extends BaseActivityNew {
     private ProgressDialog loading_dialog;
     private Subscription querySubscription;
 
+    @Inject
+    ShoppingPresenter mPresenter;
+    private Subscription mSubscribe;
+
     @Override
     public int setLayoutResId() {
         return R.layout.activity_shopping_recoder;
@@ -64,9 +76,12 @@ public class ShoppingRecordActivity extends BaseActivityNew {
     @Override
     protected void initUiAndListener() {
         ButterKnife.bind(this);
+        mPresenter.attachView(this);
         tv_title.setText(getString(R.string.shopping_record));
         rl_back.setVisibility(View.VISIBLE);
         getShoppingRecord();
+        int familyId = (int) SPUtil.get(this, SPKeyConstants.FAMILY_ID, -1);
+        mPresenter.getShoppingRecords(familyId);
     }
 
     @Override
@@ -87,8 +102,18 @@ public class ShoppingRecordActivity extends BaseActivityNew {
     @Override
     protected void onDestroy() {
         UIUtils.dismissProgressDialog(loading_dialog);
-        RxUtils.unSubscribe(querySubscription);
+        RxUtils.unSubscribe(querySubscription, mSubscribe);
+        mPresenter.detachView();
         super.onDestroy();
+    }
+
+    @Override
+    protected void initInjector() {
+        DaggerMainComponent.builder()
+                .appComponent(getAppComponent())
+                .activityModule(getActivityModule())
+                .build()
+                .inject(this);
     }
 
     /**
@@ -179,6 +204,59 @@ public class ShoppingRecordActivity extends BaseActivityNew {
                         showUI();
                     }
                 });
+    }
+
+    public void addPrisonerRecord(final List<PrisonerOrders.PrisonerBean.PrisonerOrdersBean> prisoner_orders) {
+        mSubscribe = Observable.create(new Observable.OnSubscribe<Object>() {
+            @Override
+            public void call(Subscriber<? super Object> subscriber) {
+                if (prisoner_orders != null) {
+                    for (PrisonerOrders.PrisonerBean.PrisonerOrdersBean prisoner_order : prisoner_orders) {
+                        CartInfo cartInfo = new CartInfo();
+                        cartInfo.setId(prisoner_order.id);
+                        cartInfo.setCount(prisoner_order.total);
+                        cartInfo.setTime(prisoner_order.updated_at);
+                        cartInfo.setOut_trade_no(prisoner_order.trade_no);
+                        cartInfo.setStatus(prisoner_order.status);
+                        cartInfo.setTotal_money(prisoner_order.amount);
+
+                        String order_details = prisoner_order.order_details;
+                        String[] strings = new String[0];
+                        if (order_details != null) {
+                            strings = order_details.split(" ");
+                        }
+                        List<Commodity> commodities = new ArrayList<>();
+
+                        for (int i = 0;i < strings.length; i++ ) {
+                            Commodity commodity = new Commodity();
+                            commodity.setTitle(strings[i]);
+                            commodities.add(commodity);
+                        }
+
+                        cartInfo.setCommodityList(commodities);
+                        mCartInfos.add(cartInfo);
+                    }
+                    subscriber.onNext(null);
+                }
+            }
+        }).subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new SimpleObserver<Object>() {
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                        Log.e(TAG, "query record failed: " + e.getMessage());
+                        ToastUtil.showShortToast(getString(R.string.query_failed));
+                    }
+
+                    @Override
+                    public void onNext(Object o) {
+                        super.onNext(o);
+                        showUI();
+                    }
+                });
+
     }
 
     /**

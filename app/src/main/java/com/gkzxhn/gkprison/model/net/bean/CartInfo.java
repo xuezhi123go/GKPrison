@@ -11,8 +11,17 @@ public class CartInfo {
     private String out_trade_no;
     private boolean finish;
     private String total_money;
-     List<Commodity> commodityList;
+    private List<Commodity> commodityList;
     private int count;
+    private String status;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public int getCount() {
         return count;

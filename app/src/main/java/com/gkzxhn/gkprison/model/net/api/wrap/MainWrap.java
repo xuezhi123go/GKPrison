@@ -6,6 +6,7 @@ import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.CategoriesInfo;
 import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
@@ -132,6 +133,23 @@ public class MainWrap {
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(Schedulers.io())
+                .subscribe(observer);
+    }
+
+    /**
+     * 获取服刑人员订单信息
+     * @param request
+     * @param header
+     * @param f_id
+     * @param observer
+     * @return
+     */
+    public static Subscription getPrisonerOrders(ApiRequest request,
+                                                   Map<String, String> header,int f_id, Observer<PrisonerOrders> observer){
+        return request.getPrisonerOrders(header,f_id)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 }

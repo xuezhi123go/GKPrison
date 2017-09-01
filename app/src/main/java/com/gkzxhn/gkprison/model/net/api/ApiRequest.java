@@ -6,6 +6,7 @@ import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.FamilyServerBean;
 import com.gkzxhn.gkprison.model.net.bean.Laws;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
 import com.gkzxhn.gkprison.model.net.bean.VersionInfo;
 
@@ -181,4 +182,11 @@ public interface ApiRequest {
     @Streaming
     @GET
     Observable<ResponseBody> downloadFile(@Header("Range") String range, @Url String url);
+
+    /**
+     * 获取罪犯的订单列表
+     * @return
+     */
+    @GET("families/{family_id}/prisoner_orders")
+    Observable<PrisonerOrders> getPrisonerOrders(@HeaderMap Map<String, String> headers, @Path("family_id") int familyId);
 }
