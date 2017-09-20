@@ -134,6 +134,7 @@
         <activity
             android:name=".ui.activity.MainActivity"
             android:launchMode="singleTop"
+            android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"/>
         <activity
             android:name=".ui.activity.normal_activity.PrisonIntroductionActivity"

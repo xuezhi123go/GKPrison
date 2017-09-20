@@ -16,6 +16,7 @@ import com.gkzxhn.gkprison.model.dao.bean.Cart;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.api.wrap.MainWrap;
+import com.gkzxhn.gkprison.model.net.bean.Balances;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
 import com.gkzxhn.gkprison.model.net.bean.VersionInfo;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
@@ -24,6 +25,7 @@ import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
+import com.google.gson.Gson;
 import com.iflytek.cloud.ErrorCode;
 import com.iflytek.cloud.FaceRequest;
 import com.iflytek.cloud.RequestListener;
@@ -57,6 +59,7 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
+import rx.Observer;
 import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
@@ -75,6 +78,7 @@ import static com.gkzxhn.gkprison.utils.CustomUtils.MainUtils.getXml;
 public class MainPresenter implements MainContract.Presenter {
 
     private static final String TAG = MainPresenter.class.getName();
+    private final Gson mGson;
     private MainContract.View mainView;
 
     private OkHttpClient okHttpClient;
@@ -86,10 +90,11 @@ public class MainPresenter implements MainContract.Presenter {
     private Subscription getUserInfoSubscription;
 
     @Inject
-    public MainPresenter(OkHttpClient okHttpClient, ApiRequest apiRequest, Context context){
+    public MainPresenter(OkHttpClient okHttpClient, ApiRequest apiRequest, Context context, Gson gson){
         this.okHttpClient = okHttpClient;
         this.apiRequest = apiRequest;
         mContext = context;
+        mGson = gson;
     }
 
 
@@ -204,7 +209,7 @@ public class MainPresenter implements MainContract.Presenter {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_HEAD)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(mGson))
                 .build();
         ApiRequest api = retrofit.create(ApiRequest.class);
         api.versions()
@@ -401,6 +406,40 @@ public class MainPresenter implements MainContract.Presenter {
 
         }
     }
+
+
+    public void getBalanceFromNet() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.URL_HEAD)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(mGson))
+                .build();
+        ApiRequest api = retrofit.create(ApiRequest.class);
+        String token = (String) SPUtil.get(mContext, SPKeyConstants.ACCESS_TOKEN, "");
+        int family_id = (int) SPUtil.get(mContext, SPKeyConstants.FAMILY_ID, -1);
+        Map<String, String> header = new HashMap<>();
+        header.put("authorization", token);
+        api.getBalance(header,family_id)
+                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Observer<Balances>() {
+                    @Override public void onCompleted() {}
+
+                    @Override public void onError(Throwable e) {
+                        Log.i(TAG, "get balance failed : " + e.getMessage());
+                    }
+
+                    @Override public void onNext(Balances result) {
+                        Log.i(TAG, "get balance success : " + result.toString());
+                        int code = result.code;
+                        if(code == 200) {
+                            SPUtil.put(MyApplication.getContext(), SPKeyConstants.USER_BALANCES, result.balance.balance);
+                        }else {
+                            android.util.Log.i(TAG, "onNext: failed_code ... " + code);
+                        }
+                    }
+                });
+    }
+
 
     /**
      * 存SP

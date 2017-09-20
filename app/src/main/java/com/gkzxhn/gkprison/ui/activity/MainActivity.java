@@ -48,9 +48,7 @@ import com.gkzxhn.gkprison.dagger.componet.activity.DaggerMainComponent;
 import com.gkzxhn.gkprison.dagger.contract.MainContract;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
-import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.api.wrap.MainWrap;
-import com.gkzxhn.gkprison.model.net.bean.Balances;
 import com.gkzxhn.gkprison.model.net.bean.VersionInfo;
 import com.gkzxhn.gkprison.presenter.activity.MainPresenter;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.MyWalletActivity;
@@ -82,7 +80,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -92,12 +89,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import de.greenrobot.event.EventBus;
 import okhttp3.ResponseBody;
-import retrofit2.Retrofit;
-import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
-import retrofit2.converter.gson.GsonConverterFactory;
-import rx.Observer;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Author: Huang ZN
@@ -636,42 +627,10 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
      */
     private void switchUI(int index, String title, int menuVisibility, int messageVisibility, Bundle data) {
         NimInitUtil.checkStatus(this);
-        getBalanceFromNet();
+        mPresenter.getBalanceFromNet();
         switchFragment(index, data); // 切换fragment
         tv_title.setText(title);// 设置标题
         rl_home_menu.setVisibility(menuVisibility); // 设置菜单图标
-    }
-
-    private void getBalanceFromNet() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(Constants.URL_HEAD)
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ApiRequest api = retrofit.create(ApiRequest.class);
-        String token = (String) SPUtil.get(this, SPKeyConstants.ACCESS_TOKEN, "");
-        int family_id = (int) SPUtil.get(this, SPKeyConstants.FAMILY_ID, -1);
-        Map<String, String> header = new HashMap<>();
-        header.put("authorization", token);
-        api.getBalance(header,family_id)
-                .subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Observer<Balances>() {
-                    @Override public void onCompleted() {}
-
-                    @Override public void onError(Throwable e) {
-                        Log.i(TAG, "get balance failed : " + e.getMessage());
-                    }
-
-                    @Override public void onNext(Balances result) {
-                        Log.i(TAG, "get balance success : " + result.toString());
-                        int code = result.code;
-                        if(code == 200) {
-                            SPUtil.put(MyApplication.getContext(), SPKeyConstants.USER_BALANCES, result.balance.balance);
-                        }else {
-                            android.util.Log.i(TAG, "onNext: failed_code ... " + code);
-                        }
-                    }
-                });
     }
 
     /**

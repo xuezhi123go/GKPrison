@@ -4,6 +4,8 @@ import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.api.ApiService;
 import com.gkzxhn.gkprison.model.net.api.LoginService;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.concurrent.TimeUnit;
 
@@ -58,4 +60,7 @@ public class ApiModule {
     public ApiService provideApiService(Retrofit retrofit){
         return retrofit.create(ApiService.class);
     }
+
+    @Provides
+    Gson provideGson() { return new GsonBuilder().create();}
 }

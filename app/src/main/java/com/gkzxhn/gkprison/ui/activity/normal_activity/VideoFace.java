@@ -3,6 +3,7 @@ package com.gkzxhn.gkprison.ui.activity.normal_activity;
 import android.Manifest.permission;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -39,6 +40,7 @@ import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
+import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.faceutil.FaceRect;
 import com.gkzxhn.gkprison.utils.faceutil.FaceUtil;
 import com.gkzxhn.gkprison.utils.faceutil.ParseResult;
@@ -49,6 +51,7 @@ import com.iflytek.cloud.RequestListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.util.Accelerometer;
+import com.keda.sky.app.PcAppStackManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -84,11 +87,14 @@ public class VideoFace extends Activity {
 	private long mLastClickTime;
 	private int isAlign = 1;
     private byte[] mData;
+	private ProgressDialog mProgressDialog;
 
-    @Override
+	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_video_demo);
+
+		PcAppStackManager.Instance().pushActivity(this);
 
 		initUI();
 
@@ -350,8 +356,8 @@ public class VideoFace extends Activity {
                             runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
-                                    showTip("人脸匹配中...");
-                                }
+									mProgressDialog = UIUtils.showProgressDialog(VideoFace.this, "人脸匹配中,请稍后...");
+								}
                             });
                             flag = false;
                         }else if (mData == null){
@@ -539,6 +545,9 @@ public class VideoFace extends Activity {
 
 	@Override
 	protected void onDestroy() {
+        if (mProgressDialog != null) {
+            mProgressDialog.dismiss();
+        }
 		super.onDestroy();
 		if( null != mFaceDetector ){
 			// 销毁对象

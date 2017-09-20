@@ -5,11 +5,13 @@
 
 package com.keda.callback;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.widget.Toast;
 
 import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
+import com.gkzxhn.gkprison.ui.activity.normal_activity.VideoFace;
 import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.google.gson.Gson;
 import com.keda.sky.app.GKStateMannager;
@@ -309,8 +311,12 @@ public class MyMtcCallback extends MtcCallback {
 
 						@Override
 						public void run() {
-							Toast.makeText(PcAppStackManager.Instance().currentActivity(), "验证失败", Toast.LENGTH_SHORT)
+							Activity currentActivity = PcAppStackManager.Instance().currentActivity();
+							Toast.makeText(currentActivity, "验证失败", Toast.LENGTH_SHORT)
 									.show();
+							if (currentActivity instanceof VideoFace) {
+								currentActivity.finish();
+							}
 						}
 					});
 				}
