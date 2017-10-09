@@ -112,17 +112,17 @@ public class FamilyServiceActivity extends BaseActivityNew {
     };
     private List<String> sentence_time = new ArrayList<String>(){
         {
-            add("2016-05-30");
-            add("2016-10-20");
-            add("2017-03-18");
+            add("2017-05-30");
+            add("2017-08-20");
+            add("2017-09-18");
         }
     };
     //奖惩时间
     private List<String> re_pun_time = new ArrayList<String>(){
         {
-            add("2016-07-23");
-            add("2016-12-20");
-            add("2017-01-06");
+            add("2017-03-23");
+            add("2017-06-20");
+            add("2017-08-06");
         }
     };
     //奖惩类型

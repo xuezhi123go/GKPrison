@@ -136,16 +136,16 @@ public class UserInfo {
         private int meeting;
         private int shopping;
 
-        private int prisonTerm; //刑期变动
+        private int prison_term; //刑期变动
 
         private int rewards; //奖惩
 
         public int getPrisonTerm() {
-            return prisonTerm;
+            return prison_term;
         }
 
         public void setPrisonTerm(int prisonTerm) {
-            this.prisonTerm = prisonTerm;
+            this.prison_term = prisonTerm;
         }
 
         public int getRewards() {
