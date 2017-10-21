@@ -28,7 +28,6 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceHolder.Callback;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -109,7 +108,8 @@ public class VideoFace extends Activity {
 
 		@Override
 		public void surfaceDestroyed(SurfaceHolder holder) {
-			closeCamera();
+            Log.i(TAG, "surfaceDestroyed: surfaceDestroye.... closeCamera... ");
+            closeCamera();
 		}
 
 		@Override
@@ -150,7 +150,7 @@ public class VideoFace extends Activity {
 		mFaceSurface.getHolder().setFormat(PixelFormat.TRANSLUCENT);
 
 		// 点击SurfaceView，切换摄相头
-		mFaceSurface.setOnClickListener(new OnClickListener() {
+		/*mFaceSurface.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -167,7 +167,7 @@ public class VideoFace extends Activity {
 				}
 				openCamera();
 			}
-		});
+		});*/
 
 		// 长按SurfaceView 500ms后松开，摄相头聚集
 		mFaceSurface.setOnTouchListener(new OnTouchListener() {
@@ -221,9 +221,11 @@ public class VideoFace extends Activity {
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
-			closeCamera();
+            Log.e(TAG, "openCamera: " + e.getMessage() );
+            closeCamera();
 			return;
 		}
+
 
 		Parameters params = mCamera.getParameters();
 		params.setPreviewFormat(ImageFormat.NV21);
@@ -259,7 +261,9 @@ public class VideoFace extends Activity {
 
 	private void closeCamera() {
 		if (null != mCamera) {
-			mCamera.setPreviewCallback(null);
+            Log.i(TAG, "closeCamera: 关闭摄像头...");
+            mCamera.setPreviewCallback(null);
+            mCamera.setOneShotPreviewCallback(null);
 			mCamera.stopPreview();
 			mCamera.release();
 			mCamera = null;
@@ -536,7 +540,6 @@ public class VideoFace extends Activity {
 	protected void onPause() {
 		super.onPause();
         Log.i(TAG, "onPause: ======");
-        closeCamera();
 		if (null != mAcc) {
 			mAcc.stop();
 		}

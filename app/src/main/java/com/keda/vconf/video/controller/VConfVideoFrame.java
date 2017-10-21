@@ -35,6 +35,7 @@ import com.keda.vconf.controller.VConfFunctionFragment;
 import com.keda.vconf.controller.VConfVideoUI;
 import com.keda.vconf.manager.VConferenceManager;
 import com.keda.vconf.manager.VideoCapServiceManager;
+import com.keda.vconf.modle.service.VideoCapServiceConnect;
 import com.kedacom.kdv.mt.api.Configure;
 import com.kedacom.kdv.mt.constant.EmNativeConfType;
 import com.kedacom.truetouch.video.capture.VideoCapture;
@@ -47,6 +48,8 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.animation.ValueAnimator;
 import com.pc.utils.TerminalUtils;
 import com.squareup.picasso.Picasso;
+
+import rx.Subscription;
 
 /**
   * 视频会议界面
@@ -127,6 +130,7 @@ public class VConfVideoFrame extends Fragment implements View.OnClickListener, S
 	private ImageView mIv_id_card_01;
 	private ImageView mIv_id_card_02;
     private boolean isScaled = false;  //审核界面是否已缩放
+    private Subscription mSubscribe;
 
     @Override
 	public void onAttach(Activity activity) {
@@ -280,8 +284,16 @@ public class VConfVideoFrame extends Fragment implements View.OnClickListener, S
 
 		initFacingPreviewSurfaceView();
 		// initialize video capture
-		if (VideoCapServiceManager.getVideoCapServiceConnect() != null) {
-			VideoCapServiceManager.getVideoCapServiceConnect().initVideoCapture();
+        final VideoCapServiceConnect connect = VideoCapServiceManager.getVideoCapServiceConnect();
+        if (connect != null) {
+            /*mSubscribe = Observable.interval(0L, 10L, TimeUnit.MILLISECONDS)
+                    .takeUntil(new Func1<Long, Boolean>() {
+                        @Override
+                        public Boolean call(Long aLong) {
+                            return connect.initVideoCapture();
+                        }
+                    }).subscribe();*/
+            connect.initVideoCapture();
 		}
 		// set automatic rotation correct mode for video capture
 		VideoCapture.setAutoRotationCorrect(true);
@@ -381,6 +393,7 @@ public class VConfVideoFrame extends Fragment implements View.OnClickListener, S
 		if (null == preFacingView) {
 			return;
 		}
+		android.util.Log.i(TAG, "initFacingPreviewSurfaceView: ....初始化采集图形...");
 
 		preFacingView.removeAllViews();
 		mPreSurfaceView = new SurfaceView(getActivity());
@@ -907,6 +920,12 @@ public class VConfVideoFrame extends Fragment implements View.OnClickListener, S
 	public void onStop() {
 		Log.w("VConfVideo", "VconfVideoFrame-->onStop ");
 		super.onStop();
+
+        if (mSubscribe != null) {
+            if (mSubscribe.isUnsubscribed()) {
+                mSubscribe.unsubscribe();
+            }
+        }
 
 		stopVideoCapture();
 

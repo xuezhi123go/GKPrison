@@ -279,7 +279,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 					mIsAudioConf = false;
 
 				}
-				finish();
+//				finish();
 			}
 		}else {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);

@@ -20,6 +20,7 @@ import com.gkzxhn.gkprison.base.MyApplication;
 
 public class VideoCapServiceConnect implements ServiceConnection {
 
+	private final String TAG = getClass().getSimpleName();
 	// Service is started
 	private boolean mIsStarted;
 
@@ -31,7 +32,8 @@ public class VideoCapServiceConnect implements ServiceConnection {
 	 */
 	@Override
 	public void onServiceConnected(ComponentName name, IBinder service) {
-		mVideoCapService = ((VideoCapService.VideoCapServiceBinder) service).getService();
+        Log.i(TAG, "onServiceConnected: ......连接图像采集服务...");
+        mVideoCapService = ((VideoCapService.VideoCapServiceBinder) service).getService();
 
 		mIsStarted = true;
 	}
@@ -43,7 +45,8 @@ public class VideoCapServiceConnect implements ServiceConnection {
 	public void onServiceDisconnected(ComponentName name) {
 		mVideoCapService = null;
 
-		mIsStarted = false;
+        Log.i(TAG, "onServiceDisconnected: ....图像采集服务断开...");
+        mIsStarted = false;
 	}
 
 	/** 
@@ -55,17 +58,21 @@ public class VideoCapServiceConnect implements ServiceConnection {
 
 	/**
 	 * 初始化采集图像
+     * return true 表示采集成功
 	 */
-	public void initVideoCapture() {
+	public boolean initVideoCapture() {
 		if (null == mVideoCapService) {
-			return;
+            Log.i(TAG, "initVideoCapture: .....return ... ");
+            return false;
 		}
+        Log.i(TAG, "initVideoCapture: .....");
 
 		try {
 			mVideoCapService.initVideoCapture(MyApplication.getApplication());
 		} catch (Exception e) {
-			Log.i(getClass().getSimpleName(), "initVideoCapture", e);
+			Log.i(TAG, "initVideoCapture", e);
 		}
+		return true;
 	}
 
 	/**

@@ -19,6 +19,7 @@ import com.keda.vconf.modle.service.VideoCapServiceConnect;
  */
 
 public class VideoCapServiceManager {
+    private static final String TAG = VideoCapServiceManager.class.getSimpleName();
 
 	private static boolean mIsBindService = false;
 	private static VideoCapServiceConnect mVideoCapServiceConnect;
@@ -34,7 +35,8 @@ public class VideoCapServiceManager {
 	public synchronized static void bindService() {
 		// 已经绑定了采集视频服务，不需要再次绑定
 		if (mVideoCapServiceConnect != null) {
-			return;
+            Log.i(TAG, "bindService: ...return...");
+            return;
 		}
 
 		if (mIsBindService) {
@@ -46,7 +48,8 @@ public class VideoCapServiceManager {
 			return;
 		}
 
-		Intent service = new Intent(context, VideoCapService.class);
+        Log.i(TAG, "bindService: .........");
+        Intent service = new Intent(context, VideoCapService.class);
 		mVideoCapServiceConnect = new VideoCapServiceConnect();
 		mIsBindService = context.bindService(service, mVideoCapServiceConnect, Context.BIND_AUTO_CREATE);
 	}
