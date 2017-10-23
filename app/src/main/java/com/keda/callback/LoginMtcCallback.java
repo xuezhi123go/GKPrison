@@ -272,6 +272,7 @@ public class LoginMtcCallback {
 					@Override
 					public void run() {
 						Toast.makeText(MyApplication.getContext(), "成功进入等待通话状态...", Toast.LENGTH_SHORT).show();
+                        NimInitUtil.sendNotificationToPrison();
 					}
 				});
 

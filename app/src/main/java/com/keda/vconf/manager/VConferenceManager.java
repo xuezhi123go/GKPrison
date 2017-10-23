@@ -856,7 +856,9 @@ public class VConferenceManager {
 			@Override
 			public void run() {
 				// 连接到耳机，设置模式无效
-				TerminalUtils.setSpeakerphoneOn(TruetouchGlobal.getContext(), true, true);
+				if (!TerminalUtils.isWiredHeadsetOn(TruetouchGlobal.getContext())) {
+					TerminalUtils.setSpeakerphoneOn(TruetouchGlobal.getContext(), true, true);
+				}
 			}
 		}).start();
 	}

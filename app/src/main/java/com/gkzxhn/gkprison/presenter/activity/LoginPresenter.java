@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.text.TextUtils;
 
 import com.blankj.utilcode.utils.RegexUtils;
+import com.gkzxhn.gkprison.BuildConfig;
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.PerActivity;
 import com.gkzxhn.gkprison.constant.Config;
@@ -64,30 +65,33 @@ public class LoginPresenter implements LoginContract.Presenter {
     @Override
     public void login(final boolean isCommonUser, final String str, String json_str) {
         android.util.Log.i(TAG, "login: ------ " + str);
-//        loginWithRightCode(isCommonUser, str);
-        mCheckSubscription = LoginWrap.getInstance().checkVerifyCode(loginService, OkHttpUtils.getRequestBody(json_str), new SimpleObserver<ResponseBody>(){
-            @Override
-            public void onError(Throwable e) {
-                Log.e(TAG, "check code failed : " + e.getMessage());
-                loginContractView.showToast(mContext.getString(R.string.verify_failed));
-            }
-
-            @Override
-            public void onNext(ResponseBody responseBody) {
-                try {
-                    String result = responseBody.string();
-                    Log.e(TAG, "check code success : " + result);
-                    if(result.contains(mContext.getString(R.string.code_200))){
-                    loginWithRightCode(isCommonUser, str);
-                    }else {
-                        loginContractView.showToast(mContext.getString(R.string.verify_code_error));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    loginContractView.showToast(mContext.getString(R.string.exception));
+        if (BuildConfig.DEBUG) {
+            loginWithRightCode(isCommonUser, str);
+        }else {
+            mCheckSubscription = LoginWrap.getInstance().checkVerifyCode(loginService, OkHttpUtils.getRequestBody(json_str), new SimpleObserver<ResponseBody>(){
+                @Override
+                public void onError(Throwable e) {
+                    Log.e(TAG, "check code failed : " + e.getMessage());
+                    loginContractView.showToast(mContext.getString(R.string.verify_failed));
                 }
-            }
-        });
+
+                @Override
+                public void onNext(ResponseBody responseBody) {
+                    try {
+                        String result = responseBody.string();
+                        Log.e(TAG, "check code success : " + result);
+                        if(result.contains(mContext.getString(R.string.code_200))){
+                        loginWithRightCode(isCommonUser, str);
+                        }else {
+                            loginContractView.showToast(mContext.getString(R.string.verify_code_error));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        loginContractView.showToast(mContext.getString(R.string.exception));
+                    }
+                }
+            });
+        }
     }
 
     private void loginWithRightCode(boolean isCommonUser, String str) {

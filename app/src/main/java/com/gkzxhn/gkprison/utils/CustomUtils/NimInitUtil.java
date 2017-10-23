@@ -9,7 +9,6 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.os.Environment;
-import android.os.SystemClock;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
@@ -92,6 +91,8 @@ import static com.gkzxhn.gkprison.constant.Config.mPassword;
 public class NimInitUtil {
 
     private static final String TAG = NimInitUtil.class.getName();
+    private static String mSessionId;
+    private static SessionTypeEnum mSessionType;
 
     /**
      * 初始化云信sdk相关
@@ -269,12 +270,14 @@ public class NimInitUtil {
                 }
                 if (systemMessage.code == -1) {
                     //code=-1 表示接收的是视频通话消息 不显示到通知栏,不注册到数据库
-                    registerGK();
-                    SystemClock.sleep(2000);
-                    if (MyApplication.getApplication().ifAppear()) {
-                        return;
+                    mSessionId = customNotification.getSessionId();
+                    mSessionType = customNotification.getSessionType();
+                    if (GKStateMannager.mRegisterGK) {
+                        sendNotificationToPrison();
+                    }else {
+                        registerGK();
                     }
-                    sendNotificationToPrison(customNotification.getSessionId(), customNotification.getSessionType());
+
                     return;
                 }
                 sendNotification(MyApplication.getContext(), content,
@@ -295,15 +298,16 @@ public class NimInitUtil {
 
     /**
      * 注册后发送云信消息到监狱端
-     * @param sessionId
-     * @param sessionType
      */
-    private static void sendNotificationToPrison(String sessionId, SessionTypeEnum sessionType) {
-        android.util.Log.i(TAG, "sendNotificationToPrison: sesionId=== " + sessionId);
+    public static void sendNotificationToPrison() {
+        if (mSessionId == null || mSessionType == null) {
+            return;
+        }
+        android.util.Log.i(TAG, "sendNotificationToPrison: sesionId=== " + mSessionId);
         //发送云信消息，告诉监狱端现在的GK状态;
         CustomNotification notification = new CustomNotification();
-        notification.setSessionId(sessionId);
-        notification.setSessionType(sessionType);
+        notification.setSessionId(mSessionId);
+        notification.setSessionType(mSessionType);
         // 构建通知的具体内容。为了可扩展性，这里采用 json 格式，以 "id" 作为类型区分。
         // 这里以类型 “1” 作为“正在输入”的状态通知。
         JSONObject json = new JSONObject();

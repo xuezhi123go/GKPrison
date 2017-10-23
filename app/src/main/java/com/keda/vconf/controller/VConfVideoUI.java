@@ -6,6 +6,7 @@ package com.keda.vconf.controller;
  */
 
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.media.AudioManager;
@@ -21,6 +22,7 @@ import com.gkzxhn.gkprison.utils.CustomUtils.KDConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
+import com.gkzxhn.gkprison.widget.receiver.HeadsetReciver;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.keda.sky.app.PcAppStackManager;
@@ -125,6 +127,9 @@ public class VConfVideoUI extends ActionBarActivity {
 		PcAppStackManager.Instance().pushActivity(this);
 		// 让音量键固定为媒体音量控制,其他的页面不要这样设置--只在音视频的界面加入这段代码
 		this.setVolumeControlStream(AudioManager.STREAM_VOICE_CALL);
+
+		//注册耳机插入广播监听
+		registerHeadsetPlugReceiver();
 
 		FrameLayout c = new FrameLayout(this);
 		c.setId(id);
@@ -379,4 +384,12 @@ public class VConfVideoUI extends ActionBarActivity {
 	}
 
 
+	private HeadsetReciver headsetPlugReceiver;
+
+	private void registerHeadsetPlugReceiver() {
+		headsetPlugReceiver = new HeadsetReciver();
+		IntentFilter intentFilter = new IntentFilter();
+		intentFilter.addAction("android.intent.action.HEADSET_PLUG");
+		registerReceiver(headsetPlugReceiver, intentFilter);
+	}
 }
