@@ -78,21 +78,37 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 
 	private void startAlarm() {
 		mMediaPlayer = MediaPlayer.create(this, getSystemDefultRingtoneUri());
-		mMediaPlayer.setLooping(true);
+		if (mMediaPlayer == null) {
+			mMediaPlayer = MediaPlayer.create(this, getSystemDefultRingtoneUri());
+		}
+		if (mMediaPlayer == null) {
+			mMediaPlayer = MediaPlayer.create(this, getSystemDefultNotificationUri());
+		}
+
 		try {
+			mMediaPlayer.setLooping(true);
 			mMediaPlayer.prepare();
-		} catch (IllegalStateException e) {
-			e.printStackTrace();
+			mMediaPlayer.start();
 		} catch (Exception e) {
+			Log.i(TAG, "startAlarm: " + e.getMessage());
 			e.printStackTrace();
 		}
-		mMediaPlayer.start();
 	}
 
 	//获取系统默认铃声的Uri
 	private Uri getSystemDefultRingtoneUri() {
 		return RingtoneManager.getActualDefaultRingtoneUri(this,
 				RingtoneManager.TYPE_RINGTONE);
+	}
+	//获取系统默认闹铃的Uri
+	private Uri getSystemDefultAlarmUri() {
+		return RingtoneManager.getActualDefaultRingtoneUri(this,
+				RingtoneManager.TYPE_ALARM);
+	}
+	//获取系统默认铃声的Uri
+	private Uri getSystemDefultNotificationUri() {
+		return RingtoneManager.getActualDefaultRingtoneUri(this,
+				RingtoneManager.TYPE_NOTIFICATION);
 	}
 
 	public void initExtras() {
@@ -205,8 +221,7 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 				mConnTextView.setVisibility(View.VISIBLE);
 				mFlowTextView.setVisibility(View.INVISIBLE);
 				mIsAudioConf = false;
-			}
-			finish();*/
+			}*/
 			// 正在发起呼叫状态 , 准备进行人脸识别
 				showCheckIdDialog();
 				break;
@@ -279,7 +294,6 @@ public class VConfAVResponseUI extends ActionBarActivity implements View.OnClick
 					mIsAudioConf = false;
 
 				}
-//				finish();
 			}
 		}else {
 			AlertDialog.Builder builder = new AlertDialog.Builder(this);
