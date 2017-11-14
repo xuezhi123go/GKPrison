@@ -44,7 +44,7 @@
                         android:id="@+id/tv_remotely_visit"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="亲情电话使用次数:"
+                        android:text="@string/family_phone_times"
                         android:textSize="@dimen/tv_cancel_size"
                         android:textColor="@color/tv_bg"/>
                     <TextView
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#6495ed"
                     android:textSize="@dimen/tv_cancel_size"
-                    android:text="购买亲情电话卡"
+                    android:text="@string/buy_family_card"
                     android:gravity="center_vertical"
                     android:layout_gravity="center_vertical"
                     android:paddingRight="@dimen/tv_cancel_size"
@@ -89,7 +89,7 @@
                 android:id="@+id/tv_meeting_last_time"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="上次通话：暂无记录"
+                android:text="@string/last_call_time"
                 android:textSize="@dimen/last_meeting_time"
                 android:paddingLeft="10dp"
                 android:layout_marginTop="6dp"
@@ -234,7 +234,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textColor="@color/tv_bg"
-                        android:text="申请亲情电话时间："
+                        android:text="@string/apply_phone_time"
                         android:layout_gravity="center_vertical"
                         android:textSize="@dimen/meeting_info_tv_size"/>
 

@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
-apply plugin: 'android-apt'
-apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'android-apt'
+//apply plugin: 'com.neenbedankt.android-apt'
 apply plugin: 'org.greenrobot.greendao'
 
 android {
@@ -48,27 +48,19 @@ android {
             jcenter()
         }
     }
-
+    flavorDimensions "color"
     productFlavors {
-        wandoujia {}
+        wandoujia { dimension "color"}
         productFlavors.all { flavor ->
             flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+            dimension "color"
         }
     }
 
     //修改生成的apk名字
-    applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def oldFile = output.outputFile
-            def newName = '';
-            if (variant.buildType.name.equals('release')) {
-                def releaseApkName = 'yuwutong-kd-vs-' + defaultConfig.versionName + '.apk'
-                output.outputFile = new File(oldFile.parent, releaseApkName)
-            }
-            if (variant.buildType.name.equals('debug')) {
-                def releaseApkName = 'yuwutong-kd-vs-' + defaultConfig.versionName + '-debug.apk'
-                output.outputFile = new File(oldFile.parent, releaseApkName)
-            }
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            outputFileName = "yuwutong-kd-vs-${variant.buildType.name}_${variant.versionName}.apk"
         }
     }
 }
@@ -111,9 +103,9 @@ dependencies {
     // 依赖注入
     // butterknife
     compile project.BUTTER_KNIFE
-    apt project.BUTTER_KNIFE_COMPILER
+    annotationProcessor project.BUTTER_KNIFE_COMPILER
     // dagger2
-    apt project.DAGGER_COMPILER
+    annotationProcessor project.DAGGER_COMPILER
     compile project.DAGGER
     provided project.JAVAX_ANNOTATION
     // 添加android缺失的部分javax注解

@@ -10,6 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.gkzxhn.gkprison.R;
+import com.gkzxhn.gkprison.base.MyApplication;
+
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.HttpVersion;
@@ -188,7 +191,7 @@ public class Utils {
      */
     public static List<String> afterNDay(int n){
         List<String> list = new ArrayList<>();
-        list.add(0, "请选择日期");
+        list.add(0, MyApplication.getContext().getString(R.string.select_date));
         for(int i = 1; i <= n; i++) {
             Calendar c = Calendar.getInstance();
             DateFormat df = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());

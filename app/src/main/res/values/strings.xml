@@ -270,7 +270,7 @@
     <string name="xxxx">xxxx</string>
     <string name="fujiaxing">附加刑&#160;&#160;:&#160;&#160;</string>
     <string name="balance">余额:&#160;&#160;</string>
-    <string name="_￥">&#160;&#160;元</string>
+    <string name="_yuan">&#160;&#160;元</string>
     <string name="current_month_money">本月可用额度:&#160;&#160;</string>
     <string name="_0_0">0.0</string>
     <string name="remittance">汇款</string>
@@ -298,7 +298,7 @@
     <string name="clock_remind">闹钟提醒</string>
     <string name="clock_close">闹钟提醒已关闭</string>
     <string name="company_address_">地址：</string>
-    <string name="company_address">北京市海淀区西三旗建材城中路3号程远大厦A座5层</string>
+    <string name="company_address">北京市海海淀区西三旗昌临813号11号楼</string>
     <string name="email_">邮编：</string>
     <string name="post_code">100086</string>
     <string name="customer_service_phone">客服电话：</string>
@@ -360,7 +360,7 @@
     <string name="message_record">消息记录</string>
     <string name="weixin">微信</string>
     <string name="my_wallet">亲情电话卡</string>
-    <string name="my_balance">通话余额</string>
+    <string name="call_balance">通话余额</string>
     <string name="_200">200元</string>
     <string name="_500">500元</string>
     <string name="yuan">元</string>
@@ -370,6 +370,12 @@
     <string name="accumulated">累计减刑 : </string>
     <string name="time">次</string>
     <string name="last_reduce">上次减刑时间 : </string>
+    <string name="family_phone_times">亲情电话使用次数:</string>
+    <string name="buy_family_card">购买亲情电话卡</string>
+    <string name="apply_phone_time">申请亲情电话时间：</string>
+    <string name="last_call_time">上次通话：暂无记录</string>
+    <string name="select_date">请选择日期</string>
+    <string name="my_balance">我的余额</string>
 
 
 </resources>

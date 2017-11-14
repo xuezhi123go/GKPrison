@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
+import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.FamilyServiceActivity;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.LawsRegulationsActivity;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.PrisonIntroductionActivity;
@@ -22,7 +23,6 @@ import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 
 import static com.gkzxhn.gkprison.utils.CustomUtils.MainUtils.OPTIONS_IVS;
 import static com.gkzxhn.gkprison.utils.CustomUtils.MainUtils.OPTIONS_IVS_PRESS;
-import static com.gkzxhn.gkprison.utils.CustomUtils.MainUtils.OPTIONS_TVS;
 
 /**
  * Author: Huang ZN
@@ -34,6 +34,13 @@ import static com.gkzxhn.gkprison.utils.CustomUtils.MainUtils.OPTIONS_TVS;
 public class MyOptionsAdapter extends BaseAdapter {
 
     private Context mContext;
+
+    private final String[] OPTIONS_TVS = {MyApplication.getContext().getString(R.string.prison_introduction),
+            MyApplication.getContext().getString(R.string.laws_regulations),
+            MyApplication.getContext().getString(R.string.prison_open),
+            MyApplication.getContext().getString(R.string.work_dynamic),
+            MyApplication.getContext().getString(R.string.family_server),
+            MyApplication.getContext().getString(R.string.warden)};
 
     public MyOptionsAdapter(Context context){
         this.mContext = context;

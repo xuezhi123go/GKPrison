@@ -55,7 +55,7 @@ public class SplashPresenter implements SplashContract.Presenter{
             public void run() {
                 boolean isFirst = (boolean) getSharedPres(SPKeyConstants.FIRST_LOGIN, true);
                 if (!isFirst){
-                    boolean isLock = (boolean) getSharedPres(SPKeyConstants.APP_LOCK, false);
+                    boolean isLock = (boolean) getClearableSharedPres(SPKeyConstants.APP_LOCK, false);
                     if (isLock){// 已加锁进入输入密码页面
                         mSplashView.toInputPassWord();
                         Log.i(TAG, "user will go to input password!");

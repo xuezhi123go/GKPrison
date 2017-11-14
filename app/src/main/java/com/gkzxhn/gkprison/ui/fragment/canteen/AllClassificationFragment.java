@@ -212,11 +212,11 @@ public class AllClassificationFragment extends BaseFragmentNew implements AbsLis
                     }
 
                     @Override public void onNext(Integer code) {
+                        UIUtils.dismissProgressDialog(getDataDialog);
                         iv_nothing.setVisibility(code == -1 ? View.VISIBLE : View.GONE);
                         if (code == -1) return;
                         adapter = new SalesAdapter();
                         lv_allclassification.setAdapter(adapter);
-                        UIUtils.dismissProgressDialog(getDataDialog);
                     }
                 });
     }

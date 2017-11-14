@@ -60,7 +60,7 @@ public class MyWalletActivity extends BaseActivityNew {
     @Override
     protected void initUiAndListener() {
         ButterKnife.bind(this);
-        tv_title.setText(R.string.my_balance);
+        tv_title.setText(R.string.call_balance);
         rl_back.setVisibility(View.VISIBLE);
         tv_remittance.setVisibility(View.VISIBLE);
         tv_remittance.setText(getString(R.string.apply_refund)); //申请退款
@@ -140,7 +140,7 @@ public class MyWalletActivity extends BaseActivityNew {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                         //TODO... 申请退款
-                        if (TextUtils.isEmpty(balance)) {
+                        if (TextUtils.isEmpty(balance) || "0.0".equals(balance)) {
                             ToastUtil.showShortToast("您的余额为零");
                             return;
                         }
@@ -193,7 +193,7 @@ public class MyWalletActivity extends BaseActivityNew {
                 int code = commonResult.code;
                 if (code == 200) {
                     android.util.Log.i(TAG, "onNext: drawbacks  : " + commonResult.msg);
-                    ToastUtil.showShortToast("退款成功");
+                    ToastUtil.showShortToast("退款申请成功");
                     SPUtil.put(MyWalletActivity.this, SPKeyConstants.USER_BALANCES, "0");
                     tv_my_balance.setText("¥ 0");
                     if (mProgressDialog != null) {

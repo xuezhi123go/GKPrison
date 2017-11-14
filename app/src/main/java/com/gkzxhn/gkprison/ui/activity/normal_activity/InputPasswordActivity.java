@@ -11,8 +11,10 @@ import android.widget.TextView;
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
 import com.gkzxhn.gkprison.ui.activity.LoginActivity;
+import com.gkzxhn.gkprison.ui.activity.MainActivity;
 import com.gkzxhn.gkprison.ui.activity.WelComeActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
+import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.jungly.gridpasswordview.GridPasswordView;
 
 import butterknife.BindView;
@@ -82,7 +84,7 @@ public class InputPasswordActivity extends BaseActivityNew {
         @Override
         public void run() {
             Intent intent;
-            if ((boolean)getSPValue(SPKeyConstants.FIRST_LOGIN, true)) {
+            if ((boolean) SPUtil.getCanNotClear(InputPasswordActivity.this, SPKeyConstants.FIRST_LOGIN, true)) {
                 intent = new Intent(InputPasswordActivity.this, WelComeActivity.class);
                 startActivity(intent);
             } else {
@@ -90,13 +92,8 @@ public class InputPasswordActivity extends BaseActivityNew {
                         TextUtils.isEmpty((String)getSPValue(SPKeyConstants.PASSWORD, ""))) {
                     LoginActivity.startActivity(InputPasswordActivity.this);
                 } else {
-                    /*if ((boolean)getSPValue(SPKeyConstants.IS_COMMON_USER, true)) {
-                        intent = new Intent(InputPasswordActivity.this, MainActivity.class);
-                        startActivity(intent);
-                    } else {
-                        intent = new Intent(InputPasswordActivity.this, DateMeetingListActivity.class);
-                        startActivity(intent);
-                    }*/
+                    intent = new Intent(InputPasswordActivity.this, MainActivity.class);
+                    startActivity(intent);
                 }
             }
             InputPasswordActivity.this.finish();

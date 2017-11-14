@@ -18,7 +18,7 @@
 
     <TextView
         android:layout_width="wrap_content"
-        android:text="我的余额"
+        android:text="@string/my_balance"
         android:layout_gravity="center_horizontal"
         android:textSize="22dp"
         android:layout_marginTop="8dp"

@@ -48,8 +48,7 @@ public class MainUtils {
             R.drawable.laws, R.drawable.prison_open,
             R.drawable.visit_service,
             R.drawable.family_service, R.drawable.sms};
-    public static final String[] OPTIONS_TVS = {"监狱简介", "法律法规",
-            "狱务公开", "工作动态", "家属服务", "投诉建议"};
+
     public static final String[] keys = {"001", "002", "003", "004", "005", "006", "007", "008", "009", "010",
             "011", "012", "013", "014", "015", "016", "017", "018", "019", "020","021", "022", "023", "024",
             "025", "026", "027", "028", "029", "030", "031", "032", "033", "034", "035", "036", "037", "038", "039", "040"};
