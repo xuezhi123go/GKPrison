@@ -14,7 +14,6 @@ import com.gkzxhn.gkprison.utils.CustomUtils.OkHttpUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.google.gson.Gson;
-import com.keda.sky.app.GKStateMannager;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -109,8 +108,6 @@ public class CrashHandler implements UncaughtExceptionHandler {
         if (ex == null) {
             return false;
         }
-        GKStateMannager.instance().unRegisterGK();
-        GKStateMannager.restoreLoginState();
         if (flag) {
             return false;
         }

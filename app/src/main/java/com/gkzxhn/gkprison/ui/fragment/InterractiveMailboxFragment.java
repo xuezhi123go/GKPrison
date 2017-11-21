@@ -34,8 +34,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.keda.vconf.video.controller.VConfVideoPlayFrame.TAG;
-
 /**
  * 监狱长信箱 --> 投诉反馈
  */
@@ -45,6 +43,8 @@ public class InterractiveMailboxFragment extends Fragment {
     private List<List<Object>> replies = new ArrayList<>();
     private SwipeRefreshLayout srl_refresh;
     private MyAdapter myAdapter;
+
+    private final String TAG = InterractiveMailboxFragment.class.getSimpleName();
 
     private ExpandableListView elv_my_mailbox_list;
     private List<String> my_mailbox_list_title = new ArrayList<String>() {

@@ -26,6 +26,7 @@
             android:textSize="@dimen/home_option_tv_size"
             android:textColor="@color/tv_bg"
             android:layout_centerHorizontal="true"
+            android:gravity="center"
             android:layout_marginTop="10dp"/>
     </RelativeLayout>
 </RelativeLayout>

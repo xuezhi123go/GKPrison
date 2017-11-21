@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,7 +97,8 @@ public class ReplyPublicityFragment extends Fragment {
     }
 
     private void getNews() {
-        if(Utils.isNetworkAvailable(getActivity())) {
+        final FragmentActivity activity = getActivity();
+        if(Utils.isNetworkAvailable(activity)) {
             OkHttpClient client = new OkHttpClient();
             String token = (String) SPUtil.get(MyApplication.getContext(), SPKeyConstants.ACCESS_TOKEN, "");
 
@@ -107,14 +109,16 @@ public class ReplyPublicityFragment extends Fragment {
             client.newCall(request).enqueue(new Callback() {
                 @Override
                 public void onFailure(Call call, IOException e) {
-                    getActivity().runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            if(srl_refresh.isRefreshing())
-                                srl_refresh.setRefreshing(false);
-                            Toast.makeText(getActivity().getApplicationContext(), "刷新数据失败", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    if (activity != null) {
+                        activity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if(srl_refresh.isRefreshing())
+                                    srl_refresh.setRefreshing(false);
+                                Toast.makeText(activity.getApplicationContext(), "刷新数据失败", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
 
                 @Override
@@ -127,7 +131,8 @@ public class ReplyPublicityFragment extends Fragment {
                             replys.add(news);
                         }
                     }
-                    getActivity().runOnUiThread(new Runnable() {
+                    if (activity != null) {
+                    activity.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
                             if (replys.size() == 0){
@@ -145,10 +150,11 @@ public class ReplyPublicityFragment extends Fragment {
                             }
                         }
                     });
+                    }
                 }
             });
         }else {
-           Toast.makeText(getActivity().getApplicationContext(),"没有网络",Toast.LENGTH_SHORT).show();
+           Toast.makeText(activity.getApplicationContext(),"没有网络",Toast.LENGTH_SHORT).show();
         }
     }
 

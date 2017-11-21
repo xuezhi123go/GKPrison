@@ -13,7 +13,6 @@ import com.gkzxhn.gkprison.dagger.module.activity.ActivityModule;
 import com.gkzxhn.gkprison.utils.NomalUtils.ResourceUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.StatusBarUtil;
-import com.keda.sky.app.PcAppStackManager;
 
 /**
  * Author: Huang ZN
@@ -30,7 +29,6 @@ public abstract class BaseActivityNew extends AppCompatActivity {
         getAppComponent().inject(this);
         super.onCreate(savedInstanceState);
         setContentView(setLayoutResId());
-        PcAppStackManager.Instance().pushActivity(this);
         setTranslucentStatus(isApplyTranslucentStatus());
         setStatusBarColor(isApplyStatusBarColor());
         initInjector();
@@ -147,7 +145,6 @@ public abstract class BaseActivityNew extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        PcAppStackManager.Instance().popActivity(this);
     }
 
     /**

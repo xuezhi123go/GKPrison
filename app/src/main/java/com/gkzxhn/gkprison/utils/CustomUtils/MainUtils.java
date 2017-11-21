@@ -16,7 +16,6 @@ import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.keda.sky.app.TruetouchGlobal;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.auth.AuthService;
 
@@ -152,7 +151,6 @@ public class MainUtils {
                 LoginActivity.startActivityClearTask(context);
                 SPUtil.clear(context);
                 NIMClient.getService(AuthService.class).logout();
-                TruetouchGlobal.logOff();
             }
         });
         dialog.show();

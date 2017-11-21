@@ -50,7 +50,6 @@ import com.iflytek.cloud.RequestListener;
 import com.iflytek.cloud.SpeechConstant;
 import com.iflytek.cloud.SpeechError;
 import com.iflytek.cloud.util.Accelerometer;
-import com.keda.sky.app.PcAppStackManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -92,8 +91,6 @@ public class VideoFace extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_video_demo);
-
-		PcAppStackManager.Instance().pushActivity(this);
 
 		initUI();
 

@@ -72,8 +72,6 @@ import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.event.RechargeEvent;
 import com.gkzxhn.gkprison.widget.view.auto.AutoCompleteTv;
-import com.keda.sky.app.GKStateMannager;
-import com.keda.sky.app.TruetouchGlobal;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.auth.AuthService;
 import com.squareup.picasso.Picasso;
@@ -275,33 +273,6 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
         return 0;
     }
 
-    private Thread mThread;
-
-    private boolean flag = true;
-    private Runnable mRunnable = new Runnable() {
-        @Override
-        public void run() {
-            while (flag) {
-                // ------- code for task to run
-                android.util.Log.i(TAG, "Runnable: start mills ==  : " + mStart_time_mills + "end mills === " +mEnd_time_mills);
-                android.util.Log.i(TAG, "Runnable: current mills ==  : " + System.currentTimeMillis());
-                if (mStart_time_mills != 0 && System.currentTimeMillis() > mStart_time_mills && System.currentTimeMillis() < mEnd_time_mills) {
-                    NimInitUtil.registerGK();
-                }else{
-                    if (GKStateMannager.mRegisterGK){
-                        GKStateMannager.instance().unRegisterGK();
-                    }
-                }
-                // ------- ends here
-                try {
-                    Thread.sleep(10 * 1000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    };
-
     /**
      * 设置侧栏item点击事件
      */
@@ -424,7 +395,6 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
         Log.i(TAG, TAG + " onDestroy");
         UIUtils.dismissProgressDialog(progressDialog);
         UIUtils.dismissAlertDialog(reLoginDialog, fastLoginDialog, kickoutDialog, logoutDialog);
-        flag = false;
         super.onDestroy();
         mPresenter.detachView();
         EventBus.getDefault().unregister(this);
@@ -442,7 +412,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                 break;
             case R.id.tv_title:// debug模式下
                 if (BuildConfig.DEBUG) {
-                    showToast("当前登录账号为：" + Config.mAccount + ",GK状态：" + GKStateMannager.mRegisterGK);
+                    showToast("当前登录账号为：" + Config.mAccount );
 
                         /*Intent intent = new Intent(); // 意图对象：动作 + 数据
                         intent.setAction(Intent.ACTION_CALL); // 设置动作
@@ -492,7 +462,6 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
         if (isRegisterUser) {
             SPUtil.clear(MainActivity.this);
             NIMClient.getService(AuthService.class).logout();
-            TruetouchGlobal.logOff();
         }
     }
 

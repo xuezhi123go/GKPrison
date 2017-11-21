@@ -8,7 +8,7 @@ import android.widget.EditText;
 
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.constant.Config;
-import com.keda.vconf.manager.VConferenceManager;
+import com.gkzxhn.gkprison.constant.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -44,9 +44,8 @@ public class ConfigActivity extends AppCompatActivity {
             ToastUtil.showShortToast("账号已由修改为：" + Config.mAccount);
         }
         if (!TextUtils.isEmpty(mRate)) {
-            Log.i(TAG, VConferenceManager.callRate + "码率" + mRate);
-            VConferenceManager.callRate = Integer.parseInt(mRate);
-            ToastUtil.showShortToast("码率已修改为：" + VConferenceManager.callRate);
+            Log.i(TAG, Constants.RATE + "码率" + mRate);
+            //TODO..修改码率
         }
         ToastUtil.showShortToast("保存成功");
         Config.isModify = true;

@@ -121,8 +121,6 @@ dependencies {
     // add library
     compile project.GREENDAO_UPDATE
     //greendao升级帮助类
-    compile files('libs/Msc.jar')
-    compile files('libs/skymobilesdkV5.1.0.1.0.jar')
 }
 
 greendao {

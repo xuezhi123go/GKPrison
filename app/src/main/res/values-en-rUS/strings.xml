@@ -378,6 +378,7 @@
     <string name="last_call_time">Last call: No record</string>
     <string name="select_date">Please select a date</string>
     <string name="my_balance">My balance</string>
+    <string name="apply_family_call">Apply family call</string>
 
 
 </resources>

@@ -258,7 +258,7 @@
                 android:layout_marginBottom="20dp"
                 android:textColor="@color/white"
                 android:textSize="@dimen/replay_bt_size"
-                android:text="申请亲情电话"
+                android:text="@string/apply_family_call"
                 android:layout_below="@id/ll_meeting_request_info"
                 android:background="@drawable/theme_bg_bt_selector"/>
         </RelativeLayout>

@@ -10,7 +10,6 @@ import com.gkzxhn.gkprison.dagger.componet.AppComponent;
 import com.gkzxhn.gkprison.dagger.componet.DaggerAppComponent;
 import com.gkzxhn.gkprison.dagger.module.AppModule;
 import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
-import com.gkzxhn.gkprison.utils.CustomUtils.KDInitUtil;
 import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.CrashHandler;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
@@ -51,7 +50,6 @@ public class MyApplication extends MultiDexApplication {
         SpeechUtility.createUtility(this, SpeechConstant.APPID + "=" + getString(R.string.xunfei_id));//科大讯飞人脸识别
         NimInitUtil.initNim();// 云信SDK相关初始化及后续操作
         if (Build.CPU_ABI.equals("armeabi-v7a")) {
-            KDInitUtil.init();// 科达SDK相关初始化及后续操作
         }else {
 //            ToastUtil.showShortToast("您的手机CPU类型版本太低,无法进行视频通话...");
             android.util.Log.i(TAG, "onCreate: 您的手机CPU类型版本太低,无法进行视频通话...");
