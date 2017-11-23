@@ -377,6 +377,10 @@
     <string name="select_date">请选择日期</string>
     <string name="my_balance">我的余额</string>
     <string name="apply_family_call">申请亲情电话</string>
+    <string name="prisoner_start_time">入监日期:</string>
+    <string name="original_prison_term">原判刑期:</string>
+    <string name="remain_prison_term">剩余刑期:</string>
+    <string name="sentence_time_start">原判刑期起日:</string>
 
 
 </resources>

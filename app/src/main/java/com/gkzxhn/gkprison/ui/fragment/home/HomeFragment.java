@@ -20,6 +20,7 @@ import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
+import com.gkzxhn.gkprison.utils.CustomUtils.RxUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.FileUtils;
@@ -38,6 +39,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import rx.Observable;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -78,6 +80,7 @@ public class HomeFragment extends BaseFragmentNew {
      * 轮播图导航点集合
      */
     private List<View> dotList = new ArrayList<>();
+    private Subscription mSubscribe;
 
     @Override
     protected void initUiAndListener(View view) {
@@ -136,14 +139,15 @@ public class HomeFragment extends BaseFragmentNew {
 //        Map<String, String> header = new HashMap<>();
 //        header.put("Authorization", token);
         Log.i(TAG, "onNext: jail_id   :  " + jail_id);
-        api.getNews(jail_id).subscribeOn(Schedulers.io())
+        mSubscribe = api.getNews(jail_id).subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new SimpleObserver<NewsResult>() {
-                    @Override public void onError(Throwable e) {
+                    @Override
+                    public void onError(Throwable e) {
                         Log.e(TAG, e.getMessage());
                         setCacheNews();// 若请求失败  则显示缓存新闻
-                        if(srl_refresh.isRefreshing()){
+                        if (srl_refresh.isRefreshing()) {
                             srl_refresh.setRefreshing(false);
                         }
                         // 防止少部分异常情况下dismiss dialog出现not attach window manager
@@ -155,13 +159,14 @@ public class HomeFragment extends BaseFragmentNew {
                         UIUtils.dismissProgressDialog(loadDataDialog);
                     }
 
-                    @Override public void onNext(NewsResult newsResult) {
+                    @Override
+                    public void onNext(NewsResult newsResult) {
                         Log.i(TAG, "onNext: jail_id   :  " + jail_id);
                         focus_news_list = new ArrayList<>();
                         allNews = new ArrayList<>();
                         List<NewsResult.News> newses = newsResult.news;
                         for (NewsResult.News news : newses) {
-                            if(news.getIsFocus()){
+                            if (news.getIsFocus()) {
                                 focus_news_list.add(news);
                             }
                             allNews.add(news);
@@ -295,5 +300,11 @@ public class HomeFragment extends BaseFragmentNew {
                 loadDataDialog.dismiss();
             }
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        RxUtils.unSubscribe(mSubscribe);
     }
 }

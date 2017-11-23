@@ -26,6 +26,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -34,6 +36,7 @@ import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,7 +45,6 @@ import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
 import com.gkzxhn.gkprison.base.BaseFragmentNew;
 import com.gkzxhn.gkprison.base.MyApplication;
-import com.gkzxhn.gkprison.constant.Config;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.dagger.componet.activity.DaggerMainComponent;
 import com.gkzxhn.gkprison.dagger.contract.MainContract;
@@ -111,6 +113,8 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
     @BindView(R.id.rb_bottom_guide_home) RadioButton rb_bottom_guide_home;
     @BindView(R.id.rb_bottom_guide_visit) RadioButton rb_bottom_guide_visit;
     @BindView(R.id.rb_bottom_guide_canteen) RadioButton rb_bottom_guide_canteen;
+    @BindView(R.id.spinner)
+    Spinner spinner;
 
     private List<BaseFragmentNew> fragments = new ArrayList<>();
     private FragmentManager manager;
@@ -135,6 +139,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
     private long mStart_time_mills;
     private long mEnd_time_mills;
     private CartDao mCartDao;
+    private RelativeLayout mRelativeLayout;
 
 
     /**
@@ -198,6 +203,25 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                 };
         NIMClient.getService(MsgServiceObserve.class)
                 .observeReceiveMessage(incomingMessageObserver, true);*/
+        setSpinner();
+    }
+
+    private final String[] RATES = {"64", "128", "192", "256", "384", "512", "768", "1024"};
+    private void setSpinner() {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
+                android.R.layout.simple_dropdown_item_1line, RATES);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                SPUtil.put(MainActivity.this, Constants.RATE, Integer.parseInt(RATES[i]));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
     }
 
     @Override
@@ -412,13 +436,7 @@ public class MainActivity extends BaseActivityNew implements MainContract.View,
                 break;
             case R.id.tv_title:// debug模式下
                 if (BuildConfig.DEBUG) {
-                    showToast("当前登录账号为：" + Config.mAccount );
-
-                        /*Intent intent = new Intent(); // 意图对象：动作 + 数据
-                        intent.setAction(Intent.ACTION_CALL); // 设置动作
-                        Uri data = Uri.parse("tel:" + "10086"); // 设置数据
-                        intent.setData(data);
-                        startActivity(intent); // 激活Activity组件*/
+                    spinner.setVisibility(View.VISIBLE);
                 }
                 break;
         }

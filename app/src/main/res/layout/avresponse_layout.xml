@@ -11,7 +11,7 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/peer_alias"
+            android:id="@+id/tv_jail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -24,28 +24,13 @@
             android:id="@+id/joinVConf_waitingText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/peer_alias"
+            android:layout_below="@id/tv_jail"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="4dp"
             android:text="@string/vconf_join_waitingTxt_p2p"
             android:textColor="@color/color_78"
             android:textSize="@dimen/LargeTextSize" />
 
-        <!-- 您当前正在使用移动网络,电话应答将为您节省流量 -->
-
-        <TextView
-            android:id="@+id/flow_remind"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/joinVConf_waitingText"
-            android:layout_centerHorizontal="true"
-            android:drawablePadding="5dip"
-            android:gravity="center"
-            android:paddingLeft="10dip"
-            android:paddingRight="10dip"
-            android:text="@string/vconf_flow_remind"
-            android:textColor="@color/color_a1"
-            android:textSize="@dimen/SmallTextSize" />
     </RelativeLayout>
 
     <FrameLayout

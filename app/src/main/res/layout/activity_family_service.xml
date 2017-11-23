@@ -10,156 +10,268 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:padding="10dp">
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical">
-
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="姓名 : "
-                />
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg" />
-            <TextView
-                android:layout_marginLeft="80dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/prisoner_num"/>
-
-            <TextView
-                android:id="@+id/tv_prison_num"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center_vertical"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/crime_type"/>
-
-            <TextView
-                android:id="@+id/tv_crime_type"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"/>
-
-            <TextView
-                android:layout_marginLeft="80dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/fujiaxing"/>
-
-            <TextView
-                android:id="@+id/tv_fujiaxing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/xxxx"/>
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/prison_sentence"/>
-
-            <TextView
-                android:id="@+id/tv_sentence_time_start"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/xxxx"/>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_bg"
-                android:text="@string/accumulated" />
-
-            <TextView
-                android:id="@+id/tv_accumulated"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_green"
-                android:text="3"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
-                android:textColor="@color/tv_green"
-                android:text="@string/time"/>
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="right"
-                android:paddingRight="10dp">
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/last_reduce"/>
+                    android:text="姓名 : "
+                    />
 
                 <TextView
-                    android:id="@+id/tv_last_reduce"
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/prisoner_start_time"/>
+
+                <TextView
+                    android:id="@+id/tv_prisoner_start_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/xxxx"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/original_prison_term"/>
+
+                <TextView
+                    android:id="@+id/tv_original_prison_term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/xxxx"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/sentence_time_start"/>
+
+                <TextView
+                    android:id="@+id/tv_sentence_time_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/xxxx"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/fujiaxing"/>
+
+                <TextView
+                    android:id="@+id/tv_fujiaxing"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/xxxx"/>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/prisoner_num"/>
+
+                <TextView
+                    android:id="@+id/tv_prison_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/crime_type"/>
+
+                <TextView
+                    android:id="@+id/tv_crime_type"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/remain_prison_term"/>
+
+                <TextView
+                    android:id="@+id/tv_remain_prison_term"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/xxxx"
+                    android:textColor="@color/tv_bg"
+                    android:textSize="@dimen/small_title_size"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/prison_sentence"/>
+
+                <TextView
+                    android:id="@+id/tv_sentence_time_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/xxxx"/>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_bg"
+                    android:text="@string/accumulated" />
+
+                <TextView
+                    android:id="@+id/tv_accumulated"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_green"
-                    android:text=" "/>
+                    android:text="3"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/small_title_size"
+                    android:textColor="@color/tv_green"
+                    android:text="@string/time"/>
 
             </LinearLayout>
+
         </LinearLayout>
+
+
+
+
+
+
+
 
         <LinearLayout
             android:visibility="gone"
@@ -218,6 +330,30 @@
                     android:text="@string/_yuan"/>
             </LinearLayout>
         </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_title_size"
+            android:textColor="@color/tv_bg"
+            android:text="@string/last_reduce"/>
+
+        <TextView
+            android:id="@+id/tv_last_reduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/small_title_size"
+            android:textColor="@color/tv_green"
+            android:text=" "/>
 
     </LinearLayout>
 

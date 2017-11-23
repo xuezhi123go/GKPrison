@@ -23,5 +23,8 @@ public class Constants {
     //头像全路径
     public static final String fileName = MyApplication.getContext().getExternalFilesDir(null) + File.separator + "avatar.png";
     public static final String RATE = "rate";
+    public static String ZIJING_DOMAIN = "cs.zijingcloud.com";
+    public static String ZIJING_ACTION = "zijing_action";
+    public static String HANGUP = "hangup";
 }
 

@@ -30,6 +30,7 @@ import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.widget.receiver.AlarmReceiver;
+import com.gkzxhn.gkprison.zijing.ZjVideoActivity;
 import com.google.gson.Gson;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
@@ -44,6 +45,7 @@ import com.netease.nimlib.sdk.msg.MsgServiceObserve;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.CustomNotification;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
+import com.zjrtc.ZjVideoManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -257,8 +259,20 @@ public class NimInitUtil {
                     mSessionId = customNotification.getSessionId();
                     mSessionType = customNotification.getSessionType();
 
-
+                    sendNotificationToPrison(-1);
+                    String msg = systemMessage.msg;
+                    if (!TextUtils.isEmpty(msg)) {
+                        String[] strings = msg.split("##");
+                        //strings 账号##主持人密码##参会密码
+                        if (strings.length == 3) {
+                            callRoom(strings[0], Constants.ZIJING_DOMAIN, strings[2]);
+                        }
+                    }
                     return;
+                }else if (systemMessage.code == -2) {
+                    Intent intent = new Intent();
+                    intent.setAction(Constants.ZIJING_ACTION);
+                    MyApplication.getContext().sendBroadcast(intent);
                 }
                 sendNotification(MyApplication.getContext(), content,
                             customNotification.getSessionId());
@@ -277,9 +291,46 @@ public class NimInitUtil {
     }
 
     /**
-     * 注册后发送云信消息到监狱端
+     * 呼叫会议室
+     * @param address
+     * @param domain
+     * @param password
      */
-    public static void sendNotificationToPrison() {
+    private static void callRoom(String address, String domain, String password) {
+//设置服务器地址、显示名称、呼叫地址、呼叫密码；
+        ZjVideoManager manager = ZjVideoManager.getInstance();
+        manager.setDomain(domain);
+        manager.setDisplayName("guoke001");
+        manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 384));
+        manager.setAddress(address);
+        manager.setPwd(password);
+//        manager.openSpeaker(this,true);
+//        manager.setNotSupportH264(true);
+//        manager.printLogs();
+//        manager.setTvSupport();
+//        manager.addZjCallListener(new ZjCallListenerBase(){
+//
+//            @Override
+//            public void callState(String state, String reason) {
+//                Log.e(TAG, "callState: "+state+" "+reason );
+//            }
+//
+//            @Override
+//            public void onMuteChanged(boolean muted) {
+//                Log.e(TAG, "onMuteChanged: "+muted );
+//            }
+//        });
+
+        Intent intent = new Intent(MyApplication.getContext(), ZjVideoActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        MyApplication.getContext().startActivity(intent);
+    }
+
+    /**
+     * 注册后发送云信消息到监狱端
+     * @param code -1表示连接成功 -2表示挂断
+     */
+    public static void sendNotificationToPrison(int code) {
         if (mSessionId == null || mSessionType == null) {
             return;
         }
@@ -292,7 +343,7 @@ public class NimInitUtil {
         // 这里以类型 “1” 作为“正在输入”的状态通知。
         JSONObject json = new JSONObject();
         try {
-            json.put("code", true ? -1 : -2); //如果GK状态在线则发送-1, 否则发送-2
+            json.put("code", code); //挂断发送-2
         } catch (JSONException e) {
             e.printStackTrace();
         }

@@ -63,6 +63,19 @@ android {
             outputFileName = "yuwutong-kd-vs-${variant.buildType.name}_${variant.versionName}.apk"
         }
     }
+
+    configurations.all{
+        resolutionStrategy.force'com.google.code.findbugs:jsr305:3.0.0'
+    }
+    repositories {
+        // 配置 aar
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    //api23之后不自带Apache http
+    useLibrary 'org.apache.http.legacy'
 }
 
 dependencies {
@@ -121,6 +134,10 @@ dependencies {
     // add library
     compile project.GREENDAO_UPDATE
     //greendao升级帮助类
+
+    //紫荆云视
+    compile 'com.facebook.react:react-native:+'
+    compile(name:'zjrtc-v1.8.2', ext:'aar') // 添加 aar 包
 }
 
 greendao {

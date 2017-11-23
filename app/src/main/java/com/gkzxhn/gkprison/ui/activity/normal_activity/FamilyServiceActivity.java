@@ -71,7 +71,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
     @BindView(R.id.tv_prison_num) TextView tv_prison_num;// 囚号
     @BindView(R.id.tv_name) TextView prisoner_name;// 姓名
     @BindView(R.id.tv_crime_type) TextView tv_crime_type;// 犯罪类型
-    @BindView(R.id.tv_sentence_time_start) TextView tv_sentence_time_start;// 刑期开始时间
+    @BindView(R.id.tv_sentence_time_end) TextView tv_sentence_time_start;// 刑期开始时间
     @BindView(R.id.tv_last_reduce) TextView tv_last_reduce;// 上次减刑时间
     @BindView(R.id.tv_fujiaxing) TextView tv_fujiaxing;// 刑期截止时间
     @BindView(R.id.tv_balance_money) TextView tv_balance_money;// 余额

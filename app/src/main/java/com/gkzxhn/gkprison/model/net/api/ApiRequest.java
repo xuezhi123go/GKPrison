@@ -8,6 +8,7 @@ import com.gkzxhn.gkprison.model.net.bean.Laws;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
+import com.gkzxhn.gkprison.model.net.bean.SentenceChange;
 import com.gkzxhn.gkprison.model.net.bean.VersionInfo;
 
 import java.util.Map;
@@ -189,4 +190,19 @@ public interface ApiRequest {
      */
     @GET("families/{family_id}/prisoner_orders")
     Observable<PrisonerOrders> getPrisonerOrders(@HeaderMap Map<String, String> headers, @Path("family_id") int familyId);
+
+    /**
+     * 获取罪犯的刑期变动信息
+     * @return
+     */
+    @GET("prisoners/{prisoner_id}/prisoner_terms")
+    Observable<SentenceChange> getSentenceChange(@Path("prisoner_id") int prisonerId);
+
+
+    /**
+     * 获取用户对应囚犯详细信息
+     * @return
+     */
+    @GET("prisoners/{prisoner_id}/detail")
+    Observable<PrisonerUserInfo> getPrisonerDetail(@Path("prisoner_id") String prisoner_id);
 }

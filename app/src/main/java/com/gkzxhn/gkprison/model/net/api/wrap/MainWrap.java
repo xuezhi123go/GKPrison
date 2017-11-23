@@ -8,6 +8,7 @@ import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
+import com.gkzxhn.gkprison.model.net.bean.SentenceChange;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 
@@ -152,4 +153,25 @@ public class MainWrap {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
+
+    /**
+     * 获取刑期变动信息
+     * @param prisonerId
+     * @param observer
+     * @return
+     */
+    public static Subscription getSentenceChange(int prisonerId, Observer<SentenceChange> observer){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.URL_HEAD)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
+        return apiRequest.getSentenceChange(prisonerId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .subscribe(observer);
+    }
+
 }
