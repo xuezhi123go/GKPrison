@@ -60,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/xxxx"/>
+                    android:text="@string/unknown"/>
 
 
             </LinearLayout>
@@ -82,9 +82,9 @@
                     android:id="@+id/tv_original_prison_term"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:text="@string/unknown"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/xxxx"/>
+                    android:textSize="@dimen/small_title_size"/>
 
 
             </LinearLayout>
@@ -108,7 +108,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/xxxx"/>
+                    android:text="@string/unknown"/>
 
 
             </LinearLayout>
@@ -132,7 +132,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/xxxx"/>
+                    android:text="@string/unknown"/>
             </LinearLayout>
 
 
@@ -183,6 +183,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
+                    android:text="@string/unknown"
                     android:textColor="@color/tv_bg"/>
 
             </LinearLayout>
@@ -204,7 +205,7 @@
                     android:id="@+id/tv_remain_prison_term"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/xxxx"
+                    android:text="@string/unknown"
                     android:textColor="@color/tv_bg"
                     android:textSize="@dimen/small_title_size"/>
 
@@ -230,7 +231,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_bg"
-                    android:text="@string/xxxx"/>
+                    android:text="@string/unknown"/>
 
 
             </LinearLayout>
@@ -253,7 +254,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/small_title_size"
                     android:textColor="@color/tv_green"
-                    android:text="3"/>
+                    android:text="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -353,7 +354,7 @@
             android:layout_height="wrap_content"
             android:textSize="@dimen/small_title_size"
             android:textColor="@color/tv_green"
-            android:text=" "/>
+            android:text="@string/unknown"/>
 
     </LinearLayout>
 

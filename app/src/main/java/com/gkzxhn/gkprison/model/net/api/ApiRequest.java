@@ -1,11 +1,13 @@
 package com.gkzxhn.gkprison.model.net.api;
 
+import com.gkzxhn.gkprison.model.net.bean.AwardPunishInfo;
 import com.gkzxhn.gkprison.model.net.bean.Balances;
 import com.gkzxhn.gkprison.model.net.bean.CategoriesInfo;
 import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.FamilyServerBean;
 import com.gkzxhn.gkprison.model.net.bean.Laws;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerDetail;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
 import com.gkzxhn.gkprison.model.net.bean.SentenceChange;
@@ -194,15 +196,24 @@ public interface ApiRequest {
     /**
      * 获取罪犯的刑期变动信息
      * @return
+     * @param prisonerId
      */
     @GET("prisoners/{prisoner_id}/prisoner_terms")
-    Observable<SentenceChange> getSentenceChange(@Path("prisoner_id") int prisonerId);
+    Observable<SentenceChange> getSentenceChange(@Path("prisoner_id") long prisonerId);
 
 
     /**
      * 获取用户对应囚犯详细信息
      * @return
+     * @param prisoner_id
      */
     @GET("prisoners/{prisoner_id}/detail")
-    Observable<PrisonerUserInfo> getPrisonerDetail(@Path("prisoner_id") String prisoner_id);
+    Observable<PrisonerDetail> getPrisonerDetail(@Path("prisoner_id") long prisoner_id);
+
+    /**
+     * 获取用户对应囚犯奖惩信息
+     * @return
+     */
+    @GET("/prisoners/{prisoner_id}/prisoner_reward_punishment ")
+    Observable<AwardPunishInfo> getAwardPunish(@Path("prisoner_id") int prisoner_id);
 }

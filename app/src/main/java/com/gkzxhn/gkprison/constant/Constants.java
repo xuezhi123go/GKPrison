@@ -26,5 +26,7 @@ public class Constants {
     public static String ZIJING_DOMAIN = "cs.zijingcloud.com";
     public static String ZIJING_ACTION = "zijing_action";
     public static String HANGUP = "hangup";
+    public static String ROOM_NUMBER = "room_number";
+    public static String JOIN_PASSWORD = "join_password";
 }
 

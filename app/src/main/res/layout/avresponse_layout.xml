@@ -91,7 +91,8 @@
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:background="@drawable/vconf_hangup_selector"
-                    android:clickable="true"/>
+                    android:clickable="true"
+                    android:focusable="true"/>
                     <TextView
                         android:text="拒绝"
                         android:textSize="18sp"
@@ -102,7 +103,6 @@
                     </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/video_response_btn"
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:paddingLeft="32dp"
@@ -110,8 +110,11 @@
                     android:orientation="vertical"
                     android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/video_response_btn"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
                     android:background="@drawable/accept_video"
                     />
                     <TextView

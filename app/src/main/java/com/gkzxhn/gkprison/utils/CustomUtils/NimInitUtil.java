@@ -23,6 +23,7 @@ import com.gkzxhn.gkprison.model.dao.bean.SysmsgDao;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.SystemMessage;
 import com.gkzxhn.gkprison.ui.activity.MainActivity;
+import com.gkzxhn.gkprison.ui.activity.ResponseActivity;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.SystemMessageActivity;
 import com.gkzxhn.gkprison.utils.NomalUtils.DensityUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
@@ -30,7 +31,6 @@ import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.SystemUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.widget.receiver.AlarmReceiver;
-import com.gkzxhn.gkprison.zijing.ZjVideoActivity;
 import com.google.gson.Gson;
 import com.netease.nimlib.sdk.NIMClient;
 import com.netease.nimlib.sdk.Observer;
@@ -45,7 +45,6 @@ import com.netease.nimlib.sdk.msg.MsgServiceObserve;
 import com.netease.nimlib.sdk.msg.constant.SessionTypeEnum;
 import com.netease.nimlib.sdk.msg.model.CustomNotification;
 import com.netease.nimlib.sdk.uinfo.UserInfoProvider;
-import com.zjrtc.ZjVideoManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -265,7 +264,13 @@ public class NimInitUtil {
                         String[] strings = msg.split("##");
                         //strings 账号##主持人密码##参会密码
                         if (strings.length == 3) {
-                            callRoom(strings[0], Constants.ZIJING_DOMAIN, strings[2]);
+                            String room = strings[0];
+                            String joinPassword = strings[2];
+                            Intent intent = new Intent(MyApplication.getContext(), ResponseActivity.class);
+                            intent.putExtra(Constants.ROOM_NUMBER, room);
+                            intent.putExtra(Constants.JOIN_PASSWORD, joinPassword);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            MyApplication.getContext().startActivity(intent);
                         }
                     }
                     return;
@@ -288,42 +293,6 @@ public class NimInitUtil {
                 }*/
             }
         }, true);
-    }
-
-    /**
-     * 呼叫会议室
-     * @param address
-     * @param domain
-     * @param password
-     */
-    private static void callRoom(String address, String domain, String password) {
-//设置服务器地址、显示名称、呼叫地址、呼叫密码；
-        ZjVideoManager manager = ZjVideoManager.getInstance();
-        manager.setDomain(domain);
-        manager.setDisplayName("guoke001");
-        manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 384));
-        manager.setAddress(address);
-        manager.setPwd(password);
-//        manager.openSpeaker(this,true);
-//        manager.setNotSupportH264(true);
-//        manager.printLogs();
-//        manager.setTvSupport();
-//        manager.addZjCallListener(new ZjCallListenerBase(){
-//
-//            @Override
-//            public void callState(String state, String reason) {
-//                Log.e(TAG, "callState: "+state+" "+reason );
-//            }
-//
-//            @Override
-//            public void onMuteChanged(boolean muted) {
-//                Log.e(TAG, "onMuteChanged: "+muted );
-//            }
-//        });
-
-        Intent intent = new Intent(MyApplication.getContext(), ZjVideoActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        MyApplication.getContext().startActivity(intent);
     }
 
     /**

@@ -6,6 +6,7 @@ import com.gkzxhn.gkprison.model.net.api.ApiRequest;
 import com.gkzxhn.gkprison.model.net.bean.CategoriesInfo;
 import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerDetail;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerOrders;
 import com.gkzxhn.gkprison.model.net.bean.PrisonerUserInfo;
 import com.gkzxhn.gkprison.model.net.bean.SentenceChange;
@@ -160,7 +161,7 @@ public class MainWrap {
      * @param observer
      * @return
      */
-    public static Subscription getSentenceChange(int prisonerId, Observer<SentenceChange> observer){
+    public static Subscription getSentenceChange(long prisonerId, Observer<SentenceChange> observer){
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(Constants.URL_HEAD)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
@@ -170,7 +171,27 @@ public class MainWrap {
         return apiRequest.getSentenceChange(prisonerId)
                 .subscribeOn(Schedulers.io())
                 .unsubscribeOn(Schedulers.io())
-                .observeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
+
+    /**
+     * 获取罪犯详细信息
+     * @param prisonerId
+     * @param observer
+     * @return
+     */
+    public static Subscription getPrisonerDetail(long prisonerId, Observer<PrisonerDetail> observer){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.URL_HEAD)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
+        return apiRequest.getPrisonerDetail(prisonerId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(observer);
     }
 
