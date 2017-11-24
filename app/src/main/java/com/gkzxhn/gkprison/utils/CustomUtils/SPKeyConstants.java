@@ -159,7 +159,8 @@ public class SPKeyConstants {
     /**
      * 是否开通刑期变动模块
      */
-    public static final String PRISONTERM = "prisonterm";
+    public static final String
+            PRISONTERM = "prisonterm";
     /**
      * 是否开通奖惩模块
      */

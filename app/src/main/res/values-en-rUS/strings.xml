@@ -378,6 +378,11 @@
     <string name="last_call_time">Last call: No record</string>
     <string name="select_date">Please select a date</string>
     <string name="my_balance">My balance</string>
+    <string name="unknown">unknow</string>
+    <string name="prisoner_start_time">入监日期</string>
+    <string name="original_prison_term">原判刑期</string>
+    <string name="sentence_time_start">原判刑期起日</string>
+    <string name="remain_prison_term">剩余刑期</string>
 
 
 </resources>

@@ -268,7 +268,7 @@
     <string name="crime_type">罪名：</string>
     <string name="prison_sentence">原判刑期止日：</string>
     <string name="xxxx">xxxx</string>
-    <string name="fujiaxing">附加刑&#160;&#160;:&#160;&#160;</string>
+    <string name="fujiaxing">附加刑:&#160;</string>
     <string name="balance">余额:&#160;&#160;</string>
     <string name="_yuan">&#160;&#160;元</string>
     <string name="current_month_money">本月可用额度:&#160;&#160;</string>
@@ -376,6 +376,11 @@
     <string name="last_call_time">上次通话：暂无记录</string>
     <string name="select_date">请选择日期</string>
     <string name="my_balance">我的余额</string>
+    <string name="unknown">unknow</string>
+    <string name="prisoner_start_time">入监日期</string>
+    <string name="original_prison_term">原判刑期</string>
+    <string name="sentence_time_start">原判刑期起日</string>
+    <string name="remain_prison_term">剩余刑期</string>
 
 
 </resources>

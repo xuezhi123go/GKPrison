@@ -2,6 +2,7 @@ package com.gkzxhn.gkprison.ui.activity.normal_activity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -23,9 +24,13 @@ import com.gkzxhn.gkprison.model.dao.GreenDaoHelper;
 import com.gkzxhn.gkprison.model.dao.bean.CartDao;
 import com.gkzxhn.gkprison.model.dao.bean.LineItemsDao;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
+import com.gkzxhn.gkprison.model.net.api.wrap.MainWrap;
 import com.gkzxhn.gkprison.model.net.bean.AA;
+import com.gkzxhn.gkprison.model.net.bean.AwardPunishInfo;
 import com.gkzxhn.gkprison.model.net.bean.Line_items_attributes;
 import com.gkzxhn.gkprison.model.net.bean.Order;
+import com.gkzxhn.gkprison.model.net.bean.PrisonerDetail;
+import com.gkzxhn.gkprison.model.net.bean.SentenceChange;
 import com.gkzxhn.gkprison.ui.pay.PaymentActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.MainUtils;
 import com.gkzxhn.gkprison.utils.CustomUtils.OkHttpUtils;
@@ -34,6 +39,7 @@ import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.CustomUtils.SimpleObserver;
 import com.gkzxhn.gkprison.utils.NomalUtils.ListViewParamsUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
+import com.gkzxhn.gkprison.utils.NomalUtils.StringUtils;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.UIUtils;
 import com.gkzxhn.gkprison.utils.event.RechargeEvent;
@@ -68,14 +74,20 @@ public class FamilyServiceActivity extends BaseActivityNew {
     @BindView(R.id.tv_title) TextView tv_title;// 标题
     @BindView(R.id.rl_back) RelativeLayout rl_back;// 返回
     @BindView(R.id.tv_remittance) TextView tv_remittance;// 汇款
-    @BindView(R.id.tv_prison_num) TextView tv_prison_num;// 囚号
-    @BindView(R.id.tv_name) TextView prisoner_name;// 姓名
-    @BindView(R.id.tv_crime_type) TextView tv_crime_type;// 犯罪类型
-    @BindView(R.id.tv_sentence_time_start) TextView tv_sentence_time_start;// 刑期开始时间
-    @BindView(R.id.tv_last_reduce) TextView tv_last_reduce;// 上次减刑时间
-    @BindView(R.id.tv_fujiaxing) TextView tv_fujiaxing;// 刑期截止时间
     @BindView(R.id.tv_balance_money) TextView tv_balance_money;// 余额
     @BindView(R.id.tv_current_month_available_money) TextView tv_current_month_available_money;// 本月可用余额
+
+    @BindView(R.id.tv_name) TextView tv_name;// 姓名
+    @BindView(R.id.tv_prisoner_start_time) TextView tv_prisoner_start_time;// 入监日期
+    @BindView(R.id.tv_original_prison_term) TextView tv_original_prison_term;// 原判刑期
+    @BindView(R.id.tv_sentence_time_start) TextView tv_sentence_time_start;// 原判刑期起日
+    @BindView(R.id.tv_fujiaxing) TextView tv_fujiaxing;// 附加刑
+    @BindView(R.id.tv_prison_num) TextView tv_prison_num;// 罪犯编号
+    @BindView(R.id.tv_crime_type) TextView tv_crime_type;// 罪名
+    @BindView(R.id.tv_remain_prison_term) TextView tv_remain_prison_term;// 剩余刑期
+    @BindView(R.id.tv_sentence_time_end) TextView tv_sentence_time_end;// 原判刑期止日
+    @BindView(R.id.tv_accumulated) TextView tv_accumulated;// 累计减刑
+    @BindView(R.id.tv_last_reduce) TextView tv_last_reduce;// 上次减刑时间
 
     private ProgressDialog getInfoDialog;
     private Subscription getInfoSub;
@@ -185,6 +197,8 @@ public class FamilyServiceActivity extends BaseActivityNew {
     };
     private CartDao mCartDao;
     private LineItemsDao mLineItemsDao;
+    private SentenceAdapter mSentenceAdapter;
+    private RewardAndPunishAdapter mRewardPunishAdapter;
 
     @Override
     public int setLayoutResId() {
@@ -203,8 +217,58 @@ public class FamilyServiceActivity extends BaseActivityNew {
         mLineItemsDao = GreenDaoHelper.getDaoSession().getLineItemsDao();
         jail_id = (int) SPUtil.get(this, SPKeyConstants.JAIL_ID, 0);
         MyAdapter adapter = new MyAdapter();
+        mSentenceAdapter = new SentenceAdapter();//刑期变动adapter
+        mRewardPunishAdapter = new RewardAndPunishAdapter();//奖励惩罚adapter
+
+
         el_items.setAdapter(adapter);
-        getPrisonerInformation();
+        String prisoner_number = (String) getSPValue(SPKeyConstants.PRISONER_NUMBER, "");
+//        prisoner_number = "4000001";
+        getPrisonerInformation(prisoner_number);
+
+        getSentenceChangeInfo(prisoner_number);
+
+        getAwardPunishInfo(prisoner_number);
+    }
+
+    /**
+     * 获取奖惩信息
+     * @param prisoner_number
+     */
+    private void getAwardPunishInfo(String prisoner_number) {
+        MainWrap.getAwardPunish(Long.parseLong(prisoner_number), new SimpleObserver<AwardPunishInfo>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(AwardPunishInfo awardPunishInfo) {
+                super.onNext(awardPunishInfo);
+                mRewardPunishAdapter.setData(awardPunishInfo.data);
+                mRewardPunishAdapter.notifyDataSetChanged();
+            }
+        });
+    }
+
+    /**
+     * 获取刑期变动信息
+     * @param prisoner_number
+     */
+    private void getSentenceChangeInfo(String prisoner_number) {
+        MainWrap.getSentenceChange(Long.parseLong(prisoner_number), new SimpleObserver<SentenceChange>(){
+            @Override
+            public void onError(Throwable e) {
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(SentenceChange sentenceChange) {
+                super.onNext(sentenceChange);
+                mSentenceAdapter.setData(sentenceChange.data);
+                mSentenceAdapter.notifyDataSetChanged();
+            }
+        });
     }
 
     @Override protected void initInjector() {}
@@ -228,23 +292,79 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
     /**
      * 获取囚犯数据
+     * @param prisoner_number
      */
-    private void getPrisonerInformation() {
+    private void getPrisonerInformation(String prisoner_number) {
         String prison_term_started_at = (String) getSPValue(SPKeyConstants.PRISON_TERM_STARTED_AT, "");
-        String prison_term_ended_at = (String) getSPValue(SPKeyConstants.PRISON_TERM_ENDED_AT, "");
+        final String prison_term_ended_at = (String) getSPValue(SPKeyConstants.PRISON_TERM_ENDED_AT, "");
         String gender = (String) getSPValue(SPKeyConstants.GENDER, "");
-        String prisoner_number = (String) getSPValue(SPKeyConstants.PRISONER_NUMBER, "");
-        String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
+        final String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
         String name = (String)getSPValue(SPKeyConstants.PRISONER_NAME, "李新开");
 
         tv_prison_num.setText(prisoner_number);
 
-        prisoner_name.setText(name);
-        tv_last_reduce.setText(sentence_time.get(sentence_time.size() - 1));
+        tv_name.setText(name);
 
         tv_crime_type.setText(prisoner_crimes);
         tv_sentence_time_start.setText(prison_term_ended_at);
-        tv_fujiaxing.setText("存储爆炸物");
+
+        MainWrap.getPrisonerDetail(Long.parseLong(prisoner_number), new SimpleObserver<PrisonerDetail>(){
+            @Override
+            public void onError(Throwable e) {
+                Log.e(TAG, "onError: prisonerDetail : " + e.getMessage());
+                super.onError(e);
+            }
+
+            @Override
+            public void onNext(PrisonerDetail prisonerDetail) {
+                super.onNext(prisonerDetail);
+                Log.i(TAG, "onNext: prisonerDetail : " + prisonerDetail);
+                String startTime = prisonerDetail.data.prison_term_started_at;
+                String endedTime = prisonerDetail.data.prison_term_ended_at;
+                int start = 0;
+                if (TextUtils.isEmpty(startTime)) {
+                }else {
+                    start = Integer.parseInt(startTime.substring(0, 4));
+                    tv_prisoner_start_time.setText(startTime);
+                    tv_sentence_time_start.setText(startTime);
+                }
+                int end = 0;
+                if (TextUtils.isEmpty(endedTime)) {
+                }else {
+                    end = Integer.parseInt(endedTime.substring(0, 4));
+                    tv_sentence_time_end.setText(endedTime);
+                    if (start != 0) {
+                        tv_original_prison_term.setText(String.valueOf(end - start) + "年");
+                    }
+                    int restTime = end -
+                            Integer.parseInt(StringUtils.formatTime(System.currentTimeMillis(), "yyyy"));
+                    tv_remain_prison_term.setText(String.valueOf(restTime) + "年");
+                }
+                String punishment = prisonerDetail.data.additional_punishment;
+                if (!TextUtils.isEmpty(punishment)) {
+                    tv_fujiaxing.setText(punishment);
+                }
+                String prisonerNumber = prisonerDetail.data.prisoner_number;
+                if (!TextUtils.isEmpty(prisonerNumber)) {
+                    tv_prison_num.setText(prisonerNumber);
+                }
+
+                String crimes = prisonerDetail.data.crimes;
+                if (!TextUtils.isEmpty(crimes)) {
+                    tv_crime_type.setText(crimes);
+                }
+                String times = String.valueOf(prisonerDetail.data.times);
+                if (!TextUtils.isEmpty(times)) {
+                    tv_accumulated.setText(times);
+                }
+
+                String last_time = prisonerDetail.data.last_time;
+                if (!TextUtils.isEmpty(last_time)) {
+                    tv_last_reduce.setText(last_time);
+                }else {
+                }
+            }
+        });
 
 /*        if (!SystemUtil.isNetWorkUnAvailable()) {
             getInfoDialog = UIUtils.showProgressDialog(this, "");
@@ -425,7 +545,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
      */
     private String getRequestBody() {
         int family_id = (int) SPUtil.get(FamilyServiceActivity.this, SPKeyConstants.FAMILY_ID, -1);
-        android.util.Log.i(TAG, "getRequestBody: family_id === " + family_id);
+        Log.i(TAG, "getRequestBody: family_id === " + family_id);
         Order order = new Order();
         order.setFamily_id(family_id);
         Line_items_attributes lineitemsattributes = new Line_items_attributes();
@@ -438,7 +558,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
         order.setAmount(Float.parseFloat(money));
         AA aa = new AA();
         aa.setOrder(order);
-        android.util.Log.i(TAG, "getRequestBody: aa====  " + aa);
+        Log.i(TAG, "getRequestBody: aa====  " + aa);
         return new Gson().toJson(aa);
     }
 
@@ -507,15 +627,13 @@ public class FamilyServiceActivity extends BaseActivityNew {
             if (groupPosition == 0) {
                 convertView = View.inflate(getApplicationContext(), R.layout.sentence_change, null);
                 ListView lv_sentence = (ListView)convertView.findViewById(R.id.lv_sentence_recod);
-                SentenceAdapter adapter = new SentenceAdapter();
-                 lv_sentence.setAdapter(adapter);
+                 lv_sentence.setAdapter(mSentenceAdapter);
                 ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_sentence);
             } else if (groupPosition == 1) {
                 //奖励惩罚
                 convertView = View.inflate(getApplicationContext(), R.layout.sentence_change, null);
                   ListView lv_consumption = (ListView)convertView.findViewById(R.id.lv_sentence_recod);
-                RewardAndPunishAdapter adapter = new RewardAndPunishAdapter();
-                   lv_consumption.setAdapter(adapter);
+                   lv_consumption.setAdapter(mRewardPunishAdapter);
                  ListViewParamsUtils.setListViewHeightBasedOnChildren(lv_consumption);
             } /*else if (groupPosition == 2) {
                 convertView = View.inflate(getApplicationContext(), R.layout.shoppingreceipt, null);
@@ -548,9 +666,11 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
     private class SentenceAdapter extends BaseAdapter {
 
+        private List<SentenceChange.DataBean> mDatas = new ArrayList<>();
+
         @Override
         public int getCount() {
-            return 4;
+            return mDatas.size() + 1;
         }
 
         @Override
@@ -578,15 +698,21 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             if (position == 0) {
-                viewHolder.tv_sentence_time.setText("时间");
+                viewHolder.tv_sentence_time.setText("变后止日");
                 viewHolder.tv_sentence_case.setText("类型");
                 viewHolder.tv_sentence_add.setText("幅度");
                 viewHolder.tv_after.setText("变动后刑期");
             } else {
-                viewHolder.tv_sentence_time.setText(sentence_time.get(position-1));
-                viewHolder.tv_sentence_case.setText(sentence_cause.get(position-1));
-                viewHolder.tv_sentence_add.setText(sentence_time_add.get(position-1));
-                viewHolder.tv_after.setText(sentence_after.get(position-1));
+                String term_finish = mDatas.get(position - 1).term_finish;
+                if (!TextUtils.isEmpty(term_finish)) {
+                    viewHolder.tv_sentence_time.setText(term_finish.substring(0, 10));
+                }
+                String changetype = mDatas.get(position - 1).changetype;
+                if (!TextUtils.isEmpty(changetype)) {
+                    viewHolder.tv_sentence_case.setText(changetype);
+                }
+                viewHolder.tv_sentence_add.setText(mDatas.get(position - 1).changeyear+"年"+mDatas.get(position - 1).changemonth+"个月");
+                viewHolder.tv_after.setText(mDatas.get(position - 1).sentence_year+"年"+mDatas.get(position - 1).sentence_month+"个月");
             }
             return convertView;
         }
@@ -597,13 +723,19 @@ public class FamilyServiceActivity extends BaseActivityNew {
             TextView tv_sentence_add;
             TextView tv_after;
         }
+
+        public void setData(List<SentenceChange.DataBean> datas){
+            mDatas = datas;
+        }
     }
 
     private class RewardAndPunishAdapter extends BaseAdapter {
 
+        private List<AwardPunishInfo.DataBean> mData = new ArrayList<>();
+
         @Override
         public int getCount() {
-            return 4;
+            return mData.size() + 1;
         }
 
         @Override
@@ -634,11 +766,15 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 viewHolder.buy_commodity.setText("奖惩类型");
                 viewHolder.buy_money.setText("奖惩内容");
             } else {
-                viewHolder.buy_time.setText(re_pun_time.get(position-1));
-                viewHolder.buy_commodity.setText(re_pun_type.get(position-1));
-                viewHolder.buy_money.setText(re_pun_content.get(position-1));
+                viewHolder.buy_time.setText(mData.get(position - 1).datayear + "");
+                viewHolder.buy_commodity.setText(mData.get(position - 1).rp_type + "");
+                viewHolder.buy_money.setText(mData.get(position - 1).ndry + "");
             }
             return convertView;
+        }
+
+        public void setData(List<AwardPunishInfo.DataBean> data) {
+            mData = data;
         }
 
         private class ViewHolder {
