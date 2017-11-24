@@ -360,7 +360,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
                 String last_time = prisonerDetail.data.last_time;
                 if (!TextUtils.isEmpty(last_time)) {
-                    tv_last_reduce.setText(last_time);
+                    tv_last_reduce.setText(last_time.substring(0, 10));
                 }else {
                 }
             }
@@ -711,8 +711,26 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 if (!TextUtils.isEmpty(changetype)) {
                     viewHolder.tv_sentence_case.setText(changetype);
                 }
-                viewHolder.tv_sentence_add.setText(mDatas.get(position - 1).changeyear+"年"+mDatas.get(position - 1).changemonth+"个月");
-                viewHolder.tv_after.setText(mDatas.get(position - 1).sentence_year+"年"+mDatas.get(position - 1).sentence_month+"个月");
+                int changeyear = mDatas.get(position - 1).changeyear;
+                int changemonth = mDatas.get(position - 1).changemonth;
+                StringBuffer change = new StringBuffer();
+                if (changeyear!=0) {
+                    change.append(changeyear).append("年");
+                }
+                if (changemonth!=0) {
+                    change.append(changemonth).append("个月");
+                }
+                viewHolder.tv_sentence_add.setText(change);
+                String sentence_year = mDatas.get(position - 1).sentence_year;
+                String sentence_month = mDatas.get(position - 1).sentence_month;
+                StringBuffer sentence = new StringBuffer();
+                if (!TextUtils.isEmpty(sentence_year)) {
+                    sentence.append(sentence_year).append("年");
+                }
+                if (!TextUtils.isEmpty(sentence_month) || !"00".equals(sentence_month) || !"0".equals(sentence_month)) {
+                    sentence.append(sentence_month).append("个月");
+                }
+                viewHolder.tv_after.setText(sentence);
             }
             return convertView;
         }

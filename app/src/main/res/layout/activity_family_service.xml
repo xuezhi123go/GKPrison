@@ -28,17 +28,17 @@
 
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
-                    android:textColor="@color/tv_bg"
+                    android:layout_height="match_parent"
                     android:text="姓名 : "
+                    android:textColor="@color/tv_bg"
+                    android:textSize="@dimen/roll_title_size"
                     />
 
                 <TextView
                     android:id="@+id/tv_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg" />
             </LinearLayout>
 
@@ -50,7 +50,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/prisoner_start_time"/>
 
@@ -58,7 +58,7 @@
                     android:id="@+id/tv_prisoner_start_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/unknown"/>
 
@@ -74,7 +74,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/original_prison_term"/>
 
@@ -84,7 +84,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unknown"
                     android:textColor="@color/tv_bg"
-                    android:textSize="@dimen/small_title_size"/>
+                    android:textSize="@dimen/roll_title_size"/>
 
 
             </LinearLayout>
@@ -98,7 +98,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/sentence_time_start"/>
 
@@ -106,7 +106,7 @@
                     android:id="@+id/tv_sentence_time_start"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/unknown"/>
 
@@ -122,7 +122,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/fujiaxing"/>
 
@@ -130,7 +130,7 @@
                     android:id="@+id/tv_fujiaxing"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/unknown"/>
             </LinearLayout>
@@ -152,7 +152,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/prisoner_num"/>
 
@@ -160,7 +160,7 @@
                     android:id="@+id/tv_prison_num"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"/>
 
             </LinearLayout>
@@ -174,7 +174,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/crime_type"/>
 
@@ -182,7 +182,7 @@
                     android:id="@+id/tv_crime_type"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:text="@string/unknown"
                     android:textColor="@color/tv_bg"/>
 
@@ -197,7 +197,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/remain_prison_term"/>
 
@@ -207,7 +207,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/unknown"
                     android:textColor="@color/tv_bg"
-                    android:textSize="@dimen/small_title_size"/>
+                    android:textSize="@dimen/roll_title_size"/>
 
 
             </LinearLayout>
@@ -221,7 +221,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/prison_sentence"/>
 
@@ -229,7 +229,7 @@
                     android:id="@+id/tv_sentence_time_end"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/unknown"/>
 
@@ -244,7 +244,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/accumulated" />
 
@@ -252,14 +252,14 @@
                     android:id="@+id/tv_accumulated"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_green"
                     android:text="0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_green"
                     android:text="@string/time"/>
 
@@ -283,7 +283,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
+                android:textSize="@dimen/roll_title_size"
                 android:textColor="@color/tv_bg"
                 android:text="@string/balance" />
 
@@ -291,14 +291,14 @@
                 android:id="@+id/tv_balance_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
+                android:textSize="@dimen/roll_title_size"
                 android:textColor="@color/tv_green"
                 android:text="@string/_0_0"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/small_title_size"
+                android:textSize="@dimen/roll_title_size"
                 android:textColor="@color/tv_green"
                 android:text="@string/_yuan"/>
 
@@ -311,7 +311,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_bg"
                     android:text="@string/current_month_money"/>
 
@@ -319,14 +319,14 @@
                     android:id="@+id/tv_current_month_available_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_green"
                     android:text="@string/_0_0"/>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/small_title_size"
+                    android:textSize="@dimen/roll_title_size"
                     android:textColor="@color/tv_green"
                     android:text="@string/_yuan"/>
             </LinearLayout>
@@ -338,13 +338,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dp">
+        android:paddingLeft="10dp">
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/small_title_size"
+            android:textSize="@dimen/roll_title_size"
             android:textColor="@color/tv_bg"
             android:text="@string/last_reduce"/>
 
@@ -352,7 +352,7 @@
             android:id="@+id/tv_last_reduce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="@dimen/small_title_size"
+            android:textSize="@dimen/roll_title_size"
             android:textColor="@color/tv_green"
             android:text="@string/unknown"/>
 
