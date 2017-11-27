@@ -376,7 +376,7 @@
     <string name="last_call_time">上次通话：暂无记录</string>
     <string name="select_date">请选择日期</string>
     <string name="my_balance">我的余额</string>
-    <string name="unknown">unknow</string>
+    <string name="unknown">undefind</string>
     <string name="prisoner_start_time">入监日期 :</string>
     <string name="original_prison_term">原判刑期 :</string>
     <string name="sentence_time_start">原判刑期起日 :</string>
