@@ -17,6 +17,7 @@ import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.ui.activity.normal_activity.VideoFace;
 import com.gkzxhn.gkprison.utils.CustomUtils.NimInitUtil;
+import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.SPUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ToastUtil;
 import com.gkzxhn.gkprison.zijing.ZjVideoActivity;
@@ -54,6 +55,8 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
         Intent intent = getIntent();
         mRoom = intent.getStringExtra(Constants.ROOM_NUMBER);
         mJoinPassword = intent.getStringExtra(Constants.JOIN_PASSWORD);
+        String jail = (String) SPUtil.get(this, SPKeyConstants.JAIL, "");
+        mTv_jail.setText(jail);
         startMusic();
     }
 
@@ -62,7 +65,9 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
 
     private void startMusic() {
 
-        mMediaPlayer = MediaPlayer.create(this, getSystemDefultRingtoneUri());
+        Uri systemDefultRingtoneUri = getSystemDefultRingtoneUri();
+        Log.i(TAG, "startMusic: " +systemDefultRingtoneUri.toString());
+        mMediaPlayer = MediaPlayer.create(this, systemDefultRingtoneUri);
 
         if (mMediaPlayer == null) {
             return;
@@ -70,11 +75,13 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
 
         try {
             mMediaPlayer.setLooping(true);
-            mMediaPlayer.prepare();
-            mMediaPlayer.start();
+//            mMediaPlayer.prepare();
         } catch (Exception e) {
             Log.i(TAG, "startAlarm: " + e.getMessage());
             e.printStackTrace();
+        }
+        if (mMediaPlayer != null) {
+            mMediaPlayer.start();
         }
     }
 
@@ -108,8 +115,10 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.refuse_response_btn:
+                //挂断
                 stopMusic();
-                startActivityForResult(new Intent(this, VideoFace.class), ACTIVITY_REQUEST_CODE);
+                NimInitUtil.sendNotificationToPrison(-2);
+                finish();
                 break;
             case R.id.video_response_btn:
                 stopMusic();
@@ -131,6 +140,7 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
                 if (TextUtils.isEmpty(mRoom)) {
                     ToastUtil.showShortToast("房间号错误");
                     finish();
+                    NimInitUtil.sendNotificationToPrison(-2);
                     return;
                 }
                 callRoom(mRoom, Constants.ZIJING_DOMAIN, mJoinPassword);
@@ -166,6 +176,8 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
         manager.setDisplayName("guoke001");
         manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 384));
         manager.setAddress(address);
+        manager.setVideoSize(720, 1280);
+        manager.openSpeaker(this,true);
         manager.setPwd(password);
 //        manager.openSpeaker(this,true);
 //        manager.setNotSupportH264(true);
