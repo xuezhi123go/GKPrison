@@ -137,7 +137,7 @@ dependencies {
 
     //紫荆云视
     compile 'com.facebook.react:react-native:+'
-    compile(name:'zjrtc-v1.8.2', ext:'aar') // 添加 aar 包
+    compile(name:'zjrtc-v1.8.5', ext:'aar') // 添加 aar 包
 }
 
 greendao {

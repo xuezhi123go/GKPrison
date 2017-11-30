@@ -133,7 +133,8 @@ public class ZjVideoActivity extends AppCompatActivity implements DefaultHardwar
             if ((Constants.ZIJING_ACTION).equals(intent.getAction())) {
                 ToastUtil.showShortToast("对方已挂断");
                 if (mReactInstanceManager != null) {
-                    mReactInstanceManager.onBackPressed();
+                    ZjVideoManager manager = ZjVideoManager.getInstance();
+                    manager.disconnect();
                 }
             }
         }
