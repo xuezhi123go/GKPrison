@@ -105,7 +105,14 @@ public class StringUtils {
         year = (int) (time / YEAR);
         month = (int) ((time - (year * YEAR)) / MONTH);
         day = (int) ((time - (year * YEAR) - (month * MONTH)) / DAY);
-        return getYearMonthDay(year, month, day);
+        StringBuffer remain = new StringBuffer();
+        if (year != 0) {
+            remain.append(year).append("年");
+        }
+        if (month != 0 ) {
+            remain.append(month).append("个月");
+        }
+        return remain;
     }
 
     /**

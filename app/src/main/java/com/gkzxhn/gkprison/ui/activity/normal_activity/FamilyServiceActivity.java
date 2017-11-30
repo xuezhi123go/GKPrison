@@ -89,6 +89,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
     @BindView(R.id.tv_sentence_time_end) TextView tv_sentence_time_end;// 原判刑期止日
     @BindView(R.id.tv_accumulated) TextView tv_accumulated;// 累计减刑
     @BindView(R.id.tv_last_reduce) TextView tv_last_reduce;// 上次减刑时间
+    @BindView(R.id.tv_ci) TextView tv_ci;// 上次减刑时间
 
     private ProgressDialog getInfoDialog;
     private Subscription getInfoSub;
@@ -224,7 +225,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
 
         el_items.setAdapter(adapter);
         String prisoner_number = (String) getSPValue(SPKeyConstants.PRISONER_NUMBER, "");
-//        prisoner_number = "4000001";
+//        prisoner_number = "4501005066";
         getPrisonerInformation(prisoner_number);
 
         getSentenceChangeInfo(prisoner_number);
@@ -299,14 +300,12 @@ public class FamilyServiceActivity extends BaseActivityNew {
         String prison_term_started_at = (String) getSPValue(SPKeyConstants.PRISON_TERM_STARTED_AT, "");
         final String prison_term_ended_at = (String) getSPValue(SPKeyConstants.PRISON_TERM_ENDED_AT, "");
         String gender = (String) getSPValue(SPKeyConstants.GENDER, "");
-        final String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
+//        final String prisoner_crimes = (String) getSPValue(SPKeyConstants.PRISONER_CRIMES, "");
         String name = (String)getSPValue(SPKeyConstants.PRISONER_NAME, "李新开");
 
         tv_prison_num.setText(prisoner_number);
 
         tv_name.setText(name);
-
-        tv_crime_type.setText(prisoner_crimes);
 
         MainWrap.getPrisonerDetail(Long.parseLong(prisoner_number), new SimpleObserver<PrisonerDetail>(){
             @Override
@@ -333,14 +332,17 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 }
                 StringBuffer remain = StringUtils.getYearMonthDay(remainYear, remainMonth, remainDay);
                 tv_remain_prison_term.setText(remain);
-                if (TextUtils.isEmpty(startTime)) {
-                }else {
+
+                if (!TextUtils.isEmpty(startTime)) {
                     tv_prisoner_start_time.setText(startTime);
                     tv_sentence_time_start.setText(startTime);
                 }
-                if (TextUtils.isEmpty(endedTime)) {
-                }else {
+                if (!TextUtils.isEmpty(endedTime)) {
                     tv_sentence_time_end.setText(endedTime);
+                }
+
+                if (TextUtils.isEmpty(endedTime)||TextUtils.isEmpty(startTime)) {
+                }else {
                     StringBuffer timeStringBetween = null;
                     try {
                         timeStringBetween = StringUtils.getTimeStringBetween(startTime, endedTime, "yyyy-MM-dd");
@@ -348,7 +350,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
                         e.printStackTrace();
                     }
                     if (TextUtils.isEmpty(timeStringBetween)) {
-                        timeStringBetween = new StringBuffer("undefind");
+                        timeStringBetween = new StringBuffer("");
                     }
                     tv_original_prison_term.setText(timeStringBetween);
                 }
@@ -368,13 +370,15 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 String times = String.valueOf(prisonerDetail.data.times);
                 if (!TextUtils.isEmpty(times)) {
                     tv_accumulated.setText(times);
+                }else {
+                    tv_ci.setVisibility(View.GONE);
                 }
 
                 String last_time = prisonerDetail.data.term_start;
                 if (!TextUtils.isEmpty(last_time) && last_time.length()>=10) {
                     tv_last_reduce.setText(last_time.substring(0, 10));
                 }else {
-                    tv_last_reduce.setText("undefind");
+                    tv_last_reduce.setText("");
                 }
             }
         });
