@@ -383,6 +383,7 @@
     <string name="original_prison_term">原判刑期:</string>
     <string name="remain_prison_term">剩余刑期:</string>
     <string name="sentence_time_start">原判刑期起日:</string>
+    <string name="save">保存</string>
 
 
 </resources>

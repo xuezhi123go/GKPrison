@@ -25,3 +25,6 @@
 #-renamesourcefileattribute SourceFile
 -keep class com.iflytek.**{*;}
 -keepattributes Signature
+
+# 图片裁剪库
+-keep class me.pqpo.smartcropperlib.**{*;}

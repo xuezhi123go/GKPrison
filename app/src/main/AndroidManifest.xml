@@ -309,5 +309,6 @@
         <service android:name=".widget.service.RecordService" />
         <activity android:name=".utils.NomalUtils.ConfigActivity" />
         <activity android:name=".ui.activity.normal_activity.MyWalletActivity"/>
+        <activity android:name=".ui.activity.normal_activity.ImageCropActivity"/>
     </application>
 </manifest>

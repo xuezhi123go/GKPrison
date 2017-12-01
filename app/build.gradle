@@ -74,6 +74,11 @@ android {
         }
     }
 
+    dexOptions {
+        incremental true
+        javaMaxHeapSize "4g"
+    }
+
     //api23之后不自带Apache http
     useLibrary 'org.apache.http.legacy'
 }
@@ -138,6 +143,9 @@ dependencies {
     //紫荆云视
     compile 'com.facebook.react:react-native:+'
     compile(name:'zjrtc-v1.8.5', ext:'aar') // 添加 aar 包
+
+    //图片裁剪库
+    compile 'com.github.pqpo:SmartCropper:v1.1.0@aar'
 }
 
 greendao {

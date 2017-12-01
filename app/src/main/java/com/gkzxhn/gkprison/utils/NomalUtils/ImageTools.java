@@ -1,6 +1,7 @@
 package com.gkzxhn.gkprison.utils.NomalUtils;
 
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 
@@ -121,5 +122,43 @@ public final class ImageTools {
         user_icon.setImage_data(tu3);
         uuid_images.add(user_icon);
         return uuid_images;
+    }
+
+    /**
+     * 保存bitmap到本地
+     *
+     * @param context
+     * @param mBitmap
+     * @return
+     */
+    public static String saveBitmap(Context context, String filename, Bitmap mBitmap) {
+        String savePath;
+        File filePic;
+        /*if (Environment.getExternalStorageState().equals(
+                Environment.MEDIA_MOUNTED)) {
+            savePath = Environment.getExternalStorageDirectory() + "/gkPrison";
+        } else {
+            savePath = context.getApplicationContext().getFilesDir()
+                    .getAbsolutePath()
+                    + "/gkPrison";
+        }*/
+        savePath = context.getCacheDir().getAbsolutePath();
+        try {
+            filePic = new File(savePath, filename);
+            if (!filePic.exists()) {
+                filePic.getParentFile().mkdirs();
+                filePic.createNewFile();
+            }
+            FileOutputStream fos = new FileOutputStream(filePic);
+            mBitmap.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+            return null;
+        }
+
+        return filePic.getAbsolutePath();
     }
 }

@@ -31,9 +31,11 @@ import android.widget.TextView;
 
 import com.gkzxhn.gkprison.R;
 import com.gkzxhn.gkprison.base.BaseActivityNew;
+import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.dagger.componet.activity.DaggerRegisterComponent;
 import com.gkzxhn.gkprison.dagger.contract.RegisterContract;
 import com.gkzxhn.gkprison.presenter.activity.RegisterPresenter;
+import com.gkzxhn.gkprison.ui.activity.normal_activity.ImageCropActivity;
 import com.gkzxhn.gkprison.utils.CustomUtils.SPKeyConstants;
 import com.gkzxhn.gkprison.utils.NomalUtils.DensityUtil;
 import com.gkzxhn.gkprison.utils.NomalUtils.ImageTools;
@@ -66,6 +68,7 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
 
     private static final String TAG = RegisterActivity.class.getName();
     private static final int SCALE = 5;
+    private static final float ID_RATIO = 856f / 540f ;
     @BindView(R.id.tv_title) TextView tv_title;
     @BindView(R.id.rl_back) RelativeLayout rl_back;
 
@@ -119,12 +122,15 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
     private static final int TAKE_PHOTO = 0; //imageview1照相;
     private static final int CHOOSE_PHOTO = 1;//imageview1选图片;
     private static final int CROP_SMALL_PICTURE = 2;
+    private static final int CROP_SMALL_ID1 = 3;
+    private static final int CROP_SMALL_ID2 = 4;
     private String uploadFile1 = "";
     private String uploadFile2 = "";
     private Bitmap photo;// 相册选取的bitmap
 
     private List<String> prisonNameList;
     private Map<String, Integer> prisonDataList;
+    private Uri mImageUri;  // takephoto临时文件
 
     /**
      * 开启此activity
@@ -507,10 +513,10 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
     private void takePhotoFromCamera(boolean front) {
         Intent openCameraIntent = new Intent(
                 MediaStore.ACTION_IMAGE_CAPTURE);
-        Uri imageUri = Uri.fromFile(new File(Environment
+        mImageUri = Uri.fromFile(new File(Environment
                 .getExternalStorageDirectory(), "image.jpg"));
         // 指定照片保存路径（SD卡），image.jpg为一个临时文件，每次拍照后这个图片都会被替换
-        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
+        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
         try {
             if (front) {
                 //打开前置摄像头
@@ -530,14 +536,16 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
                 case TAKE_PHOTO:
                     // 将处理过的图片显示在界面上，并保存到本地
                     if (imageClick == 1) {
-                        setIDPhoto(1, true); // 设置第一张身份证照片
+//                        setIDPhoto(1, true); // 设置第一张身份证照片
                         Log.i(TAG, "uploadFile1 : " + uploadFile1);
+                        cropImage(mImageUri, CROP_SMALL_ID1);
                     } else if (imageClick == 2) {
-                        setIDPhoto(2, true); // 设置第二张身份证照片
+//                        setIDPhoto(2, true); // 设置第二张身份证照片
+                        cropImage(mImageUri, CROP_SMALL_ID2);
                         Log.i(TAG, "uploadFile2 : " + uploadFile2);
                     } else if (imageClick == -1) {
-                        Uri imageUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "image.jpg"));
-                        cropImageUri(imageUri, 300, 300, CROP_SMALL_PICTURE);// 裁剪
+                        cropImageUri(mImageUri, 300, 300, CROP_SMALL_PICTURE);// 裁剪
+//                        cropImage(imageUri, CROP_SMALL_PICTURE);
                     }
                     break;
                 case CHOOSE_PHOTO:
@@ -550,9 +558,11 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
                         if (photo != null) {
                             Log.i(TAG, "photo not null " + imageClick);
                             if (imageClick == 1) {
-                                setIDPhoto(1, false);
+                                cropImage(originalUri, CROP_SMALL_ID1);
+//                                setIDPhoto(1, false);
                             }else if (imageClick == 2){
-                                setIDPhoto(2, false);
+                                cropImage(originalUri, CROP_SMALL_ID2);
+//                                setIDPhoto(2, false);
                             }
                         }
                     } catch (FileNotFoundException e) {
@@ -565,6 +575,16 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
                     // 将保存在本地的图片取出并缩小后显示在界面上
                     newBitmap3 = BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() + "/image.jpg");
                     iv_user_icon.setImageBitmap(newBitmap3);
+                    break;
+                case CROP_SMALL_ID1:
+                    // 将保存在本地的图片取出并缩小后显示在界面上
+                    newBitmap1 = BitmapFactory.decodeFile(this.getCacheDir()+ "/image.jpg");
+                    iv_add_photo_01.setImageBitmap(newBitmap1);
+                    break;
+                case CROP_SMALL_ID2:
+                    // 将保存在本地的图片取出并缩小后显示在界面上
+                    newBitmap2 = BitmapFactory.decodeFile(this.getCacheDir()+ "/image.jpg");
+                    iv_add_photo_02.setImageBitmap(newBitmap2);
                     break;
             }
         }
@@ -631,6 +651,12 @@ public class RegisterActivity extends BaseActivityNew implements RegisterContrac
         intent.putExtra("return-data", false);
         intent.putExtra("outputFormat", Bitmap.CompressFormat.JPEG.toString());
         intent.putExtra("noFaceDetection", true);
+        startActivityForResult(intent, requestCode);
+    }
+
+    private void cropImage(Uri uri, int requestCode) {
+        Intent intent = new Intent(this, ImageCropActivity.class);
+        intent.putExtra(Constants.INTENT_CROP_IMAGE_URI, uri);
         startActivityForResult(intent, requestCode);
     }
 }

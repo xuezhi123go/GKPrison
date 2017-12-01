@@ -28,5 +28,7 @@ public class Constants {
     public static String HANGUP = "hangup";
     public static String ROOM_NUMBER = "room_number";
     public static String JOIN_PASSWORD = "join_password";
+    public static String INTENT_CROP_IMAGE_URI = "intent_crop_image_uri";
+    public static String CROP_BITMAP = "crop_bitmap";
 }
 

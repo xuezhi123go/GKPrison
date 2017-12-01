@@ -1,7 +1,10 @@
 package com.gkzxhn.gkprison.ui.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -46,6 +49,7 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
 
     @Override
     protected void initUiAndListener() {
+        registerReceiver();
         mTv_jail = (TextView) findViewById(R.id.tv_jail);
         mRefuse_btn = (TextView) findViewById(R.id.refuse_response_btn);
         mResponse_btn = (TextView) findViewById(R.id.video_response_btn);
@@ -171,9 +175,10 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
      */
     private void callRoom(String address, String domain, String password) {
 //设置服务器地址、显示名称、呼叫地址、呼叫密码；
+        String name = (String) SPUtil.get(this, SPKeyConstants.NAME, "");
         ZjVideoManager manager = ZjVideoManager.getInstance();
         manager.setDomain(domain);
-        manager.setDisplayName("guoke001");
+        manager.setDisplayName(name);
         manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 384));
         manager.setAddress(address);
         manager.setVideoSize(720, 1280);
@@ -203,6 +208,26 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
     @Override
     protected void onDestroy() {
         stopMusic();
+        unregisterReceiver(mBroadcastReceiver);
         super.onDestroy();
+    }
+
+    private BroadcastReceiver mBroadcastReceiver=new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if ((Constants.ZIJING_ACTION).equals(intent.getAction())) {
+                ToastUtil.showShortToast("对方已挂断");
+                finish();
+            }
+        }
+    };
+
+    /**
+     * 注册广播监听器
+     */
+    private void registerReceiver(){
+        IntentFilter intentFilter=new IntentFilter();
+        intentFilter.addAction(Constants.ZIJING_ACTION);
+        registerReceiver(mBroadcastReceiver,intentFilter);
     }
 }
