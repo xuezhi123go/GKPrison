@@ -82,4 +82,32 @@ public class StringUtils {
         Log.i(TAG, path);
         return SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
     }
+
+    /**
+     * 到time还有多长时间
+     * @param time
+     * @param pattern
+     * @return
+     * @throws ParseException
+     */
+    public static long apartTime(String time, String pattern) throws ParseException{
+        long timeMills = formatToMill(time, pattern);
+        return timeMills - System.currentTimeMillis();
+    }
+
+    public static String formatMills2Days(long timeMills) throws ParseException{
+        if (timeMills > 0) {
+            StringBuffer timeString = new StringBuffer();
+            long day = timeMills / 24 / 60 / 60 / 1000;
+            if (day > 0) {
+                return timeString.append(day).append("天").toString();
+            }else {
+                long hours = timeMills / 60 / 60 / 1000;
+                return timeString.append(hours).append("小时").toString();
+            }
+        }else {
+            return "";
+        }
+
+    }
 }

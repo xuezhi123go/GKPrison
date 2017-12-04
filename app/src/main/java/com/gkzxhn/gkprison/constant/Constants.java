@@ -23,12 +23,14 @@ public class Constants {
     //头像全路径
     public static final String fileName = MyApplication.getContext().getExternalFilesDir(null) + File.separator + "avatar.png";
     public static final String RATE = "rate";
-    public static String ZIJING_DOMAIN = "cs.zijingcloud.com";
-    public static String ZIJING_ACTION = "zijing_action";
-    public static String HANGUP = "hangup";
-    public static String ROOM_NUMBER = "room_number";
-    public static String JOIN_PASSWORD = "join_password";
-    public static String INTENT_CROP_IMAGE_URI = "intent_crop_image_uri";
-    public static String CROP_BITMAP = "crop_bitmap";
+    public static final String ZIJING_DOMAIN = "cs.zijingcloud.com";
+    public static final String ZIJING_ACTION = "zijing_action";
+    public static final String HANGUP = "hangup";
+    public static final String ROOM_NUMBER = "room_number";
+    public static final String JOIN_PASSWORD = "join_password";
+    public static final String INTENT_CROP_IMAGE_URI = "intent_crop_image_uri";
+    public static final String CROP_BITMAP = "crop_bitmap";
+
+    public static final String FREE_time = "2018-01-01 00:00:00";
 }
 

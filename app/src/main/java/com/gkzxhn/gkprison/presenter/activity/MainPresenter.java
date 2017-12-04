@@ -150,12 +150,12 @@ public class MainPresenter implements MainContract.Presenter {
 
         }else {
             // 弹出监狱选择框
-            int jail_id = (int) SPUtil.get(MyApplication.getContext(), SPKeyConstants.JAIL_ID, 0);
-            if (jail_id == 0) {
+//            int jail_id = (int) SPUtil.get(MyApplication.getContext(), SPKeyConstants.JAIL_ID, 0);
+//            if (jail_id == 0) {
                 mainView.fastLoginWithoutAccount();
-            }else {
-                ((MainActivity)mainView).addHomeFragment();
-            }
+//            }else {
+//                ((MainActivity)mainView).addHomeFragment();
+//            }
         }
         if(status == StatusCode.KICKOUT){
             mainView.accountKickout();// 其他设备登录

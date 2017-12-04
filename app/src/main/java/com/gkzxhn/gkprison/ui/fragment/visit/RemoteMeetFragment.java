@@ -257,7 +257,19 @@ public class RemoteMeetFragment extends BaseFragmentNew implements AdapterView.O
                             showToastMsgLong(getString(R.string.requested_choose_other));
                             return;
                         }else if (vedionum == 0){
-                            showToastMsgShort(getString(R.string.balance_insufficient));
+                            /*long timeMills = 0;
+                            try {
+                                timeMills = StringUtils.apartTime(Constants.FREE_time, "yyyy-MM-dd HH:mm:ss");
+                                String residueTime = StringUtils.formatMills2Days(timeMills);
+                                if (!TextUtils.isEmpty(residueTime)) {
+                                    showFreeDialog(residueTime);
+                                    return;
+                                }
+                            } catch (ParseException e) {
+                                e.printStackTrace();
+                            }*/
+                            sendMeetingRequestToServer();
+//                            showToastMsgShort(getString(R.string.balance_insufficient));
                             return;
                         }else {
                             sendMeetingRequestToServer();
@@ -275,6 +287,25 @@ public class RemoteMeetFragment extends BaseFragmentNew implements AdapterView.O
                 EventBus.getDefault().post(new RechargeEvent());
                 break;
         }
+    }
+
+    /**
+     * 显示免费提示框
+     * @param residueTime
+     */
+    private void showFreeDialog(String residueTime) {
+        AlertDialog alertDialog = UIUtils.showAlertDialog(getContext(), "免费时期不收取任何费用,免费时间还有" + residueTime,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        sendMeetingRequestToServer();
+                    }
+                }, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                });
     }
 
     @Override
