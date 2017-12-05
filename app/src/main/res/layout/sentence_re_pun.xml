@@ -9,19 +9,14 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:orientation="horizontal">
-    <View
-        android:id="@+id/fenge_qi"
-        android:layout_width="1dp"
-        android:layout_height="50dp"
-        android:background="@color/black"/>
     <TextView
         android:id="@+id/tv_sentence_time"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="2014年11月11日"
+        android:text="@string/unknown"
         android:textColor="#333333"
-        android:textSize="14sp"
+        android:textSize="@dimen/abc_text_size_caption_material"
        android:layout_gravity="center_vertical"
         android:gravity="center_horizontal"
         />
@@ -37,10 +32,10 @@
         android:layout_gravity="center_vertical"
         android:layout_weight="1"
         android:gravity="center_horizontal"
-        android:text="制止狱内暴力"
+        android:text="@string/unknown"
         android:textColor="#333333"
-        android:textSize="14sp"/>
-    <View
+        android:textSize="@dimen/abc_text_size_caption_material"/>
+    <!--<View
         android:layout_width="1dp"
         android:layout_height="50dp"
         android:background="@color/black"/>
@@ -48,13 +43,13 @@
         android:id="@+id/tv_sentence_add"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="减刑3个月"
+        android:text="@string/unknown"
         android:gravity="center_horizontal"
-        android:textSize="14sp"
+        android:textSize="@dimen/abc_text_size_caption_material"
         android:textColor="#333333"
         android:layout_weight="1"
         android:layout_gravity="center_vertical"/>
-
+-->
 
     </LinearLayout>
 </RelativeLayout>

@@ -2,6 +2,7 @@ package com.gkzxhn.gkprison.utils.NomalUtils;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.annotation.NonNull;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -81,6 +82,63 @@ public class StringUtils {
         String path = "/data/data/com.gkzxhn.gkprison/databases/chaoshi.db";
         Log.i(TAG, path);
         return SQLiteDatabase.openDatabase(path, null, SQLiteDatabase.OPEN_READWRITE);
+    }
+
+
+    /**
+     * 获得两个日期的相隔时间
+     * @param start
+     * @param end
+     * @param pattern
+     * @return
+     * @throws ParseException
+     */
+    public static StringBuffer getTimeStringBetween (String start, String end, String pattern)throws ParseException{
+        long startMills = formatToMill(start, pattern);
+        long endMills = formatToMill(end, pattern);
+        long time = endMills - startMills;
+        int year = 0;
+        int month = 0;
+        int day = 0;
+        final long YEAR = 365 * 24 * 60 * 60 * 1000L;
+        final long MONTH = 30 * 24 * 60 * 60 * 1000L;
+        final long DAY = 24 * 60 * 60 * 1000L;
+        year = (int) (time / YEAR);
+        month = (int) ((time - (year * YEAR)) / MONTH);
+        day = (int) ((time - (year * YEAR) - (month * MONTH)) / DAY);
+        StringBuffer remain = new StringBuffer();
+        if (year != 0) {
+            remain.append(year).append("年");
+        }
+        if (month != 0 ) {
+            remain.append(month).append("个月");
+        }
+        return remain;
+    }
+
+    /**
+     * 根据int年月日得到String年月日
+     * @param remainYear
+     * @param remainMonth
+     * @param remainDay
+     * @return
+     */
+    @NonNull
+    public static StringBuffer getYearMonthDay(int remainYear, int remainMonth, int remainDay) {
+        StringBuffer remain = new StringBuffer();
+        if (remainYear != 0) {
+            remain.append(remainYear).append("年");
+        }
+        if (remainMonth != 0 ) {
+            remain.append(remainMonth).append("个月");
+        }
+        if (remainDay != 0) {
+            remain.append(remainDay).append("日");
+        }
+        if (remain.length() == 0){
+            remain.append("undefind");
+        }
+        return remain;
     }
 
     /**

@@ -3,6 +3,7 @@ package com.gkzxhn.gkprison.model.net.api.wrap;
 import com.gkzxhn.gkprison.base.MyApplication;
 import com.gkzxhn.gkprison.constant.Constants;
 import com.gkzxhn.gkprison.model.net.api.ApiRequest;
+import com.gkzxhn.gkprison.model.net.bean.AwardPunishInfo;
 import com.gkzxhn.gkprison.model.net.bean.CategoriesInfo;
 import com.gkzxhn.gkprison.model.net.bean.CommonResult;
 import com.gkzxhn.gkprison.model.net.bean.NewsResult;
@@ -195,4 +196,23 @@ public class MainWrap {
                 .subscribe(observer);
     }
 
+    /**
+     * 获取刑期变动信息
+     * @param prisonerId
+     * @param observer
+     * @return
+     */
+    public static Subscription getAwardPunish(long prisonerId, Observer<AwardPunishInfo> observer){
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(Constants.URL_HEAD)
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ApiRequest apiRequest = retrofit.create(ApiRequest.class);
+        return apiRequest.getAwardPunish(prisonerId)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(observer);
+    }
 }

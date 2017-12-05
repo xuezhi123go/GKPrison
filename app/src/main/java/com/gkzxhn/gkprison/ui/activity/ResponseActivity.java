@@ -179,7 +179,7 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
         ZjVideoManager manager = ZjVideoManager.getInstance();
         manager.setDomain(domain);
         manager.setDisplayName(name);
-        manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 384));
+        manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 1024));
         manager.setAddress(address);
         manager.setVideoSize(720, 1280);
         manager.openSpeaker(this,true);

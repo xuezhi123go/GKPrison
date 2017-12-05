@@ -214,6 +214,6 @@ public interface ApiRequest {
      * 获取用户对应囚犯奖惩信息
      * @return
      */
-    @GET("/prisoners/{prisoner_id}/prisoner_reward_punishment ")
-    Observable<AwardPunishInfo> getAwardPunish(@Path("prisoner_id") int prisoner_id);
+    @GET("prisoners/{prisoner_id}/prisoner_reward_punishment")
+    Observable<AwardPunishInfo> getAwardPunish(@Path("prisoner_id") long prisoner_id);
 }
