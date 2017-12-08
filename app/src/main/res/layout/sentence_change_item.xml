@@ -10,6 +10,22 @@
         android:layout_height="50dp"
         android:orientation="horizontal">
 
+        <TextView
+            android:id="@+id/tv_after"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="变动时间"
+            android:gravity="center_horizontal"
+            android:textSize="@dimen/abc_text_size_caption_material"
+            android:textColor="#333333"
+            android:layout_weight="1"
+            android:layout_gravity="center_vertical"/>
+
+        <View
+            android:id="@+id/fenge_qi"
+            android:layout_width="1dp"
+            android:layout_height="50dp"
+            android:background="@color/black"/>
     <TextView
         android:id="@+id/tv_sentence_case"
         android:layout_width="0dp"
@@ -39,22 +55,7 @@
         android:layout_height="50dp"
         android:background="@color/black"/>
 
-        <TextView
-            android:id="@+id/tv_after"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="变动后刑期"
-            android:gravity="center_horizontal"
-            android:textSize="@dimen/abc_text_size_caption_material"
-            android:textColor="#333333"
-            android:layout_weight="1"
-            android:layout_gravity="center_vertical"/>
 
-        <View
-            android:id="@+id/fenge_qi"
-            android:layout_width="1dp"
-            android:layout_height="50dp"
-            android:background="@color/black"/>
         <TextView
             android:id="@+id/tv_sentence_time"
             android:layout_width="0dp"

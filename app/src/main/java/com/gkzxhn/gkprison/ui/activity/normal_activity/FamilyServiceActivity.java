@@ -705,10 +705,10 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             if (position == 0) {
+                viewHolder.tv_after.setText("变动时间");
                 viewHolder.tv_sentence_time.setText("变动后止日");
                 viewHolder.tv_sentence_case.setText("变动类型");
                 viewHolder.tv_sentence_add.setText("变动幅度");
-                viewHolder.tv_after.setText("变动后刑期");
             } else {
                 String term_finish = mDatas.get(position - 1).term_finish;
                 if (!TextUtils.isEmpty(term_finish) && term_finish.length() >= 10) {
@@ -724,18 +724,11 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 StringBuffer change = StringUtils.getYearMonthDay(changeyear, changemonth, changeday);
                 viewHolder.tv_sentence_add.setText(change);
 
-                int sentence_year = 0;
-                int sentence_month = 0;
-                int sentence_day = 0;
-                try {
-                    sentence_year = Integer.parseInt(mDatas.get(position - 1).sentence_year);
-                    sentence_month = Integer.parseInt(mDatas.get(position - 1).sentence_month);
-                    sentence_day = Integer.parseInt(mDatas.get(position - 1).sentence_day);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
+                String term_start = mDatas.get(position - 1).term_start;
+                if (!TextUtils.isEmpty(term_start)) {
+                    term_start = term_start.substring(0, 10);
+                    viewHolder.tv_after.setText(term_start);
                 }
-                StringBuffer sentence = StringUtils.getYearMonthDay(sentence_year, sentence_month, sentence_day);
-                viewHolder.tv_after.setText(sentence);
             }
             return convertView;
         }
