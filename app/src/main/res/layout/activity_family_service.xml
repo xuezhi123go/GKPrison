@@ -82,6 +82,7 @@
                     android:id="@+id/tv_original_prison_term"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="4dp"
                     android:text="@string/unknown"
                     android:textColor="@color/tv_bg"
                     android:textSize="@dimen/roll_title_size"/>

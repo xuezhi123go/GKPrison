@@ -182,7 +182,6 @@ public class ResponseActivity extends BaseActivityNew implements View.OnClickLis
         manager.setBandwidth((int) SPUtil.get(MyApplication.getContext(), Constants.RATE, 1024));
         manager.setAddress(address);
         manager.setVideoSize(720, 1280);
-        manager.openSpeaker(this,true);
         manager.setPwd(password);
 //        manager.openSpeaker(this,true);
 //        manager.setNotSupportH264(true);

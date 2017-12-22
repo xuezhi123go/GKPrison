@@ -44,7 +44,7 @@
         android:id="@+id/tv_sentence_add"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="减刑3个月"
+        android:text=""
         android:gravity="center_horizontal"
         android:textSize="@dimen/abc_text_size_caption_material"
         android:textColor="#333333"

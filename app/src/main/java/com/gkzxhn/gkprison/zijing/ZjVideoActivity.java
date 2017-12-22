@@ -9,6 +9,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactRootView;
@@ -28,6 +29,7 @@ public class ZjVideoActivity extends AppCompatActivity implements DefaultHardwar
     private static final String DEVICE_TYPE = "type";
     private static final String DEVICE_PHONE = "phone";
     private static final String DEVICE_TV = "tv";
+    private static final String TAG = ZjVideoActivity.class.getSimpleName();
     private ReactRootView mReactRootView;
     private ReactInstanceManager mReactInstanceManager;
 
@@ -137,6 +139,22 @@ public class ZjVideoActivity extends AppCompatActivity implements DefaultHardwar
                     manager.disconnect();
                 }
             }
+            if ("android.intent.action.HEADSET_PLUG".equals(intent.getAction())) {
+                if (intent.hasExtra("state")){
+                    //0：无插入，1：耳机和话筒均插入，2：仅插入话筒。
+                    if (intent.getIntExtra("state", 0) == 0){
+                        Toast.makeText(context, "无耳机插入,打开扬声器", Toast.LENGTH_LONG).show();
+                        ZjVideoManager.getInstance().openSpeaker(ZjVideoActivity.this, true);
+
+                    }
+                    else if (intent.getIntExtra("state", 0) == 1){
+                        ZjVideoManager.getInstance().openSpeaker(ZjVideoActivity.this, false);
+                        Toast.makeText(context, "耳机话筒均插入,关闭扬声器", Toast.LENGTH_LONG).show();
+                    }else if(intent.getIntExtra("state", 0) == 2) {
+                        ToastUtil.showShortToast("话筒插入");
+                    }
+                }
+            }
         }
     };
 
@@ -146,6 +164,7 @@ public class ZjVideoActivity extends AppCompatActivity implements DefaultHardwar
     private void registerReceiver(){
         IntentFilter intentFilter=new IntentFilter();
         intentFilter.addAction(Constants.ZIJING_ACTION);
+        intentFilter.addAction("android.intent.action.HEADSET_PLUG");
         registerReceiver(mBroadcastReceiver,intentFilter);
     }
 }

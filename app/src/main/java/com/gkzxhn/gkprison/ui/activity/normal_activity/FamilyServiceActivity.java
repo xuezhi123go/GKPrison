@@ -225,6 +225,7 @@ public class FamilyServiceActivity extends BaseActivityNew {
         el_items.setAdapter(adapter);
         String prisoner_number = (String) getSPValue(SPKeyConstants.PRISONER_NUMBER, "");
 //        prisoner_number = "4501005066";
+//        prisoner_number = "4000001";
         getPrisonerInformation(prisoner_number);
 
         getSentenceChangeInfo(prisoner_number);
@@ -319,17 +320,17 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 Log.i(TAG, "onNext: prisonerDetail : " + prisonerDetail);
                 String startTime = prisonerDetail.data.started_at;
                 String endedTime = prisonerDetail.data.ended_at;
-                int remainYear = 0;
-                int remainMonth = 0;
-                int remainDay = 0;
-                try {
-                    remainYear = Integer.parseInt(prisonerDetail.data.sentence_year);
-                    remainMonth = Integer.parseInt(prisonerDetail.data.sentence_month);
-                    remainDay = Integer.parseInt(prisonerDetail.data.sentence_day);
-                } catch (NumberFormatException e) {
-                    e.printStackTrace();
-                }
-                StringBuffer remain = StringUtils.getYearMonthDay(remainYear, remainMonth, remainDay);
+//                int remainYear = 0;
+//                int remainMonth = 0;
+//                int remainDay = 0;
+//                try {
+//                    remainYear = Integer.parseInt(prisonerDetail.data.sentence_year);
+//                    remainMonth = Integer.parseInt(prisonerDetail.data.sentence_month);
+//                    remainDay = Integer.parseInt(prisonerDetail.data.sentence_day);
+//                } catch (NumberFormatException e) {
+//                    e.printStackTrace();
+//                }
+//                StringBuffer remain = StringUtils.getYearMonthDay(remainYear, remainMonth, remainDay);
 //                tv_remain_prison_term.setText(remain);
 
                 if (!TextUtils.isEmpty(startTime)) {
@@ -339,9 +340,25 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 if (!TextUtils.isEmpty(endedTime)) {
                     tv_sentence_time_end.setText(endedTime);
                 }
-                String original_sentence = prisonerDetail.data.original_sentence;
-                if (!TextUtils.isEmpty(original_sentence)) {
-                    tv_original_prison_term.setText(original_sentence);
+                switch (prisonerDetail.data.sentence) {
+                    case 9995:
+                        //无期
+                        tv_original_prison_term.setText("无期");
+                        break;
+                    case 9996:
+                        //死缓
+                        tv_original_prison_term.setText("死缓");
+                        break;
+                    case 9997:
+                        //死刑
+                        tv_original_prison_term.setText("死刑");
+                        break;
+                    default:
+                        String original_sentence = prisonerDetail.data.original_sentence;
+                        if (!TextUtils.isEmpty(original_sentence)) {
+                            tv_original_prison_term.setText(original_sentence);
+                        }
+                        break;
                 }
 
                 String punishment = prisonerDetail.data.additional_punishment;
@@ -718,12 +735,24 @@ public class FamilyServiceActivity extends BaseActivityNew {
                 if (!TextUtils.isEmpty(changetype)) {
                     viewHolder.tv_sentence_case.setText(changetype);
                 }
-                int changeyear = mDatas.get(position - 1).changeyear;
-                int changemonth = mDatas.get(position - 1).changemonth;
-                int changeday = mDatas.get(position - 1).changeday;
-                StringBuffer change = StringUtils.getYearMonthDay(changeyear, changemonth, changeday);
-                viewHolder.tv_sentence_add.setText(change);
-
+                switch (mDatas.get(position - 1).sentence) {
+                    case 9995:
+                        //无期
+                        break;
+                    case 9996:
+                        //死缓
+                        break;
+                    case 9997:
+                        //死刑
+                        break;
+                    default:
+                        int changeyear = mDatas.get(position - 1).changeyear;
+                        int changemonth = mDatas.get(position - 1).changemonth;
+                        int changeday = mDatas.get(position - 1).changeday;
+                        StringBuffer change = StringUtils.getYearMonthDay(changeyear, changemonth, changeday);
+                        viewHolder.tv_sentence_add.setText(change);
+                        break;
+                }
                 String term_start = mDatas.get(position - 1).term_start;
                 if (!TextUtils.isEmpty(term_start)) {
                     term_start = term_start.substring(0, 10);

@@ -136,7 +136,7 @@ public class StringUtils {
             remain.append(remainDay).append("日");
         }
         if (remain.length() == 0){
-            remain.append("undefind");
+            remain.append("");
         }
         return remain;
     }

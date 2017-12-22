@@ -1,0 +1,392 @@
+<resources>
+    <string name="app_name">PrisonSmart</string>
+    <string name="app_v">V </string>
+
+    <string name="alarm_reminder_msg">Nếu bạn có lịch làm việc sắp tới, hệ thống sẽ nhắc nhở bạn về cảnh báo 5 phút trước khi cuộc họp bắt đầu. Chú ý đến trạng thái của điện thoại.</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="agreement">&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Nhà tù Khoa học Quốc gia mở APP là nhà tù của Công ty Khoa học và Công nghệ Quốc gia (Bắc Kinh) phát triển một phần mềm cho các gia đình của tù nhân, tất cả các khu vực trong cộng đồng nhận thức được tình hình và tình trạng nhà tù ở nhà tù. Vui lòng đọc kỹ các điều khoản sau trước khi sử dụng phần mềm này. Việc cài đặt và sử dụng của bạn sẽ được coi là chấp nhận Thỏa thuận này và đồng ý chịu ràng buộc bởi các điều khoản của Thỏa thuận này.\n
+一、	许可证的授予。本《协议》授予您下列权利：\n
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;您可安装、复制、分发和传播本产品来使用，但您必须保证每一份复制、分发和传播都必须是完整和真实的。\n
+二、其它权利和限制说明。\n
+&#160;&#160;&#160;&#160;&#160;&#160;&#160;本软件针对家属和社会人员有不同的设置，家属可以获得服刑人员相关服刑信息，社会人事只能获得监狱允许范围内的相关信息。
+本软件需付费使用，个人使用授权版本只能由单个用户在一台或多台手机上亲自使用；
+您不得对本软件产品进行反向工程、反向编译和反向汇编，不得删除本软件及其他副本上一切关于版权的信息，不得制作和提供该软件的注册机及破解程序。除非适用法律明文允许上述活动，否则您必须遵守此协议限制。
+最终解释权归国科政信科技（北京）股份有限公司所有。
+</string>
+    <string name="tanjian_notice">会见须知：\n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;狱务通为您提供方便快捷的会见申请服务，申请通过后，您即可在约定的时间内前往监狱会见。\n1、根据规定，服刑人员每月只能接受两次及以内的探视服务。\n2、部分服刑人员不提供探视服务。\n3、狱务通会见服务暂时只对直系近亲属开放，请谅解。\n4、本服务端每月只能提交3次会见申请，请勿无故提交，以免浪费机会。</string>
+
+    <string name="sunday">日</string>
+    <string name="monday">一</string>
+    <string name="thesday">二</string>
+    <string name="wednesday">三</string>
+    <string name="thursday">四</string>
+    <string name="friday">五</string>
+    <string name="saturday">六</string>
+    <string name="meeting_notice"><![CDATA[注意：\n        请确保视频内都是您的亲人，不是请及时告知狱警。\n        请注意通话不涉及犯罪、国家机密等内容，否则您将失去并可能永久失去远程会见机会。\n        请注意时间长短，不要影响后面的狱友使用。\n        若您在通话过程中有任何问题，请及时联系狱警沟通解决。]]></string>
+
+    <string name="meeting_note">Hướng dẫn sử dụng： \n&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;PrisonSmart cung cấp cho bạn dịch vụ điện thoại thân thiện với gia đình cho phép bạn thực hiện các cuộc gọi video từ xa thông qua các tế bào nhà tù và tù nhân. Trước khi đăng ký điện thoại gia đình, vui lòng đọc cẩn thận các ghi chú sau:\n1、Các tù nhân có thể là số điện thoại không hạn chế mỗi tháng. \n2、Một phần của các tù nhân không cung cấp dịch vụ điện thoại gia đình.
+        \n3、PrisonSmart Trong thời gian chỉ để cung cấp cho các thành viên gia đình ngay cho điện thoại gia đình, xin vui lòng hiểu được.
+        \n4、Theo yêu cầu bảo mật, thông tin cuộc gọi của bạn có thể được ghi lại.
+        \n5、Mỗi điện thoại gia đình phải trả một khoản phí dịch vụ nhất định, chi phí cho Công ty Khoa học và Công nghệ Quốc gia (Bắc Kinh), và bây giờ hoàn toàn miễn phí trong quá trình dùng thử, vui lòng không gửi điện thoại gia đình vì lý do gì.
+    </string>
+    <string name="alarm_remind"><![CDATA[        Nhắc nhở: Hội nghị video từ xa của bạn sắp bắt đầu, hãy mở thẻ tù để kết nối mạng đã sẵn sàng.]]></string>
+
+
+    <!--下拉刷新-->
+    <string name="pull_to_refresh_refreshing_label">Làm mới…</string>
+
+    <string name="enable_logined">Có sẵn sau khi đăng nhập</string>
+
+
+    <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+    <!-- status 在线、 会议中、 免打扰、 离开、 离线 -->
+
+    <!-- main -->
+    <string name="main_get_contact">Liên lạc</string>
+    <string name="main_get_vconf_contact">Tìm địa chỉ liên hệ</string>
+    <string name="main_get_vconf_list">Nhận danh sách cuộc họp</string>
+    <string name="make_call">Gọi một cuộc họp điểm-điểm</string>
+    <string name="muti_call">Gọi hội nghị đa điểm</string>
+    <string name="main_create_vconf">Tạo một hội nghị video</string>
+    <string name="main_setting">Thiết lập</string>
+    <string name="main_logout">Đăng xuất</string>
+    <!-- login -->
+    <string name="server_adds">Địa chỉ máy chủ</string>
+    <string name="account">Số tài khoản</string>
+    <string name="password">Mật mã</string>
+    <string name="login_text">Đăng nhập</string>
+    <string name="login_off">Thoát</string>
+
+    <!-- vconf -->
+    <string name="vconf_shortNum">Số hội nghị</string>
+    <string name="vconf_time">Thời gian họp</string>
+    <string name="vconf_timeLen">Thời gian cuộc họp</string>
+    <string name="vconf_info_title">Thông tin cuộc họp</string>
+    <string name="vconf_convene">正在召集</string>
+    <string name="vconf_call">正在呼叫</string>
+    <string name="vconf_join">正在加入</string>
+    <string name="vconf_join_waitingTxt_p2p">请求与您通话</string>
+    <string name="vconf_join_waitingTxt_mul">邀请您进入会议</string>
+    <string name="vconf_audio_waiting">音频呼叫中</string>
+    <string name="vconf_QualityMeetings">视频质量会议</string>
+    <string name="vconf_Apply4AdministrativePrivileges">申请管理权限</string>
+    <string name="vconf_releaseAdministrativePrivileges">释放管理权限</string>
+    <string name="vconf_Apply4Speaker">申请发言</string>
+    <string name="vconf_StatisticalInformation">统计信息</string>
+    <string name="vconf_ExitConf">退出会议</string>
+    <string name="vconf_EndConf">结束会议</string>
+    <string name="vconf_flow_remind">电话应答将为您节省流量</string>
+    <string name="vconf_chooseJoinWay_3GInfo_mobile">在移动数据网络环境下会影响视音频质量，\n并产生手机流量，可选择电话方式入会</string>
+    <string name="vconf_chooseJoinWay_3GInfo_normal">在移动数据网络环境下会影响视音频质量，\n并产生手机流量</string>
+    <string name="vconf_tel_response">电话</string>
+    <string name="vconf_video_response">视频接听</string>
+    <string name="vconf_audio_response">音频接听</string>
+    <string name="vconf_answer">接听</string>
+    <string name="vconf_2g_unable_tel_join">在当前的网络下您不能进行音视频通话，请使用电话应答入会</string>
+    <string name="vconf_canceled">已取消</string>
+    <string name="vconf_rejected">已拒绝</string>
+    <string name="vconf_noresponse">无人应答</string>
+    <string name="vconf_unconnect">未接通</string>
+    <string name="vconf_sending_desktop">正在接收双流</string>
+    <string name="telephonereceiver_open_info">听筒模式已关</string>
+    <string name="telephonereceiver_close_info">听筒模式已开</string>
+    <string name="vconf_quit_msg">您确定退出会议吗？</string>
+    <string name="vconf_end_msg">您确定结束会议吗？</string>
+    <string name="vconf_quit">退出</string>
+    <string name="vconf_end">Kết thúc</string>
+    <string name="hang_up">Treo lên</string>
+    <string name="more_info">Thêm</string>
+    <string name="off">Tắt</string>
+    <string name="on">Mở</string>
+
+
+    <!-- comm Text -->
+    <string name="ok">OK</string>
+    <string name="cancel">Hủy</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="definition">Độ sắc nét</string>
+    <string name="microphone">Micrô</string>
+    <string name="speaker">Loa</string>
+    <string name="add_text">Thêm</string>
+
+
+    <string name="app_company_name">Khoa học và Công nghệ Quốc gia (Bắc Kinh) Co, Ltd</string>
+    <string name="app_copy_rights">copyright©2006-2015.All right reserved</string>
+    <string name="register">Đăng ký</string>
+    <string name="input_verify_code">Vui lòng nhập mã xác minh</string>
+    <string name="send_verify_code">Gửi mã xác minh</string>
+    <string name="switch_login_type">Chuyển sang chế độ đăng nhập</string>
+    <string name="login_without_account">Không có tài khoản đăng nhập nhanh</string>
+    <string name="id_code">Số ID</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="personal_info">Vui lòng nhập thông tin đăng ký</string>
+    <string name="null_phone">Số điện thoại di động trống</string>
+    <string name="unavailable_phone">Số điện thoại không tồn tại</string>
+    <string name="verify_failed">Yêu cầu mã xác minh không thành công，Vui lòng thử lại sau</string>
+    <string name="code_200">200</string>
+    <string name="sended">Đã gửi</string>
+    <string name="login_failed_retry">Đăng nhập thất bại，Vui lòng thử lại sau</string>
+    <string name="unexist_account">Người dùng không tồn tại Đăng ký thất bại，Vui lòng sử dụng sau khi đăng ký thành công！</string>
+    <string name="verify_code_error">Lỗi mã xác minh</string>
+    <string name="login_exception_retry">Đăng nhập là bất thường，Vui lòng thử lại sau</string>
+    <string name="login_success">Đăng nhập thành công</string>
+
+    <!-- 云信登录失败状态码对应 -->
+    <string name="account_pwd_error">Số điện thoại di động hoặc số ID là sai</string>
+    <string name="server_busy">Máy chủ bận</string>
+    <string name="network_error">Lỗi mạng，Vui lòng kiểm tra mạng</string>
+    <string name="time_out">Yêu cầu đã hết thời gian，Vui lòng thử lại sau</string>
+    <string name="illegal_control">Hoạt động bất hợp pháp hoặc không được phép</string>
+    <string name="account_disable">Tài khoản của bạn đã bị vô hiệu hóa</string>
+    <string name="server_error">Lỗi máy chủ</string>
+    <string name="username_empty">Tên đăng nhập không được để trống</string>
+    <string name="pwd_empty">Mật khẩu trống</string>
+    <string name="logining">Đăng nhập...</string>
+    <string name="sending">Gửi...</string>
+    <string name="id_empty">Số ID trống</string>
+    <string name="verify_code_empty">Mã xác minh không thể để trống</string>
+    <string name="unexist_id_num">Số ID không tồn tại</string>
+    <string name="name">Tên</string>
+    <string name="prisoner_relationship">Mối quan hệ với tù nhân</string>
+    <string name="prisoner_code">Tù nhân</string>
+    <string name="prison_select">Lựa chọn nhà tù</string>
+    <string name="man">Nam</string>
+    <string name="woman">Nữ</string>
+    <string name="upload_id_photo">Vui lòng tải lên thẻ ID của bạn qua lại</string>
+    <string name="readed_agree">Tôi đã đọc và đồng ý</string>
+    <string name="soft_use_agreement">《Jailbreak thỏa thuận sử dụng phần mềm》</string>
+    <string name="giveup_make_content">Nội dung đã bị xóa bỏ?</string>
+    <string name="upload_avatar">Tải lên hình đại diện</string>
+    <string name="file_not_exist">Tệp không tồn tại</string>
+    <string name="read_file_error">Lỗi khi đọc tệp</string>
+    <string name="take_photo">Chụp ảnh</string>
+    <string name="choose_from_album">Chọn từ album</string>
+    <string name="back">Trở lại</string>
+    <string name="choose_avatar">Vui lòng chọn hình đại diện</string>
+    <string name="null_name">Tên trống</string>
+    <string name="input_relationship">Hãy nhập mối quan hệ của bạn với tù nhân</string>
+    <string name="null_prisoner_num">Nhà tù trống rỗng</string>
+    <string name="input_prison_name">Hãy nhập tên trại giam</string>
+    <string name="registering">Đăng ký...</string>
+    <string name="exception">Bất thường</string>
+    <string name="not_open_prison">Xin lỗi，Chưa mở nhà tù này</string>
+    <string name="register_failed_retry">Yêu cầu đăng ký không thành công，Vui lòng thử lại sau</string>
+    <string name="code_404">404</string>
+    <string name="code_501">501</string>
+    <string name="register_success">Đăng ký thành công!</string>
+    <string name="register_failed">Đăng ký không thành công！</string>
+    <string name="main_page">Trang chủ</string>
+    <string name="visit_prison">Điện thoại gia đình</string>
+    <string name="canteen">Thương mại điện tử</string>
+    <string name="please_login">Vui lòng đăng nhập</string>
+    <string name="reminder">Nhắc nhở</string>
+    <string name="register_confirm_remind">Về để nộp đăng ký, thông tin đăng ký sẽ được xem xét lại, thông tin đăng ký một khi được thông qua, sẽ không được sửa đổi, để xác định trình?</string>
+    <string name="confirm_again">Xác nhận lại</string>
+    <string name="get_info_failed">Không thể lấy thông tin người dùng，Vui lòng đăng nhập lại</string>
+    <string name="loading">Đang nạp...</string>
+    <string name="kickout_remind">Thủ thuật ngoại tuyến về tài khoản</string>
+    <string name="relogin">Đăng nhập lại</string>
+    <string name="focus_">Tập trung chú ý</string>
+    <string name="focus_news_title">Tiêu đề tin tức tiêu điểm</string>
+    <string name="focus_news_simple">Mô tả ngắn gọn về các tin tức trọng tâm...</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="user_name">Tên người dùng</string>
+    <string name="account_info">Thông tin tài khoản</string>
+    <string name="remittance_record">Hồ sơ chuyển tiền</string>
+    <string name="shopping_record">Hồ sơ mua sắm</string>
+    <string name="setting">Thiết lập</string>
+    <string name="logout">Đăng xuất</string>
+    <string name="exit_app">Nhấn lần nữa để thoát khỏi chương trình</string>
+    <string name="no_meeting">Không có hồ sơ</string>
+    <string name="last_meeting_time">Thời gian gọi cuối cùng：</string>
+    <string name="total_pay">Tổng cộng:</string>
+    <string name="value_0">0</string>
+    <string name="rmb">0Yuan</string>
+    <string name="choose_pay_ment">Chọn phương thức thanh toán</string>
+    <string name="pay">Trả tiền</string>
+    <string name="pay_order">Thanh toán đơn đặt hàng</string>
+    <string name="pay_failed">Thanh toán không thành công</string>
+    <string name="zhifubao">Alipay</string>
+    <string name="pay_result_confirming">Xác nhận kết quả thanh toán</string>
+    <string name="pay_success">Thanh toán thành công</string>
+    <string name="pay_cancel">Thanh toán bị hủy</string>
+    <string name="please_wait_send_goods">Vui lòng đợi kiên nhẫn để giao hàng</string>
+    <string name="pay_result">Trả kết quả</string>
+    <string name="order_synchronize_failed">Thanh toán đơn đặt hàng thanh toán không thành công</string>
+    <string name="please_use_release_keystore">Vui lòng sử dụng tệp chữ ký ứng dụng chính xác</string>
+    <string name="all_class">Tất cả các loại</string>
+    <string name="sales_prefer">Ưu tiên bán hàng</string>
+    <string name="buy_car_total">Tổng cộng:</string>
+    <string name="_2">(Phí giao hàng 2 nhân dân tệ)</string>
+    <string name="settlement">Định cư</string>
+    <string name="buy_car">Giỏ hàng</string>
+    <string name="clear_shopping_car">Rỗng giỏ hàng</string>
+    <string name="please_select_goods">Vui lòng chọn một sản phẩm</string>
+    <string name="get_order_failed">Không thể tạo đơn đặt hàng，Vui lòng thử lại sau!</string>
+    <string name="not_select_goods">Không có lựa chọn sản phẩm</string>
+    <string name="goods_list_update_failed">Cập nhật danh sách sản phẩm không thành công</string>
+    <string name="load_failed">Không thể tải</string>
+    <string name="last_pager">Đã đến trang cuối cùng</string>
+    <string name="requested_choose_other">Bạn đã đăng ký tham quan từ xa trong cùng một ngày，Vui lòng chọn một ngày khác。</string>
+    <string name="balance_insufficient">Số dư của bạn không đủ, hãy mua một thẻ điện thoại gia đình</string>
+    <string name="choose_meeting_time">Vui lòng chọn đăng ký thời gian họp</string>
+    <string name="please_pre_login">Vui lòng đăng nhập trước</string>
+    <string name="choose_visit_time">Xin vui lòng chọn áp dụng cho thăm dò thời gian</string>
+    <string name="network_unavailable">Không có internet</string>
+    <string name="commit_execption_retry">Gửi ngoại lệ, vui lòng thử lại sau</string>
+    <string name="apply_meeting_success">Ứng dụng được gửi thành công, hệ thống sẽ thông báo cho bạn dưới dạng tin nhắn văn bản và thông báo hệ thống để áp dụng cho kết quả, xin lưu ý rằng kiểm tra.</string>
+    <string name="commit_failed_reason">Gửi thất bại, lý do:</string>
+    <string name="no_meeting_list">Không cần xem danh sách...</string>
+    <string name="today_meeting">Tôi đang chờ đợi cuộc họp hôm nay</string>
+    <string name="complete">Hoàn thành</string>
+    <string name="meeting_list">Gặp gỡ danh sách</string>
+    <string name="connecting">Kết nối...</string>
+    <string name="not_login">Chưa đăng nhập</string>
+    <string name="refresh_data_failed">Làm mới dữ liệu không thành công</string>
+    <string name="click_to_refresh">Nhấp Làm mới</string>
+    <string name="refresh_success">Làm mới thành công</string>
+    <string name="input_reason">Vui lòng nhập lý do</string>
+    <string name="cancel_failed">Huỷ không thành công, vui lòng thử lại sau</string>
+    <string name="cancel_success">Hủy thành công</string>
+    <string name="left_sliding">Đã trượt sang tháng tiếp theo</string>
+    <string name="right_sliding">Phải trượt đến tháng trước</string>
+    <string name="call">Gọi</string>
+    <string name="remote_meeting">Gặp gỡ từ xa</string>
+    <string name="get_id_photo_failed">Không thể lấy ảnh ID</string>
+    <string name="recharge_count">Vui lòng chọn số tiền nạp</string>
+    <string name="_5">5元</string>
+    <string name="_20">20元</string>
+    <string name="_50">50元</string>
+    <string name="_100">100元</string>
+    <string name="recharge">Nạp tiền</string>
+    <string name="recharge_description_info">充值说明:\n1、狱务通为用户免费提供远程探监业务,
+        但用户需承担租赁服务器以及视频通话业务的相关费用。\n2、用户充值后,可点击“
+        申请远程探监”按钮进行申请,系统审核通过后方扣费,系统审核不通过不扣费。\n3
+        、审核通过后,无论您是否接听视频通话,都将扣除一定费用,费用不返还,不累计到下
+        一次使用。\n4、当可用次数为“0”时,狱务通远程探监申请将不可点击,请您及时续费。
+    </string>
+    <string name="prisoner_num">Số：</string>
+    <string name="sex">Sex：</string>
+    <string name="crime_type">Bị lên án：</string>
+    <string name="prison_sentence">Thời hạn bản gốc của bản án：</string>
+    <string name="xxxx">xxxx</string>
+    <string name="fujiaxing">Bổ sung hình phạt:&#160;</string>
+    <string name="balance">Cân bằng:&#160;&#160;</string>
+    <string name="_yuan">&#160;&#160;Yuan</string>
+    <string name="current_month_money">Số tiền khả dụng của tháng này:&#160;&#160;</string>
+    <string name="_0_0">0.0</string>
+    <string name="remittance">Chuyển tiền</string>
+    <string name="family_server">Dịch vụ gia đình</string>
+    <string name="load_data_failed">Không thể tải dữ liệu</string>
+    <string name="remittance_count">Vui lòng nhập số tiền chuyển tiền：</string>
+    <string name="input_remittance_count">Vui lòng nhập số tiền chuyển tiền</string>
+    <string name="out_of_800">Xin lỗi, tổng số tiền gửi của bạn trong tháng này đã vượt quá giới hạn 800 nhân dân tệ!</string>
+    <string name="please_expect">Hãy theo dõi</string>
+    <string name="prison_introduction">Tiểu sử nhà tù</string>
+    <string name="laws_regulations">Luật và quy định</string>
+    <string name="no_data">Không có dữ liệu</string>
+    <string name="prison_open">Nhà tù mở</string>
+    <string name="work_dynamic">Động lực làm việc</string>
+    <string name="warden">Khiếu nại và đề xuất</string>
+    <string name="publish_info">Thông tin công cộng</string>
+    <string name="complaint_feedback">Phản hồi khiếu nại</string>
+    <string name="copyright">Khoa học và Công nghệ Quốc gia (Bắc Kinh) Co, Ltd\ncopyright©2006-2015.All right reserved</string>
+    <string name="contract_us">Liên hệ</string>
+    <string name="soft_agreement">Jailbreak thỏa thuận sử dụng phần mềm</string>
+    <string name="version">V 1.0</string>
+    <string name="version_update">Cập nhật phiên bản</string>
+    <string name="opinion_feedback">Phản hồi</string>
+    <string name="pwd_setting">Cài đặt mật khẩu độc lập</string>
+    <string name="clock_remind">Nhắc nhở báo động</string>
+    <string name="clock_close">Đã đóng cảnh báo</string>
+    <string name="company_address_">Địa chỉ：</string>
+    <string name="company_address">Quận Haidian, Bắc Kinh Tòa nhà Xi Sanqi Changlin 813</string>
+    <string name="email_">Mã bưu điện：</string>
+    <string name="post_code">100086</string>
+    <string name="customer_service_phone">Điện thoại dịch vụ khách hàng：</string>
+    <string name="company_phone">010-82911287-5032</string>
+    <string name="password_failed">Mật khẩu của bạn đã nhập không chính xác, vui lòng nhập lại</string>
+    <string name="input_password">Vui lòng nhập mật khẩu mở khóa</string>
+    <string name="input_pwd">Nhập mật khẩu</string>
+    <string name="pwd_not_match">Mật khẩu không khớp, vui lòng nhập lại</string>
+    <string name="set_pwd">Đặt mật khẩu</string>
+    <string name="confirm_pwd">Xác nhận mật khẩu</string>
+    <string name="set_success">Thiết lập thành công</string>
+    <string name="feedback_hint">Xin hãy viết ra những vấn đề bạn gặp phải khi sử dụng nhà tù qua đó!</string>
+    <string name="commit">Gửi</string>
+    <string name="out_of_length">Chiều dài là bất hợp pháp</string>
+    <string name="input_content">Vui lòng nhập nội dung</string>
+    <string name="commit_wait">Đang gửi, vui lòng đợi...</string>
+    <string name="commit_failed_retry">Gửi không thành công, vui lòng thử lại sau</string>
+    <string name="commit_success_">Gửi thành công, cảm ơn bạn về phản hồi của bạn</string>
+    <string name="theme">Chủ đề:</string>
+    <string name="input_theme">Nhập chủ đề</string>
+    <string name="input_msg_content">Nhập nội dung</string>
+    <string name="twice_more">* Gửi lên đến hai lần mỗi tháng</string>
+    <string name="write_msg">Viết một lá thư</string>
+    <string name="commit_success">Gửi thành công, cảm ơn bạn về phản hồi của bạn！</string>
+    <string name="check_update">Kiểm tra cập nhật</string>
+    <string name="current_vs">Phiên bản hiện tại：</string>
+    <string name="new_vs">Phiên bản mới：3.0</string>
+    <string name="newest_vs">Đã có phiên bản mới nhất!</string>
+    <string name="vs_update">Cập nhật phiên bản</string>
+    <string name="confirm">Xác nhận thoát khỏi tài khoản hiện tại？</string>
+    <string name="register_commit_success">Đăng ký đã được gửi thành công! Hệ thống đang được xem xét Kết quả kiểm toán sẽ được gửi đến điện thoại di động qua SMS trong vòng 24 giờ.</string>
+    <string name="apply_through">Đơn đăng ký thăm viếng của bạn đã được chấp thuận</string>
+    <string name="load_more">Tải thêm...</string>
+    <string name="server_addr">Địa chỉ máy chủ：</string>
+    <string name="input_cancel">Vui lòng nhập Hủy</string>
+    <string name="cancel_reason">Lý do cuộc họp：</string>
+    <string name="meeting_name">Tên cuộc họp:</string>
+    <string name="no_feedback">Không có phản hồi</string>
+    <string name="no_public">Không có thông tin công khai</string>
+    <string name="aes">Mã hóa AES：</string>
+    <string name="user_info">Thông tin cá nhân</string>
+    <string name="updating">Đang cập nhật：</string>
+    <string name="known">Tôi đã nhận nó</string>
+    <string name="comment">Viết bình luận của bạn</string>
+    <string name="comment_">Nhận xét</string>
+    <string name="input_comment_content">Nhập nội dung bạn muốn nhận xét vào</string>
+    <string name="comment_failed">Nhận xét không thành công, vui lòng thử lại sau</string>
+    <string name="comment_success">Nhận xét thành công！</string>
+    <string name="apply_result">Trang kết quả ứng dụng</string>
+    <string name="query_failed">Hồ sơ truy vấn không thành công</string>
+    <string name="system_msg">Thông điệp hệ thống</string>
+    <string name="net_broken">Kết nối mạng bị hỏng. Vui lòng kiểm tra mạng</string>
+    <string name="code_500">500</string>
+    <string name="contract_title">Cách tiếp cận quản lý điện thoại gia đình</string>
+    <string name="contract_content">&#160;&#160;&#160;&#160;第一条&#160;&#160;&#160;&#160;为规范罪犯亲情电话的管理，促进罪犯积极改造，根据《中华人民共和国监狱法》和有关监管法规，结合我省监狱实际，制定本办法。\n&#160;&#160;&#160;&#160;第二条&#160;&#160;&#160;&#160;罪犯亲情电话是罪犯会见通讯的一种形式。\n&#160;&#160;&#160;&#160;第三条&#160;&#160;&#160;&#160;罪犯使用亲情电话应坚持警察直接管理和监督使用的原则，坚持有利于改造和费用自理的原则。\n&#160;&#160;&#160;&#160;第四条&#160;&#160;&#160;&#160;罪犯亲情电话的管理工作由监狱狱政管理部门负责，具体使用由监区组织实施。\n&#160;&#160;&#160;&#160;第五条&#160;&#160;&#160;&#160;开通罪犯亲情电话必须具备下列条件：  监狱应设置亲情电话总控设备。监区应在易于监管、监控的场所设置亲情电话室，配置具备呼入限制、监听、录音、计时、控制等功能的电话终端。\n&#160;&#160;&#160;&#160;第六条&#160;&#160;&#160;&#160;亲情电话统一采用电话卡拨号、扣费。电话卡应具备电话号码锁定功能，由监狱统一购买、充值，监区集中保管。罪犯使用时发给，用后即时收回。\n&#160;&#160;&#160;&#160;第七条&#160;&#160;&#160;&#160;亲情电话的受话人限于罪犯的亲属和监护人。\n&#160;&#160;&#160;&#160;第八条&#160;&#160;&#160;&#160;罪犯使用亲情电话的号码不得超过3个，以入监时登记的电话号码为准。  罪犯申请登记电话号码时，应填写《亲情电话登记（变更）申请表》，经专教警察审核、监区审批；需变更电话号码时，应经专教警察、监区审核后，报狱政管理部门审批。\n&#160;&#160;&#160;&#160;第九条&#160;&#160;&#160;&#160;罪犯使用亲情电话每次通话只限一个号码，通话时间不得超过10分钟。\n&#160;&#160;&#160;&#160;第十条&#160;&#160;&#160;&#160;罪犯月考核无扣分及无行政、刑事处罚，并具有下列情形之一的，可以使用亲情电话：  （一）宽管级罪犯；  （二）获得嘉奖以上行政奖励的普管级罪犯；  （三）获得表扬以上行政奖励的考察级罪犯。  罪犯在使用亲情电话前受到扣分或行政、刑事处罚的，应取消当月的亲情电话。监区每月应将符合使用亲情电话条件的罪犯名单予以公示。\n&#160;&#160;&#160;&#160;第十一条&#160;&#160;&#160;&#160;罪犯具有下列特殊情形之一的，经批准可使用亲情电话一次：  （一）家庭发生重大变故的；  （二）亲人所在地遭受重大自然灾害的；  （三）思想发生较大变化需要亲人帮教的；  （四）其它特殊情形的。\n&#160;&#160;&#160;&#160;第十二条&#160;&#160;&#160;&#160;罪犯具有第十条规定情形之一的，每月可使用亲情电话一次，使用应安排在休息日。  罪犯具有第十一条规定情形之一的，可不受前款规定使用时间的限制。\n&#160;&#160;&#160;&#160;第十三条&#160;&#160;&#160;&#160;罪犯使用亲情电话的审批：  （一）具有第十条规定情形之一的，由监区狱政干事汇总、填写《罪犯使用亲情电话审核表》，报分管狱政管理工作的监区领导审批；  （二）具有第十一条规定情形之一的，由罪犯提出书面申请，经监区核实后，填写《罪犯审批表》（万用表），报监狱狱政管理部门审批。\n&#160;&#160;&#160;&#160;第十四条&#160;&#160;&#160;&#160;罪犯具有下列情形之一的，暂停使用亲情电话：  （一）假姓名、假住址、假社会关系、假亲属电话的；  （二）隔离审查的；  （三）公、检、法、安等机关因办案需要的；  （四）其它需要暂停使用亲情电话情形的。\n&#160;&#160;&#160;&#160;第十五条&#160;&#160;&#160;&#160;罪犯使用亲情电话前，由管理警察进行拨号，核实受话人的身份后交由罪犯通话。\n&#160;&#160;&#160;&#160;第十六条&#160;&#160;&#160;&#160;罪犯通话时，管理警察应在场监听，并对通话内容录音。录音文件保存时间不少于3个月，A类重点罪犯保存时间不少于1年。\n&#160;&#160;&#160;&#160;第十七条&#160;&#160;&#160;&#160;罪犯通话结束后，管理警察应即时按《罪犯使用亲情电话登记表》的要求进行登记；对通话内容可能引起罪犯思想波动或影响其改造的，应及时向监区领导汇报，采取防范措施。\n&#160;&#160;&#160;&#160;第十八条&#160;&#160;&#160;&#160;罪犯具有下列情形之一的，管理警察应予以警告；警告无效的，应停止使用亲情电话或中止通话，并取消其下一次使用亲情电话的资格：  （一）不在指定区域等候或喧哗、吵闹的；  （二）不按安排和规定时间通话的；  （三）持有或使用、交换其他罪犯的电话卡的；  （四）故意损坏电话设施的；  （五）监听过程中发现受话人身份不符的；  （六）使用隐语、暗语和不文明语言的；  （七）遥控狱外犯罪活动的；  （八）谈论危害监狱安全和其它不利于罪犯改造内容的。\n&#160;&#160;&#160;&#160;第十九条&#160;&#160;&#160;&#160;管理警察不得有下列行为，违规者，视情节轻重，给予批评教育或按有关规定处理：  （一）允许罪犯直接拨号的；  （二）安排不符合条件的罪犯使用亲情电话的；  （三）未核实受话人身份即交由罪犯通话的；  （四）不落实监听监视工作，造成安全事故的；  （五）工作不到位导致罪犯私自使用亲情电话的；  （六）利用亲情电话谋取私利的；  （七）其它违反本规定情形的。\n&#160;&#160;&#160;&#160;第二十条&#160;&#160;&#160;&#160;外国籍罪犯、重点罪犯使用亲情电话另有规定的，从其规定。</string>
+    <string name="code_400">400</string>
+    <string name="upcoming">Sắp ra mắt</string>
+    <string name="apply_refund">Đăng ký hoàn lại tiền</string>
+    <string name="message_record">Ghi lại thông tin</string>
+    <string name="weixin">WeChat</string>
+    <string name="my_wallet">Thẻ điện thoại gia đình</string>
+    <string name="call_balance">Cân bằng cuộc gọi</string>
+    <string name="_200">200 nhân dân tệ</string>
+    <string name="_500">500 nhân dân tệ</string>
+    <string name="yuan">Yuan</string>
+    <string name="not_open_module">Nhà tù vẫn chưa mở mô đun</string>
+    <string name="net_unstable">Môi trường mạng hiện tại của bạn không ổn định...</string>
+    <string name="xunfei_id">5934c78c</string>
+    <string name="accumulated">Thu nhập luân chuyển : </string>
+    <string name="time">Thời gian</string>
+    <string name="last_reduce">Thời gian chuyển đổi lần cuối : </string>
+    <string name="family_phone_times">Số điện thoại gia đình sử dụng:</string>
+    <string name="buy_family_card">Mua thẻ điện thoại gia đình</string>
+    <string name="apply_phone_time">Đăng ký cho thời gian gia đình：</string>
+    <string name="last_call_time">Cuộc gọi cuối cùng: Không có bản ghi</string>
+    <string name="select_date">Vui lòng chọn một ngày</string>
+    <string name="my_balance">Cân bằng của tôi</string>
+    <string name="apply_family_call">Đăng ký điện thoại gia đình</string>
+    <string name="prisoner_start_time">Vào ngày giám sát:</string>
+    <string name="original_prison_term">Câu gốc:</string>
+    <string name="remain_prison_term">Câu còn lại:</string>
+    <string name="sentence_time_start">Câu gốc từ ngày:</string>
+    <string name="unknown"> </string>
+    <string name="save">Lưu lại</string>
+
+
+</resources>

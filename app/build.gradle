@@ -60,7 +60,7 @@ android {
     //修改生成的apk名字
     android.applicationVariants.all { variant ->
         variant.outputs.all {
-            outputFileName = "yuwutong-kd-vs-${variant.buildType.name}_${variant.versionName}.apk"
+            outputFileName = "yuwutong-zijing-vs-${variant.buildType.name}_${variant.versionName}.apk"
         }
     }
 
